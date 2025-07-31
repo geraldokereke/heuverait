@@ -43,91 +43,70 @@ const fadeInUp = {
 };
 
 const BlogPreview = () => {
+  const insights = [
+    {
+      category: "AI",
+      title: "A Complete Guide to Engineering Artificial Intelligence Software",
+      description: "AI revolutionizes the way people live and work. Explore the steps, skills, costs, and best practices to create powerful AI software.",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    },
+    {
+      category: "BIG DATA",
+      title: "End-to-End Big Data Applications: Use Cases, Architecture, Gains",
+      description: "Learn how end-to-end big data applications enable smooth operation of data-rich systems and timely analytics results.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    },
+    {
+      category: "SECURITY TESTING",
+      title: "Security Testing Guide: Setup Plan with Time and Costs",
+      description: "Considering a security checkup? Our guide will help you make optimal decisions for your project's success.",
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    }
+  ];
+
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-40">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <motion.h2
-            variants={fadeInUp}
-            custom={0.2}
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
-          >
-            Latest Insights
-          </motion.h2>
-          <motion.p
-            variants={fadeInUp}
-            custom={0.4}
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
-          >
-            Stay informed with our latest articles and industry insights
-          </motion.p>
-        </motion.div>
+      <div className="px-4 md:px-8 lg:px-16 xl:px-40 2xl:px-72">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Featured Insights
+          </h2>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post, index) => (
-            <motion.article
-              key={post.title}
-              variants={fadeInUp}
-              custom={0.2 + index * 0.1}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
-            >
-              <div className="relative h-48">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {insights.map((insight, index) => (
+            <div key={index} className="group cursor-pointer">
+              <div className="relative h-48 rounded-2xl overflow-hidden mb-6">
                 <Image
-                  src={post.image}
-                  alt={post.title}
+                  src={insight.image}
+                  alt={insight.title}
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-[#2cd16c] text-white text-sm rounded-full">
-                    {post.category}
-                  </span>
-                </div>
               </div>
-              <div className="p-6">
-                <div className="flex items-center text-gray-500 text-sm mb-4">
-                  <Clock className="size-4 mr-2" />
-                  {post.readTime}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {post.title}
+              <div className="space-y-3">
+                <span className="text-sm font-semibold text-orange-500 uppercase tracking-wide">
+                  {insight.category}
+                </span>
+                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#2cd16c] transition-colors duration-300">
+                  {insight.title}
                 </h3>
-                <p className="text-gray-600 mb-4">
-                  {post.excerpt}
+                <p className="text-gray-600 leading-relaxed">
+                  {insight.description}
                 </p>
-                <button className="text-[#2cd16c] font-semibold flex items-center hover:text-[#25b05c] transition-colors duration-300">
-                  Read Article
-                  <ArrowRight className="size-4 ml-2" />
-                </button>
               </div>
-            </motion.article>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          variants={fadeInUp}
-          custom={0.8}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <button className="group items-center inline-flex px-6 py-3 bg-[#2cd16c] text-sm rounded-full text-black font-semibold transition-all duration-300 hover:bg-[#25b05c]">
-            Visit Blog
-            <ArrowRight className="size-4 ml-2 transition-transform group-hover:translate-x-1" />
+        <div className="text-center mt-12">
+          <button className="group bg-[#2cd16c] hover:bg-[#25b05c] text-black px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center mx-auto">
+            View All Insights
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 };
-
 export default BlogPreview; 

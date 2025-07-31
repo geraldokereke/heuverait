@@ -10,6 +10,7 @@ import {
   Shield 
 } from 'lucide-react';
 import { ArrowRight } from 'lucide-react';
+import FAQ from '../faq/FAQ';
 
 const services = [
   {
@@ -67,78 +68,46 @@ const fadeInUp = {
 const Services = () => {
   return (
     <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-40">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <motion.h2
-            variants={fadeInUp}
-            custom={0.2}
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
-          >
-            Our Services
-          </motion.h2>
-          <motion.p
-            variants={fadeInUp}
-            custom={0.4}
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
-          >
-            Comprehensive technology solutions to drive your business forward
-          </motion.p>
-        </motion.div>
+      <div className="px-4 md:px-8 lg:px-16 xl:px-40 2xl:px-72">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Solutions We Deliver
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            We IT-enable all kinds of B2B, B2C interactions and internal operations.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              variants={fadeInUp}
-              custom={0.2 + index * 0.1}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="group bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="p-3 bg-[#2cd16c]/10 rounded-lg">
-                  <service.icon className="w-6 h-6 text-[#2cd16c]" />
+            <div key={index} className="group bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
+              <div className="flex items-center justify-between mb-4">
+                <div className="p-3 bg-blue-50 rounded-lg group-hover:bg-[#2cd16c]/10 transition-colors duration-300">
+                  <service.icon className="w-8 h-8 text-blue-600 group-hover:text-[#2cd16c] transition-colors duration-300" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    {service.description}
-                  </p>
-                  <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-300">
-                    <p className="text-gray-500 text-sm">
-                      {service.summary}
-                    </p>
-                  </div>
-                </div>
+                <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-[#2cd16c] group-hover:translate-x-1 transition-all duration-300" />
               </div>
-            </motion.div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                {service.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {service.description}
+              </p>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          variants={fadeInUp}
-          custom={0.8}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <button className="group items-center inline-flex px-6 py-3 bg-[#2cd16c] text-sm rounded-full text-black font-semibold transition-all duration-300 hover:bg-[#25b05c]">
+        <div className="text-center">
+          <button className="group bg-[#2cd16c] hover:bg-[#25b05c] text-black px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center mx-auto">
             View All Services
-            <ArrowRight className="size-4 ml-2 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 };
+
+
 
 export default Services; 

@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 import ServicesMarquee from './ServicesMarquee';
 
 const fadeInUp = {
@@ -21,60 +21,48 @@ const fadeInUp = {
 
 const WhoWeAre = () => {
   return (
-    <section className="pb-20 bg-white">
-      
-      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-40 py-10">
+    <section className="py-20 bg-white">
+      <div className="px-4 md:px-8 lg:px-16 xl:px-40 2xl:px-72">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Text Content */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <motion.h2
-              variants={fadeInUp}
-              custom={0.2}
-              className="text-3xl md:text-5xl font-bold text-gray-900"
-            >
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Architects of Intelligent Solutions
-            </motion.h2>
-            
-            <motion.p
-              variants={fadeInUp}
-              custom={0.4}
-              className="text-lg text-gray-600 leading-relaxed"
-            >
-              We are a team of passionate technologists dedicated to transforming businesses through innovative digital solutions. With expertise spanning software development, artificial intelligence, and cloud technologies, we help organizations across various industries achieve their digital transformation goals.
-            </motion.p>
-
-            <motion.div
-              variants={fadeInUp}
-              custom={0.6}
-              className="pt-4"
-            >
-              <button className="group items-center flex px-6 py-3 bg-[#2cd16c] text-sm rounded-full text-black font-semibold transition-all duration-300 hover:bg-[#25b05c]">
-                Learn More About Us
-                <ArrowRight className="size-4 ml-2 transition-transform group-hover:translate-x-1" />
-              </button>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Column - Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-            className="relative h-[400px] rounded-2xl overflow-hidden"
-          >
+            </h2>
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              At Heuvera, we are passionate technologists dedicated to transforming businesses through innovative digital solutions. With expertise spanning software development, artificial intelligence, and cloud technologies, we help organizations achieve their digital transformation goals.
+            </p>
+            <div className="grid grid-cols-2 gap-6 mb-8">
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-6 h-6 text-[#2cd16c]" />
+                <span className="text-gray-700">15+ Years Experience</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-6 h-6 text-[#2cd16c]" />
+                <span className="text-gray-700">Global Reach</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-6 h-6 text-[#2cd16c]" />
+                <span className="text-gray-700">24/7 Support</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="w-6 h-6 text-[#2cd16c]" />
+                <span className="text-gray-700">Agile Methodology</span>
+              </div>
+            </div>
+            <button className="group bg-[#2cd16c] hover:bg-[#25b05c] text-black px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center">
+              Learn More About Us
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+          
+          <div className="relative h-[500px] rounded-2xl overflow-hidden">
             <Image
-              src="/team.jpg"
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
               alt="Our Team"
               fill
               className="object-cover"
             />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

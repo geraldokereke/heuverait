@@ -85,7 +85,7 @@ const WhyChooseUs = () => {
           ))}
         </div>
       </div>
-      <div className="w-full bg-white py-20">
+      <div className="w-full bg-white py-20 px-8">
         <ServicesMarquee />
       </div>
     </section>

@@ -33,13 +33,13 @@ export default function Hero() {
     if (!mounted) return null;
 
     return (
-        <div className="relative min-h-screen overflow-hidden">
+        <div className="relative min-h-screen overflow-hidden inset-0 z-0">
             {/* Parallax Background */}
             <motion.div
                 style={{ y }}
                 className="absolute inset-0 w-full h-full"
             >
-                <div className="relative w-full h-screen">
+                <div className="absolute w-full h-screen inset-0">
                     <Image
                         src="/hero.jpg"
                         alt="Hero Background"
