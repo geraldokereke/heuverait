@@ -46,7 +46,7 @@ const NavDropdown = ({ title, items, isOpen, onToggle }: NavDropdownProps) => {
 };
 
 const Navigation = () => {
-  const [openDropdown, setOpenDropdown] = useState(null);
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
@@ -84,7 +84,7 @@ const Navigation = () => {
     },
   ];
 
-  const handleDropdownToggle = (index) => {
+  const handleDropdownToggle = (index: number) => {
     setOpenDropdown(openDropdown === index ? null : index);
   };
 
