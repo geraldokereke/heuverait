@@ -1,12 +1,13 @@
-import { useScroll, useTransform, motion } from "framer-motion";
-import { ArrowRight, CalendarDays } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useScroll, useTransform, motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, CalendarDays, Code, Brain, Globe, Shield, Database, Smartphone, Cloud, Cog, Zap } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 import BlogPreview from "./BlogPreview";
 import CaseStudies from "./CaseStudies";
 import Services from "./Services";
 import WhoWeAre from "./WhoWeAre";
 import WhyChooseUs from "./WhyChooseUs";
 import Image from "next/image"
+
 const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
     visible: (delay = 0) => ({
@@ -21,13 +22,117 @@ const fadeInUp = {
     }),
 };
 
+const smoothCardVariants = {
+    hidden: {
+        opacity: 0,
+        y: 20,
+        scale: 0.95,
+        filter: "blur(4px)"
+    },
+    visible: (delay = 0) => ({
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        filter: "blur(0px)",
+        transition: {
+            delay,
+            type: "spring",
+            stiffness: 80,
+            damping: 25,
+            duration: 0.8,
+        },
+    }),
+};
+
+const services = [
+    {
+        icon: Code,
+        title: "Custom Software Development",
+        description: "Tailored solutions built for your unique needs",
+        color: "#41a7ad"
+    },
+    {
+        icon: Brain,
+        title: "AI & Machine Learning",
+        description: "Intelligent automation and data-driven insights",
+        color: "#3b82f6"
+    },
+    {
+        icon: Globe,
+        title: "Web Development",
+        description: "Modern, responsive websites and applications",
+        color: "#f59e0b"
+    },
+    {
+        icon: Smartphone,
+        title: "Mobile Apps",
+        description: "Native and cross-platform mobile solutions",
+        color: "#ef4444"
+    },
+    {
+        icon: Database,
+        title: "Data Analytics",
+        description: "Transform data into actionable business intelligence",
+        color: "#8b5cf6"
+    },
+    {
+        icon: Shield,
+        title: "IT Consulting",
+        description: "Strategic technology guidance and support",
+        color: "#06b6d4"
+    },
+    {
+        icon: Cloud,
+        title: "Cloud Solutions",
+        description: "Scalable cloud infrastructure and migration services",
+        color: "#ec4899"
+    },
+    {
+        icon: Cog,
+        title: "DevOps & Automation",
+        description: "Streamlined deployment and continuous integration",
+        color: "#10b981"
+    },
+    {
+        icon: Zap,
+        title: "Performance Optimization",
+        description: "Enhanced speed and efficiency for existing systems",
+        color: "#f97316"
+    }
+];
+
 export default function Hero() {
     const [mounted, setMounted] = useState(false);
+    const [shuffledServices, setShuffledServices] = useState(services);
+    const [isShuffling, setIsShuffling] = useState(false);
+    const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
     const { scrollY } = useScroll();
     const y = useTransform(scrollY, [0, 500], [0, 200]);
 
+    // Enhanced shuffle animation function
+    const shuffleServices = () => {
+        setIsShuffling(true);
+        const shuffled = [...services].sort(() => Math.random() - 0.5);
+        setTimeout(() => {
+            setShuffledServices(shuffled);
+            setIsShuffling(false);
+        }, 400);
+    };
+
     useEffect(() => {
         setMounted(true);
+
+        // Start the shuffle animation loop
+        intervalRef.current = setInterval(() => {
+            shuffleServices();
+        }, 8000);
+
+        return () => {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+            }
+        };
     }, []);
 
     if (!mounted) return null;
@@ -48,26 +153,27 @@ export default function Hero() {
                         priority
                         quality={100}
                     />
-                    <div className="absolute inset-0 bg-black/50" />
+                    {/* Darkened overlay */}
+                    <div className="absolute inset-0 bg-black/90" />
                 </div>
             </motion.div>
 
             {/* Content */}
-            <div className="relative min-h-screen flex items-center pb-20 px-4 md:px-8 lg:px-16 xl:px-40">
-                <div className="w-full max-w-4xl mx-auto">
-                    <div className="items-center">
+            <div className="relative min-h-screen flex items-center justify-center pb-16 px-4 sm:px-6">
+                <div className="w-full mx-auto max-w-7xl">
+                    <div className="flex flex-col lg:flex-row items-center w-full gap-6 lg:gap-8">
                         {/* Left Content */}
                         <motion.div
                             initial="hidden"
                             animate="visible"
-                            className="text-white space-y-8 text-center"
+                            className="text-white space-y-4 sm:space-y-6 text-center lg:text-left w-full lg:w-1/2 order-2 lg:order-1"
                         >
                             <motion.h1
                                 variants={fadeInUp}
                                 custom={0.2}
-                                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+                                className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold leading-tight"
                             >
-                                <span className="text-[#2cd16c]">Empowering Innovation</span>
+                                <span className="text-white">Empowering Innovation</span>
                                 <br />
                                 <span className="text-white">Through Intelligent Technology</span>
                             </motion.h1>
@@ -75,7 +181,7 @@ export default function Hero() {
                             <motion.p
                                 variants={fadeInUp}
                                 custom={0.4}
-                                className="text-lg md:text-xl text-gray-200 leading-relaxed"
+                                className="text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed max-w-xl mx-auto lg:mx-0"
                             >
                                 We design, develop, and deliver custom software, AI solutions, and IT consulting services that transform businesses and drive measurable growth across industries.
                             </motion.p>
@@ -83,25 +189,312 @@ export default function Hero() {
                             <motion.div
                                 variants={fadeInUp}
                                 custom={0.6}
-                                className="flex flex-wrap gap-4 mx-auto w-full max-w-md justify-center"
+                                className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center"
                             >
-                                <button className="group items-center flex px-6 py-3 bg-[#2cd16c] text-sm rounded-full text-black font-semibold transition-all duration-300 hover:bg-[#25b05c]">
+                                <button className="group items-center flex px-5 py-2.5 bg-[#41a7ad] text-sm rounded-full text-black font-semibold transition-all duration-300 hover:bg-[#25b05c] w-full sm:w-auto justify-center">
                                     Explore Our Solutions
                                     <ArrowRight className="size-4 ml-2 transition-transform group-hover:translate-x-1" />
                                 </button>
 
-                                <button className="group items-center flex px-6 py-3 bg-white/10 backdrop-blur-sm text-white text-sm rounded-full font-semibold transition-all duration-300 hover:bg-white/20">
+                                <button className="group items-center flex px-5 py-2.5 bg-white/10 backdrop-blur-sm text-white text-sm rounded-full font-semibold transition-all duration-300 hover:bg-white/20 w-full sm:w-auto justify-center">
                                     Book a Consultation
                                     <CalendarDays className="size-4 ml-2 transition-transform group-hover:translate-x-1" />
                                 </button>
                             </motion.div>
                         </motion.div>
+
+                        {/* Right Content - Enhanced Service Cards Grid */}
+                        <div className="w-full lg:w-1/2 relative order-1 lg:order-2 max-w-sm lg:max-w-md mx-auto">
+                            {/* Enhanced floating particles background */}
+                            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                                {[...Array(12)].map((_, i) => (
+                                    <motion.div
+                                        key={i}
+                                        className="absolute rounded-full hidden sm:block"
+                                        style={{
+                                            width: Math.random() * 3 + 1,
+                                            height: Math.random() * 3 + 1,
+                                            backgroundColor: i % 3 === 0 ? '#41a7ad' : i % 3 === 1 ? '#3b82f6' : '#f59e0b',
+                                            opacity: 0.4,
+                                        }}
+                                        animate={{
+                                            x: [0, Math.random() * 200 - 100],
+                                            y: [0, Math.random() * 200 - 100],
+                                            opacity: [0, 0.6, 0],
+                                            scale: [0, 1, 0],
+                                        }}
+                                        transition={{
+                                            duration: Math.random() * 4 + 3,
+                                            repeat: Infinity,
+                                            delay: Math.random() * 3,
+                                            ease: "easeInOut",
+                                        }}
+                                        initial={{
+                                            left: `${Math.random() * 100}%`,
+                                            top: `${Math.random() * 100}%`,
+                                        }}
+                                    />
+                                ))}
+                            </div>
+
+                            {/* Ambient glow effect */}
+                            <motion.div
+                                className="absolute inset-0 rounded-3xl"
+                                animate={{
+                                    background: [
+                                        "radial-gradient(circle at 20% 20%, rgba(44, 209, 108, 0.1) 0%, transparent 50%)",
+                                        "radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)",
+                                        "radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 50%)",
+                                        "radial-gradient(circle at 20% 20%, rgba(44, 209, 108, 0.1) 0%, transparent 50%)",
+                                    ],
+                                }}
+                                transition={{
+                                    duration: 8,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                }}
+                            />
+
+                            <motion.div
+                                initial="hidden"
+                                animate={isShuffling ? {
+                                    rotateY: [0, 2, -2, 0],
+                                    scale: [1, 1.02, 1]
+                                } : "visible"}
+                                transition={{
+                                    duration: 0.8,
+                                    ease: "easeInOut",
+                                }}
+                                className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 relative z-10"
+                            >
+
+                                <AnimatePresence mode="wait">
+                                    {shuffledServices.map((service, index) => {
+                                        const IconComponent = service.icon;
+                                        const isHovered = hoveredCard === index;
+
+                                        return (
+                                            <motion.div
+                                                key={`${service.title}-${index}`}
+                                                layout
+                                                variants={smoothCardVariants}
+                                                custom={0.1 + index * 0.08}
+                                                initial={{
+                                                    opacity: 0,
+                                                    y: 30,
+                                                    scale: 0.9,
+                                                    filter: "blur(8px)",
+                                                    rotateX: -10
+                                                }}
+                                                animate={{
+                                                    opacity: isShuffling ? 0.3 : 1,
+                                                    y: 0,
+                                                    scale: 1,
+                                                    filter: "blur(0px)",
+                                                    rotateX: 0
+                                                }}
+                                                exit={{
+                                                    opacity: 0,
+                                                    y: -30,
+                                                    scale: 0.9,
+                                                    filter: "blur(8px)",
+                                                    rotateX: 10
+                                                }}
+                                                whileHover={{
+                                                    y: -3,
+                                                    scale: 1.02,
+                                                    rotateX: 1,
+                                                    rotateY: 1,
+                                                    transition: {
+                                                        type: "spring",
+                                                        stiffness: 400,
+                                                        damping: 25
+                                                    }
+                                                }}
+                                                transition={{
+                                                    duration: 0.7,
+                                                    delay: index * 0.1,
+                                                    type: "spring",
+                                                    stiffness: 100,
+                                                    damping: 25,
+                                                }}
+                                                className="group relative cursor-pointer transform-gpu aspect-square"
+                                                onMouseEnter={() => setHoveredCard(index)}
+                                                onMouseLeave={() => setHoveredCard(null)}
+                                                style={{
+                                                    transformStyle: 'preserve-3d',
+                                                }}
+                                            >
+                                                {/* Main card with glassmorphism effect */}
+                                                <motion.div
+                                                    className="relative bg-white/8 backdrop-blur-xl border border-white/20 rounded-lg sm:rounded-xl p-2 sm:p-3 transition-all duration-500 overflow-hidden w-full h-full flex flex-col justify-center"
+                                                    animate={{
+                                                        backgroundColor: isHovered ? "rgba(255, 255, 255, 0.15)" : "rgba(255, 255, 255, 0.08)",
+                                                        borderColor: isHovered ? "rgba(255, 255, 255, 0.4)" : "rgba(255, 255, 255, 0.2)",
+                                                        boxShadow: isHovered
+                                                            ? `0 20px 40px rgba(${service.color === '#41a7ad' ? '44, 209, 108' : '255, 255, 255'}, 0.15), 0 0 0 1px ${service.color}40`
+                                                            : `0 8px 32px rgba(0, 0, 0, 0.1)`,
+                                                    }}
+                                                >
+                                                    {/* Animated background gradient */}
+                                                    <motion.div
+                                                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                                                        animate={{
+                                                            background: [
+                                                                `linear-gradient(135deg, ${service.color}10 0%, transparent 70%)`,
+                                                                `linear-gradient(225deg, ${service.color}15 0%, transparent 70%)`,
+                                                                `linear-gradient(135deg, ${service.color}10 0%, transparent 70%)`,
+                                                            ],
+                                                        }}
+                                                        transition={{
+                                                            duration: 3,
+                                                            repeat: Infinity,
+                                                            ease: "easeInOut",
+                                                        }}
+                                                    />
+
+                                                    <div className="flex flex-col items-center text-center space-y-1 sm:space-y-1.5 relative z-10 h-full justify-between">
+                                                        {/* Enhanced icon with floating animation */}
+                                                        <motion.div
+                                                            className="relative p-1 sm:p-1.5 rounded-md sm:rounded-lg transition-all duration-500 flex-shrink-0"
+                                                            style={{
+                                                                backgroundColor: `${service.color}20`,
+                                                            }}
+                                                            animate={isHovered ? {
+                                                                y: [-2, 2, -2],
+                                                                rotate: [0, 5, -5, 0],
+                                                                scale: 1.1,
+                                                            } : {
+                                                                y: 0,
+                                                                rotate: 0,
+                                                                scale: 1,
+                                                            }}
+                                                            transition={{
+                                                                duration: isHovered ? 2 : 0.5,
+                                                                repeat: isHovered ? Infinity : 0,
+                                                                ease: "easeInOut",
+                                                            }}
+                                                        >
+                                                            {/* Pulsing glow */}
+                                                            <motion.div
+                                                                className="absolute inset-0 rounded-md sm:rounded-lg"
+                                                                animate={{
+                                                                    boxShadow: isHovered
+                                                                        ? [
+                                                                            `0 0 20px ${service.color}60`,
+                                                                            `0 0 30px ${service.color}80`,
+                                                                            `0 0 20px ${service.color}60`,
+                                                                        ]
+                                                                        : `0 0 10px ${service.color}40`,
+                                                                }}
+                                                                transition={{
+                                                                    duration: 2,
+                                                                    repeat: isHovered ? Infinity : 0,
+                                                                    ease: "easeInOut",
+                                                                }}
+                                                            />
+
+                                                            <IconComponent
+                                                                className="size-3 sm:size-4 relative z-10 transition-all duration-300"
+                                                                style={{ color: service.color }}
+                                                            />
+                                                        </motion.div>
+
+                                                        <div className="flex-grow flex flex-col justify-center space-y-0.5">
+                                                            <motion.h3
+                                                                className="text-white font-semibold text-[9px] sm:text-[10px] leading-tight line-clamp-2"
+                                                                animate={{
+                                                                    color: isHovered ? service.color : "#ffffff",
+                                                                }}
+                                                                transition={{ duration: 0.3 }}
+                                                            >
+                                                                {service.title}
+                                                            </motion.h3>
+
+                                                            <motion.p
+                                                                className="text-gray-300 text-[7px] sm:text-[8px] leading-relaxed transition-all duration-300 line-clamp-2"
+                                                                animate={{
+                                                                    opacity: isHovered ? 1 : 0.8,
+                                                                    y: isHovered ? 0 : 2,
+                                                                }}
+                                                            >
+                                                                {service.description}
+                                                            </motion.p>
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Shimmer effect on hover */}
+                                                    <motion.div
+                                                        className="absolute inset-0 opacity-0 group-hover:opacity-100"
+                                                        animate={{
+                                                            background: [
+                                                                "linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%)",
+                                                                "linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%)",
+                                                            ],
+                                                            x: [-100, 400],
+                                                        }}
+                                                        transition={{
+                                                            duration: 1.5,
+                                                            repeat: Infinity,
+                                                            repeatDelay: 3,
+                                                            ease: "easeInOut",
+                                                        }}
+                                                    />
+                                                </motion.div>
+
+                                                {/* Enhanced depth shadow */}
+                                                <motion.div
+                                                    className="absolute inset-0 rounded-lg sm:rounded-xl -z-10"
+                                                    animate={{
+                                                        boxShadow: isHovered
+                                                            ? `0 25px 50px rgba(${service.color === '#41a7ad' ? '44, 209, 108' : '0, 0, 0'}, 0.2)`
+                                                            : "0 10px 25px rgba(0, 0, 0, 0.1)",
+                                                        y: isHovered ? 4 : 2,
+                                                        scale: isHovered ? 1.02 : 1,
+                                                    }}
+                                                    transition={{ duration: 0.3 }}
+                                                />
+                                            </motion.div>
+                                        );
+                                    })}
+                                </AnimatePresence>
+                            </motion.div>
+                        </div>
+
+                        {/* Enhanced 3D Grid Lines with animation */}
+                        <div className="absolute inset-0 pointer-events-none opacity-5 hidden lg:block">
+                            <motion.svg
+                                className="w-full h-full"
+                                viewBox="0 0 300 300"
+                                animate={{
+                                    opacity: [0.05, 0.15, 0.05],
+                                }}
+                                transition={{
+                                    duration: 4,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                }}
+                            >
+                                <defs>
+                                    <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                                        <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#41a7ad" strokeWidth="0.5" />
+                                    </pattern>
+                                    <pattern id="dots" width="50" height="50" patternUnits="userSpaceOnUse">
+                                        <circle cx="25" cy="25" r="1" fill="#41a7ad" opacity="0.3" />
+                                    </pattern>
+                                </defs>
+                                <rect width="100%" height="100%" fill="url(#grid)" />
+                                <rect width="100%" height="100%" fill="url(#dots)" />
+                            </motion.svg>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="flex items-center gap-2 absolute bottom-10 left-44">
-                <div className="size-3 rounded-full bg-[#2CD16C]" />
-                <h1 className="text-white font-semibold">Clients We've Served</h1>
+
+            {/* Bottom indicator - Responsive positioning */}
+            <div className="flex items-center gap-2 absolute bottom-4 sm:bottom-6 left-4 sm:left-8">
+                <div className="size-2 rounded-full bg-[#41a7ad]" />
+                <h1 className="text-white font-semibold text-xs sm:text-sm">Clients We've Served</h1>
             </div>
         </div>
     );

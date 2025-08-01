@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { ChevronDown, Menu, X, ChevronRight, ArrowRight, Code, Globe, Brain, Cloud, Shield, Users, BarChart, Headphones, HardDrive, Building, GraduationCap, Heart, Scale, MapPin, ShoppingCart, Factory, FileText, Calendar, Wrench, Laptop, BookOpen, Phone, Star, Zap, Award, TrendingUp, Rocket, Target, CheckCircle } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -291,17 +293,17 @@ const Navigation = () => {
                     >
                       <div className="flex-shrink-0 mt-1">
                         {IconComponent && (
-                          <div className="w-10 h-10 rounded-lg bg-slate-100 group-hover/item:bg-[#008753] transition-colors duration-200 flex items-center justify-center">
+                          <div className="w-10 h-10 rounded-lg bg-slate-100 group-hover/item:bg-[#41a7ad] transition-colors duration-200 flex items-center justify-center">
                             <IconComponent className="w-5 h-5 text-slate-600 group-hover/item:text-white transition-colors duration-200" />
                           </div>
                         )}
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between mb-1">
-                          <h3 className="text-sm font-semibold text-slate-900 group-hover/item:text-[#008753] transition-colors duration-200">
+                          <h3 className="text-sm font-semibold text-slate-900 group-hover/item:text-[#41a7ad] transition-colors duration-200">
                             {subItem.label}
                           </h3>
-                          <ChevronRight className="w-4 h-4 text-slate-400 group-hover/item:text-[#008753] opacity-0 group-hover/item:opacity-100 transform -translate-x-2 group-hover/item:translate-x-0 transition-all duration-200 flex-shrink-0" />
+                          <ChevronRight className="w-4 h-4 text-slate-400 group-hover/item:text-[#41a7ad] opacity-0 group-hover/item:opacity-100 transform -translate-x-2 group-hover/item:translate-x-0 transition-all duration-200 flex-shrink-0" />
                         </div>
                         <p className="text-xs text-slate-600 leading-relaxed">
                           {subItem.description}
@@ -312,18 +314,18 @@ const Navigation = () => {
                 })}
               </div>
             </div>
-            
+
             {/* Enhanced Sidebar section */}
             {item.sidebar && (
               <div className={`w-96 bg-gradient-to-br from-slate-50 to-slate-100 border-l border-slate-200 transition-all duration-300 ease-in-out ${isActive
                 ? 'transform translate-x-0 opacity-100'
                 : 'transform translate-x-full opacity-0 absolute right-0'
                 }`}>
-                
+
                 {/* Header Image */}
                 <div className="relative h-44 overflow-hidden">
-                  <img 
-                    src={item.sidebar.image} 
+                  <img
+                    src={item.sidebar.image}
                     alt={item.sidebar.title}
                     className="w-full h-full object-cover"
                   />
@@ -344,21 +346,21 @@ const Navigation = () => {
                         <a
                           key={index}
                           href={sidebarItem.href}
-                          className="block bg-white hover:bg-slate-50 p-5 rounded-xl transition-all duration-200 group/sidebar hover:shadow-md border border-slate-200 hover:border-[#008753]/20"
+                          className="block bg-white hover:bg-slate-50 p-5 rounded-xl transition-all duration-200 group/sidebar hover:shadow-md border border-slate-200 hover:border-[#41a7ad]/20"
                         >
                           <div className="flex items-start gap-4">
                             <div className="flex-shrink-0">
-                              <div className="w-10 h-10 rounded-lg bg-[#008753]/10 group-hover/sidebar:bg-[#008753] transition-colors duration-200 flex items-center justify-center">
-                                <SidebarIcon className="w-5 h-5 text-[#008753] group-hover/sidebar:text-white transition-colors duration-200" />
+                              <div className="w-10 h-10 rounded-lg bg-[#41a7ad]/10 group-hover/sidebar:bg-[#41a7ad] transition-colors duration-200 flex items-center justify-center">
+                                <SidebarIcon className="w-5 h-5 text-[#41a7ad] group-hover/sidebar:text-white transition-colors duration-200" />
                               </div>
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex items-start justify-between mb-2">
-                                <h4 className="text-sm font-semibold text-slate-900 group-hover/sidebar:text-[#008753] transition-colors duration-200 leading-tight">
+                                <h4 className="text-sm font-semibold text-slate-900 group-hover/sidebar:text-[#41a7ad] transition-colors duration-200 leading-tight">
                                   {sidebarItem.title}
                                 </h4>
                                 {sidebarItem.badge && (
-                                  <span className="text-xs bg-[#008753] text-white px-2.5 py-1 rounded-full font-medium flex-shrink-0 ml-2">
+                                  <span className="text-xs bg-[#41a7ad] text-white px-2.5 py-1 rounded-full font-medium flex-shrink-0 ml-2">
                                     {sidebarItem.badge}
                                   </span>
                                 )}
@@ -366,7 +368,7 @@ const Navigation = () => {
                               <p className="text-xs text-slate-600 leading-relaxed mb-3">
                                 {sidebarItem.description}
                               </p>
-                              <div className="flex items-center text-[#008753] opacity-0 group-hover/sidebar:opacity-100 transition-all duration-200 transform translate-y-1 group-hover/sidebar:translate-y-0">
+                              <div className="flex items-center text-[#41a7ad] opacity-0 group-hover/sidebar:opacity-100 transition-all duration-200 transform translate-y-1 group-hover/sidebar:translate-y-0">
                                 <span className="text-xs font-semibold">Learn more</span>
                                 <ArrowRight className="w-3 h-3 ml-1" />
                               </div>
@@ -376,14 +378,14 @@ const Navigation = () => {
                       );
                     })}
                   </div>
-                  
+
                   {/* Call to Action */}
                   {/* <div className="mt-6 pt-6 border-t border-slate-200">
                     <div className="text-center">
                       <p className="text-xs text-slate-600 mb-3">Ready to get started?</p>
                       <a
                         href="/contact"
-                        className="inline-flex items-center px-4 py-2 bg-[#008753] hover:bg-[#007145] text-white text-xs font-semibold rounded-lg transition-colors duration-200"
+                        className="inline-flex items-center px-4 py-2 bg-[#41a7ad] hover:bg-[#007145] text-white text-xs font-semibold rounded-lg transition-colors duration-200"
                       >
                         <span>Contact Us</span>
                         <ArrowRight className="w-3 h-3 ml-1" />
@@ -439,7 +441,7 @@ const Navigation = () => {
     const hasDropdown = activeDropdown !== null;
 
     if (hasDropdown || scrolled) {
-      return 'bg-[#008753]';
+      return 'bg-[#41a7ad]';
     } else {
       return 'bg-white';
     }
@@ -450,20 +452,20 @@ const Navigation = () => {
     const hasDropdown = activeDropdown !== null;
 
     if (hasDropdown || scrolled) {
-      return 'bg-[#008753] text-white hover:bg-[#007145] shadow-lg hover:shadow-xl';
+      return 'bg-black text-white hover:bg-black/90 shadow-lg hover:shadow-xl';
     } else {
       return 'bg-white text-slate-900 hover:bg-slate-100 shadow-lg';
     }
   };
 
   // Determine logo color
-  const getLogoColor = () => {
+  const getLogo = () => {
     const hasDropdown = activeDropdown !== null;
 
     if (hasDropdown || scrolled) {
-      return 'text-slate-900';
+      return "/logo.png";
     } else {
-      return 'text-white';
+      return "/logo-white.png";
     }
   };
 
@@ -480,18 +482,24 @@ const Navigation = () => {
 
   return (
     <div className="relative">
-    
+
       {/* Navigation */}
       <nav className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-0 ${getNavbarStyles()}`}>
         <div className="px-4 md:px-10 xl:px-16 mx-auto max-w-screen-2xl">
           <div className="flex justify-between items-center h-16 xl:h-18">
             {/* Logo */}
             <div className="flex items-center flex-shrink-0">
-              <div className="flex items-center space-x-2">
-                <div className={`transition-colors duration-0 ${getLogoColor()}`}>
-                  <span className="text-xl xl:text-2xl font-light tracking-wide">Heuvera</span>
-                </div>
-              </div>
+                <Link href="/" className="">
+                  <div className="flex items-center gap-2 h-10">
+                    <Image
+                      src={`${getLogo()}`}
+                      alt="Heuvera Logo"
+                      width={100}
+                      height={100}
+                      className="transition-all duration-500 ease-in-out"
+                    />
+                  </div>
+                </Link>
             </div>
 
             {/* Desktop Navigation */}
@@ -594,7 +602,7 @@ const Navigation = () => {
                             <a
                               key={subIndex}
                               href={subItem.href}
-                              className="block px-4 py-2 text-sm text-slate-600 hover:text-[#008753] hover:bg-slate-50 rounded-lg transition-colors duration-200"
+                              className="block px-4 py-2 text-sm text-slate-600 hover:text-[#41a7ad] hover:bg-slate-50 rounded-lg transition-colors duration-200"
                               onClick={closeMobileMenu}
                             >
                               {subItem.label}
@@ -618,14 +626,14 @@ const Navigation = () => {
               </div>
 
               <div className="p-6 border-t border-slate-100 bg-slate-50">
-                <button className="flex items-center justify-center w-full bg-[#008753] hover:bg-[#007145] text-white px-6 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200">
+                <button className="flex items-center justify-center w-full bg-black hover:bg-black/80 text-white px-6 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200">
                   GET IN TOUCH
                 </button>
 
                 <div className="mt-4 text-center">
                   <a
                     href="mailto:info@heuvera.com"
-                    className="text-sm text-slate-600 hover:text-[#008753] transition-colors duration-200"
+                    className="text-sm text-slate-600 hover:text-[#41a7ad] transition-colors duration-200"
                   >
                     info@heuvera.com
                   </a>
