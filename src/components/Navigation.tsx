@@ -1,8 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { ChevronDown, Menu, X } from 'lucide-react';
-import Image from 'next/image';
+import { useState } from "react";
+import { ChevronDown, Menu, X } from "lucide-react";
 
 type NavDropdownProps = {
   title: string;
@@ -15,21 +14,27 @@ const NavDropdown = ({ title, items, isOpen, onToggle }: NavDropdownProps) => {
   return (
     <div className="relative">
       <button
-        className="flex items-center space-x-1 text-white hover:text-blue-300 transition-colors duration-200 py-2"
+        className="flex items-center space-x-1 text-green-500 hover:text-white transition-colors duration-200 py-2"
         onMouseEnter={onToggle}
-        onMouseLeave={onToggle}
+        onMouseLeave={() => {
+          setTimeout(onToggle, 1000);
+        }}
       >
         <span className="font-medium">{title}</span>
-        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown
+          className={`w-4 h-4 transition-transform duration-200 ${
+        isOpen ? "rotate-180" : ""
+          }`}
+        />
       </button>
-      
+
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50">
+        <div className="absolute top-full left-0 mt-2 w-96 bg-white rounded-lg shadow-lg py-2 z-50">
           {items.map((item: string, index: number) => (
             <a
               key={index}
               href="#"
-              className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+              className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-green-600 transition-colors duration-200"
             >
               {item}
             </a>
@@ -47,24 +52,36 @@ const Navigation = () => {
   const navItems = [
     {
       title: "SERVICES",
-      items: ["Web Development", "Mobile Apps", "AI Solutions", "Cloud Services", "DevOps"]
+      items: [
+        "Web Development",
+        "Mobile Apps",
+        "AI Solutions",
+        "Cloud Services",
+        "DevOps",
+      ],
     },
     {
       title: "INDUSTRIES",
-      items: ["Fintech", "Healthcare", "E-commerce", "Education", "Manufacturing"]
+      items: [
+        "Fintech",
+        "Healthcare",
+        "E-commerce",
+        "Education",
+        "Manufacturing",
+      ],
     },
     {
       title: "OUR WORK",
-      items: ["Portfolio", "Case Studies", "Success Stories", "Testimonials"]
+      items: ["Portfolio", "Case Studies", "Success Stories", "Testimonials"],
     },
     {
       title: "ABOUT US",
-      items: ["Company", "Team", "Careers", "Contact"]
+      items: ["Company", "Team", "Careers", "Contact"],
     },
     {
       title: "INSIGHTS",
-      items: ["Blog", "Whitepapers", "News", "Events"]
-    }
+      items: ["Blog", "Whitepapers", "News", "Events"],
+    },
   ];
 
   const handleDropdownToggle = (index) => {
@@ -76,21 +93,17 @@ const Navigation = () => {
   };
 
   return (
-    <div className="relative inset-0">
-
+    <div className="relative">
       {/* Navigation */}
-      <nav className="relative z-20 bg-green-200 bg-opacity-80 backdrop-blur-sm">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center">
               <div className="flex items-center space-x-2">
-                {/* <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">is</span>
-                </div> */}
                 <div className="text-white">
                   <span className="text-xl font-light">Heuvera</span>
-                  <span className="text-xl font-bold text-blue-400">soft</span>
+                  <span className="text-xl font-bold text-green-400">IT</span>
                 </div>
               </div>
             </div>
@@ -106,15 +119,15 @@ const Navigation = () => {
                   onToggle={() => handleDropdownToggle(index)}
                 />
               ))}
-              
-              <a 
-                href="mailto:info@intellectsoft.net" 
-                className="text-white hover:text-blue-300 transition-colors duration-200 font-medium"
+
+              <a
+                href="mailto:info@intellectsoft.net"
+                className="text-green-500 hover:text-blue-300 transition-colors duration-200 font-medium"
               >
-                INFO@INTELLECTSOFT.NET
+                INFO@HEUVERA.COM
               </a>
-              
-              <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-md font-medium transition-colors duration-200">
+
+              <button className="bg-[#3e2c21] hover:bg-[#3e2c21] text-white px-6 py-2 rounded-md font-medium transition-colors duration-200">
                 GET IN TOUCH
               </button>
             </div>
@@ -125,7 +138,11 @@ const Navigation = () => {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="text-white hover:text-blue-300 transition-colors duration-200"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
               </button>
             </div>
           </div>
@@ -133,7 +150,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-black bg-opacity-95 backdrop-blur-sm">
+          <div className="lg:hidden fixed top-16 left-0 right-0 bg-black bg-opacity-95 backdrop-blur-sm z-40 transform transition-transform duration-300 ease-in-out animate-in slide-in-from-left">
             <div className="px-4 pt-2 pb-3 space-y-1">
               {navItems.map((item, index) => (
                 <div key={index} className="py-2">
@@ -142,7 +159,11 @@ const Navigation = () => {
                     onClick={() => handleDropdownToggle(index)}
                   >
                     <span>{item.title}</span>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${openDropdown === index ? 'rotate-180' : ''}`} />
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform duration-200 ${
+                        openDropdown === index ? "rotate-180" : ""
+                      }`}
+                    />
                   </button>
                   {openDropdown === index && (
                     <div className="mt-2 ml-4 space-y-2">
@@ -160,16 +181,16 @@ const Navigation = () => {
                   )}
                 </div>
               ))}
-              
+
               <div className="pt-4 border-t border-gray-700">
-                <a 
-                  href="mailto:info@intellectsoft.net" 
+                <a
+                  href="mailto:info@intellectsoft.net"
                   className="block text-white hover:text-blue-300 transition-colors duration-200 font-medium py-2"
                 >
                   INFO@INTELLECTSOFT.NET
                 </a>
-                
-                <button className="w-full bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-md font-medium transition-colors duration-200 mt-4">
+
+                <button className="w-full bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md font-medium transition-colors duration-200 mt-4">
                   GET IN TOUCH
                 </button>
               </div>
@@ -177,7 +198,6 @@ const Navigation = () => {
           </div>
         )}
       </nav>
-
     </div>
   );
 };
