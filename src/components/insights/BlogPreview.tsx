@@ -1,112 +1,228 @@
 'use client';
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { ArrowRight, Clock, Calendar, User, Eye, ChevronRight } from 'lucide-react';
+import SectionContainer from '../ui/sectionContainer';
+import SectionTitle from '../ui/SectionTitle';
 import Image from 'next/image';
-import { ArrowRight, Clock } from 'lucide-react';
 
-const blogPosts = [
-  {
-    title: 'The Future of AI in Business',
-    excerpt: 'Exploring how artificial intelligence is transforming modern business operations and decision-making processes.',
-    image: '/blog-1.jpg',
-    readTime: '5 min read',
-    category: 'Artificial Intelligence'
-  },
-  {
-    title: 'Cloud Migration Best Practices',
-    excerpt: 'A comprehensive guide to successfully migrating your infrastructure to the cloud while minimizing risks.',
-    image: '/blog-2.jpg',
-    readTime: '8 min read',
-    category: 'Cloud Computing'
-  },
-  {
-    title: 'Cybersecurity Trends 2024',
-    excerpt: 'Stay ahead of the curve with the latest cybersecurity trends and threats to watch out for in 2024.',
-    image: '/blog-3.jpg',
-    readTime: '6 min read',
-    category: 'Security'
-  }
-];
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay,
-      type: "spring",
-      stiffness: 60,
-      damping: 18,
-    },
-  }),
-};
+interface BlogPost {
+  category: string;
+  title: string;
+  description: string;
+  image: string;
+  readTime?: string;
+  date?: string;
+  author?: string;
+  views?: string;
+}
 
 const BlogPreview = () => {
-  const insights = [
+  const [hoveredPost, setHoveredPost] = useState<number | null>(null);
+
+  const insights: BlogPost[] = [
     {
-      category: "AI",
+      category: "AI & MACHINE LEARNING",
       title: "A Complete Guide to Engineering Artificial Intelligence Software",
-      description: "AI revolutionizes the way people live and work. Explore the steps, skills, costs, and best practices to create powerful AI software.",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+      description: "AI revolutionizes the way people live and work. Explore the comprehensive steps, essential skills, implementation costs, and industry best practices to create powerful AI software solutions.",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      readTime: "8 min read",
+      date: "Dec 15, 2024",
+      author: "Sarah Chen",
+      views: "2.3k"
     },
     {
-      category: "BIG DATA",
-      title: "End-to-End Big Data Applications: Use Cases, Architecture, Gains",
-      description: "Learn how end-to-end big data applications enable smooth operation of data-rich systems and timely analytics results.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+      category: "BIG DATA & ANALYTICS",
+      title: "End-to-End Big Data Applications: Use Cases, Architecture, and Business Gains",
+      description: "Discover how end-to-end big data applications enable seamless operation of data-rich systems, deliver timely analytics results, and drive measurable business outcomes.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      readTime: "12 min read",
+      date: "Dec 12, 2024",
+      author: "Michael Rodriguez",
+      views: "1.8k"
     },
     {
-      category: "SECURITY TESTING",
-      title: "Security Testing Guide: Setup Plan with Time and Costs",
-      description: "Considering a security checkup? Our guide will help you make optimal decisions for your project's success.",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+      category: "CYBERSECURITY",
+      title: "Security Testing Guide: Strategic Setup Plan with Timeline and Cost Analysis",
+      description: "Planning a comprehensive security assessment? Our detailed guide provides optimal decision-making frameworks, cost breakdowns, and implementation strategies for your project's success.",
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      readTime: "10 min read",
+      date: "Dec 10, 2024",
+      author: "David Kim",
+      views: "3.1k"
     }
   ];
 
-  return (
-    <section className="py-20 bg-white">
-      <div className="px-4 md:px-8 lg:px-16 xl:px-40 2xl:px-72">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Featured Insights
-          </h2>
-        </div>
+  const featuredPost: BlogPost = {
+    category: "DIGITAL TRANSFORMATION",
+    title: "The Complete Roadmap to Enterprise Digital Transformation in 2025",
+    description: "Navigate the complexities of digital transformation with our comprehensive guide. Learn proven strategies, avoid common pitfalls, and accelerate your organization's digital evolution with actionable insights from industry leaders.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2426&q=80",
+    readTime: "15 min read",
+    date: "Dec 18, 2024",
+    author: "Alexandra Bennett",
+    views: "4.7k"
+  };
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {insights.map((insight, index) => (
-            <div key={index} className="group cursor-pointer">
-              <div className="relative h-48 rounded-2xl overflow-hidden mb-6">
-                <Image
-                  src={insight.image}
-                  alt={insight.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="space-y-3">
-                <span className="text-sm font-semibold text-orange-500 uppercase tracking-wide">
-                  {insight.category}
-                </span>
-                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#2cd16c] transition-colors duration-300">
-                  {insight.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {insight.description}
-                </p>
+  const categoryColors: { [key: string]: string } = {
+    "AI & MACHINE LEARNING": "#8b5cf6",
+    "BIG DATA & ANALYTICS": "#3b82f6", 
+    "CYBERSECURITY": "#ef4444",
+    "DIGITAL TRANSFORMATION": "#41a7ad"
+  };
+
+  const BlogCard = ({ post, index, isFeatured = false }: { post: BlogPost; index: number; isFeatured?: boolean }) => (
+    <article 
+      className={`group cursor-pointer transition-all duration-500 ${
+        isFeatured ? 'md:col-span-2 lg:col-span-3' : ''
+      } ${hoveredPost === index ? 'scale-[1.02]' : ''}`}
+      onMouseEnter={() => setHoveredPost(index)}
+      onMouseLeave={() => setHoveredPost(null)}
+    >
+      <div className={`bg-white rounded-2xl shadow-sm hover:shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 ${
+        isFeatured ? 'lg:flex lg:items-center' : ''
+      }`}>
+        {/* Image Section */}
+        <div className={`relative overflow-hidden ${
+          isFeatured ? 'lg:w-1/2 h-64 lg:h-96' : 'h-60'
+        }`}>
+          <Image
+            src={post.image}
+            alt={post.title}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            width={600}
+            height={1024}
+          />
+          
+          {/* Category Badge */}
+          <div className="absolute top-4 left-4">
+            <span 
+              className="px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg"
+              style={{ backgroundColor: categoryColors[post.category] || '#6b7280' }}
+            >
+              {post.category}
+            </span>
+          </div>
+
+          {/* Hover Overlay */}
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+            <div className="transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <div className="bg-white rounded-full p-3 shadow-lg">
+                <ArrowRight className="w-6 h-6 text-gray-900" />
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Content Section */}
+        <div className={`p-6 ${isFeatured ? 'lg:w-1/2 lg:p-8' : ''}`}>
+          {/* Meta Information */}
+          <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+            {post.date && (
+              <div className="flex items-center gap-1">
+                <Calendar className="w-4 h-4" />
+                <span>{post.date}</span>
+              </div>
+            )}
+            {post.readTime && (
+              <div className="flex items-center gap-1">
+                <Clock className="w-4 h-4" />
+                <span>{post.readTime}</span>
+              </div>
+            )}
+            {post.views && (
+              <div className="flex items-center gap-1">
+                <Eye className="w-4 h-4" />
+                <span>{post.views}</span>
+              </div>
+            )}
+          </div>
+
+          {/* Title */}
+          <h3 className={`font-bold text-gray-900 mb-4 group-hover:text-gray-700 transition-colors duration-300 leading-tight ${
+            isFeatured ? 'text-2xl lg:text-3xl' : 'text-xl'
+          }`}>
+            {post.title}
+          </h3>
+
+          {/* Description */}
+          <p className={`text-gray-600 leading-relaxed mb-6 ${
+            isFeatured ? 'text-lg' : 'text-base'
+          }`}>
+            {post.description}
+          </p>
+
+          {/* Author & Read More */}
+          <div className="flex items-center justify-between">
+            {post.author && (
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-[#41a7ad] rounded-full flex items-center justify-center">
+                  <User className="w-4 h-4 text-white" />
+                </div>
+                <span className="text-sm font-medium text-gray-700">{post.author}</span>
+              </div>
+            )}
+            
+            <div className="flex items-center text-sm font-semibold text-gray-600 group-hover:text-gray-900 transition-colors">
+              <span>Read More</span>
+              <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+
+  return (
+    <section className="py-24 bg-gray-50">
+      <SectionContainer>
+        {/* Header */}
+        <SectionTitle
+        section='Latest Insights'
+        title='Featured Insights & Expertise'
+        subtitle='Stay ahead with our latest insights on technology trends, best practices, and industry innovations.'
+        />
+
+        {/* Featured Post */}
+        <div className="mb-16">
+          <BlogCard post={featuredPost} index={-1} isFeatured={true} />
+        </div>
+
+        {/* Regular Posts Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {insights.map((insight, index) => (
+            <BlogCard key={index} post={insight} index={index} />
           ))}
         </div>
 
+        {/* CTA Section */}
+        <div className="text-center mt-20 bg-gradient-to-r from-gray-900 to-black rounded-2xl p-12 text-white overflow-hidden">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+              Never Miss an Update
+            </h3>
+            <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-lg">
+              Subscribe to our newsletter and get the latest insights, trends, and best practices delivered to your inbox.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-6 py-2.5 text-sm rounded-full text-white focus:outline-none bg-white/5"
+              />
+              <button className="bg-white text-black mx-auto flex items-center px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase">
+                Subscribe
+              </button>
+            </div>
+        </div>
+
+        {/* View All Button */}
         <div className="text-center mt-12">
-          <button className="group bg-[#2cd16c] hover:bg-[#25b05c] text-black px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center mx-auto">
+          <button className="bg-black text-white mx-auto flex items-center px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase">
             View All Insights
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 };
-export default BlogPreview; 
+
+export default BlogPreview;

@@ -8,6 +8,7 @@ import {
   Cloud,
 } from "lucide-react";
 import { categoryData } from "../data/Technologies";
+import SectionTitle from "../ui/SectionTitle";
 
 const Technologies: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState("Mobile Apps");
@@ -22,18 +23,16 @@ const Technologies: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16 bg-white">
+    <div className="w-full max-w-2xl sm:max-w-3xl md:max-w-4xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-screen-2xl mx-auto px-4 md:px-10 xl:px-16 flex flex-col gap-14 sm:py-16 bg-white">
       {/* Header */}
-      <div className="mb-10 sm:mb-16">
-        <h1 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-          Technologies we use
-        </h1>
-        <p className="text-base sm:text-xl text-gray-600 max-w-4xl leading-relaxed">
-          Hire from our pool of 350+ specialized experts in web, mobile, and
+
+      <SectionTitle
+        section="Technologies"
+        title="Technologies we use"
+        subtitle="Hire from our pool of 350+ specialized experts in web, mobile, and
           software engineering, specializing in the latest technologies and
-          frameworks, ready to scale your development teams effortlessly.
-        </p>
-      </div>
+          frameworks, ready to scale your development teams effortlessly."
+      />
 
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Sidebar */}
@@ -45,11 +44,10 @@ const Technologies: React.FC = () => {
                 <div
                   key={category.name}
                   onClick={() => setActiveCategory(category.name)}
-                  className={`flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-full text-base sm:text-lg font-medium transition-all duration-200 cursor-pointer whitespace-nowrap ${
-                    activeCategory === category.name
-                      ? "bg-green-100 text-gray-900 font-semibold"
+                  className={`flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-full text-base sm:text-lg font-medium transition-all duration-200 cursor-pointer whitespace-nowrap font-montserrat ${activeCategory === category.name
+                      ? "bg-[#41a7ad40] text-gray-900 font-semibold"
                       : "text-gray-600 hover:bg-gray-50"
-                  }`}
+                    }`}
                 >
                   <IconComponent size={20} />
                   {category.name}
@@ -64,7 +62,7 @@ const Technologies: React.FC = () => {
           <div className="grid gap-8 sm:gap-12">
             {categoryData[activeCategory].sections.map((section) => (
               <div key={section.title}>
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-8">
+                <h2 className="text-2xl font-montserrat sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-8">
                   {section.title}
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
@@ -73,10 +71,10 @@ const Technologies: React.FC = () => {
                     return (
                       <div
                         key={item.name}
-                        className="flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-full border transition-all duration-200 hover:bg-green-900 hover:text-white cursor-pointer bg-gray-50 text-gray-700 border-gray-200"
+                        className="flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-full border transition-all duration-200 hover:bg-black hover:text-white cursor-pointer bg-gray-50 text-gray-700 border-gray-200"
                       >
                         <IconComponent size={20} />
-                        <span className="font-medium">{item.name}</span>
+                        <span className="font-medium font-poppins">{item.name}</span>
                       </div>
                     );
                   })}

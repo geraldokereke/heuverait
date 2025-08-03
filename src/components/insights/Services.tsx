@@ -1,113 +1,274 @@
 'use client';
-import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Code, 
-  Brain, 
-  Smartphone, 
-  Cloud, 
-  MessageSquare, 
-  Shield 
+import React, { useState } from 'react';
+import {
+  Code,
+  Brain,
+  Globe,
+  Smartphone,
+  Database,
+  Shield,
+  Cloud,
+  Cog,
+  Zap,
+  ArrowRight,
+  ChevronRight,
+  Target,
+  Award,
+  LucideIcon
 } from 'lucide-react';
-import { ArrowRight } from 'lucide-react';
-import FAQ from '../faq/FAQ';
+import SectionContainer from '../ui/sectionContainer';
+import SectionTitle from '../ui/SectionTitle';
 
-const services = [
+interface Service {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  summary: string;
+  features: string[];
+  color: string;
+  gradientFrom: string;
+  gradientTo: string;
+}
+
+interface ServiceCardProps {
+  service: Service;
+  index: number;
+  isHovered: boolean;
+  onHover: (index: number) => void;
+  onLeave: () => void;
+}
+
+interface SectionContainerProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+interface SectionTitleProps {
+  section: string;
+  title: string;
+  subtitle: string;
+}
+
+interface Stat {
+  icon: LucideIcon;
+  value: string;
+  label: string;
+}
+
+const services: Service[] = [
   {
     icon: Code,
-    title: 'Custom Software Development',
-    description: 'Tailored solutions designed to meet your unique business needs',
-    summary: 'From concept to deployment, we build scalable, maintainable software that drives your business forward.'
+    title: "Custom Software Development",
+    description: "Tailored solutions built for your unique needs",
+    summary: 'From concept to deployment, we architect scalable, maintainable software that drives measurable business growth and operational efficiency.',
+    features: ['Full-stack Development', 'API Integration', 'Legacy Modernization', 'Custom Applications'],
+    color: '#41a7ad',
+    gradientFrom: 'from-[#41a7ad]',
+    gradientTo: 'to-[#41a7ad]'
   },
   {
     icon: Brain,
-    title: 'AI & Machine Learning',
-    description: 'Intelligent solutions that learn and adapt',
-    summary: 'Leverage the power of AI to automate processes, gain insights, and make data-driven decisions.'
+    title: "AI & Machine Learning",
+    description: "Intelligent automation and data-driven insights",
+    summary: 'Harness the transformative power of AI to automate complex processes, extract actionable insights, and enable data-driven strategic decisions.',
+    features: ['Predictive Analytics', 'Natural Language Processing', 'Computer Vision', 'Process Automation'],
+    color: '#3b82f6',
+    gradientFrom: 'from-[#3b82f6]',
+    gradientTo: 'to-[#3b82f6]'
+  },
+  {
+    icon: Globe,
+    title: "Web Development",
+    description: "Modern, responsive websites and applications",
+    summary: 'Craft engaging, responsive web applications that deliver seamless experiences across all devices using modern frameworks and technologies.',
+    features: ['React/Next.js', 'Responsive Design', 'Progressive Web Apps', 'E-commerce Solutions'],
+    color: '#f59e0b',
+    gradientFrom: 'from-[#f59e0b]',
+    gradientTo: 'to-[#f59e0b]'
   },
   {
     icon: Smartphone,
-    title: 'Web & Mobile Development',
-    description: 'Responsive and native applications for all platforms',
-    summary: 'Create engaging user experiences across web and mobile platforms with modern technologies.'
+    title: "Mobile Apps",
+    description: "Native and cross-platform mobile solutions",
+    summary: 'Build powerful mobile applications for iOS and Android with native performance and cross-platform compatibility.',
+    features: ['iOS Development', 'Android Development', 'React Native', 'Flutter Apps'],
+    color: '#ef4444',
+    gradientFrom: 'from-[#ef4444]',
+    gradientTo: 'to-[#ef4444]'
   },
   {
-    icon: Cloud,
-    title: 'Cloud & DevOps',
-    description: 'Scalable infrastructure and automated workflows',
-    summary: 'Optimize your operations with cloud solutions and streamlined development processes.'
-  },
-  {
-    icon: MessageSquare,
-    title: 'IT Consulting',
-    description: 'Strategic technology guidance for your business',
-    summary: 'Expert advice on technology adoption, digital transformation, and IT strategy.'
+    icon: Database,
+    title: "Data Analytics",
+    description: "Transform data into actionable business intelligence",
+    summary: 'Unlock the power of your data with advanced analytics, visualization, and business intelligence solutions.',
+    features: ['Data Visualization', 'Business Intelligence', 'Data Warehousing', 'Reporting Dashboards'],
+    color: '#8b5cf6',
+    gradientFrom: 'from-[#8b5cf6]',
+    gradientTo: 'to-[#8b5cf6]'
   },
   {
     icon: Shield,
-    title: 'Cybersecurity',
-    description: 'Protect your digital assets and data',
-    summary: 'Comprehensive security solutions to safeguard your business from threats.'
+    title: "IT Consulting",
+    description: "Strategic technology guidance and support",
+    summary: 'Navigate complex technology decisions with expert guidance on architecture, digital transformation, and strategic IT roadmapping.',
+    features: ['Technology Strategy', 'Digital Transformation', 'Architecture Review', 'Vendor Selection'],
+    color: '#06b6d4',
+    gradientFrom: 'from-[#06b6d4]',
+    gradientTo: 'to-[#06b6d4]'
+  },
+  {
+    icon: Cloud,
+    title: "Cloud Solutions",
+    description: "Scalable cloud infrastructure and migration services",
+    summary: 'Optimize operations with robust cloud architectures, migration services, and infrastructure-as-code for enhanced reliability.',
+    features: ['AWS/Azure/GCP', 'Cloud Migration', 'Infrastructure as Code', 'Serverless Solutions'],
+    color: '#ec4899',
+    gradientFrom: 'from-[#ec4899]',
+    gradientTo: 'to-[#ec4899]'
+  },
+  {
+    icon: Cog,
+    title: "DevOps & Automation",
+    description: "Streamlined deployment and continuous integration",
+    summary: 'Accelerate development cycles with automated CI/CD pipelines, infrastructure automation, and DevOps best practices.',
+    features: ['CI/CD Pipelines', 'Infrastructure Automation', 'Monitoring & Logging', 'Container Orchestration'],
+    color: '#10b981',
+    gradientFrom: 'from-[#10b981]',
+    gradientTo: 'to-[#10b981]'
+  },
+  {
+    icon: Zap,
+    title: "Performance Optimization",
+    description: "Enhanced speed and efficiency for existing systems",
+    summary: 'Boost your application performance with optimization techniques, caching strategies, and system tuning.',
+    features: ['Speed Optimization', 'Database Tuning', 'Caching Solutions', 'System Monitoring'],
+    color: '#f97316',
+    gradientFrom: 'from-[#f97316]',
+    gradientTo: 'to-[#f97316]'
   }
 ];
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay,
-      type: "spring",
-      stiffness: 60,
-      damping: 18,
-    },
-  }),
-};
+const stats: Stat[] = [
+  { icon: Target, value: '200+', label: 'Projects Delivered' },
+  { icon: Award, value: '98%', label: 'Client Satisfaction' },
+  { icon: Zap, value: '24/7', label: 'Support Available' }
+];
 
-const Services = () => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ service, index, isHovered, onHover, onLeave }) => {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="px-4 md:px-8 lg:px-16 xl:px-40 2xl:px-72">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Solutions We Deliver
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We IT-enable all kinds of B2B, B2C interactions and internal operations.
-          </p>
+    <div
+      className={`group relative bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden border border-gray-100 ${isHovered ? 'scale-105 z-10' : ''
+        }`}
+      onMouseEnter={() => onHover(index)}
+      onMouseLeave={onLeave}
+    >
+      {/* Gradient overlay */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500"
+        style={{ background: `linear-gradient(135deg, ${service.color}22, ${service.color}11)` }}
+      />
+
+      {/* Content */}
+      <div className="relative p-8">
+        {/* Header */}
+        <div className="flex items-start justify-between mb-6">
+          <div
+            className="p-4 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300"
+            style={{ background: `linear-gradient(135deg, ${service.color}, ${service.color}dd)` }}
+          >
+            <service.icon className="w-8 h-8 text-white" />
+          </div>
+          <div className="flex items-center text-gray-400 group-hover:text-gray-600 transition-colors duration-300">
+            <span className="text-sm font-medium mr-2">Learn More</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {services.map((service, index) => (
-            <div key={index} className="group bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
-              <div className="flex items-center justify-between mb-4">
-                <div className="p-3 bg-blue-50 rounded-lg group-hover:bg-[#2cd16c]/10 transition-colors duration-300">
-                  <service.icon className="w-8 h-8 text-blue-600 group-hover:text-[#2cd16c] transition-colors duration-300" />
-                </div>
-                <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-[#2cd16c] group-hover:translate-x-1 transition-all duration-300" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                {service.description}
-              </p>
+        {/* Title & Description */}
+        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-gray-800">
+          {service.title}
+        </h3>
+        <p className="text-gray-600 leading-relaxed mb-6 group-hover:text-gray-700">
+          {service.description}
+        </p>
+
+        {/* Features */}
+        <div className="space-y-2 mb-6">
+          {service.features.slice(0, 3).map((feature, idx) => (
+            <div key={idx} className="flex items-center text-sm text-gray-500">
+              <ChevronRight className="w-4 h-4 mr-2 text-gray-400" />
+              {feature}
             </div>
           ))}
         </div>
 
-        <div className="text-center">
-          <button className="group bg-[#2cd16c] hover:bg-[#25b05c] text-black px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center mx-auto">
-            View All Services
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+        {/* CTA */}
+        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+          <span className="text-sm font-medium text-gray-500">
+            {service.features.length} Specializations
+          </span>
+          <div
+            className="w-2 h-2 rounded-full group-hover:scale-150 transition-transform duration-300"
+            style={{ background: `linear-gradient(135deg, ${service.color}, ${service.color}dd)` }}
+          />
         </div>
       </div>
-    </section>
+
+      {/* Hover effect border */}
+      <div className={`absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-gradient-to-r group-hover:${service.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`} />
+    </div>
   );
 };
 
+const Services: React.FC = () => {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
+  return (
+    <div className='bg-gray-50'>
+      <SectionContainer className="py-24">
+        <SectionTitle
+          section="Our Solutions"
+          title="Transformative Technology Solutions"
+          subtitle="We deliver enterprise-grade solutions that drive digital transformation and accelerate business growth across industries."
+        />
 
-export default Services; 
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          {services.map((service, index) => (
+            <ServiceCard
+              key={index}
+              service={service}
+              index={index}
+              isHovered={hoveredCard === index}
+              onHover={setHoveredCard}
+              onLeave={() => setHoveredCard(null)}
+            />
+          ))}
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center bg-black rounded-2xl p-12">
+          <h3 className="text-2xl md:text-3xl text-white font-bold mb-4">
+            Ready to Transform Your Business?
+          </h3>
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-lg">
+            Let's discuss how our expertise can accelerate your digital transformation journey and drive measurable results.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              className="bg-white flex items-center px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase"
+            >
+              Schedule Consultation
+            </button>
+            <button
+              className="text-white flex items-center px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase">
+              View Portfolio
+            </button>
+          </div>
+        </div>
+      </SectionContainer>
+    </div>
+  );
+};
+
+export default Services;

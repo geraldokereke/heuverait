@@ -159,8 +159,8 @@ export default function Hero() {
             </motion.div>
 
             {/* Content */}
-            <div className="relative min-h-screen flex items-center justify-center pb-16 px-4 sm:px-6">
-                <div className="w-full mx-auto max-w-7xl">
+            <div className="relative min-h-screen flex items-center justify-center pb-16">
+                <div className="w-full max-w-2xl sm:max-w-3xl md:max-w-4xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-screen-2xl mx-auto px-4 md:px-10 xl:px-16">
                     <div className="flex flex-col lg:flex-row items-center w-full gap-6 lg:gap-8">
                         {/* Left Content */}
                         <motion.div
@@ -204,7 +204,7 @@ export default function Hero() {
                         </motion.div>
 
                         {/* Right Content - Enhanced Service Cards Grid */}
-                        <div className="w-full lg:w-1/2 relative order-1 lg:order-2 max-w-sm lg:max-w-md mx-auto">
+                        <div className="w-full lg:w-1/2 relative order-1 lg:order-2 max-w-sm lg:max-w-md xl:max-w-md 2xl:max-w-xl mx-auto">
                             {/* Enhanced floating particles background */}
                             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                                 {[...Array(12)].map((_, i) => (
@@ -489,12 +489,6 @@ export default function Hero() {
                         </div>
                     </div>
                 </div>
-            </div>
-
-            {/* Bottom indicator - Responsive positioning */}
-            <div className="flex items-center gap-2 absolute bottom-4 sm:bottom-6 left-4 sm:left-8">
-                <div className="size-2 rounded-full bg-[#41a7ad]" />
-                <h1 className="text-white font-semibold text-xs sm:text-sm">Clients We've Served</h1>
             </div>
         </div>
     );

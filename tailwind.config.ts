@@ -10,6 +10,9 @@ const config: Config = {
     extend: {
       fontFamily: {
         quicksand: ['var(--font-quicksand)'],
+        montserrat: ['var(--font-montserrat)'],
+        poppins: ['var(--font-poppins)'],
+
       },
       colors: {
         black: '#000000',

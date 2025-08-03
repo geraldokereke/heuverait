@@ -3,7 +3,7 @@ import BlogPreview from "@/components/insights/BlogPreview";
 import CaseStudies from "@/components/insights/CaseStudies";
 import { Contact } from "@/components/insights/ContactCTA";
 import Hero from "@/components/insights/Hero";
-import { Industries } from "@/components/insights/Industries";
+import Industries from "@/components/insights/Industries";
 import Navigation from "@/components/Navigation";
 import Services from "@/components/insights/Services";
 import { Stories } from "@/components/insights/Stories";
@@ -12,6 +12,7 @@ import { ClientTestimonials } from "@/components/insights/Testimonials";
 import WhoWeAre from "@/components/insights/WhoWeAre";
 import WhyChooseUs from "@/components/insights/WhyChooseUs";
 import React from "react";
+import LogoMarquee from "@/components/insights/LogoMarquee";
 
 const Home = () => {
   return (
@@ -20,12 +21,11 @@ const Home = () => {
       <Hero />
       <WhyChooseUs />
       <Technologies />
-      <WhoWeAre />
-      <Industries />
       <Services />
+      <Industries />
       <Stories />
+      <LogoMarquee />
       <BlogPreview />
-      <ClientTestimonials />
       <Contact />
     </>
   );

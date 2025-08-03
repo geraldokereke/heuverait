@@ -1,13 +1,8 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import {
-  Award,
-  Users,
-  Globe,
-  Briefcase
-} from 'lucide-react';
-import ServicesMarquee from './ServicesMarquee';
+import SectionContainer from '../ui/sectionContainer';
+import SectionTitle from '../ui/SectionTitle';
 
 const stats = [
   {
@@ -22,6 +17,10 @@ const stats = [
     value: '120+',
     label: 'Satisfied Clients',
   },
+  {
+    value: '30+',
+    label: 'Industries Covered'
+  }
 ];
 
 const fadeInUp = {
@@ -40,31 +39,16 @@ const fadeInUp = {
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-20 bg-white">
-      <div className="px-4 md:px-8 lg:px-16 xl:px-40 2xl:px-72">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="mb-8"
-        >
-          <motion.h2
-            variants={fadeInUp}
-            custom={0.2}
-            className="text-3xl md:text-6xl font-bold text-gray-900 mb-4"
-          >
-            Our journey of building success
-          </motion.h2>
-          <motion.p
-            variants={fadeInUp}
-            custom={0.4}
-            className="text-xl text-gray-600 max-w-3xl"
-          >
-            We are a full-cycle product development company that combines creative thinking with technical expertise to create user-centric products that solve real problems and drive business growth.
-          </motion.p>
-        </motion.div>
+    <div className='py-20'>
+      <SectionContainer>
+        <SectionTitle
+          section='Company Overview'
+          title="Key Facts About Heuvera"
+          subtitle="Discover the numbers that define our journey and showcase our commitment to excellence in technology solutions."
+        />
 
-        <div className="flex flex-wrap gap-20 gap-8">
+        {/* Stats Section */}
+        <div className="flex flex-wrap justify-between gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -73,22 +57,19 @@ const WhyChooseUs = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="py-6 rounded-xl cursor-pointer group"
+              className="px-4 border-l-2 border-l-gray-300 cursor-pointer group hover:border-l-[#41a7ad] transition-colors duration-300"
             >
-              <h3 className="text-6xl font-bold text-gray-900 mb-2 group-hover:text-[#2cd16c]">
+              <h3 className="text-5xl font-montserrat font-medium text-[#41a7ad] mb-2 group-hover:scale-105 transition-transform duration-300">
                 {stat.value}
               </h3>
-              <p className="text-2xl font-medium text-gray-900 group-hover:underline">
+              <p className="text-xl font-poppins font-medium text-gray-900 group-hover:text-[#41a7ad] transition-colors duration-300">
                 {stat.label}
               </p>
             </motion.div>
           ))}
         </div>
-      </div>
-      <div className="w-full bg-white py-20 px-8">
-        <ServicesMarquee />
-      </div>
-    </section>
+      </SectionContainer>
+    </div>
   );
 };
 

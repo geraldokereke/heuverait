@@ -145,9 +145,18 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: var(--font-montserrat), Arial, sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Manrope', 'Inter', Arial, sans-serif;
+    font-family: var(--font-poppins), var(--font-montserrat), Arial, sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-montserrat {
+    font-family: var(--font-montserrat), Arial, sans-serif;
+  }
+  .font-poppins {
+    font-family: var(--font-poppins), Arial, sans-serif;
   }
 }
