@@ -59,10 +59,10 @@ const WhyChooseUs = () => {
               viewport={{ once: true }}
               className="px-4 border-l-2 border-l-gray-300 cursor-pointer group hover:border-l-[#41a7ad] transition-colors duration-300"
             >
-              <h3 className="text-3xl 2xl:text-5xl font-montserrat font-medium text-[#41a7ad] mb-2 group-hover:scale-105 transition-transform duration-300">
+              <h3 className="text-2xl xl:text-3xl 2xl:text-5xl font-montserrat font-medium text-[#41a7ad] mb-2 group-hover:scale-105 transition-transform duration-300">
                 {stat.value}
               </h3>
-              <p className="text-sm 2xl:text-xl font-poppins font-medium text-gray-900 group-hover:text-[#41a7ad] transition-colors duration-300">
+              <p className="text-xs xl:text-sm 2xl:text-xl font-poppins font-medium text-gray-900 group-hover:text-[#41a7ad] transition-colors duration-300">
                 {stat.label}
               </p>
             </motion.div>

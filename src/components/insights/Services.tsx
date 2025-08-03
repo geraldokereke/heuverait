@@ -169,18 +169,18 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index, isHovered, on
       />
 
       {/* Content */}
-      <div className="relative p-8">
+      <div className="relative p-8 lg:p-6 xl:p-8">
         {/* Header */}
         <div className="flex items-start justify-between mb-3 2xl:mb-6">
           <div
-            className="xl:p-2 2xl:p-4 rounded-lg 2xl:rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300"
+            className="p-1 xl:p-2 2xl:p-4 rounded-sm xl:rounded-lg 2xl:rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300"
             style={{ background: `linear-gradient(135deg, ${service.color}, ${service.color}dd)` }}
           >
-            <service.icon className="xl:size-4 2xl:size-8 text-white" />
+            <service.icon className="size-3 xl:size-4 2xl:size-8 text-white" />
           </div>
           <div className="flex items-center text-gray-400 group-hover:text-gray-600 transition-colors duration-300">
-            <span className="text-[10px] 2xl:text-sm font-medium mr-2">Learn More</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+            <span className="text-[8px] xl:text-[10px] 2xl:text-sm font-medium mr-2">Learn More</span>
+            <ArrowRight className="size-2 xl:size-4 group-hover:translate-x-1 transition-transform duration-300" />
           </div>
         </div>
 
@@ -248,10 +248,10 @@ const Services: React.FC = () => {
 
         {/* CTA Section */}
         <div className="text-center bg-black rounded-2xl p-12">
-          <h3 className="text-2xl md:text-3xl lg:text-2xl xl:text-2xl 2xl:text-4xl text-white font-bold mb-4">
+          <h3 className="text-2xl md:text-3xl lg:text-base xl:text-2xl 2xl:text-4xl text-white font-bold mb-1 xl:mb-4">
             Ready to Transform Your Business?
           </h3>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto xl:text-xs 2xl:text-lg">
+          <p className="text-gray-300 mb-5 xl:mb-8 max-w-2xl mx-auto text-[10px] xl:text-xs 2xl:text-lg">
             Let's discuss how our expertise can accelerate your digital transformation journey and drive measurable results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -70,7 +70,7 @@ const LogoMarquee = () => {
             {companies.map((company, index) => (
               <div
                 key={`first-${index}`}
-                className="flex items-center justify-center w-24 2xl:w-32 h-12 2xl:h-20 mx-6 relative flex-shrink-0"
+                className="flex items-center justify-center w-20 xl:w-24 2xl:w-32 h-8 xl:h-12 2xl:h-20 mx-6 relative flex-shrink-0"
               >
                 <Image
                   src={company.logo}

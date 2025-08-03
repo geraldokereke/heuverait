@@ -91,10 +91,10 @@ export const Contact = () => {
           <div className="lg:col-span-2">
             <div className="">
               <div className="mb-8">
-                <h3 className="text-xl 2xl:text-2xl font-bold text-gray-900 mb-2">
+                <h3 className="text-sm xl:text-xl 2xl:text-2xl font-bold text-gray-900 mb-1 xl:mb-2">
                   Start Your Digital Transformation
                 </h3>
-                <p className="text-xs 2xl:text-base text-gray-600">
+                <p className="text-[10px] xl:text-xs 2xl:text-base text-gray-600">
                   Tell us about your business challenges and objectives. Our team will provide tailored solutions within 24 hours.
                 </p>
               </div>
@@ -102,7 +102,7 @@ export const Contact = () => {
               <div className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-[8px] xl:text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
                       First Name *
                     </label>
                     <input
@@ -111,11 +111,11 @@ export const Contact = () => {
                       required
                       value={formData.firstName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-xs 2xl:text-base"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md xl:rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-[10px] xl:text-xs 2xl:text-base"
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-[8px] xl:text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
                       Last Name *
                     </label>
                     <input
@@ -124,14 +124,14 @@ export const Contact = () => {
                       required
                       value={formData.lastName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-xs 2xl:text-base"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md xl:rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-[10px] xl:text-xs 2xl:text-base"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-[8px] xl:text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
                       Company *
                     </label>
                     <input
@@ -140,11 +140,11 @@ export const Contact = () => {
                       required
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-xs 2xl:text-base"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md xl:rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-[10px] xl:text-xs 2xl:text-base"
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-[8px] xl:text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
                       Business Email *
                     </label>
                     <input
@@ -153,18 +153,18 @@ export const Contact = () => {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-xs 2xl:text-base"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md xl:rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-[10px] xl:text-xs 2xl:text-base"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-[8px] xl:text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
                       Phone Number
                     </label>
                     <div className="flex">
-                      <span className="inline-flex items-center px-3 py-3 border border-r-0 border-gray-300 bg-gray-50 text-gray-700 rounded-l-lg text-xs 2xl:text-base">
+                      <span className="inline-flex items-center px-3 py-3 border border-r-0 border-gray-300 bg-gray-50 text-gray-700 rounded-l-lg text-[10px] xl:text-xs 2xl:text-base">
                         🇳🇬 +234
                       </span>
                       <input
@@ -173,21 +173,21 @@ export const Contact = () => {
                         placeholder="800 000 0000"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="flex-1 px-4 py-3 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-xs 2xl:text-base"
+                        className="flex-1 px-4 py-3 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-[10px] xl:text-xs 2xl:text-base"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-[10px] xl:text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
                       Service of Interest
                     </label>
                     <select
                       name="service"
                       value={formData.service}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 bg-white text-[10px] 2xl:text-base"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md xl:rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 bg-white text-[10px] 2xl:text-base"
                     >
-                      <option value="text-[10px] 2xl:text-sm">Select a service</option>
+                      <option value="text-[8px] xl:text-[10px] 2xl:text-sm">Select a service</option>
                       {services.map((service) => (
                         <option key={service} value={service}>
                           {service}
@@ -208,7 +208,7 @@ export const Contact = () => {
                     required
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none transition-all duration-200 text-xs 2xl:text-base"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md xl:rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none transition-all duration-200 text-xs 2xl:text-base"
                   />
                 </div>
 
@@ -219,7 +219,7 @@ export const Contact = () => {
                   >
                     Submit Request
                   </button>
-                  <p className="text-[10px] 2xl:text-sm text-gray-500">
+                  <p className="text-[8px] xl:text-[10px] 2xl:text-sm text-gray-500">
                     We'll respond within 24 hours
                   </p>
                 </div>
@@ -240,7 +240,7 @@ export const Contact = () => {
                     <a
                       key={index}
                       href={method.href}
-                      className="flex items-start space-x-4 p-3 2xl:p-4 bg-white rounded-lg 2xl:rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-sm border border-gray-100 hover:shadow-md"
+                      className="flex items-start space-x-4 p-3 2xl:p-4 bg-white rounded-md xl:rounded-lg 2xl:rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-sm border border-gray-100 hover:shadow-md"
                     >
                       <div className="flex-shrink-0 my-auto">
                         <IconComponent className={`size-4 2xl:size-6 ${method.color}`} />
@@ -270,7 +270,7 @@ export const Contact = () => {
                     <a
                       key={index}
                       href={contact.href}
-                      className="flex items-center space-x-3 p-3 2xl:p-4 bg-white rounded-lg 2xl:rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-sm border border-gray-100 hover:shadow-md"
+                      className="flex items-center space-x-3 p-3 2xl:p-4 bg-white rounded-md xl:rounded-lg 2xl:rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-sm border border-gray-100 hover:shadow-md"
                     >
                       <IconComponent className="size-3 2xl:size-5 text-[#41a7ad]" />
                       <div>
@@ -287,16 +287,16 @@ export const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-[#41a7ad50] p-4 2xl:p-6 rounded-lg 2xl:rounded-xl border border-[#41a7ad]">
-              <h4 className="font-bold text-[#41a7ad] text-sm 2xl:text-base mb-2">
+            <div className="bg-[#41a7ad50] p-4 2xl:p-6 rounded-md xl:rounded-lg 2xl:rounded-xl border border-[#41a7ad]">
+              <h4 className="font-bold text-[#41a7ad] text-[10px] xl:text-sm 2xl:text-base mb-2">
                 Enterprise Solutions
               </h4>
-              <p className="text-xs 2xl:text-sm text-[#41a7ad90] mb-4">
+              <p className="text-[10px] xl:text-xs 2xl:text-sm text-[#41a7ad90] mb-2 xl:mb-4">
                 Looking for comprehensive IT transformation? Our enterprise team specializes in large-scale implementations.
               </p>
               <a
                 href="#"
-                className="inline-flex items-center text-[#41a7ad] font-medium text-xs 2xl:text-sm hover:text-blue-700 transition-colors"
+                className="inline-flex items-center text-[#41a7ad] font-medium text-[10px] xl:text-xs 2xl:text-sm hover:text-blue-700 transition-colors"
               >
                 Learn more about enterprise services
               </a>

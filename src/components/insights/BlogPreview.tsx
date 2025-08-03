@@ -83,7 +83,7 @@ const BlogPreview = () => {
       }`}>
         {/* Image Section */}
         <div className={`relative overflow-hidden ${
-          isFeatured ? 'lg:w-1/2 h-64 lg:h-96 xl:h-80 2xl:h-96' : 'h-40 2xl:h-60'
+          isFeatured ? 'lg:w-1/2 h-64 lg:h-68 xl:h-80 2xl:h-96' : 'h-40 2xl:h-60'
         }`}>
           <Image
             src={post.image}
@@ -116,7 +116,7 @@ const BlogPreview = () => {
         {/* Content Section */}
         <div className={`p-3 2xl:p-6 ${isFeatured ? 'lg:w-1/2 lg:p-8' : ''}`}>
           {/* Meta Information */}
-          <div className="flex items-center gap-4 text-xs 2xl:text-sm text-gray-500 mb-4">
+          <div className="flex items-center gap-4 text-[10px] xl:text-xs 2xl:text-sm text-gray-500 mb-4">
             {post.date && (
               <div className="flex items-center gap-1">
                 <Calendar className="size-3 2xl:size-4" />
@@ -138,15 +138,15 @@ const BlogPreview = () => {
           </div>
 
           {/* Title */}
-          <h3 className={`font-bold text-gray-900 mb-4 group-hover:text-gray-700 transition-colors duration-300 leading-tight ${
-            isFeatured ? 'text-2xl lg:text-3xl xl:text-xl 2xl:text-3xl' : 'text-sm 2xl:text-xl'
+          <h3 className={`font-bold text-gray-900 mb-2 xl:mb-4 group-hover:text-gray-700 transition-colors duration-300 leading-tight ${
+            isFeatured ? 'text-xl lg:text-base xl:text-xl 2xl:text-3xl' : 'text-sm 2xl:text-xl'
           }`}>
             {post.title}
           </h3>
 
           {/* Description */}
           <p className={`text-gray-600 leading-relaxed mb-4 2xl:mb-6 ${
-            isFeatured ? 'text-sm 2xl:text-lg' : 'text-[10px] 2xl:text-base'
+            isFeatured ? 'text-xs xl:text-sm 2xl:text-lg' : 'text-[10px] 2xl:text-base'
           }`}>
             {post.description}
           </p>
@@ -196,10 +196,10 @@ const BlogPreview = () => {
 
         {/* CTA Section */}
         <div className="text-center mt-0 2xl:mt-20 bg-gradient-to-r from-gray-900 to-black rounded-2xl p-12 text-white overflow-hidden">
-            <h3 className="text-2xl md:text-3xl lg:text-2xl xl:text-2xl 2xl:text-4xl font-bold mb-4">
+            <h3 className="text-2xl md:text-3xl lg:text-base xl:text-2xl 2xl:text-4xl text-white font-bold mb-1 xl:mb-4">
               Never Miss an Update
             </h3>
-            <p className="text-gray-300 mb-8 max-w-2xl mx-auto xl:text-xs 2xl:text-lg">
+            <p className="text-gray-300 mb-5 xl:mb-8 max-w-2xl mx-auto text-[10px] xl:text-xs 2xl:text-lg">
               Subscribe to our newsletter and get the latest insights, trends, and best practices delivered to your inbox.
             </p>
             <div className="flex flex-col md:flex-row gap-2 2xl:gap-4 justify-center max-w-xs 2xl:max-w-md mx-auto">

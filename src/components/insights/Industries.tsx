@@ -216,7 +216,7 @@ const Industries = () => {
             >
               {/* Section Header */}
               <div className="mb-6">
-                <h1 className={`text-base 2xl:text-xl font-medium text-black`}>
+                <h1 className={`text-sm xl:text-base 2xl:text-xl font-medium text-black`}>
                   {section.title}
                 </h1>
               </div>
@@ -248,14 +248,14 @@ const Industries = () => {
                     {/* Content */}
                     <div className="text-center">
                       <h3
-                        className="text-sm 2xl:text-base font-semibold text-gray-900 mb-2 group-hover/card:transition-colors duration-300"
+                        className="text-xs xl:text-sm 2xl:text-base font-semibold text-gray-900 mb-2 group-hover/card:transition-colors duration-300"
                         style={{
                           color: activeSection === sectionIndex ? section.color : '#111827'
                         }}
                       >
                         {industry.name}
                       </h3>
-                      <p className="text-xs 2xl:text-sm text-gray-600 leading-relaxed">
+                      <p className="text-[8px] xl:text-[10px] 2xl:text-sm text-gray-600 leading-relaxed">
                         {industry.description}
                       </p>
                     </div>
@@ -274,7 +274,7 @@ const Industries = () => {
         {MoreIndustrySections.map((section, sectionIndex) => (
           <div key={sectionIndex}>
             <div className="mb-6">
-              <h1 className={`text-base 2xl:text-xl font-medium text-black`}>
+              <h1 className={`text-sm xl:text-base 2xl:text-xl font-medium text-black`}>
                 More
               </h1>
             </div>
@@ -305,14 +305,14 @@ const Industries = () => {
                   {/* Content */}
                   <div className="text-center">
                     <h3
-                      className="text-sm 2xl:text-base font-semibold text-gray-900 mb-2 group-hover/card:transition-colors duration-300"
+                      className="text-xs xl:text-sm 2xl:text-base font-semibold text-gray-900 mb-2 group-hover/card:transition-colors duration-300"
                       style={{
                         color: activeSection === sectionIndex ? industry.color : '#111827'
                       }}
                     >
                       {industry.name}
                     </h3>
-                    <p className="text-xs 2xl:text-sm text-gray-600 leading-relaxed">
+                    <p className="text-[8px] xl:text-[10px] 2xl:text-sm text-gray-600 leading-relaxed">
                       {industry.description}
                     </p>
                   </div>
@@ -329,11 +329,11 @@ const Industries = () => {
         ))}
 
         {/* CTA Section */}
-        <div className="text-center mt-20 bg-gradient-to-r from-gray-900 to-black rounded-2xl p-12 text-white overflow-hidden">
-          <h3 className="text-2xl md:text-3xl lg:text-2xl xl:text-2xl 2xl:text-4xl font-bold mb-4">
+        <div className="text-center mt-0 xl:mt-20 bg-gradient-to-r from-gray-900 to-black rounded-2xl p-12 text-white overflow-hidden">
+          <h3 className="text-2xl md:text-3xl lg:text-base xl:text-2xl 2xl:text-4xl text-white font-bold mb-1 xl:mb-4">
             Don't See Your Industry?
           </h3>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto xl:text-xs 2xl:text-lg">
+          <p className="text-gray-300 mb-5 xl:mb-8 max-w-2xl mx-auto text-[10px] xl:text-xs 2xl:text-lg">
             We adapt our expertise to serve unique industry requirements. Let's discuss your specific challenges and opportunities.
           </p>
           <button
