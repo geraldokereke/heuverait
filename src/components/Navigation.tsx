@@ -485,18 +485,18 @@ const Navigation = () => {
 
       {/* Navigation */}
       <nav className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-0 ${getNavbarStyles()}`}>
-        <div className="px-4 md:px-10 xl:px-16 mx-auto max-w-screen-2xl">
+        <div className="px-4 md:px-10 lg:px-26 xl:px-48 2xl:px-16 mx-auto max-w-screen-2xl">
           <div className="flex justify-between items-center h-16 xl:h-18">
             {/* Logo */}
             <div className="flex items-center flex-shrink-0">
                 <Link href="/" className="">
-                  <div className="flex items-center gap-2 h-10">
+                  <div className="flex items-center gap-2 h-5 md:h-3 xl:h-4 2xl:h-6">
                     <Image
                       src={`${getLogo()}`}
                       alt="Heuvera Logo"
-                      width={100}
-                      height={100}
-                      className="transition-all duration-500 ease-in-out"
+                      width={120}
+                      height={120}
+                      className="transition-all duration-500 ease-in-out h-full w-full"
                     />
                   </div>
                 </Link>
@@ -504,7 +504,7 @@ const Navigation = () => {
 
             {/* Desktop Navigation */}
             <div
-              className="hidden lg:flex items-center space-x-1 xl:space-x-2"
+              className="hidden lg:flex items-center space-x-[0.5px] xl:space-x-[1px] 2xl:space-x-2"
               onMouseLeave={handleMouseLeave}
             >
               {navItems.map((item, index) => (
@@ -514,11 +514,11 @@ const Navigation = () => {
                   onMouseEnter={() => handleMouseEnter(item.title, true)}
                 >
                   <button
-                    className={`flex items-center space-x-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-0 relative whitespace-nowrap ${getTextStyles()}`}
+                    className={`flex items-center space-x-1 px-3 py-2 lg:text-[6px] xl:text-[8px] 2xl:text-sm font-medium rounded-lg transition-colors duration-0 relative whitespace-nowrap ${getTextStyles()}`}
                   >
                     <span>{item.title}</span>
                     <ChevronDown
-                      className={`size-4 flex-shrink-0 transition-transform duration-200 ${activeDropdown === item.title ? "rotate-180" : "rotate-0"}`}
+                      className={`size-2 2xl:size-4 flex-shrink-0 transition-transform duration-200 ${activeDropdown === item.title ? "rotate-180" : "rotate-0"}`}
                     />
                     <span className={`absolute inset-x-3 bottom-[-11] h-0.5 ${getUnderlineColor()} transition-transform duration-200 origin-left ${activeDropdown === item.title ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
                   </button>
@@ -530,7 +530,7 @@ const Navigation = () => {
               {/* Contact Link */}
               <a
                 href="#contact"
-                className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-0 relative group whitespace-nowrap ${getTextStyles()} hover:bg-opacity-10`}
+                className={`px-3 py-2 text-[6px] xl:text-[8px] 2xl:text-sm font-medium rounded-lg transition-colors duration-0 relative group whitespace-nowrap ${getTextStyles()} hover:bg-opacity-10`}
                 onMouseEnter={() => handleMouseEnter('CONTACT', false)}
               >
                 CONTACT
@@ -540,7 +540,7 @@ const Navigation = () => {
 
             {/* CTA Button and Mobile Menu */}
             <div className="flex items-center gap-4 flex-shrink-0">
-              <button className={`hidden lg:flex items-center px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap ${getCTAStyles()}`}>
+              <button className={`hidden lg:flex items-center px-2 xl:px-3 2xl:px-6 py-1 xl:py-1.5 2xl:py-2.5 text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap ${getCTAStyles()}`}>
                 GET IN TOUCH
               </button>
 
