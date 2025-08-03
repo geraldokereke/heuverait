@@ -48,7 +48,7 @@ const SectionTitle = ({ title, subtitle, className = "", section, titleClassname
 
                 {/* Main Title */}
                 <div className="relative mb-3">
-                    <h1 className={`font-montserrat uppercase font-bold text-2xl md:text-4xl lg:text-xl xl:text-2xl 2xl:text-4xl leading-tight text-slate-900 tracking-tight ${titleClassname}`}>
+                    <h1 className={`font-montserrat uppercase font-bold text-xl md:text-4xl lg:text-xl xl:text-2xl 2xl:text-4xl leading-tight text-slate-900 tracking-tight ${titleClassname}`}>
                         {title}
                     </h1>
 

@@ -48,7 +48,7 @@ const WhyChooseUs = () => {
         />
 
         {/* Stats Section */}
-        <div className="flex flex-wrap justify-between gap-8">
+        <div className="grid grid-cols-2 md:grid-rows-4 justify-between gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}

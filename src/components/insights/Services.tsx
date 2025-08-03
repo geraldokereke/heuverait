@@ -173,29 +173,29 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index, isHovered, on
         {/* Header */}
         <div className="flex items-start justify-between mb-3 2xl:mb-6">
           <div
-            className="p-1 xl:p-2 2xl:p-4 rounded-sm xl:rounded-lg 2xl:rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300"
+            className="p-2 md:p-1 xl:p-2 2xl:p-4 rounded-sm xl:rounded-lg 2xl:rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300"
             style={{ background: `linear-gradient(135deg, ${service.color}, ${service.color}dd)` }}
           >
-            <service.icon className="size-3 xl:size-4 2xl:size-8 text-white" />
+            <service.icon className="size-5 md:size-3 xl:size-4 2xl:size-8 text-white" />
           </div>
           <div className="flex items-center text-gray-400 group-hover:text-gray-600 transition-colors duration-300">
-            <span className="text-[8px] xl:text-[10px] 2xl:text-sm font-medium mr-2">Learn More</span>
-            <ArrowRight className="size-2 xl:size-4 group-hover:translate-x-1 transition-transform duration-300" />
+            <span className="text-[10px] md:text-[8px] xl:text-[10px] 2xl:text-sm font-medium mr-2">Learn More</span>
+            <ArrowRight className="size-3 md:size-2 xl:size-4 group-hover:translate-x-1 transition-transform duration-300" />
           </div>
         </div>
 
         {/* Title & Description */}
-        <h3 className="text-xs 2xl:text-xl font-bold text-gray-900 mb-1.5 2xl:mb-3 group-hover:text-gray-800">
+        <h3 className="text-base md:text-xs 2xl:text-xl font-bold text-gray-900 md-0.5 md:mb-1.5 2xl:mb-3 group-hover:text-gray-800">
           {service.title}
         </h3>
-        <p className="text-[10px] 2xl:text-base text-gray-600 leading-relaxed mb-3 2xl:mb-6 group-hover:text-gray-700">
+        <p className="text-sm md:text-[10px] 2xl:text-base text-gray-600 leading-relaxed mb-3 2xl:mb-6 group-hover:text-gray-700">
           {service.description}
         </p>
 
         {/* Features */}
         <div className="space-y-1 2xl:space-y-2 mb-3 2xl:mb-6">
           {service.features.slice(0, 3).map((feature, idx) => (
-            <div key={idx} className="flex items-center text-[10px] 2xl:text-sm text-gray-500">
+            <div key={idx} className="flex items-center text-sm md:text-[10px] 2xl:text-sm text-gray-500">
               <ChevronRight className="w-4 h-4 mr-2 text-gray-400" />
               {feature}
             </div>
@@ -254,14 +254,14 @@ const Services: React.FC = () => {
           <p className="text-gray-300 mb-5 xl:mb-8 max-w-2xl mx-auto text-[10px] xl:text-xs 2xl:text-lg">
             Let's discuss how our expertise can accelerate your digital transformation journey and drive measurable results.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
-              className="bg-white flex items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase"
+              className="bg-white max-w-fit flex justify-center items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase"
             >
               Schedule Consultation
             </button>
             <button
-              className="text-white flex items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase">
+              className="text-white max-w-fit flex justify-center items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase">
               View Portfolio
             </button>
           </div>

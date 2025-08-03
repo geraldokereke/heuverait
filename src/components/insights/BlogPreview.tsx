@@ -65,26 +65,23 @@ const BlogPreview = () => {
 
   const categoryColors: { [key: string]: string } = {
     "AI & MACHINE LEARNING": "#8b5cf6",
-    "BIG DATA & ANALYTICS": "#3b82f6", 
+    "BIG DATA & ANALYTICS": "#3b82f6",
     "CYBERSECURITY": "#ef4444",
     "DIGITAL TRANSFORMATION": "#41a7ad"
   };
 
   const BlogCard = ({ post, index, isFeatured = false }: { post: BlogPost; index: number; isFeatured?: boolean }) => (
-    <article 
-      className={`group cursor-pointer transition-all duration-500 ${
-        isFeatured ? 'md:col-span-2 lg:col-span-3' : ''
-      } ${hoveredPost === index ? 'scale-[1.02]' : ''}`}
+    <article
+      className={`group cursor-pointer transition-all duration-500 ${isFeatured ? 'md:col-span-2 lg:col-span-3' : ''
+        } ${hoveredPost === index ? 'scale-[1.02]' : ''}`}
       onMouseEnter={() => setHoveredPost(index)}
       onMouseLeave={() => setHoveredPost(null)}
     >
-      <div className={`bg-white rounded-2xl shadow-sm hover:shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 ${
-        isFeatured ? 'lg:flex lg:items-center' : ''
-      }`}>
-        {/* Image Section */}
-        <div className={`relative overflow-hidden ${
-          isFeatured ? 'lg:w-1/2 h-64 lg:h-68 xl:h-80 2xl:h-96' : 'h-40 2xl:h-60'
+      <div className={`bg-white rounded-2xl shadow-sm hover:shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 ${isFeatured ? 'lg:flex lg:items-center' : ''
         }`}>
+        {/* Image Section */}
+        <div className={`relative overflow-hidden ${isFeatured ? 'lg:w-1/2 h-64 lg:h-68 xl:h-80 2xl:h-96' : 'h-40 2xl:h-60'
+          }`}>
           <Image
             src={post.image}
             alt={post.title}
@@ -92,10 +89,10 @@ const BlogPreview = () => {
             width={600}
             height={1024}
           />
-          
+
           {/* Category Badge */}
           <div className="absolute top-4 left-4">
-            <span 
+            <span
               className="px-3 py-1 text-[6px] 2xl:text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg"
               style={{ backgroundColor: categoryColors[post.category] || '#6b7280' }}
             >
@@ -138,16 +135,14 @@ const BlogPreview = () => {
           </div>
 
           {/* Title */}
-          <h3 className={`font-bold text-gray-900 mb-2 xl:mb-4 group-hover:text-gray-700 transition-colors duration-300 leading-tight ${
-            isFeatured ? 'text-xl lg:text-base xl:text-xl 2xl:text-3xl' : 'text-sm 2xl:text-xl'
-          }`}>
+          <h3 className={`font-bold text-gray-900 mb-2 xl:mb-4 group-hover:text-gray-700 transition-colors duration-300 leading-tight ${isFeatured ? 'text-xl lg:text-base xl:text-xl 2xl:text-3xl' : 'text-sm 2xl:text-xl'
+            }`}>
             {post.title}
           </h3>
 
           {/* Description */}
-          <p className={`text-gray-600 leading-relaxed mb-4 2xl:mb-6 ${
-            isFeatured ? 'text-xs xl:text-sm 2xl:text-lg' : 'text-[10px] 2xl:text-base'
-          }`}>
+          <p className={`text-gray-600 leading-relaxed mb-4 2xl:mb-6 ${isFeatured ? 'text-xs xl:text-sm 2xl:text-lg' : 'text-[10px] 2xl:text-base'
+            }`}>
             {post.description}
           </p>
 
@@ -161,7 +156,7 @@ const BlogPreview = () => {
                 <span className="text-xs 2xl:text-sm font-medium text-gray-700">{post.author}</span>
               </div>
             )}
-            
+
             <div className="flex items-center text-xs 2xl:text-sm font-semibold text-gray-600 group-hover:text-gray-900 transition-colors">
               <span>Read More</span>
               <ChevronRight className="ml-1 size-3 2xl:size-4 group-hover:translate-x-1 transition-transform" />
@@ -177,41 +172,44 @@ const BlogPreview = () => {
       <SectionContainer>
         {/* Header */}
         <SectionTitle
-        section='Latest Insights'
-        title='Featured Insights & Expertise'
-        subtitle='Stay ahead with our latest insights on technology trends, best practices, and industry innovations.'
+          section='Latest Insights'
+          title='Featured Insights & Expertise'
+          subtitle='Stay ahead with our latest insights on technology trends, best practices, and industry innovations.'
         />
 
         {/* Featured Post */}
-        <div className="mb-16">
+        <div className="mb-0 md:mb-16">
           <BlogCard post={featuredPost} index={-1} isFeatured={true} />
         </div>
-
-        {/* Regular Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {insights.map((insight, index) => (
-            <BlogCard key={index} post={insight} index={index} />
-          ))}
+        <div className='w-full'>
+          <h1 className='font-montserrat text-xl font-semibold mb-4 block md:hidden '>More Posts</h1>
+          {/* Regular Posts Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {insights.map((insight, index) => (
+              <BlogCard key={index} post={insight} index={index} />
+            ))}
+          </div>
         </div>
+
 
         {/* CTA Section */}
         <div className="text-center mt-0 2xl:mt-20 bg-gradient-to-r from-gray-900 to-black rounded-2xl p-12 text-white overflow-hidden">
-            <h3 className="text-2xl md:text-3xl lg:text-base xl:text-2xl 2xl:text-4xl text-white font-bold mb-1 xl:mb-4">
-              Never Miss an Update
-            </h3>
-            <p className="text-gray-300 mb-5 xl:mb-8 max-w-2xl mx-auto text-[10px] xl:text-xs 2xl:text-lg">
-              Subscribe to our newsletter and get the latest insights, trends, and best practices delivered to your inbox.
-            </p>
-            <div className="flex flex-col md:flex-row gap-2 2xl:gap-4 justify-center max-w-xs 2xl:max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 2xl:px-6 py-1.5 2xl:py-2.5 text-xs 2xl:text-sm rounded-full text-white focus:outline-none bg-white/5"
-              />
-              <button className="bg-white text-black mx-auto flex items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase">
-                Subscribe
-              </button>
-            </div>
+          <h3 className="text-2xl md:text-3xl lg:text-base xl:text-2xl 2xl:text-4xl text-white font-bold mb-1 xl:mb-4">
+            Never Miss an Update
+          </h3>
+          <p className="text-gray-300 mb-5 xl:mb-8 max-w-2xl mx-auto text-[10px] xl:text-xs 2xl:text-lg">
+            Subscribe to our newsletter and get the latest insights, trends, and best practices delivered to your inbox.
+          </p>
+          <div className="flex flex-col md:flex-row gap-2 2xl:gap-4 justify-center max-w-xs 2xl:max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="flex-1 px-4 2xl:px-6 py-1.5 2xl:py-2.5 text-xs 2xl:text-sm rounded-full text-white focus:outline-none bg-white/5"
+            />
+            <button className="bg-white text-black mx-auto flex items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase">
+              Subscribe
+            </button>
+          </div>
         </div>
 
         {/* View All Button */}

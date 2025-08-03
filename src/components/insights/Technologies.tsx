@@ -36,7 +36,7 @@ const Technologies: React.FC = () => {
 
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Sidebar */}
-        <div className="w-full lg:w-48 xl:w-56 2xl:w-64 flex-shrink-0 mb-6 lg:mb-0">
+        <div className="w-full  lg:w-48 xl:w-56 2xl:w-64 flex-shrink-0 mb-6 lg:mb-0">
           <div className="flex lg:block gap-2 lg:space-y-2 overflow-x-auto">
             {sidebarCategories.map((category) => {
               const IconComponent = category.icon;
@@ -59,13 +59,13 @@ const Technologies: React.FC = () => {
 
         {/* Main Content */}
         <div className="flex-1">
-          <div className="grid sm:gap-12">
+          <div className="grid gap-12">
             {categoryData[activeCategory].sections.map((section) => (
               <div key={section.title}>
                 <h2 className="text-sm xl:text-2xl font-montserrat xl:text-2xl 2xl:text-3xl font-bold text-gray-900 mb-4 xl:mb-8">
                   {section.title}
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
                   {section.items.map((item) => {
                     const IconComponent = item.icon;
                     return (
