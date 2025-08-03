@@ -1,11 +1,6 @@
 import { useScroll, useTransform, motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, CalendarDays, Code, Brain, Globe, Shield, Database, Smartphone, Cloud, Cog, Zap } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import BlogPreview from "./BlogPreview";
-import CaseStudies from "./CaseStudies";
-import Services from "./Services";
-import WhoWeAre from "./WhoWeAre";
-import WhyChooseUs from "./WhyChooseUs";
 import Image from "next/image"
 
 const fadeInUp = {
@@ -110,30 +105,49 @@ export default function Hero() {
     const { scrollY } = useScroll();
     const y = useTransform(scrollY, [0, 500], [0, 200]);
 
-    // Enhanced shuffle animation function
     const shuffleServices = () => {
+        if (isShuffling) return; // Prevent multiple shuffles at once
+
         setIsShuffling(true);
         const shuffled = [...services].sort(() => Math.random() - 0.5);
-        setTimeout(() => {
+
+        // Use a more reliable timeout
+        const timeoutId = setTimeout(() => {
             setShuffledServices(shuffled);
-            setIsShuffling(false);
+            setTimeout(() => {
+                setIsShuffling(false);
+            }, 100); // Small delay to ensure state update
         }, 400);
+
+        return () => clearTimeout(timeoutId);
     };
 
     useEffect(() => {
         setMounted(true);
 
-        // Start the shuffle animation loop
-        intervalRef.current = setInterval(() => {
-            shuffleServices();
-        }, 8000);
+        // Start the shuffle animation loop with more reliable interval
+        const startShuffleInterval = () => {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+            }
+
+            intervalRef.current = setInterval(() => {
+                if (!isShuffling) { // Only shuffle if not already shuffling
+                    shuffleServices();
+                }
+            }, 8000);
+        };
+
+        // Start after a short delay to ensure component is fully mounted
+        const initTimeout = setTimeout(startShuffleInterval, 1000);
 
         return () => {
+            clearTimeout(initTimeout);
             if (intervalRef.current) {
                 clearInterval(intervalRef.current);
             }
         };
-    }, []);
+    }, [isShuffling]);
 
     if (!mounted) return null;
 
@@ -154,12 +168,12 @@ export default function Hero() {
                         quality={100}
                     />
                     {/* Darkened overlay */}
-                    <div className="absolute inset-0 bg-black/90" />
+                    <div className="absolute inset-0 bg-black/40" />
                 </div>
             </motion.div>
 
             {/* Content */}
-            <div className="relative min-h-screen flex items-center justify-center pb-16">
+            <div className="relative min-h-screen flex items-center justify-center">
                 <div className="w-full max-w-2xl sm:max-w-3xl md:max-w-4xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-screen-2xl mx-auto px-4 md:px-10 xl:px-16">
                     <div className="flex flex-col lg:flex-row items-center w-full gap-6 lg:gap-8">
                         {/* Left Content */}
@@ -171,7 +185,7 @@ export default function Hero() {
                             <motion.h1
                                 variants={fadeInUp}
                                 custom={0.2}
-                                className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold leading-tight"
+                                className="font-montserrat uppercase font-bold text-4xl lg:text-4xl leading-tight text-white tracking-tight"
                             >
                                 <span className="text-white">Empowering Innovation</span>
                                 <br />
@@ -191,20 +205,18 @@ export default function Hero() {
                                 custom={0.6}
                                 className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center"
                             >
-                                <button className="group items-center flex px-5 py-2.5 bg-[#41a7ad] text-sm rounded-full text-black font-semibold transition-all duration-300 hover:bg-[#25b05c] w-full sm:w-auto justify-center">
+                                <button className="group items-center uppercase flex px-6 py-2.5 bg-[#41a7ad] text-sm rounded-full text-black font-semibold transition-all duration-300 w-full sm:w-auto justify-center">
                                     Explore Our Solutions
-                                    <ArrowRight className="size-4 ml-2 transition-transform group-hover:translate-x-1" />
                                 </button>
 
-                                <button className="group items-center flex px-5 py-2.5 bg-white/10 backdrop-blur-sm text-white text-sm rounded-full font-semibold transition-all duration-300 hover:bg-white/20 w-full sm:w-auto justify-center">
+                                <button className="group items-center uppercase flex px-6 py-2.5 bg-white/10 backdrop-blur-sm text-white text-sm rounded-full font-semibold transition-all duration-300 hover:bg-white/20 w-full sm:w-auto justify-center">
                                     Book a Consultation
-                                    <CalendarDays className="size-4 ml-2 transition-transform group-hover:translate-x-1" />
                                 </button>
                             </motion.div>
                         </motion.div>
 
                         {/* Right Content - Enhanced Service Cards Grid */}
-                        <div className="w-full lg:w-1/2 relative order-1 lg:order-2 max-w-sm lg:max-w-md xl:max-w-md 2xl:max-w-xl mx-auto">
+                        <div className="w-full lg:w-1/2 relative order-1 lg:order-2 max-w-sm lg:max-w-md xl:max-w-md 2xl:max-w-2xl mx-auto">
                             {/* Enhanced floating particles background */}
                             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                                 {[...Array(12)].map((_, i) => (
@@ -238,7 +250,7 @@ export default function Hero() {
                             </div>
 
                             {/* Ambient glow effect */}
-                            <motion.div
+                            {/* <motion.div
                                 className="absolute inset-0 rounded-3xl"
                                 animate={{
                                     background: [
@@ -253,7 +265,7 @@ export default function Hero() {
                                     repeat: Infinity,
                                     ease: "easeInOut",
                                 }}
-                            />
+                            /> */}
 
                             <motion.div
                                 initial="hidden"
@@ -327,7 +339,7 @@ export default function Hero() {
                                             >
                                                 {/* Main card with glassmorphism effect */}
                                                 <motion.div
-                                                    className="relative bg-white/8 backdrop-blur-xl border border-white/20 rounded-lg sm:rounded-xl p-2 sm:p-3 transition-all duration-500 overflow-hidden w-full h-full flex flex-col justify-center"
+                                                    className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg sm:rounded-xl p-2 sm:p-3 transition-all duration-500 overflow-hidden w-full h-full flex flex-col justify-center"
                                                     animate={{
                                                         backgroundColor: isHovered ? "rgba(255, 255, 255, 0.15)" : "rgba(255, 255, 255, 0.08)",
                                                         borderColor: isHovered ? "rgba(255, 255, 255, 0.4)" : "rgba(255, 255, 255, 0.2)",
@@ -353,7 +365,7 @@ export default function Hero() {
                                                         }}
                                                     />
 
-                                                    <div className="flex flex-col items-center text-center space-y-1 sm:space-y-1.5 relative z-10 h-full justify-between">
+                                                    <div className="flex flex-col items-center text-center relative z-10 h-full justify-center space-y-5">
                                                         {/* Enhanced icon with floating animation */}
                                                         <motion.div
                                                             className="relative p-1 sm:p-1.5 rounded-md sm:rounded-lg transition-all duration-500 flex-shrink-0"
@@ -361,9 +373,9 @@ export default function Hero() {
                                                                 backgroundColor: `${service.color}20`,
                                                             }}
                                                             animate={isHovered ? {
-                                                                y: [-2, 2, -2],
-                                                                rotate: [0, 5, -5, 0],
-                                                                scale: 1.1,
+                                                                y: [-1, 1, -1], // Reduced floating distance
+                                                                rotate: [0, 3, -3, 0], // Reduced rotation
+                                                                scale: 1.05, // Reduced scale
                                                             } : {
                                                                 y: 0,
                                                                 rotate: 0,
@@ -381,11 +393,11 @@ export default function Hero() {
                                                                 animate={{
                                                                     boxShadow: isHovered
                                                                         ? [
-                                                                            `0 0 20px ${service.color}60`,
-                                                                            `0 0 30px ${service.color}80`,
-                                                                            `0 0 20px ${service.color}60`,
+                                                                            `0 0 15px ${service.color}50`, // Reduced glow intensity
+                                                                            `0 0 25px ${service.color}70`,
+                                                                            `0 0 15px ${service.color}50`,
                                                                         ]
-                                                                        : `0 0 10px ${service.color}40`,
+                                                                        : `0 0 8px ${service.color}30`,
                                                                 }}
                                                                 transition={{
                                                                     duration: 2,
@@ -400,7 +412,7 @@ export default function Hero() {
                                                             />
                                                         </motion.div>
 
-                                                        <div className="flex-grow flex flex-col justify-center space-y-0.5">
+                                                        <div className="flex flex flex-col justify-center space-y-0.5"> {/* Added small top margin */}
                                                             <motion.h3
                                                                 className="text-white font-semibold text-[9px] sm:text-[10px] leading-tight line-clamp-2"
                                                                 animate={{
@@ -415,7 +427,7 @@ export default function Hero() {
                                                                 className="text-gray-300 text-[7px] sm:text-[8px] leading-relaxed transition-all duration-300 line-clamp-2"
                                                                 animate={{
                                                                     opacity: isHovered ? 1 : 0.8,
-                                                                    y: isHovered ? 0 : 2,
+                                                                    y: isHovered ? 0 : 1, // Reduced movement
                                                                 }}
                                                             >
                                                                 {service.description}

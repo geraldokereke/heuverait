@@ -31,7 +31,7 @@ export const Stories = () => {
         >
           <div className="absolute w-full h-screen inset-0">
             <Image
-              src="/case.jpg"
+              src="/case.jpeg"
               alt="Hero Background"
               fill
               className="object-cover"
