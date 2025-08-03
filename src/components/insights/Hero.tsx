@@ -185,7 +185,7 @@ export default function Hero() {
                             <motion.h1
                                 variants={fadeInUp}
                                 custom={0.2}
-                                className="font-montserrat uppercase font-bold text-4xl lg:text-4xl leading-tight text-white tracking-tight"
+                                className="font-montserrat uppercase font-bold text-2xl md:text-4xl lg:text-2xl xl:text-3xl 2xl:text-4xl leading-tight text-white tracking-tight"
                             >
                                 <span className="text-white">Empowering Innovation</span>
                                 <br />
@@ -195,7 +195,7 @@ export default function Hero() {
                             <motion.p
                                 variants={fadeInUp}
                                 custom={0.4}
-                                className="text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed max-w-xl mx-auto lg:mx-0"
+                                className="text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-lg text-gray-200 leading-relaxed max-w-xl mx-auto lg:mx-0"
                             >
                                 We design, develop, and deliver custom software, AI solutions, and IT consulting services that transform businesses and drive measurable growth across industries.
                             </motion.p>
@@ -203,20 +203,20 @@ export default function Hero() {
                             <motion.div
                                 variants={fadeInUp}
                                 custom={0.6}
-                                className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center"
+                                className="flex flex-row gap-3 justify-center lg:justify-start items-center"
                             >
-                                <button className="group items-center uppercase flex px-6 py-2.5 bg-[#41a7ad] text-sm rounded-full text-black font-semibold transition-all duration-300 w-full sm:w-auto justify-center">
+                                <button className="group max-w-fit items-center uppercase flex px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm bg-[#41a7ad] rounded-full text-black font-semibold transition-all duration-300 w-full sm:w-auto justify-center">
                                     Explore Our Solutions
                                 </button>
 
-                                <button className="group items-center uppercase flex px-6 py-2.5 bg-white/10 backdrop-blur-sm text-white text-sm rounded-full font-semibold transition-all duration-300 hover:bg-white/20 w-full sm:w-auto justify-center">
+                                <button className="group max-w-fit items-center uppercase flex px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm bg-white/10 backdrop-blur-sm text-white rounded-full font-semibold transition-all duration-300 hover:bg-white/20 w-full sm:w-auto justify-center">
                                     Book a Consultation
                                 </button>
                             </motion.div>
                         </motion.div>
 
                         {/* Right Content - Enhanced Service Cards Grid */}
-                        <div className="w-full lg:w-1/2 relative order-1 lg:order-2 max-w-sm lg:max-w-md xl:max-w-md 2xl:max-w-2xl mx-auto">
+                        <div className="hidden md:block w-full lg:w-1/2 relative order-1 lg:order-2 max-w-sm lg:max-w-md xl:max-w-md 2xl:max-w-2xl mx-auto">
                             {/* Enhanced floating particles background */}
                             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                                 {[...Array(12)].map((_, i) => (
@@ -277,7 +277,7 @@ export default function Hero() {
                                     duration: 0.8,
                                     ease: "easeInOut",
                                 }}
-                                className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 relative z-10"
+                                className="grid grid-cols-3 gap-3 sm:gap-4 relative z-10"
                             >
 
                                 <AnimatePresence mode="wait">
