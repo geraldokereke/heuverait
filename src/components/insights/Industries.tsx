@@ -216,7 +216,7 @@ const Industries = () => {
             >
               {/* Section Header */}
               <div className="mb-6">
-                <h1 className={`text-xl font-medium text-black`}>
+                <h1 className={`text-base 2xl:text-xl font-medium text-black`}>
                   {section.title}
                 </h1>
               </div>
@@ -226,21 +226,21 @@ const Industries = () => {
                 {section.industries.map((industry, industryIndex) => (
                   <div
                     key={industryIndex}
-                    className="group/card bg-white p-6 rounded-md shadow-sm hover:shadow-lg border border-gray-100 transition-all duration-300 cursor-pointer hover:-translate-y-1 relative"
+                    className="group/card bg-white p-4 2xl:p-6 rounded-md shadow-sm hover:shadow-lg border border-gray-100 transition-all duration-300 cursor-pointer hover:-translate-y-1 relative"
                   >
 
-                    <ArrowUpRight className={`hidden size-5 group-hover/card:block right-6 absolute`} style={{ color: section.color }} />
+                    <ArrowUpRight className={`hidden size-3 2xl:size-5 group-hover/card:block right-6 absolute`} style={{ color: section.color }} />
 
                     {/* Icon */}
                     <div
-                      className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 group-hover/card:scale-110"
+                      className="size-10 2xl:size-14 rounded-lg 2xl:rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 group-hover/card:scale-110"
                       style={{
                         backgroundColor: `${section.color}15`,
                         border: `2px solid ${section.color}25`
                       }}
                     >
                       <industry.icon
-                        className="w-7 h-7 transition-colors duration-300"
+                        className="size-4 2xl:size-7 transition-colors duration-300"
                         style={{ color: section.color }}
                       />
                     </div>
@@ -248,14 +248,14 @@ const Industries = () => {
                     {/* Content */}
                     <div className="text-center">
                       <h3
-                        className="font-semibold text-gray-900 mb-2 group-hover/card:transition-colors duration-300"
+                        className="text-sm 2xl:text-base font-semibold text-gray-900 mb-2 group-hover/card:transition-colors duration-300"
                         style={{
                           color: activeSection === sectionIndex ? section.color : '#111827'
                         }}
                       >
                         {industry.name}
                       </h3>
-                      <p className="text-sm text-gray-600 leading-relaxed">
+                      <p className="text-xs 2xl:text-sm text-gray-600 leading-relaxed">
                         {industry.description}
                       </p>
                     </div>
@@ -274,7 +274,7 @@ const Industries = () => {
         {MoreIndustrySections.map((section, sectionIndex) => (
           <div key={sectionIndex}>
             <div className="mb-6">
-              <h1 className={`text-xl font-medium text-black`}>
+              <h1 className={`text-base 2xl:text-xl font-medium text-black`}>
                 More
               </h1>
             </div>
@@ -286,18 +286,18 @@ const Industries = () => {
                   className="group/card bg-white p-6 rounded-md shadow-sm hover:shadow-lg border border-gray-100 transition-all duration-300 cursor-pointer hover:-translate-y-1 relative"
                 >
 
-                  <ArrowUpRight className={`hidden size-5 group-hover/card:block right-6 absolute`} style={{ color: industry.color }} />
+                  <ArrowUpRight className={`hidden size-3 2xl:size-5 group-hover/card:block right-6 absolute`} style={{ color: industry.color }} />
 
                   {/* Icon */}
                   <div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 group-hover/card:scale-110"
+                    className="size-10 2xl:size-14 rounded-lg 2xl:rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 group-hover/card:scale-110"
                     style={{
                       backgroundColor: `${industry.color}15`,
                       border: `2px solid ${industry.color}25`
                     }}
                   >
                     <industry.icon
-                      className="w-7 h-7 transition-colors duration-300"
+                      className="size-4 2xl:size-7 transition-colors duration-300"
                       style={{ color: industry.color }}
                     />
                   </div>
@@ -305,14 +305,14 @@ const Industries = () => {
                   {/* Content */}
                   <div className="text-center">
                     <h3
-                      className="font-semibold text-gray-900 mb-2 group-hover/card:transition-colors duration-300"
+                      className="text-sm 2xl:text-base font-semibold text-gray-900 mb-2 group-hover/card:transition-colors duration-300"
                       style={{
                         color: activeSection === sectionIndex ? industry.color : '#111827'
                       }}
                     >
                       {industry.name}
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-xs 2xl:text-sm text-gray-600 leading-relaxed">
                       {industry.description}
                     </p>
                   </div>
@@ -330,14 +330,14 @@ const Industries = () => {
 
         {/* CTA Section */}
         <div className="text-center mt-20 bg-gradient-to-r from-gray-900 to-black rounded-2xl p-12 text-white overflow-hidden">
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">
+          <h3 className="text-2xl md:text-3xl lg:text-2xl xl:text-2xl 2xl:text-4xl font-bold mb-4">
             Don't See Your Industry?
           </h3>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto xl:text-xs 2xl:text-lg">
             We adapt our expertise to serve unique industry requirements. Let's discuss your specific challenges and opportunities.
           </p>
           <button
-            className="bg-white text-black mx-auto flex items-center px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase"
+            className="bg-white text-black mx-auto flex items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase"
           >
             Discuss Your Industry
           </button>

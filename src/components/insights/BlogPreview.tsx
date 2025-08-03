@@ -83,7 +83,7 @@ const BlogPreview = () => {
       }`}>
         {/* Image Section */}
         <div className={`relative overflow-hidden ${
-          isFeatured ? 'lg:w-1/2 h-64 lg:h-96' : 'h-60'
+          isFeatured ? 'lg:w-1/2 h-64 lg:h-96 xl:h-80 2xl:h-96' : 'h-40 2xl:h-60'
         }`}>
           <Image
             src={post.image}
@@ -96,7 +96,7 @@ const BlogPreview = () => {
           {/* Category Badge */}
           <div className="absolute top-4 left-4">
             <span 
-              className="px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg"
+              className="px-3 py-1 text-[6px] 2xl:text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg"
               style={{ backgroundColor: categoryColors[post.category] || '#6b7280' }}
             >
               {post.category}
@@ -114,24 +114,24 @@ const BlogPreview = () => {
         </div>
 
         {/* Content Section */}
-        <div className={`p-6 ${isFeatured ? 'lg:w-1/2 lg:p-8' : ''}`}>
+        <div className={`p-3 2xl:p-6 ${isFeatured ? 'lg:w-1/2 lg:p-8' : ''}`}>
           {/* Meta Information */}
-          <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+          <div className="flex items-center gap-4 text-xs 2xl:text-sm text-gray-500 mb-4">
             {post.date && (
               <div className="flex items-center gap-1">
-                <Calendar className="w-4 h-4" />
+                <Calendar className="size-3 2xl:size-4" />
                 <span>{post.date}</span>
               </div>
             )}
             {post.readTime && (
               <div className="flex items-center gap-1">
-                <Clock className="w-4 h-4" />
+                <Clock className="size-3 2xl:size-4" />
                 <span>{post.readTime}</span>
               </div>
             )}
             {post.views && (
               <div className="flex items-center gap-1">
-                <Eye className="w-4 h-4" />
+                <Eye className="size-3 2xl:size-4" />
                 <span>{post.views}</span>
               </div>
             )}
@@ -139,14 +139,14 @@ const BlogPreview = () => {
 
           {/* Title */}
           <h3 className={`font-bold text-gray-900 mb-4 group-hover:text-gray-700 transition-colors duration-300 leading-tight ${
-            isFeatured ? 'text-2xl lg:text-3xl' : 'text-xl'
+            isFeatured ? 'text-2xl lg:text-3xl xl:text-xl 2xl:text-3xl' : 'text-sm 2xl:text-xl'
           }`}>
             {post.title}
           </h3>
 
           {/* Description */}
-          <p className={`text-gray-600 leading-relaxed mb-6 ${
-            isFeatured ? 'text-lg' : 'text-base'
+          <p className={`text-gray-600 leading-relaxed mb-4 2xl:mb-6 ${
+            isFeatured ? 'text-sm 2xl:text-lg' : 'text-[10px] 2xl:text-base'
           }`}>
             {post.description}
           </p>
@@ -155,16 +155,16 @@ const BlogPreview = () => {
           <div className="flex items-center justify-between">
             {post.author && (
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-[#41a7ad] rounded-full flex items-center justify-center">
-                  <User className="w-4 h-4 text-white" />
+                <div className="size-6 2xl:size-8 bg-[#41a7ad] rounded-full flex items-center justify-center">
+                  <User className="size-3 2xl:size-4 text-white" />
                 </div>
-                <span className="text-sm font-medium text-gray-700">{post.author}</span>
+                <span className="text-xs 2xl:text-sm font-medium text-gray-700">{post.author}</span>
               </div>
             )}
             
-            <div className="flex items-center text-sm font-semibold text-gray-600 group-hover:text-gray-900 transition-colors">
+            <div className="flex items-center text-xs 2xl:text-sm font-semibold text-gray-600 group-hover:text-gray-900 transition-colors">
               <span>Read More</span>
-              <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ChevronRight className="ml-1 size-3 2xl:size-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
         </div>
@@ -195,28 +195,28 @@ const BlogPreview = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center mt-20 bg-gradient-to-r from-gray-900 to-black rounded-2xl p-12 text-white overflow-hidden">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+        <div className="text-center mt-0 2xl:mt-20 bg-gradient-to-r from-gray-900 to-black rounded-2xl p-12 text-white overflow-hidden">
+            <h3 className="text-2xl md:text-3xl lg:text-2xl xl:text-2xl 2xl:text-4xl font-bold mb-4">
               Never Miss an Update
             </h3>
-            <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-lg">
+            <p className="text-gray-300 mb-8 max-w-2xl mx-auto xl:text-xs 2xl:text-lg">
               Subscribe to our newsletter and get the latest insights, trends, and best practices delivered to your inbox.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <div className="flex flex-col md:flex-row gap-2 2xl:gap-4 justify-center max-w-xs 2xl:max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-6 py-2.5 text-sm rounded-full text-white focus:outline-none bg-white/5"
+                className="flex-1 px-4 2xl:px-6 py-1.5 2xl:py-2.5 text-xs 2xl:text-sm rounded-full text-white focus:outline-none bg-white/5"
               />
-              <button className="bg-white text-black mx-auto flex items-center px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase">
+              <button className="bg-white text-black mx-auto flex items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase">
                 Subscribe
               </button>
             </div>
         </div>
 
         {/* View All Button */}
-        <div className="text-center mt-12">
-          <button className="bg-black text-white mx-auto flex items-center px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase">
+        <div className="text-center mt-0 2xl:mt-12">
+          <button className="bg-black text-white mx-auto flex items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase">
             View All Insights
           </button>
         </div>

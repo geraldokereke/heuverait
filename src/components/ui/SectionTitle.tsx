@@ -41,14 +41,14 @@ const SectionTitle = ({ title, subtitle, className = "", section, titleClassname
 
                 {/* Section Label */}
                 <div className="mb-4">
-                    <span className={`text-xs font-montserrat uppercase font-medium text-slate-500 uppercase tracking-[0.2em] letterspacing-wide ${sectionClassname}`}>
+                    <span className={`text-[8px] 2xl:text-xs font-montserrat uppercase font-medium text-slate-500 uppercase tracking-[0.2em] letterspacing-wide ${sectionClassname}`}>
                         {section}
                     </span>
                 </div>
 
                 {/* Main Title */}
                 <div className="relative mb-3">
-                    <h1 className={`font-montserrat uppercase font-bold text-4xl lg:text-4xl leading-tight text-slate-900 tracking-tight ${titleClassname}`}>
+                    <h1 className={`font-montserrat uppercase font-bold text-2xl md:text-4xl lg:text-2xl xl:text-2xl 2xl:text-4xl leading-tight text-slate-900 tracking-tight ${titleClassname}`}>
                         {title}
                     </h1>
 
@@ -63,7 +63,7 @@ const SectionTitle = ({ title, subtitle, className = "", section, titleClassname
             {/* Professional Subtitle */}
             {subtitle && (
                 <div className="relative max-w-3xl">
-                    <p className={`text-lg text-slate-600 font-poppins leading-relaxed font-light tracking-wide ${subtitleClassname}`}>
+                    <p className={`text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-lg text-slate-600 font-poppins leading-relaxed font-light tracking-wide ${subtitleClassname}`}>
                         {subtitle}
                     </p>
                 </div>

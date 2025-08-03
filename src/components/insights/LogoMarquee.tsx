@@ -70,7 +70,7 @@ const LogoMarquee = () => {
             {companies.map((company, index) => (
               <div
                 key={`first-${index}`}
-                className="flex items-center justify-center w-32 h-20 mx-6 relative flex-shrink-0"
+                className="flex items-center justify-center w-24 2xl:w-32 h-12 2xl:h-20 mx-6 relative flex-shrink-0"
               >
                 <Image
                   src={company.logo}
@@ -86,7 +86,22 @@ const LogoMarquee = () => {
             {companies.map((company, index) => (
               <div
                 key={`second-${index}`}
-                className="flex items-center justify-center w-32 h-20 mx-6 relative flex-shrink-0"
+                className="flex items-center justify-center w-24 2xl:w-32 h-12 2xl:h-20 mx-6 relative flex-shrink-0"
+              >
+                <Image
+                  src={company.logo}
+                  alt={`${company.name} logo`}
+                  fill
+                  className="object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  unoptimized // Since we're using external URLs
+                />
+              </div>
+            ))}
+
+            {companies.map((company, index) => (
+              <div
+                key={`second-${index}`}
+                className="flex items-center justify-center w-24 2xl:w-32 h-12 2xl:h-20 mx-6 relative flex-shrink-0"
               >
                 <Image
                   src={company.logo}

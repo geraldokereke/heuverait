@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { categoryData } from "../data/Technologies";
 import SectionTitle from "../ui/SectionTitle";
+import SectionContainer from "../ui/sectionContainer";
 
 const Technologies: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState("Mobile Apps");
@@ -23,8 +24,7 @@ const Technologies: React.FC = () => {
   ];
 
   return (
-    <div className="w-full max-w-2xl sm:max-w-3xl md:max-w-4xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-screen-2xl mx-auto px-4 md:px-10 xl:px-16 flex flex-col gap-14 sm:py-16 bg-white">
-      {/* Header */}
+    <SectionContainer className="py-16">
 
       <SectionTitle
         section="Technologies"
@@ -36,7 +36,7 @@ const Technologies: React.FC = () => {
 
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Sidebar */}
-        <div className="w-full lg:w-64 flex-shrink-0 mb-6 lg:mb-0">
+        <div className="w-full lg:w-64 xl:w-56 2xl:w-64 flex-shrink-0 mb-6 lg:mb-0">
           <div className="flex lg:block gap-2 lg:space-y-2 overflow-x-auto">
             {sidebarCategories.map((category) => {
               const IconComponent = category.icon;
@@ -44,7 +44,7 @@ const Technologies: React.FC = () => {
                 <div
                   key={category.name}
                   onClick={() => setActiveCategory(category.name)}
-                  className={`flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-full text-base sm:text-lg font-medium transition-all duration-200 cursor-pointer whitespace-nowrap font-montserrat ${activeCategory === category.name
+                  className={`flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-full text-xs xl:text-sm 2xl:text-lg font-medium transition-all duration-200 cursor-pointer whitespace-nowrap font-montserrat ${activeCategory === category.name
                       ? "bg-[#41a7ad40] text-gray-900 font-semibold"
                       : "text-gray-600 hover:bg-gray-50"
                     }`}
@@ -62,7 +62,7 @@ const Technologies: React.FC = () => {
           <div className="grid gap-8 sm:gap-12">
             {categoryData[activeCategory].sections.map((section) => (
               <div key={section.title}>
-                <h2 className="text-2xl font-montserrat sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-8">
+                <h2 className="text-2xl font-montserrat xl:text-2xl 2xl:text-3xl font-bold text-gray-900 mb-4 sm:mb-8">
                   {section.title}
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
@@ -71,7 +71,7 @@ const Technologies: React.FC = () => {
                     return (
                       <div
                         key={item.name}
-                        className="flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-full border transition-all duration-200 hover:bg-black hover:text-white cursor-pointer bg-gray-50 text-gray-700 border-gray-200"
+                        className="flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 rounded-full border transition-all duration-200 hover:bg-black hover:text-white cursor-pointer bg-gray-50 text-gray-700 border-gray-200 xl:text-sm 2xl:text-base"
                       >
                         <IconComponent size={20} />
                         <span className="font-medium font-poppins">{item.name}</span>
@@ -84,7 +84,7 @@ const Technologies: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </SectionContainer>
   );
 };
 

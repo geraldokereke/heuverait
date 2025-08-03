@@ -83,26 +83,26 @@ const Footer = () => {
     }
   ];
 
-  const linkClasses = "hover:text-[#41a7ad] transition-colors duration-200";
-  const headingClasses = "text-black font-bold mb-4 text-sm";
+  const linkClasses = "hover:text-[#41a7ad] transition-colors duration-200 text-xs 2xl:text-sm";
+  const headingClasses = "text-black font-bold mb-4 text-xs 2xl:text-sm";
   const borderClasses = "border-t border-gray-700";
 
   return (
-    <footer className="bg-gray-50 border-t border-t-gray-100 text-black py-16 px-40">
+    <footer className="bg-gray-50 border-t border-t-gray-100 text-black py-16 px-42 2xl:px-40">
       <div className="px-6">
         {/* Main Footer Content */}
         <div className="flex gap-8 mb-12 justify-between flex-wrap w-full">
           {/* Brand Section */}
-          <div className="flex flex-col items-start gap-2 md:mb-0 w-4/12">
+          <div className="flex flex-col items-start gap-3 md:mb-0 gap-2 w-3/12 2xl:w-4/12">
             <div className="flex items-center flex-shrink-0">
               <Link href="/" className="">
-                <div className="flex items-center gap-2 h-10">
+                <div className="flex items-center gap-2 h-5 md:h-3 xl:h-4 2xl:h-6">
                   <Image
                     src="/logo.png"
                     alt="Heuvera Logo"
-                    width={100}
-                    height={100}
-                    className="transition-all duration-500 ease-in-out"
+                    width={120}
+                    height={120}
+                    className="transition-all duration-500 ease-in-out h-full w-full"
                   />
                 </div>
               </Link>
@@ -112,7 +112,7 @@ const Footer = () => {
             <div className="flex space-x-3">
               {socialLinks.map(({ Icon, href }, index) => (
                 <a key={index} href={href} className={`${linkClasses} hover:text-[#41a7ad]`}>
-                  <Icon size={20} />
+                  <Icon className='size-4 2xl:size-5' />
                 </a>
               ))}
             </div>
