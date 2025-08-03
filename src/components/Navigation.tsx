@@ -27,7 +27,7 @@ const Navigation = () => {
     {
       title: "ABOUT US",
       items: [
-        { label: "Who We Are", href: "/about/who", icon: Users, description: "Learn about our company story and values" },
+        { label: "Who We Are", href: "/about/who", icon: Users, description: "Learn about our company story and values", link: "/about-us/who-we-are", },
         { label: "Our Team", href: "/about/team", icon: Users, description: "Meet the experts behind our success" },
         { label: "Mission & Vision", href: "/about/mission", icon: Star, description: "Our purpose and future aspirations" },
         { label: "Company Culture", href: "/about/culture", icon: Heart, description: "What makes us unique as a workplace" },
@@ -56,6 +56,7 @@ const Navigation = () => {
     },
     {
       title: "SOLUTIONS",
+      link: "",
       items: [
         { label: "Custom Software Development", href: "/solutions/custom", icon: Code, description: "Tailored solutions for your unique needs" },
         { label: "Web & Mobile App Development", href: "/solutions/web-mobile", icon: Globe, description: "Modern apps for web and mobile platforms" },
@@ -89,6 +90,7 @@ const Navigation = () => {
     },
     {
       title: "INDUSTRIES",
+      link: "",
       items: [
         { label: "Financial Services", href: "/industries/financial", icon: Building, description: "Banking, fintech, and financial solutions" },
         { label: "Healthcare", href: "/industries/healthcare", icon: Heart, description: "Medical technology and healthcare systems" },
@@ -120,6 +122,7 @@ const Navigation = () => {
     },
     {
       title: "WORK",
+      link: "",
       items: [
         { label: "Case Studies", href: "/work/case-studies", icon: FileText, description: "Detailed project breakdowns and results" },
         { label: "Success Stories", href: "/work/success", icon: Star, description: "Client transformations and achievements" },
@@ -149,6 +152,7 @@ const Navigation = () => {
     },
     {
       title: "RESOURCES",
+      link: "",
       items: [
         { label: "Blog & Insights", href: "/blog", icon: FileText, description: "Latest industry trends and insights" },
         { label: "Whitepapers & eBooks", href: "/resources/whitepapers", icon: BookOpen, description: "In-depth research and analysis" },
@@ -178,6 +182,7 @@ const Navigation = () => {
     },
     {
       title: "PRODUCTS",
+      link: "",
       items: [
         { label: "AI Tools & Platforms", href: "/products/ai-tools", icon: Brain, description: "Intelligent automation and analytics tools" },
         { label: "SaaS Solutions", href: "/products/saas", icon: Cloud, description: "Cloud-based software solutions" },
@@ -288,7 +293,7 @@ const Navigation = () => {
                   return (
                     <a
                       key={subItem.label}
-                      href={subItem.href}
+                      href={subItem.link}
                       className="flex items-start gap-4 p-4 rounded-xl transition-all duration-200 group/item hover:bg-slate-50 hover:shadow-sm border border-transparent hover:border-slate-100"
                     >
                       <div className="flex-shrink-0 mt-0 2xl:mt-1">
