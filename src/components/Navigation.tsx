@@ -29,10 +29,10 @@ const Navigation = () => {
       items: [
         { label: "Who We Are", href: "/about/who", icon: Users, description: "Learn about our company story and values", link: "/about-us/who-we-are", },
         { label: "Our Team", href: "/about/team", icon: Users, description: "Meet the experts behind our success" },
-        { label: "Mission & Vision", href: "/about/mission", icon: Star, description: "Our purpose and future aspirations" },
-        { label: "Company Culture", href: "/about/culture", icon: Heart, description: "What makes us unique as a workplace" },
+        // { label: "Mission & Vision", href: "/about/mission", icon: Star, description: "Our purpose and future aspirations" },
+        // { label: "Company Culture", href: "/about/culture", icon: Heart, description: "What makes us unique as a workplace" },
         { label: "Careers", href: "/careers", icon: Building, description: "Join our growing team of innovators" },
-        { label: "Partners & Alliances", href: "/partners", icon: Users, description: "Strategic partnerships that drive success" }
+        // { label: "Partners & Alliances", href: "/partners", icon: Users, description: "Strategic partnerships that drive success" }
       ],
       sidebar: {
         title: 'COMPANY HIGHLIGHTS',

@@ -88,12 +88,12 @@ const Footer = () => {
   const borderClasses = "border-t border-gray-700";
 
   return (
-    <footer className="bg-gray-50 border-t border-t-gray-100 text-black py-16  md:px-20 xl:px-42 2xl:px-40">
+    <footer className="bg-gray-50 border-t border-t-gray-100 text-black py-16  md:px-20 xl:px-42 2xl:px-56">
       <div className="px-6">
         {/* Main Footer Content */}
         <div className="flex gap-8 mb-12 justify-between flex-wrap w-full">
           {/* Brand Section */}
-          <div className="flex flex-col items-center md:items-start gap-3 md:mb-0 gap-2 w-full md:w-2/12 xl:w-3/12 2xl:w-4/12">
+          <div className="flex flex-col items-center md:items-start gap-3 md:mb-0 gap-2 w-full md:w-2/12 xl:w-3/12 2xl:w-2/12">
             <div className="flex items-center flex-shrink-0">
               <Link href="/" className="">
                 <div className="flex items-center gap-2 h-5 md:h-3 xl:h-4 2xl:h-6">
@@ -130,7 +130,7 @@ const Footer = () => {
           </div>
 
           {/* Footer Sections */}
-          <div className='grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-0'>
+          <div className='grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8'>
             {footerSections.map((section, index) => (
               <div key={index}>
                 <h3 className={headingClasses}>{section.title}</h3>
