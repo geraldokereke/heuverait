@@ -1,3 +1,4 @@
+'use client';
 import Hero from "@/components/about/hero";
 import Industries from "@/components/about/Industries";
 import LogoMarquee from "@/components/about/LogoMarquee";

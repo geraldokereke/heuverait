@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronDown, Menu, X, ChevronRight, ArrowRight, Code, Globe, Brain, Cloud, Shield, Users, BarChart, Headphones, HardDrive, Building, GraduationCap, Heart, Scale, MapPin, ShoppingCart, Factory, FileText, Calendar, Wrench, Laptop, BookOpen, Phone, Star, Zap, Award, TrendingUp, Rocket, Target, CheckCircle, Briefcase } from "lucide-react";
+import { ChevronDown, Menu, X, ChevronRight, ArrowRight, Code, Globe, Brain, Cloud, Shield, Users, BarChart, Headphones, HardDrive, Building, GraduationCap, Heart, Scale, MapPin, ShoppingCart, Factory, FileText, Calendar, Wrench, Laptop, BookOpen, Phone, Star, Zap, Award, TrendingUp, Rocket, Target, CheckCircle, Briefcase, Mail, Smartphone, Truck } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import ComingSoonModal from "./ComingSoonModal";
@@ -31,11 +31,19 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
+    // ...existing dropdown sections...
+    {
+      title: "CONTACT US",
+      href: "/contact-us",
+      icon: Mail,
+      items: [],
+      sidebar: null
+    },
     {
       title: "ABOUT US",
       items: [
-        { label: "Who We Are", href: "/about/who", icon: Users, description: "Learn about our company story and values", link: "/about-us/who-we-are", },
-        { label: "Our Team", href: "/about/team", icon: Users, description: "Meet the experts behind our success", link: "/about-us/team", },
+        { label: "Who We Are", href: "/about-us/who-we-are", icon: Users, description: "Learn about our company story and values" },
+        { label: "Our Team", href: "/about-us/team", icon: Users, description: "Meet the experts behind our success" },
         // { label: "Mission & Vision", href: "/about/mission", icon: Star, description: "Our purpose and future aspirations" },
         // { label: "Company Culture", href: "/about/culture", icon: Heart, description: "What makes us unique as a workplace" },
         { label: "Careers", href: "/careers", icon: Building, description: "Join our growing team of innovators" },
@@ -63,17 +71,13 @@ const Navigation = () => {
     },
     {
       title: "SOLUTIONS",
-      link: "",
+      href: "",
       items: [
+        { label: "Cloud Solutions", href: "/solutions/cloud", icon: Cloud, description: "Enterprise-grade cloud migration and infrastructure" },
         { label: "Custom Software Development", href: "/solutions/custom", icon: Code, description: "Tailored solutions for your unique needs" },
         { label: "Web & Mobile App Development", href: "/solutions/web-mobile", icon: Globe, description: "Modern apps for web and mobile platforms" },
-        { label: "AI & Machine Learning Solutions", href: "/solutions/ai-ml", icon: Brain, description: "Intelligent systems that learn and adapt" },
-        { label: "Cloud Services", href: "/solutions/cloud", icon: Cloud, description: "Scalable cloud infrastructure and migration" },
-        { label: "Cybersecurity", href: "/solutions/cybersecurity", icon: Shield, description: "Comprehensive security for digital assets" },
-        { label: "IT Consulting", href: "/solutions/it-consulting", icon: Users, description: "Strategic technology guidance and planning" },
-        { label: "Data Analytics & BI", href: "/solutions/data-analytics", icon: BarChart, description: "Transform data into actionable insights" },
-        { label: "Outsourcing & BPO", href: "/solutions/outsourcing", icon: Headphones, description: "Efficient business process optimization" },
-        { label: "Hardware & Infrastructure", href: "/solutions/hardware", icon: HardDrive, description: "Robust IT infrastructure solutions" }
+        { label: "AI & Machine Learning", href: "/solutions/ai-ml", icon: Brain, description: "Intelligent systems that learn and adapt" },
+        // Add more solution subpages here as created
       ],
       sidebar: {
         title: 'FEATURED SOLUTIONS',
@@ -97,15 +101,14 @@ const Navigation = () => {
     },
     {
       title: "INDUSTRIES",
-      link: "",
+      href: "",
       items: [
-        { label: "Financial Services", href: "/industries/financial", icon: Building, description: "Banking, fintech, and financial solutions" },
-        { label: "Healthcare", href: "/industries/healthcare", icon: Heart, description: "Medical technology and healthcare systems" },
-        { label: "Education", href: "/industries/education", icon: GraduationCap, description: "EdTech and learning management systems" },
-        { label: "Government & Public Sector", href: "/industries/government", icon: MapPin, description: "Public service digital transformation" },
-        { label: "Legal & Compliance", href: "/industries/legal", icon: Scale, description: "Legal tech and compliance solutions" },
-        { label: "E-commerce", href: "/industries/ecommerce", icon: ShoppingCart, description: "Online retail and marketplace platforms" },
-        { label: "Engineering & Manufacturing", href: "/industries/engineering", icon: Factory, description: "Industrial automation and IoT solutions" }
+        { label: "Healthcare", href: "/industries/healthcare", icon: Heart, description: "Digital transformation in healthcare" },
+        { label: "Finance & Fintech", href: "/industries/finance", icon: Building, description: "Banking, fintech, and financial solutions" },
+        { label: "Manufacturing", href: "/industries/manufacturing", icon: Factory, description: "Smart factories and industrial automation" },
+        { label: "Retail & E-Commerce", href: "/industries/retail", icon: ShoppingCart, description: "Modern retail and digital commerce" },
+        { label: "Logistics & Supply Chain", href: "/industries/logistics", icon: Truck, description: "Supply chain and logistics innovation" },
+        // Add more industry subpages here as created
       ],
       sidebar: {
         title: 'SUCCESS STORIES',
@@ -129,13 +132,11 @@ const Navigation = () => {
     },
     {
       title: "WORK",
-      link: "",
+      href: "",
       items: [
-        { label: "Case Studies", href: "/work/case-studies", icon: FileText, description: "Detailed project breakdowns and results" },
-        { label: "Success Stories", href: "/work/success", icon: Star, description: "Client transformations and achievements" },
-        { label: "Client Testimonials", href: "/work/testimonials", icon: Heart, description: "What our clients say about us" },
-        { label: "Project Showcase", href: "/work/showcase", icon: Globe, description: "Visual portfolio of our best work" },
-        { label: "Portfolio", href: "/work/portfolio", icon: Briefcase, description: "Our work so far and what we have done" }
+        { label: "Project Portfolio", href: "/work/portfolio", icon: Briefcase, description: "Showcase of our most impactful projects" },
+        { label: "Awards & Recognition", href: "/work/awards", icon: Award, description: "Industry accolades and client recognition" },
+        // Add more work subpages here as created
       ],
       sidebar: {
         title: 'CLIENT SPOTLIGHT',
@@ -159,13 +160,12 @@ const Navigation = () => {
     },
     {
       title: "RESOURCES",
-      link: "",
+      href: "",
       items: [
-        { label: "Blog & Insights", href: "/blog", icon: FileText, description: "Latest industry trends and insights" },
-        { label: "Whitepapers & eBooks", href: "/resources/whitepapers", icon: BookOpen, description: "In-depth research and analysis" },
-        { label: "Industry Reports", href: "/resources/reports", icon: BarChart, description: "Market research and data insights" },
-        { label: "Events & Webinars", href: "/resources/events", icon: Calendar, description: "Educational events and workshops" },
-        { label: "Technical Guides", href: "/resources/guides", icon: Wrench, description: "Step-by-step implementation guides" }
+        { label: "Whitepapers & Insights", href: "/resources/whitepapers", icon: BookOpen, description: "In-depth research and technical analysis" },
+        { label: "Case Studies", href: "/resources/case-studies", icon: FileText, description: "Real-world client success stories" },
+        { label: "Guides & Tutorials", href: "/resources/guides", icon: Wrench, description: "Step-by-step implementation guides" },
+        // Add more resource subpages here as created
       ],
       sidebar: {
         title: 'LATEST INSIGHTS',
@@ -189,13 +189,12 @@ const Navigation = () => {
     },
     {
       title: "PRODUCTS",
-      link: "",
+      href: "",
       items: [
-        { label: "AI Tools & Platforms", href: "/products/ai-tools", icon: Brain, description: "Intelligent automation and analytics tools" },
-        { label: "SaaS Solutions", href: "/products/saas", icon: Cloud, description: "Cloud-based software solutions" },
-        { label: "Educational Software", href: "/products/educational", icon: GraduationCap, description: "Learning management and educational tools" },
-        { label: "Business Tools", href: "/products/business", icon: Wrench, description: "Productivity and workflow optimization" },
-        { label: "Rental Marketplace", href: "/products/rental", icon: ShoppingCart, description: "Advanced marketplace platform solutions" }
+        { label: "SaaS Platform", href: "/products/saas-platform", icon: Cloud, description: "Cloud-native SaaS for enterprise scale" },
+        { label: "Mobile App Suite", href: "/products/mobile-suite", icon: Smartphone, description: "High-performance mobile business apps" },
+        { label: "Analytics Suite", href: "/products/analytics-suite", icon: BarChart, description: "Advanced analytics and BI tools" },
+        // Add more product subpages here as created
       ],
       sidebar: {
         title: 'PRODUCT SPOTLIGHT',
@@ -329,7 +328,7 @@ const Navigation = () => {
                   return (
                     <a
                       key={subItem.label}
-                      href={subItem.link}
+                      href={subItem.href}
                       className="flex items-start gap-4 p-4 rounded-xl transition-all duration-200 group/item hover:bg-slate-50 hover:shadow-sm border border-transparent hover:border-slate-100"
                     >
                       <div className="flex-shrink-0 mt-0 2xl:mt-1">
