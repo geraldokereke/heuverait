@@ -6,18 +6,18 @@ import Image from "next/image";
 
 export default function Hero() {
     const { scrollY } = useScroll();
-    const y = useTransform(scrollY, [0, 500], [0, 200]);
-    const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-    const scale = useTransform(scrollY, [0, 500], [1, 1.1]);
+    const y = useTransform(scrollY, [0, 250], [0, 100]);
+    const opacity = useTransform(scrollY, [0, 150], [1, 0]);
+    const scale = useTransform(scrollY, [0, 250], [1, 1.1]);
 
     return (
-        <div className="relative min-h-screen overflow-hidden">
+        <div className="relative h-[50vh] overflow-hidden">
             {/* Parallax Background */}
             <motion.div
                 style={{ y, scale }}
                 className="absolute inset-0 w-full h-full"
             >
-                <div className="absolute w-full h-screen inset-0">
+                <div className="absolute w-full h-full inset-0">
                     <Image
                         src="/case.jpg"
                         alt="Hero Background"
@@ -35,7 +35,7 @@ export default function Hero() {
             {/* Content */}
             <motion.div
                 style={{ opacity }}
-                className="relative z-10 h-screen flex items-center"
+                className="relative z-10 h-full flex items-center"
             >
                 <SectionContainer className="w-full">
                     <div className="max-w-4xl text-center lg:text-start">
@@ -110,23 +110,6 @@ export default function Hero() {
                     className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-xl"
                 />
             </div>
-
-            {/* Scroll indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5 }}
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
-            >
-                <motion.div
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="flex flex-col items-center text-white/70 hover:text-white transition-colors cursor-pointer"
-                >
-                    <span className="text-sm mb-2 font-medium">Scroll</span>
-                    <div className="w-px h-12 bg-gradient-to-b from-white/70 to-transparent" />
-                </motion.div>
-            </motion.div>
         </div>
     );
 }

@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronDown, Menu, X, ChevronRight, ArrowRight, Code, Globe, Brain, Cloud, Shield, Users, BarChart, Headphones, HardDrive, Building, GraduationCap, Heart, Scale, MapPin, ShoppingCart, Factory, FileText, Calendar, Wrench, Laptop, BookOpen, Phone, Star, Zap, Award, TrendingUp, Rocket, Target, CheckCircle } from "lucide-react";
+import { ChevronDown, Menu, X, ChevronRight, ArrowRight, Code, Globe, Brain, Cloud, Shield, Users, BarChart, Headphones, HardDrive, Building, GraduationCap, Heart, Scale, MapPin, ShoppingCart, Factory, FileText, Calendar, Wrench, Laptop, BookOpen, Phone, Star, Zap, Award, TrendingUp, Rocket, Target, CheckCircle, Briefcase } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import ComingSoonModal from "./ComingSoonModal";
 
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -13,6 +14,12 @@ const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<number | null>(null);
+  const [comingSoonOpen, setComingSoonOpen] = useState(false);
+
+  const handleCareersClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setComingSoonOpen(true);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -128,7 +135,7 @@ const Navigation = () => {
         { label: "Success Stories", href: "/work/success", icon: Star, description: "Client transformations and achievements" },
         { label: "Client Testimonials", href: "/work/testimonials", icon: Heart, description: "What our clients say about us" },
         { label: "Project Showcase", href: "/work/showcase", icon: Globe, description: "Visual portfolio of our best work" },
-        { label: "Our Impact", href: "/work/impact", icon: BarChart, description: "Measurable results and business value" }
+        { label: "Portfolio", href: "/work/portfolio", icon: Briefcase, description: "Our work so far and what we have done" }
       ],
       sidebar: {
         title: 'CLIENT SPOTLIGHT',
@@ -290,6 +297,35 @@ const Navigation = () => {
               <div className="grid grid-cols-2 gap-0 xl:gap-3">
                 {item.items?.map((subItem: any) => {
                   const IconComponent = subItem.icon;
+                  if (subItem.label === "Careers") {
+                    return (
+                      <button
+                        key={subItem.label}
+                        className="flex items-start gap-4 p-4 rounded-xl transition-all duration-200 group/item hover:bg-slate-50 hover:shadow-sm border border-transparent hover:border-slate-100 w-full text-left"
+                        onClick={handleCareersClick}
+                        type="button"
+                      >
+                        <div className="flex-shrink-0 mt-0 2xl:mt-1">
+                          {IconComponent && (
+                            <div className="size-6 xl:size-8 2xl:size-10 rounded-lg bg-slate-100 group-hover/item:bg-[#41a7ad] transition-colors duration-200 flex items-center justify-center">
+                              <IconComponent className="size-3 xl:size-4 2xl:size-5 text-slate-600 group-hover/item:text-white transition-colors duration-200" />
+                            </div>
+                          )}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between mb-0 2xl:mb-1">
+                            <h3 className="text-[10px] xl:text-xs 2xl:text-sm font-semibold text-slate-900 group-hover/item:text-[#41a7ad] transition-colors duration-200">
+                              {subItem.label}
+                            </h3>
+                            <ChevronRight className="size-4 text-slate-400 group-hover/item:text-[#41a7ad] opacity-0 group-hover/item:opacity-100 transform -translate-x-2 group-hover/item:translate-x-0 transition-all duration-200 flex-shrink-0" />
+                          </div>
+                          <p className="text-[8px] xl:text-[10px] 2xl:text-xs text-slate-600 leading-relaxed">
+                            {subItem.description}
+                          </p>
+                        </div>
+                      </button>
+                    );
+                  }
                   return (
                     <a
                       key={subItem.label}
@@ -487,6 +523,8 @@ const Navigation = () => {
 
   return (
     <div className="relative">
+      {/* Modal for Coming Soon */}
+      <ComingSoonModal open={comingSoonOpen} onClose={() => setComingSoonOpen(false)} />
 
       {/* Navigation */}
       <nav className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-0 ${getNavbarStyles()}`}>
@@ -603,16 +641,33 @@ const Navigation = () => {
                       </button>
                       {mobileOpenDropdown === index && (
                         <div className="mt-2 ml-4 space-y-1 animate-fade-in">
-                          {item.items.map((subItem, subIndex) => (
-                            <a
-                              key={subIndex}
-                              href={subItem.href}
-                              className="block px-4 py-2 text-sm text-slate-600 hover:text-[#41a7ad] hover:bg-slate-50 rounded-lg transition-colors duration-200"
-                              onClick={closeMobileMenu}
-                            >
-                              {subItem.label}
-                            </a>
-                          ))}
+                          {item.items.map((subItem, subIndex) => {
+                            if (subItem.label === "Careers") {
+                              return (
+                                <button
+                                  key={subIndex}
+                                  className="block px-4 py-2 text-sm text-slate-600 hover:text-[#41a7ad] hover:bg-slate-50 rounded-lg transition-colors duration-200 w-full text-left"
+                                  onClick={() => {
+                                    setComingSoonOpen(true);
+                                    closeMobileMenu();
+                                  }}
+                                  type="button"
+                                >
+                                  {subItem.label}
+                                </button>
+                              );
+                            }
+                            return (
+                              <a
+                                key={subIndex}
+                                href={subItem.href}
+                                className="block px-4 py-2 text-sm text-slate-600 hover:text-[#41a7ad] hover:bg-slate-50 rounded-lg transition-colors duration-200"
+                                onClick={closeMobileMenu}
+                              >
+                                {subItem.label}
+                              </a>
+                            );
+                          })}
                         </div>
                       )}
                     </div>
@@ -642,7 +697,7 @@ const Navigation = () => {
                   >
                     info@heuvera.com
                   </a>
-                  <p className="text-xs text-slate-500 mt-2">© 2024 Heuvera. All rights reserved.</p>
+                  <p className="text-xs text-slate-500 mt-2"> 2024 Heuvera. All rights reserved.</p>
                 </div>
               </div>
             </div>

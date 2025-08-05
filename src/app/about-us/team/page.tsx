@@ -21,7 +21,7 @@ export default function OurTeam() {
                         Each leader brings unparalleled expertise and an unwavering commitment to excellence.'
                 />
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                     {teamMembers.map((member, index) => (
                         <TeamMemberCard key={member.id} member={member} index={index} />
                     ))}

@@ -151,12 +151,12 @@ const CultureSection: React.FC = () => {
                                     onClick={() => handleValueClick(index)}
                                 >
                                     <div
-                                        className={`w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-lg border-4 transition-all duration-500 ${selectedValue === index
+                                        className={`size-14 2xl:size-16 rounded-full flex items-center justify-center text-2xl shadow-lg border-4 transition-all duration-500 ${selectedValue === index
                                             ? `${value.bgColor} border-current ${value.textColor} shadow-xl`
                                             : 'bg-white border-slate-200 hover:shadow-lg'
                                             }`}
                                     >
-                                        <IconComponent size={24} />
+                                        <IconComponent className='size-5 2xl:size-6' />
                                     </div>
 
                                     {/* Connection Lines */}
@@ -194,17 +194,17 @@ const CultureSection: React.FC = () => {
                                         className={`transition-all duration-300 ${selectedValue === index ? 'scale-110' : ''
                                             }`}
                                     >
-                                        <IconComponent size={24} />
+                                        <IconComponent className='size-5 2xl:size-6' />
                                     </div>
                                     <div className="flex-1">
                                         <h3
-                                            className={`text-xl font-bold mb-3 transition-colors duration-300 ${selectedValue === index ? value.textColor : 'text-slate-900'
+                                            className={`text-sm 2xl:text-xl font-bold mb-1 2xl:mb-3 transition-colors duration-300 ${selectedValue === index ? value.textColor : 'text-slate-900'
                                                 }`}
                                         >
                                             {value.title}
                                         </h3>
                                         <p
-                                            className={`leading-relaxed transition-colors duration-300 ${selectedValue === index ? 'text-slate-700' : 'text-slate-600'
+                                            className={`text-xs 2xl:text-base leading-relaxed transition-colors duration-300 ${selectedValue === index ? 'text-slate-700' : 'text-slate-600'
                                                 }`}
                                         >
                                             {value.description}
@@ -214,7 +214,7 @@ const CultureSection: React.FC = () => {
 
                                 {/* Selection Indicator */}
                                 <div
-                                    className={`absolute right-4 top-4 w-3 h-3 rounded-full transition-all duration-300 ${selectedValue === index ? `bg-gradient-to-r ${value.color}` : 'bg-slate-300'
+                                    className={`absolute right-4 top-4 size-2 2xl:size-3 rounded-full transition-all duration-300 ${selectedValue === index ? `bg-gradient-to-r ${value.color}` : 'bg-slate-300'
                                         }`}
                                 />
                             </div>
@@ -226,7 +226,7 @@ const CultureSection: React.FC = () => {
                         {values.map((_, index) => (
                             <button
                                 key={index}
-                                className={`w-2 h-2 rounded-full transition-all duration-300 ${selectedValue === index ? 'bg-[#41a7ad] w-8' : 'bg-[#41a7ad30]'
+                                className={`size-1.5 2xl:size-2 rounded-full transition-all duration-300 ${selectedValue === index ? 'bg-[#41a7ad] w-6 2xl:w-8' : 'bg-[#41a7ad30]'
                                     }`}
                                 onClick={() => handleValueClick(index)}
                             />
