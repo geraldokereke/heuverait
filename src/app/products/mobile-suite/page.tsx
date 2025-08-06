@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Smartphone } from 'lucide-react';
 import SectionContainer from '@/components/ui/sectionContainer';

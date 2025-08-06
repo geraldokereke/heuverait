@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Server } from 'lucide-react';
 import SectionContainer from '@/components/ui/sectionContainer';
