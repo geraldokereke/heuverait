@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { BookOpen } from 'lucide-react';
 import SectionContainer from '@/components/ui/sectionContainer';
