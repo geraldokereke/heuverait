@@ -4,12 +4,14 @@ import React from 'react';
 import { Briefcase } from 'lucide-react';
 import SectionContainer from '@/components/ui/sectionContainer';
 import SectionTitle from '@/components/ui/SectionTitle';
+import Image from 'next/image';
 
 export default function PortfolioWork() {
   return (
     <>
       {/* HERO SECTION - Elegant, Inspiring, Distinct */}
       <div className="relative min-h-[60vh] md:min-h-[70vh] flex items-center bg-gradient-to-br from-[#f8fafc] via-[#dbeafe] to-[#f8fafc] overflow-hidden">
+        <Image src="https://images.unsplash.com/photo-1718220216044-006f43e3a9b1?q=80&w=1680&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Portfolio" className="absolute right-0 bottom-0 w-1/3 max-w-xs md:max-w-md opacity-70 hidden md:block" />
         <SectionContainer className="z-10 w-full flex flex-col items-center justify-center text-center py-16 md:py-28">
           <Briefcase size={54} className="text-primary mx-auto mb-4" />
           <h1 className="text-4xl md:text-5xl font-extrabold text-blue-900 mb-4 drop-shadow-lg">Project Portfolio</h1>
@@ -17,7 +19,6 @@ export default function PortfolioWork() {
             Showcasing our most impactful digital solutions and successful client partnerships across industries.
           </p>
         </SectionContainer>
-        <img src="/work-portfolio-hero.jpg" alt="Portfolio" className="absolute right-0 bottom-0 w-1/3 max-w-xs md:max-w-md opacity-70 hidden md:block" />
       </div>
 
       {/* SECTION 1: Featured Projects */}

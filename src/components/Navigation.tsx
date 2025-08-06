@@ -31,14 +31,6 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    // ...existing dropdown sections...
-    {
-      title: "CONTACT US",
-      href: "/contact-us",
-      icon: Mail,
-      items: [],
-      sidebar: null
-    },
     {
       title: "ABOUT US",
       items: [
@@ -570,14 +562,14 @@ const Navigation = () => {
               ))}
 
               {/* Contact Link */}
-              <a
-                href="#contact"
+              <Link
+                href="/contact-us"
                 className={`px-3 py-2 text-[6px] xl:text-[8px] 2xl:text-sm font-medium rounded-lg transition-colors duration-0 relative group whitespace-nowrap ${getTextStyles()} hover:bg-opacity-10`}
                 onMouseEnter={() => handleMouseEnter('CONTACT', false)}
               >
                 CONTACT
                 <span className={`absolute inset-x-3 bottom-0 h-0.5 ${getUnderlineColor()} transition-transform duration-200 origin-left scale-x-0 group-hover:scale-x-100`}></span>
-              </a>
+              </Link>
             </div>
 
             {/* CTA Button and Mobile Menu */}
