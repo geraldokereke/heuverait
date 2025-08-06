@@ -2,29 +2,30 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import SectionContainer from "../ui/sectionContainer";
+import SectionContainer from "./ui/sectionContainer";
 
 interface HeroProps {
     imgLink: string;
     section: string;
     title: string;
     description: string;
+    height: string;
 }
 
-export default function Hero({ imgLink, section, title, description }: HeroProps) {
+export default function Hero({ imgLink, section, title, description, height }: HeroProps) {
     const { scrollY } = useScroll();
     const y = useTransform(scrollY, [0, 500], [0, 200]);
     const opacity = useTransform(scrollY, [0, 300], [1, 0]);
     const scale = useTransform(scrollY, [0, 500], [1, 1.1]);
 
     return (
-        <div className="relative min-h-screen overflow-hidden">
+        <div className={`relative ${height} overflow-hidden`}>
             {/* Parallax Background */}
             <motion.div
                 style={{ y, scale }}
                 className="absolute inset-0 w-full h-full"
             >
-                <div className="absolute w-full h-screen inset-0">
+                <div className={`absolute w-full ${height} inset-0`}>
                     <Image
                         src={imgLink}
                         alt="Hero Background"
@@ -42,7 +43,7 @@ export default function Hero({ imgLink, section, title, description }: HeroProps
             {/* Content */}
             <motion.div
                 style={{ opacity }}
-                className="relative z-10 h-screen flex items-center"
+                className={`relative z-10 ${height} flex items-center`}
             >
                 <SectionContainer className="w-full">
                     <div className="max-w-4xl text-center lg:text-start">

@@ -9,7 +9,7 @@ import SectionContainer from "@/components/ui/sectionContainer";
 export default function WhoWeAre() {
     return (
         <>
-            <Hero imgLink="/case.jpg" section="Who We Are" title="About Heuvera" description="We are a digital transformation consultancy and engineering company that delivers cutting-edge solutions for global organisations and technology startups. Since 2024 we have been helping companies and established brands reimagine their business through digitalisation." />
+            <Hero height="min-h-screen" imgLink="/case.jpg" section="Who We Are" title="About Heuvera" description="We are a digital transformation consultancy and engineering company that delivers cutting-edge solutions for global organisations and technology startups. Since 2024 we have been helping companies and established brands reimagine their business through digitalisation." />
             <SectionContainer className="pb-20">
                 <MissionsVisions />
                 <LogoMarquee />
