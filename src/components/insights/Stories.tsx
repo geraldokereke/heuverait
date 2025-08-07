@@ -39,7 +39,7 @@ export const Stories = () => {
               quality={100}
             />
             {/* Darkened overlay */}
-            <div className="absolute inset-0 bg-[#41a7ad90]" />
+            <div className="absolute inset-0 bg-[#00000090]" />
           </div>
         </motion.div>
         <SectionContainer>
@@ -52,7 +52,7 @@ export const Stories = () => {
               subtitle="Real impact, measurable results"
               subtitleClassname="text-white"
             />
-            <button className="group text-[10px] xl:text-xs 2xl:text-base text-white font-semibold flex items-center hover:text-black transition-colors duration-300">
+            <button className="group text-[10px] xl:text-xs 2xl:text-base text-white font-semibold flex items-center hover:text-[#41a7ad] transition-colors duration-300">
               View All Case Studies
             </button>
           </div>

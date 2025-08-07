@@ -8,7 +8,7 @@ interface HeroProps {
     imgLink: string;
     section: string;
     title: string;
-    description: string;
+    description?: string;
     height: string;
 }
 
@@ -120,23 +120,6 @@ export default function Hero({ imgLink, section, title, description, height }: H
                     className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-xl"
                 />
             </div>
-
-            {/* Scroll indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5 }}
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
-            >
-                <motion.div
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="flex flex-col items-center text-white/70 hover:text-white transition-colors cursor-pointer"
-                >
-                    <span className="text-sm mb-2 font-medium">Scroll</span>
-                    <div className="w-px h-12 bg-gradient-to-b from-white/70 to-transparent" />
-                </motion.div>
-            </motion.div>
         </div>
     );
 }

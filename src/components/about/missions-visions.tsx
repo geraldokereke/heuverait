@@ -4,6 +4,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import SectionTitle from "../ui/SectionTitle";
+import SideImage from "../ui/SideImage";
 
 export default function MissionsVisions() {
     const ref = useRef(null);
@@ -196,38 +197,11 @@ export default function MissionsVisions() {
                         </div>
                     </motion.div>
 
-                    {/* Side Image */}
-                    <motion.div
-                        variants={imageVariants}
-                        initial="hidden"
-                        animate={isInView ? "visible" : "hidden"}
-                        className="lg:col-span-1 relative h-full"
-                    >
-                        <div className="relative group h-full">
-                            {/* Main image container with unique shape */}
-                            <div className="relative h-[350px] md:h-[700px] lg:h-[360px] xl:h-[400px] 2xl:h-[600px] w-full">
-
-                                <AnimatePresence mode="wait">
-                                    <motion.div
-                                        key={`${currentView}-image`}
-                                        variants={imageTransitionVariants}
-                                        initial={{ opacity: 0, scale: 0.95 }}
-                                        animate="enter"
-                                        exit="exit"
-                                        className="absolute inset-0"
-                                    >
-                                        <Image
-                                            src={currentContent.image}
-                                            alt={currentContent.alt}
-                                            fill
-                                            className="object-cover group-hover:scale-110 transition-transform duration-700 rounded-tr-4xl rounded-bl-4xl"
-                                        />
-                                    </motion.div>
-                                </AnimatePresence>
-
-                            </div>
-                        </div>
-                    </motion.div>
+                    <SideImage
+                        imgsrc={currentContent.image}
+                        key={currentContent.alt}
+                        borderSide="right"
+                    />
                 </div>
             </div>
         </section>

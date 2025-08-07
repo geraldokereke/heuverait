@@ -1,73 +1,75 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Briefcase } from 'lucide-react';
-import SectionContainer from '@/components/ui/sectionContainer';
-import SectionTitle from '@/components/ui/SectionTitle';
-import Image from 'next/image';
+import React from "react";
+import { Briefcase } from "lucide-react";
+import SectionContainer from "@/components/ui/sectionContainer";
+import SectionTitle from "@/components/ui/SectionTitle";
+import Image from "next/image";
+import Hero from "@/components/hero";
+import Link from "next/link";
+import { projectsData } from "@/data/projectsData";
 
 export default function PortfolioWork() {
   return (
     <>
-      {/* HERO SECTION - Elegant, Inspiring, Distinct */}
-      <div className="relative min-h-[60vh] md:min-h-[70vh] flex items-center bg-gradient-to-br from-[#f8fafc] via-[#dbeafe] to-[#f8fafc] overflow-hidden">
-        <Image src="https://images.unsplash.com/photo-1718220216044-006f43e3a9b1?q=80&w=1680&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Portfolio" className="absolute right-0 bottom-0 w-1/3 max-w-xs md:max-w-md opacity-70 hidden md:block" />
-        <SectionContainer className="z-10 w-full flex flex-col items-center justify-center text-center py-16 md:py-28">
-          <Briefcase size={54} className="text-primary mx-auto mb-4" />
-          <h1 className="text-4xl md:text-5xl font-extrabold text-blue-900 mb-4 drop-shadow-lg">Project Portfolio</h1>
-          <p className="text-lg md:text-2xl font-light text-blue-800 max-w-2xl mx-auto mb-6 md:mb-8">
-            Showcasing our most impactful digital solutions and successful client partnerships across industries.
-          </p>
-        </SectionContainer>
-      </div>
-
+      <Hero
+        imgLink="https://images.unsplash.com/photo-1718220216044-006f43e3a9b1?q=80&w=1680&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        height="h-[50vh]"
+        section="Portfolio"
+        title="Heuvera's Portfolio"
+        description="Showcasing our most impactful digital solutions and successful client partnerships across industries."
+      />
       {/* SECTION 1: Featured Projects */}
       <SectionContainer className="py-10 md:py-16 border-b">
         <SectionTitle
           section="Highlights"
           title="Featured Projects"
           subtitle="A selection of our most innovative and high-impact work."
-          className="mb-12 text-center"
         />
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Project 1 */}
-          <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col">
-            <h3 className="text-2xl font-semibold mb-2">Global E-Commerce Platform</h3>
-            <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd9?w=400&q=80" alt="E-Commerce" className="rounded-lg shadow mb-4 w-full h-40 object-cover" />
-            <p className="text-blue-800 mb-4">
-              Built a scalable e-commerce platform serving millions worldwide, with advanced analytics and seamless checkout.
-            </p>
-          </div>
-          {/* Project 2 */}
-          <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col">
-            <h3 className="text-2xl font-semibold mb-2">AI-Driven Healthcare Portal</h3>
-            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=400&q=80" alt="Healthcare Portal" className="rounded-lg shadow mb-4 w-full h-40 object-cover" />
-            <p className="text-blue-800 mb-4">
-              Delivered a HIPAA-compliant portal with AI triage and telemedicine, improving patient outcomes and access.
-            </p>
-          </div>
-        </div>
-      </SectionContainer>
-
-      {/* SECTION 2: Client Testimonials */}
-      <SectionContainer className="py-10 md:py-16">
-        <SectionTitle
-          section="Testimonials"
-          title="Client Success Stories"
-          subtitle="Hear from the organizations we've helped transform."
-          className="mb-12 text-center"
-        />
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Testimonial 1 */}
-          <div className="bg-blue-50 rounded-xl shadow-lg p-8 flex flex-col">
-            <p className="text-lg text-blue-900 mb-4">“Their expertise and commitment helped us launch on time and exceed our KPIs. We couldn’t have asked for a better partner.”</p>
-            <span className="font-semibold text-blue-800">— CTO, Global Retailer</span>
-          </div>
-          {/* Testimonial 2 */}
-          <div className="bg-blue-50 rounded-xl shadow-lg p-8 flex flex-col">
-            <p className="text-lg text-blue-900 mb-4">“The team’s technical skill and communication set them apart. Our new platform is a game-changer for our business.”</p>
-            <span className="font-semibold text-blue-800">— COO, Healthcare Network</span>
-          </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {projectsData.slice(0, 4).map((project) => (
+            <Link
+              key={project.slug}
+              href={`/portfolio/${project.slug}`}
+              className="bg-white rounded-xl shadow-lg flex flex-col min-h-fit relative group overflow-hidden cursor-pointer"
+            >
+              {project.image && (
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  className="w-full h-56 object-cover"
+                  width={1000}
+                  height={600}
+                />
+              )}
+              
+              {project.logo && (
+                <Image
+                  src={project.logo}
+                  alt={`${project.name} Logo`}
+                  className="size-24 opacity-90 absolute left-1/2 transform -translate-x-1/2 top-40 rounded-xl transition-all duration-500 ease-in-out group-hover:w-full group-hover:h-56 group-hover:top-0 group-hover:rounded-none group-hover:opacity-80 shadow shadow-md"
+                  width={100}
+                  height={100}
+                />
+              )}
+              <div className="w-full text-center px-2 relative z-10 pt-10 h-36">
+                <h3 className="text-base font-semibold font-montserrat mb-2">
+                  {project.name}
+                </h3>
+                <p className="text-slate-800 text-sm">{project.description}</p>
+              </div>
+              {/* Read More - animated on hover */}
+              <div className="text-center relative z-10 mb-5">
+                <h1 className="text-white hover:underline cursor-pointer text-sm opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                  Read More
+                </h1>
+                {/* Animated Read More on hover */}
+                <h1 className="text-blue-500 font-montserrat uppercase hover:underline cursor-pointer text-xs font-semibold absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                  Read More
+                </h1>
+              </div>
+            </Link>
+          ))}
         </div>
       </SectionContainer>
     </>
