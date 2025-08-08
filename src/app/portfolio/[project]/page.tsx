@@ -7,12 +7,14 @@ import Text from "@/components/ui/text";
 import CTA from "@/components/ui/cta";
 
 interface ProjectPageProps {
-  params: { project: string };
+  params: Promise<{ project: string }>;
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { project: projectSlug } = await params;
+  
   const project = projectsData.find(
-    (p) => p.slug === params.project
+    (p) => p.slug === projectSlug
   );
 
   if (!project) return notFound();

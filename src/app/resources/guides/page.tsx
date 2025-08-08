@@ -2,20 +2,24 @@
 
 import React, { useState } from 'react';
 import { Book, Search, Clock, User, ChevronRight, Download, ExternalLink, Filter } from 'lucide-react';
-import { categories } from '@/components/data/Reesources';
+import { resourceGuides as guides } from '@/components/data/Reesources'; // Import guides data
 
 export default function GuidesResources() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const filteredGuides = guides.filter(guide => {
-    const matchesCategory = selectedCategory === 'all' || guide.category === selectedCategory;
+    // Since there's no category property, we'll filter by difficulty or tags
+    const matchesCategory = selectedCategory === 'all' || 
+      guide.difficulty.toLowerCase() === selectedCategory.toLowerCase() ||
+      guide.tags.some(tag => tag.toLowerCase() === selectedCategory.toLowerCase());
     const matchesSearch = guide.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       guide.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
       guide.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
 
-  const featuredGuides = guides.filter(guide => guide.featured);
+  // Since there's no featured property, let's show the first 3 guides as featured
+  const featuredGuides = guides.slice(0, 3);
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
@@ -69,9 +73,9 @@ export default function GuidesResources() {
           <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-8">Featured Guides</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredGuides.map((guide) => (
-              <div key={guide.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group border-2 border-transparent hover:border-gradient-to-r hover:from-purple-400 hover:to-pink-400">
+              <div key={guide.slug} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group border-2 border-transparent hover:border-gradient-to-r hover:from-purple-400 hover:to-pink-400">
                 <div className="relative">
-                  <img src={guide.image} alt={guide.title} className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
+                  <img src='https://images.unsplash.com/photo-1481487196290-c152efe083f5?auto=format&fit=crop&w=800&q=80' alt={guide.title} className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
                   <div className="absolute top-4 left-4">
                     <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg animate-pulse">
                       ⭐ Featured
@@ -100,10 +104,13 @@ export default function GuidesResources() {
                       </span>
                     ))}
                   </div>
-                  <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg font-semibold hover:from-purple-600 hover:to-pink-600 transition-all shadow-md flex items-center gap-2 group-hover:gap-3 transform hover:scale-105">
+                  <a
+                    href={`/resources/guides/${guide.slug}`}
+                    className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg font-semibold hover:from-purple-600 hover:to-pink-600 transition-all shadow-md flex items-center gap-2 group-hover:gap-3 transform hover:scale-105 inline-flex"
+                  >
                     Read Guide
                     <ChevronRight size={16} />
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}
@@ -131,10 +138,13 @@ export default function GuidesResources() {
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
                 >
-                  {categories.map((category) => (
-                    <option key={category.id} value={category.id}>
-                      {category.name} ({category.count})
-                    </option>
+                  <option value="all">All Guides</option>
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate">Intermediate</option>
+                  <option value="advanced">Advanced</option>
+                  {/* Add more options based on common tags */}
+                  {Array.from(new Set(guides.flatMap(guide => guide.tags))).map(tag => (
+                    <option key={tag} value={tag.toLowerCase()}>{tag}</option>
                   ))}
                 </select>
               </div>
@@ -161,9 +171,9 @@ export default function GuidesResources() {
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredGuides.map((guide) => (
-                <div key={guide.id} className="bg-gradient-to-br from-white to-purple-50/30 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group border border-purple-100 hover:border-purple-300">
+                <div key={guide.slug} className="bg-gradient-to-br from-white to-purple-50/30 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group border border-purple-100 hover:border-purple-300">
                   <div className="relative overflow-hidden rounded-t-xl">
-                    <img src={guide.image} alt={guide.title} className="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-300" />
+                    <img src='https://images.unsplash.com/photo-1481487196290-c152efe083f5?auto=format&fit=crop&w=800&q=80' alt={guide.title} className="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-300" />
                     <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                   <div className="p-6">
@@ -190,10 +200,13 @@ export default function GuidesResources() {
                         <span className="text-purple-400 text-xs font-medium">+{guide.tags.length - 2} more</span>
                       )}
                     </div>
-                    <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg font-semibold hover:from-purple-600 hover:to-pink-600 transition-all shadow-md flex items-center gap-2 text-sm group-hover:gap-3 transform hover:scale-105">
+                    <a
+                      href={`/resources/guides/${guide.slug}`}
+                      className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg font-semibold hover:from-purple-600 hover:to-pink-600 transition-all shadow-md flex items-center gap-2 text-sm group-hover:gap-3 transform hover:scale-105 inline-flex"
+                    >
                       Read Guide
                       <ChevronRight size={14} />
-                    </button>
+                    </a>
                   </div>
                 </div>
               ))}
