@@ -5,26 +5,12 @@ import SectionContainer from "@/components/ui/sectionContainer";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Text from "@/components/ui/text";
 import Hero from "@/components/hero";
-
-// Dummy data import or fetch logic here
-const guides = [
-  {
-    slug: "quick-start-guide",
-    title: "Quick Start Guide",
-    description: "Get up and running in 5 minutes with our platform essentials.",
-    readTime: "5 min",
-    difficulty: "Beginner",
-    tags: ["setup", "basics"],
-    content: "This is a detailed quick start guide..."
-  }
-  // Add more guides as needed
-];
-
 import React from "react";
+import { resourceGuides } from "@/components/data/Reesources";
 
 export default function GuideDetail({ params }: { params: Promise<{ guide: string }> }) {
   const { guide } = React.use(params);
-  const guideObj = guides.find(g => g.slug === guide);
+  const guideObj = resourceGuides.find(g => g.slug === guide);
   if (!guideObj) return notFound();
 
   return (

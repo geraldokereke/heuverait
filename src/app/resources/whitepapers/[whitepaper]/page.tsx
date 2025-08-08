@@ -4,24 +4,8 @@ import { notFound } from "next/navigation";
 import SectionContainer from "@/components/ui/sectionContainer";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Text from "@/components/ui/text";
-
-// Dummy data import or fetch logic here
-const whitepapers = [
-  {
-    slug: "ai-in-healthcare",
-    title: "AI in Healthcare: Transforming Patient Outcomes Through Intelligent Systems",
-    author: "Dr. Sarah Chen, Michael Rodriguez",
-    date: "March 2024",
-    readTime: "25 min",
-    downloads: "2.3K",
-    views: "15.8K",
-    abstract: "This comprehensive study examines the implementation of artificial intelligence in healthcare systems, analyzing patient outcome improvements, cost reductions, and operational efficiency gains across 500+ medical institutions.",
-    content: "Full whitepaper content goes here..."
-  }
-  // Add more whitepapers as needed
-];
-
 import React from "react";
+import { whitepapers } from "@/components/data/WhitePapers";
 
 export default function WhitepaperDetail({ params }: { params: Promise<{ whitepaper: string }> }) {
   const { whitepaper } = React.use(params);
