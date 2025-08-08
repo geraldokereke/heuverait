@@ -40,3 +40,24 @@ export const logisticsCaseStudies = [
       "Delivered a real-time supply chain portal, improving on-time delivery by 30% and reducing inventory costs.",
   },
 ];
+
+export const retailCaseStudies = [
+  {
+    title: "Unified Commerce Rollout",
+    img: {
+      src: "https://images.unsplash.com/photo-1465101178521-c1a9136a3fd9?w=400&q=80",
+      alt: "Fleet Suite",
+    },
+    description:
+      "Launched a unified commerce platform for a retailer, increasing sales by 40% and improving customer retention.",
+  },
+  {
+    title: "Loyalty Analytics Suite",
+    img: {
+      src: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=400&q=80",
+      alt: "Supply Chain Portal",
+    },
+    description:
+      "Delivered a loyalty analytics platform, increasing repeat purchases by 25% and enabling targeted marketing.",
+  },
+];

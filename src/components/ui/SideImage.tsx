@@ -8,7 +8,7 @@ import { useRef } from "react";
 interface SideImageProps {
     imgsrc: string;
     className?: string;
-    borderSide: 'left' | 'right' | 'top' | 'bottom' | 'none';
+    borderSide: 'left' | 'right' | 'top' | 'bottom' | 'none' | 'all';
     height?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full' | 'auto';
 }
 
@@ -28,6 +28,8 @@ export default function SideImage({ imgsrc, className = "", borderSide, height =
                 return 'rounded-bl-4xl rounded-br-4xl';
             case 'none':
                 return '';
+            case 'all':
+                return 'rounded-2xl';
             default:
                 return 'rounded-tr-4xl rounded-bl-4xl';
         }
@@ -40,7 +42,7 @@ export default function SideImage({ imgsrc, className = "", borderSide, height =
             case 'md':
                 return 'h-[350px] md:h-[700px] lg:h-[360px] xl:h-[400px] 2xl:h-[600px]';
             case 'lg':
-                return 'h-[400px] md:h-[800px] lg:h-[450px] xl:h-[500px] 2xl:h-[700px]';
+                return 'h-[400px] md:h-[300px] lg:h-[200px] xl:h-[250px] 2xl:h-[400px]';
             case 'xl':
                 return 'h-[600px] md:h-[350px] lg:h-[250px] xl:h-[300px] 2xl:h-[450px]';
             case '2xl':

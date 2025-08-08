@@ -29,7 +29,7 @@ export default function FormSelect({
         className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:ring-0 transition-colors duration-200 text-gray-900"
       >
         {options.map((item, index) => (
-          <option value={item.value}>{item.label}</option>
+          <option key={index} value={item.value}>{item.label}</option>
         ))}
       </select>
     </div>

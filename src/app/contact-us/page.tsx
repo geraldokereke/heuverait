@@ -9,6 +9,8 @@ import {
   Clock,
   Users,
   Zap,
+  Calendar,
+  FileText,
 } from "lucide-react";
 import SectionContainer from "@/components/ui/sectionContainer";
 import Hero from "@/components/hero";
@@ -17,38 +19,85 @@ import ChooseUs from "@/components/contact-us/ChooseUs";
 import FormSelect from "@/components/contact-us/FormSelect";
 import FormTextarea from "@/components/contact-us/FormTextarea";
 import { contactData, contactInput } from "@/components/data/Contact";
+import SectionTitle from "@/components/ui/SectionTitle";
+import CTA from "@/components/ui/cta";
 
 export default function ContactUs() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    phone: "",
-    service: "",
-    message: "",
+    firstName: '',
+    lastName: '',
+    company: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
   });
-  const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
+
+  const handleInputChange = (e: any) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
-    // Simulate form submission
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    console.log('Form submitted:', formData);
   };
+
+  const services = [
+    'Cloud Migration & Strategy',
+    'Cybersecurity Assessment',
+    'Digital Transformation',
+    'Infrastructure Modernization',
+    'Data Analytics & BI',
+    'Custom Software Development',
+    'IT Support & Maintenance',
+    'Other'
+  ];
+
+  const contactMethods = [
+    {
+      icon: Phone,
+      title: 'Schedule a Call',
+      description: 'Book a consultation with our experts',
+      href: 'tel:+2341234567890',
+      color: 'text-[#41a7ad]'
+    },
+    {
+      icon: Mail,
+      title: 'Email Us',
+      description: 'Send us your detailed requirements',
+      href: 'mailto:solutions@company.com',
+      color: 'text-[#41a7ad]'
+    },
+    {
+      icon: Calendar,
+      title: 'Book Meeting',
+      description: 'Schedule a strategy session',
+      href: '#',
+      color: 'text-[#41a7ad]'
+    }
+  ];
+
+  const businessContacts = [
+    {
+      icon: FileText,
+      title: 'Request Proposal',
+      description: 'Get a detailed project proposal',
+      href: '#'
+    },
+    {
+      icon: Users,
+      title: 'Partner With Us',
+      description: 'Explore partnership opportunities',
+      href: '#'
+    }
+  ];
+
 
   return (
     <div className="bg-white">
-      {/* HERO SECTION - Modern Unsplash background */}
       <Hero
         imgLink="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=1200&q=80"
         section="Contact Us"
@@ -56,139 +105,237 @@ export default function ContactUs() {
         description="Ready to transform your business with cutting-edge technology? Our expert team is here to turn your vision into reality."
         height="h-[50vh]"
       />
-
-      {/* MAIN CONTENT SECTION */}
-      <div className="py-20 bg-gray-50">
+      <section className="py-24 bg-gray-50">
         <SectionContainer>
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* CONTACT FORM */}
-            <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-10 relative overflow-hidden">
-              {/* Decorative elements */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-teal-500 to-teal-600 rounded-bl-full opacity-10"></div>
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-black to-gray-800 rounded-tr-full opacity-5"></div>
-
-              <div className="relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {/* Contact Form - Takes 2 columns */}
+            <div className="lg:col-span-2">
+              <div className="">
                 <div className="mb-8">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    Start Your Project
-                  </h2>
-                  <p className="text-gray-600 text-lg">
-                    Fill out the form below and we'll get back to you within 24
-                    hours.
+                  <h3 className="text-sm xl:text-xl 2xl:text-2xl font-bold text-gray-900 mb-1 xl:mb-2">
+                    Start Your Digital Transformation
+                  </h3>
+                  <p className="text-[10px] xl:text-xs 2xl:text-base text-gray-600">
+                    Tell us about your business challenges and objectives. Our team will provide tailored solutions within 24 hours.
                   </p>
                 </div>
 
                 <div className="space-y-6">
-                  {[0, 1].map((row) => (
-                    <div className="grid md:grid-cols-2 gap-6" key={row}>
-                      {contactInput.slice(row * 2, row * 2 + 2).map((input) => (
-                        <div key={input.name}>
-                          <label
-                            htmlFor={input.name}
-                            className="block text-sm font-semibold text-gray-800 mb-3"
-                          >
-                            {input.label}
-                            {input.name === "name" || input.name === "email"
-                              ? " *"
-                              : ""}
-                          </label>
-                          <input
-                            type={input.type}
-                            id={input.name}
-                            name={input.name}
-                            value={formData[input.name as keyof typeof formData] || ""}
-                            onChange={handleInputChange}
-                            required={
-                              input.name === "name" || input.name === "email"
-                            }
-                            className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:ring-0 transition-colors duration-200 text-gray-900 placeholder-gray-500"
-                            placeholder={input.placeholder}
-                          />
-                        </div>
-                      ))}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-[8px] xl:text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
+                        First Name *
+                      </label>
+                      <input
+                        type="text"
+                        name="firstName"
+                        required
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-md xl:rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-[10px] xl:text-xs 2xl:text-base"
+                      />
                     </div>
-                  ))}
+                    <div>
+                      <label className="block text-[8px] xl:text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
+                        Last Name *
+                      </label>
+                      <input
+                        type="text"
+                        name="lastName"
+                        required
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-md xl:rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-[10px] xl:text-xs 2xl:text-base"
+                      />
+                    </div>
+                  </div>
 
-                  <FormSelect
-                    label="Service Needed"
-                    name="service"
-                    value={formData.service}
-                    onChange={handleInputChange}
-                    options={[
-                      { value: "", label: "Select a service" },
-                      { value: "web-development", label: "Web Development" },
-                      { value: "mobile-apps", label: "Mobile Applications" },
-                      { value: "cloud-solutions", label: "Cloud Solutions" },
-                      { value: "data-analytics", label: "Data Analytics" },
-                      { value: "cybersecurity", label: "Cybersecurity" },
-                      { value: "consulting", label: "IT Consulting" },
-                    ]}
-                  />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-[8px] xl:text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
+                        Company *
+                      </label>
+                      <input
+                        type="text"
+                        name="company"
+                        required
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-md xl:rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-[10px] xl:text-xs 2xl:text-base"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[8px] xl:text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
+                        Business Email *
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-md xl:rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-[10px] xl:text-xs 2xl:text-base"
+                      />
+                    </div>
+                  </div>
 
-                  <FormTextarea
-                    label="Project Description *"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Tell us about your project, timeline, and any specific requirements..."
-                  />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-[8px] xl:text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
+                        Phone Number
+                      </label>
+                      <div className="flex">
+                        <span className="inline-flex items-center px-3 py-3 border border-r-0 border-gray-300 bg-gray-50 text-gray-700 rounded-l-lg text-[10px] xl:text-xs 2xl:text-base">
+                          🇳🇬 +234
+                        </span>
+                        <input
+                          type="tel"
+                          name="phone"
+                          placeholder="800 000 0000"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          className="flex-1 px-4 py-3 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-[10px] xl:text-xs 2xl:text-base"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-[10px] xl:text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
+                        Service of Interest
+                      </label>
+                      <select
+                        name="service"
+                        value={formData.service}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-md xl:rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 bg-white text-[10px] 2xl:text-base"
+                      >
+                        <option value="text-[8px] xl:text-[10px] 2xl:text-sm">Select a service</option>
+                        {services.map((service) => (
+                          <option key={service} value={service}>
+                            {service}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
 
-                  <button
-                    onClick={handleSubmit}
-                    className="w-full bg-gradient-to-r from-teal-500 to-teal-600 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 flex items-center justify-center gap-3 text-lg"
-                  >
-                    {isSubmitted ? (
-                      <>
-                        <CheckCircle size={24} />
-                        Message Sent!
-                      </>
-                    ) : (
-                      <>
-                        <Send size={24} />
-                        Send Message
-                      </>
-                    )}
-                  </button>
+                  <div>
+                    <label className="block text-[10px] 2xl:text-sm font-medium text-gray-700 mb-2">
+                      Project Details *
+                    </label>
+                    <textarea
+                      name="message"
+                      placeholder="Please describe your current challenges, objectives, and any specific requirements..."
+                      rows={5}
+                      required
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md xl:rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none transition-all duration-200 text-xs 2xl:text-base"
+                    />
+                  </div>
+
+                  <div className="flex items-center justify-between pt-4">
+                    <button
+                      onClick={handleSubmit}
+                      className="flex items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap bg-black text-white"
+                    >
+                      Submit Request
+                    </button>
+                    <p className="text-[8px] xl:text-[10px] 2xl:text-sm text-gray-500">
+                      We'll respond within 24 hours
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* CONTACT INFO & CTA */}
+            {/* Contact Information - Takes 1 column */}
             <div className="space-y-8">
-              {/* Contact Cards */}
-              <div className="grid gap-6">
-                {contactData.map((item, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-100"
-                  >
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center">
-                        <item.icon size={24} className="text-white" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-gray-900 text-lg">
-                          {item.heading}
-                        </h3>
-                        <p className="text-gray-600">{item.subHeading}</p>
-                      </div>
-                    </div>
-                    <p className="text-2xl font-bold text-gray-900">
-                      {item.otherHeading}
-                    </p>
-                  </div>
-                ))}
+              <div>
+                <h3 className="text-sm 2xl:text-xl font-bold text-gray-900 mb-6">
+                  Connect With Our Team
+                </h3>
+                <div className="space-y-4">
+                  {contactMethods.map((method, index) => {
+                    const IconComponent = method.icon;
+                    return (
+                      <a
+                        key={index}
+                        href={method.href}
+                        className="flex items-start space-x-4 p-3 2xl:p-4 bg-white rounded-md xl:rounded-lg 2xl:rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-sm border border-gray-100 hover:shadow-md"
+                      >
+                        <div className="flex-shrink-0 my-auto">
+                          <IconComponent className={`size-4 2xl:size-6 ${method.color}`} />
+                        </div>
+                        <div>
+                          <h4 className="text-xs 2xl:text-base font-semibold text-gray-900 mb-1">
+                            {method.title}
+                          </h4>
+                          <p className="text-[10px] 2xl:text-sm text-gray-600">
+                            {method.description}
+                          </p>
+                        </div>
+                      </a>
+                    );
+                  })}
+                </div>
               </div>
 
-              {/* Why Choose Us */}
-              <ChooseUs />
+              <div>
+                <h4 className="text-sm 2xl:text-lg font-bold text-gray-900 mb-4">
+                  Business Inquiries
+                </h4>
+                <div className="space-y-3">
+                  {businessContacts.map((contact, index) => {
+                    const IconComponent = contact.icon;
+                    return (
+                      <a
+                        key={index}
+                        href={contact.href}
+                        className="flex items-center space-x-3 p-3 2xl:p-4 bg-white rounded-md xl:rounded-lg 2xl:rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-sm border border-gray-100 hover:shadow-md"
+                      >
+                        <IconComponent className="size-3 2xl:size-5 text-[#41a7ad]" />
+                        <div>
+                          <span className="font-medium text-gray-900 block text-[10px] 2xl:text-base mb-[-8] 2xl:mb-0">
+                            {contact.title}
+                          </span>
+                          <span className="text-[8px] 2xl:text-sm text-gray-600">
+                            {contact.description}
+                          </span>
+                        </div>
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="bg-[#41a7ad50] p-4 2xl:p-6 rounded-md xl:rounded-lg 2xl:rounded-xl border border-[#41a7ad]">
+                <h4 className="font-bold text-[#41a7ad] text-[10px] xl:text-sm 2xl:text-base mb-2">
+                  Enterprise Solutions
+                </h4>
+                <p className="text-[10px] xl:text-xs 2xl:text-sm text-[#41a7ad90] mb-2 xl:mb-4">
+                  Looking for comprehensive IT transformation? Our enterprise team specializes in large-scale implementations.
+                </p>
+                <a
+                  href="#"
+                  className="inline-flex items-center text-[#41a7ad] font-medium text-[10px] xl:text-xs 2xl:text-sm hover:text-blue-700 transition-colors"
+                >
+                  Learn more about enterprise services
+                </a>
+              </div>
             </div>
           </div>
         </SectionContainer>
-      </div>
-
-      {/* BOTTOM CTA SECTION */}
-      <BottomSection />
+      </section>
+      <CTA
+        bgColor="black"
+        headerText="Ready to Transform Your Business"
+        subHeaderText="Join hundreds of satisfied clients who've accelerated their growth with our solutions"
+        headerTextColor="white"
+        subHeaderTextColor="white"
+      >
+        <button>Schedule Free Consultation</button>
+        <button>View Our Portfolio</button>
+      </CTA>
     </div>
   );
 }
