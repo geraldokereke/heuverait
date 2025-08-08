@@ -3,6 +3,7 @@ import React from 'react';
 import { HeartPulse } from 'lucide-react';
 import SectionContainer from '@/components/ui/sectionContainer';
 import SectionTitle from '@/components/ui/SectionTitle';
+import { healthcareCaseStudies } from '@/components/data/Healthcare';
 
 export default function HealthcareIndustry() {
   return (
@@ -68,22 +69,17 @@ export default function HealthcareIndustry() {
           className="mb-12 text-center"
         />
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Case Study 1 */}
-          <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col">
-            <h3 className="text-2xl font-semibold mb-2">Telemedicine Platform Launch</h3>
-            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=400&q=80" alt="Telemedicine" className="rounded-lg shadow mb-4 w-full h-40 object-cover" />
-            <p className="text-slate-700 mb-4">
-              Built a secure telemedicine platform for a hospital network, enabling 24/7 virtual care and increasing patient access by 45%.
-            </p>
-          </div>
-          {/* Case Study 2 */}
-          <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col">
-            <h3 className="text-2xl font-semibold mb-2">EHR Workflow Automation</h3>
-            <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd9?w=400&q=80" alt="EHR Automation" className="rounded-lg shadow mb-4 w-full h-40 object-cover" />
-            <p className="text-slate-700 mb-4">
-              Automated EHR workflows for a clinic, reducing admin time by 30% and improving data accuracy.
-            </p>
-          </div>
+          {healthcareCaseStudies.map((study, idx) => (
+    <div key={idx} className="bg-white rounded-xl shadow-lg p-8 flex flex-col">
+      <h3 className="text-2xl font-semibold mb-2">{study.title}</h3>
+      <img
+        src={study.img.src}
+        alt={study.img.alt}
+        className="rounded-lg shadow mb-4 w-full h-40 object-cover"
+      />
+      <p className="text-slate-700 mb-4">{study.description}</p>
+    </div>
+  ))}
         </div>
       </SectionContainer>
     </>
