@@ -524,7 +524,7 @@ const Navigation = () => {
             {/* Logo */}
             <div className="flex items-center flex-shrink-0">
               <Link href="/" className="">
-                <div className="flex items-center gap-2 h-5 md:h-3 xl:h-4 2xl:h-6">
+                <div className="flex items-center gap-2 h-4 md:h-3 xl:h-4 2xl:h-6">
                   <Image
                     src={`${getLogo()}`}
                     alt="Heuvera Logo"
