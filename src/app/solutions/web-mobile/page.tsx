@@ -3,6 +3,7 @@ import React from 'react';
 import { Globe } from 'lucide-react';
 import SectionContainer from '@/components/ui/sectionContainer';
 import SectionTitle from '@/components/ui/SectionTitle';
+import { caseStudies } from '@/components/data/WebMobile';
 
 export default function WebMobileSolution() {
   return (
@@ -87,22 +88,17 @@ export default function WebMobileSolution() {
           className="mb-12 text-center"
         />
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Case Study 1 */}
-          <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col">
-            <h3 className="text-2xl font-semibold mb-2">E-Commerce App Transformation</h3>
-            <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd9?w=400&q=80" alt="E-Commerce App" className="rounded-lg shadow mb-4 w-full h-40 object-cover" />
-            <p className="text-gray-700 mb-4">
-              Built a cross-platform e-commerce app for a global retailer, boosting conversion rates by 50% and customer engagement by 70%.
-            </p>
-          </div>
-          {/* Case Study 2 */}
-          <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col">
-            <h3 className="text-2xl font-semibold mb-2">Healthcare Mobile Portal</h3>
-            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=400&q=80" alt="Healthcare Mobile" className="rounded-lg shadow mb-4 w-full h-40 object-cover" />
-            <p className="text-gray-700 mb-4">
-              Delivered a secure, HIPAA-compliant mobile portal for a healthcare provider, improving patient access and satisfaction by 60%.
-            </p>
-          </div>
+          {caseStudies.map((study, idx) => (
+      <div key={idx} className="bg-white rounded-xl shadow-lg p-8 flex flex-col">
+        <h3 className="text-2xl font-semibold mb-2">{study.title}</h3>
+        <img
+          src={study.img.src}
+          alt={study.img.alt}
+          className="rounded-lg shadow mb-4 w-full h-40 object-cover"
+        />
+        <p className="text-gray-700 mb-4">{study.description}</p>
+      </div>
+    ))}
         </div>
       </SectionContainer>
     </>
