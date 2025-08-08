@@ -178,17 +178,17 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index, isHovered, on
           >
             <service.icon className="size-5 md:size-3 xl:size-4 2xl:size-8 text-white" />
           </div>
-          <div className="flex items-center text-gray-400 group-hover:text-gray-600 transition-colors duration-300">
+          <div className="flex items-center text-gray-400 group-hover:text-black/70 transition-colors duration-300">
             <span className="text-[10px] md:text-[8px] xl:text-[10px] 2xl:text-sm font-medium mr-2">Learn More</span>
             <ArrowRight className="size-3 md:size-2 xl:size-4 group-hover:translate-x-1 transition-transform duration-300" />
           </div>
         </div>
 
         {/* Title & Description */}
-        <h3 className="text-base md:text-xs 2xl:text-xl font-bold text-gray-900 md-0.5 md:mb-1.5 2xl:mb-3 group-hover:text-gray-800">
+        <h3 className="text-base md:text-xs 2xl:text-xl font-bold text-black md-0.5 md:mb-1.5 2xl:mb-3 group-hover:text-gray-800">
           {service.title}
         </h3>
-        <p className="text-sm md:text-[10px] 2xl:text-base text-gray-600 leading-relaxed mb-3 2xl:mb-6 group-hover:text-gray-700">
+        <p className="text-sm md:text-[10px] 2xl:text-base text-black/70 leading-relaxed mb-3 2xl:mb-6 group-hover:text-gray-700">
           {service.description}
         </p>
 
@@ -224,7 +224,7 @@ const Services: React.FC = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <div className='bg-gray-50'>
+    <div className='bg-white'>
       <SectionContainer className="py-24">
         <SectionTitle
           section="Our Solutions"

@@ -44,15 +44,15 @@ export const ClientTestimonials = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                  <p className="text-gray-600">{testimonial.position}, {testimonial.company}</p>
+                  <p className="text-black/70">{testimonial.position}, {testimonial.company}</p>
                 </div>
                 <div className="ml-auto flex">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="w-5 h-5 text-primary fill-current" />
                   ))}
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-black/80 leading-relaxed">
                 {testimonial.testimonial}
               </p>
             </div>

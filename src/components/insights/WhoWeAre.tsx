@@ -25,10 +25,10 @@ const WhoWeAre = () => {
       <div className="px-4 md:px-8 lg:px-16 xl:px-40 2xl:px-72">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
               Architects of Intelligent Solutions
             </h2>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+            <p className="text-lg text-black/70 mb-8 leading-relaxed">
               At Heuvera, we are passionate technologists dedicated to transforming businesses through innovative digital solutions. With expertise spanning software development, artificial intelligence, and cloud technologies, we help organizations achieve their digital transformation goals.
             </p>
             <div className="grid grid-cols-2 gap-6 mb-8">

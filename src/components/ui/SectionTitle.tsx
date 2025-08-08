@@ -28,16 +28,16 @@ const fadeInUp = {
 const SectionTitle = ({ title, subtitle, className = "", section, titleClassname, subtitleClassname, sectionClassname }: SectionTitleProps) => {
     return (
         <motion.div
-            className={`relative space-y-6 ${className}`}
+            className={`relative space-y-6 w-full flex flex-col text-center items-center justify-center ${className}`}
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
         >
             {/* Classic Professional Header */}
-            <div className="relative">
+            <div className="relative mx-auto">
                 {/* Top border line */}
-                <div className="absolute -top-3 left-0 w-24 h-[1px] bg-slate-300"></div>
+                <div className="w-24 h-[1px] mb-3 mx-auto bg-slate-300"></div>
 
                 {/* Section Label */}
                 <div className="mb-4">
@@ -53,7 +53,7 @@ const SectionTitle = ({ title, subtitle, className = "", section, titleClassname
                     </h1>
 
                     {/* Classic underline */}
-                    <div className="mt-3 flex items-center gap-3">
+                    <div className="mt-3 flex items-center justify-center gap-3">
                         <div className="w-16 h-[2px] bg-[#41a7ad]"></div>
                         <div className="w-8 h-[1px] bg-slate-300"></div>
                     </div>

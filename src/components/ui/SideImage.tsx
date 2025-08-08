@@ -6,14 +6,13 @@ import Image from "next/image";
 import { useRef } from "react";
 
 interface SideImageProps {
-    key: string;
     imgsrc: string;
     className?: string;
     borderSide: 'left' | 'right' | 'top' | 'bottom' | 'none';
     height?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full' | 'auto';
 }
 
-export default function SideImage({ key, imgsrc, className = "", borderSide, height = "md" }: SideImageProps) {
+export default function SideImage({ imgsrc, className = "", borderSide, height = "md" }: SideImageProps) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -98,7 +97,7 @@ export default function SideImage({ key, imgsrc, className = "", borderSide, hei
                 <div className={`relative w-full ${getHeightClasses(height)}`}>
                     <AnimatePresence mode="wait">
                         <motion.div
-                            key={key}
+                            key={1}
                             variants={imageTransitionVariants}
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate="enter"

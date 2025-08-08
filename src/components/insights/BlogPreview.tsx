@@ -104,7 +104,7 @@ const BlogPreview = () => {
           <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
             <div className="transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
               <div className="bg-white rounded-full p-3 shadow-lg">
-                <ArrowRight className="w-6 h-6 text-gray-900" />
+                <ArrowRight className="w-6 h-6 text-black" />
               </div>
             </div>
           </div>
@@ -113,7 +113,7 @@ const BlogPreview = () => {
         {/* Content Section */}
         <div className={`p-3 2xl:p-6 ${isFeatured ? 'lg:w-1/2 lg:p-8' : ''}`}>
           {/* Meta Information */}
-          <div className="flex items-center gap-4 text-[10px] xl:text-xs 2xl:text-sm text-gray-500 mb-4">
+          <div className="flex items-center gap-4 text-[10px] xl:text-xs 2xl:text-sm text-black/60 mb-4">
             {post.date && (
               <div className="flex items-center gap-1">
                 <Calendar className="size-3 2xl:size-4" />
@@ -135,13 +135,13 @@ const BlogPreview = () => {
           </div>
 
           {/* Title */}
-          <h3 className={`font-bold text-gray-900 mb-2 xl:mb-4 group-hover:text-gray-700 transition-colors duration-300 leading-tight ${isFeatured ? 'text-xl lg:text-base xl:text-xl 2xl:text-3xl' : 'text-sm 2xl:text-xl'
+          <h3 className={`font-bold text-black mb-2 xl:mb-4 group-hover:text-black/80 transition-colors duration-300 leading-tight ${isFeatured ? 'text-xl lg:text-base xl:text-xl 2xl:text-3xl' : 'text-sm 2xl:text-xl'
             }`}>
             {post.title}
           </h3>
 
           {/* Description */}
-          <p className={`text-gray-600 leading-relaxed mb-4 2xl:mb-6 ${isFeatured ? 'text-xs xl:text-sm 2xl:text-lg' : 'text-[10px] 2xl:text-base'
+          <p className={`text-black/70 leading-relaxed mb-4 2xl:mb-6 ${isFeatured ? 'text-xs xl:text-sm 2xl:text-lg' : 'text-[10px] 2xl:text-base'
             }`}>
             {post.description}
           </p>
@@ -153,11 +153,11 @@ const BlogPreview = () => {
                 <div className="size-6 2xl:size-8 bg-[#41a7ad] rounded-full flex items-center justify-center">
                   <User className="size-3 2xl:size-4 text-white" />
                 </div>
-                <span className="text-xs 2xl:text-sm font-medium text-gray-700">{post.author}</span>
+                <span className="text-xs 2xl:text-sm font-medium text-black/80">{post.author}</span>
               </div>
             )}
 
-            <div className="flex items-center text-xs 2xl:text-sm font-semibold text-gray-600 group-hover:text-gray-900 transition-colors">
+            <div className="flex items-center text-xs 2xl:text-sm font-semibold text-black/70 group-hover:text-black transition-colors">
               <span>Read More</span>
               <ChevronRight className="ml-1 size-3 2xl:size-4 group-hover:translate-x-1 transition-transform" />
             </div>

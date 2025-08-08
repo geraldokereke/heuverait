@@ -40,7 +40,7 @@ const fadeInUp = {
 const CaseStudies = () => {
   return (
     <section className="pb-20">
-      <div className="w-full bg-gray-50 pb-20">
+      <div className="w-full bg-white pb-20">
         <LogoMarquee />
       </div>
       <div className="px-4 md:px-8 lg:px-16 xl:px-40 2xl:px-72">
@@ -53,7 +53,7 @@ const CaseStudies = () => {
           <motion.h2
             variants={fadeInUp}
             custom={0.2}
-            className="text-3xl md:text-6xl font-bold text-gray-900 mb-4"
+            className="text-3xl md:text-6xl font-bold text-black mb-4"
           >
             Our success stories
           </motion.h2>
@@ -93,17 +93,17 @@ const CaseStudies = () => {
                           className="object-contain"
                         />
                       </div>
-                      <span className="text-sm font-semibold text-[#2cd16c]">
+                      <span className="text-sm font-semibold text-primary">
                         {study.sector}
                       </span>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-2xl font-bold text-black mb-2">
                       {study.title}
                     </h3>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-black/70 mb-4">
                       {study.description}
                     </p>
-                    <button className="text-[#2cd16c] font-semibold flex items-center hover:text-[#25b05c] transition-colors duration-300">
+                    <button className="text-primary font-semibold flex items-center hover:text-[#25b05c] transition-colors duration-300">
                       Read Case Study
                       <ArrowRight className="size-4 ml-2" />
                     </button>
@@ -143,17 +143,17 @@ const CaseStudies = () => {
                           className="object-contain"
                         />
                       </div>
-                      <span className="text-sm font-semibold text-[#2cd16c]">
+                      <span className="text-sm font-semibold text-primary">
                         {study.sector}
                       </span>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-2xl font-bold text-black mb-2">
                       {study.title}
                     </h3>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-black/70 mb-4">
                       {study.description}
                     </p>
-                    <button className="text-[#2cd16c] font-semibold flex items-center hover:text-[#25b05c] transition-colors duration-300">
+                    <button className="text-primary font-semibold flex items-center hover:text-[#25b05c] transition-colors duration-300">
                       Read Case Study
                       <ArrowRight className="size-4 ml-2" />
                     </button>

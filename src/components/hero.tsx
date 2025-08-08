@@ -43,17 +43,17 @@ export default function Hero({ imgLink, section, title, description, height }: H
             {/* Content */}
             <motion.div
                 style={{ opacity }}
-                className={`relative z-10 ${height} flex items-center`}
+                className={`relative z-10 ${height} flex items-center justify-center`}
             >
                 <SectionContainer className="w-full">
-                    <div className="max-w-4xl text-center lg:text-start">
+                    <div className="text-center flex flex-col justify-center items-center">
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="relative group mb-2"
                         >
-                            <div className="flex items-center justify-center lg:justify-start gap-2">
+                            <div className="flex items-center justify-center gap-2">
                                 <div className="relative">
                                     <div className="w-8 h-px bg-gradient-to-r from-transparent via-[#41a7ad] to-transparent"></div>
                                     <motion.div
