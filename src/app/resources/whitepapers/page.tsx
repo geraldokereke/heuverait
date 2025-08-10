@@ -2,6 +2,10 @@
 
 import React, { useState } from 'react';
 import { FileText, Download, Eye, Calendar, Clock, User, Search, Filter, ArrowRight } from 'lucide-react';
+import Hero from '@/components/hero';
+import SectionContainer from '@/components/ui/sectionContainer';
+import CTA from '@/components/ui/cta';
+import Button from '@/components/ui/button';
 
 export default function WhitepapersPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -95,7 +99,7 @@ export default function WhitepapersPage() {
 
   const filteredWhitepapers = whitepapers.filter(paper => {
     const matchesSearch = paper.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         paper.author.toLowerCase().includes(searchTerm.toLowerCase());
+      paper.author.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'all' || paper.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -104,85 +108,162 @@ export default function WhitepapersPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="bg-black text-white py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-4xl">
-            <div className="flex items-center mb-6">
-              <FileText size={48} className="mr-4" />
-              <span className="text-sm font-medium tracking-wider uppercase">Research & Insights</span>
-            </div>
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Whitepapers &<br />
-              Technical Research
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl">
-              In-depth analysis, research findings, and technical insights from industry experts. 
-              Access peer-reviewed publications and comprehensive studies on emerging technologies.
-            </p>
-            <div className="flex items-center space-x-8 text-sm">
-              <div className="flex items-center">
-                <Download size={16} className="mr-2" />
-                <span>50+ Publications</span>
-              </div>
-              <div className="flex items-center">
-                <Eye size={16} className="mr-2" />
-                <span>500K+ Downloads</span>
-              </div>
-              <div className="flex items-center">
-                <User size={16} className="mr-2" />
-                <span>Expert Authors</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero
+        imgLink="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=1200&q=80"
+        section="Research & Insights"
+        title="Whitepapers Technical Research"
+        description="In-depth analysis, research findings, and technical insights from industry experts.
+              Access peer-reviewed publications and comprehensive studies on emerging technologies."
+        height="h-[50vh]"
+      />
 
       {/* Search and Filter Section */}
-      <section className="bg-gray-50 py-12">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-6 items-center">
-            <div className="flex-1 relative">
-              <Search size={20} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search whitepapers by title, author, or keyword..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-lg"
-              />
-            </div>
-            <div className="flex items-center space-x-4">
-              <Filter size={20} className="text-gray-600" />
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-4 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-lg bg-white"
-              >
-                {categories.map(category => (
-                  <option key={category.id} value={category.id}>{category.name}</option>
-                ))}
-              </select>
-            </div>
+      <SectionContainer className="py-12">
+        <div className="flex flex-col lg:flex-row gap-6 items-center">
+          <div className="flex-1 relative">
+            <Search size={20} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search whitepapers by title, author, or keyword..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-sm"
+            />
+          </div>
+          <div className="flex items-center space-x-4">
+            <Filter size={20} className="text-gray-600" />
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="px-4 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-lg bg-white"
+            >
+              {categories.map(category => (
+                <option key={category.id} value={category.id}>{category.name}</option>
+              ))}
+            </select>
           </div>
         </div>
-      </section>
+      </SectionContainer>
 
       {/* Featured Papers Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="mb-12">
-            <h2 className="text-4xl font-bold text-black mb-4">Featured Research</h2>
-            <p className="text-xl text-gray-600">Our most impactful and widely-cited publications</p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-8">
-            {featuredPapers.map((paper) => (
-              <article key={paper.id} className="bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-black transition-all duration-300 hover:shadow-xl">
-                <div className="flex items-start justify-between mb-4">
-                  <span className="bg-black text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">
-                    Featured
+      <SectionContainer className="py-16">
+        <div className="">
+          <h2 className="text-4xl font-bold text-black mb-4">Featured Research</h2>
+          <p className="text-xl text-gray-600">Our most impactful and widely-cited publications</p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8">
+          {featuredPapers.map((paper) => (
+            <article key={paper.id} className="bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-black transition-all duration-300 hover:shadow-xl">
+              <div className="flex items-start justify-between mb-4">
+                <span className="bg-black text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">
+                  Featured
+                </span>
+                <div className="flex items-center space-x-4 text-sm text-gray-500">
+                  <span className="flex items-center">
+                    <Download size={14} className="mr-1" />
+                    {paper.downloads}
                   </span>
+                  <span className="flex items-center">
+                    <Eye size={14} className="mr-1" />
+                    {paper.views}
+                  </span>
+                </div>
+              </div>
+
+              <h3 className="text-2xl font-bold text-black mb-3 leading-tight hover:underline cursor-pointer">
+                <a href={`/resources/whitepapers/${paper.slug}`} className="hover:underline text-black">
+                  {paper.title}
+                </a>
+              </h3>
+
+              <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
+                <span className="flex items-center">
+                  <User size={14} className="mr-1" />
+                  {paper.author}
+                </span>
+                <span className="flex items-center">
+                  <Calendar size={14} className="mr-1" />
+                  {paper.date}
+                </span>
+                <span className="flex items-center">
+                  <Clock size={14} className="mr-1" />
+                  {paper.readTime}
+                </span>
+              </div>
+
+              <p className="text-gray-700 mb-6 leading-relaxed">
+                {paper.abstract}
+              </p>
+
+              <div className="flex items-center justify-between">
+                <button className="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors flex items-center">
+                  <Download size={16} className="mr-2" />
+                  Download PDF
+                </button>
+                <a href={`/resources/whitepapers/${paper.slug}`} className="flex items-center hover:underline text-black">
+                  Read Preview
+                  <ArrowRight size={16} className="ml-2" />
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </SectionContainer>
+
+      {/* All Papers Section */}
+      <SectionContainer className="py-16 bg-gray-50">
+        <div className="">
+          <h2 className="text-4xl font-bold text-black mb-4">All Publications</h2>
+          <p className="text-xl text-gray-600">
+            {filteredWhitepapers.length} {filteredWhitepapers.length === 1 ? 'publication' : 'publications'}
+            {selectedCategory !== 'all' && ` in ${categories.find(c => c.id === selectedCategory)?.name}`}
+          </p>
+        </div>
+
+        <div className="grid gap-6">
+          {filteredWhitepapers.map((paper) => (
+            <article key={paper.id} className="bg-white border border-gray-200 rounded-xl p-6 hover:border-black transition-all duration-300 hover:shadow-lg">
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                <div className="flex-1">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <span className="bg-gray-100 text-black text-xs font-semibold px-2 py-1 rounded uppercase tracking-wide">
+                      {categories.find(c => c.id === paper.category)?.name}
+                    </span>
+                    {paper.featured && (
+                      <span className="bg-black text-white text-xs font-semibold px-2 py-1 rounded uppercase tracking-wide">
+                        Featured
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 className="text-xl font-bold text-black mb-2 hover:underline cursor-pointer">
+                    <a href={`/resources/whitepapers/${paper.slug}`} className="hover:underline text-black">
+                      {paper.title}
+                    </a>
+                  </h3>
+
+                  <div className="flex items-center space-x-4 text-sm text-gray-600 mb-3">
+                    <span className="flex items-center">
+                      <User size={14} className="mr-1" />
+                      {paper.author}
+                    </span>
+                    <span className="flex items-center">
+                      <Calendar size={14} className="mr-1" />
+                      {paper.date}
+                    </span>
+                    <span className="flex items-center">
+                      <Clock size={14} className="mr-1" />
+                      {paper.readTime}
+                    </span>
+                  </div>
+
+                  <p className="text-gray-700 mb-4 leading-relaxed">
+                    {paper.abstract}
+                  </p>
+                </div>
+
+                <div className="lg:ml-8 flex flex-col lg:items-end space-y-3">
                   <div className="flex items-center space-x-4 text-sm text-gray-500">
                     <span className="flex items-center">
                       <Download size={14} className="mr-1" />
@@ -193,159 +274,53 @@ export default function WhitepapersPage() {
                       {paper.views}
                     </span>
                   </div>
-                </div>
-                
-                <h3 className="text-2xl font-bold text-black mb-3 leading-tight hover:underline cursor-pointer">
-                  <a href={`/resources/whitepapers/${paper.slug}`} className="hover:underline text-black">
-                    {paper.title}
-                  </a>
-                </h3>
-                
-                <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
-                  <span className="flex items-center">
-                    <User size={14} className="mr-1" />
-                    {paper.author}
-                  </span>
-                  <span className="flex items-center">
-                    <Calendar size={14} className="mr-1" />
-                    {paper.date}
-                  </span>
-                  <span className="flex items-center">
-                    <Clock size={14} className="mr-1" />
-                    {paper.readTime}
-                  </span>
-                </div>
-                
-                <p className="text-gray-700 mb-6 leading-relaxed">
-                  {paper.abstract}
-                </p>
-                
-                <div className="flex items-center justify-between">
-                  <button className="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors flex items-center">
-                    <Download size={16} className="mr-2" />
-                    Download PDF
-                  </button>
-                  <a href={`/resources/whitepapers/${paper.slug}`} className="flex items-center hover:underline text-black">
-                    Read Preview
-                    <ArrowRight size={16} className="ml-2" />
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* All Papers Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="mb-12">
-            <h2 className="text-4xl font-bold text-black mb-4">All Publications</h2>
-            <p className="text-xl text-gray-600">
-              {filteredWhitepapers.length} {filteredWhitepapers.length === 1 ? 'publication' : 'publications'} 
-              {selectedCategory !== 'all' && ` in ${categories.find(c => c.id === selectedCategory)?.name}`}
-            </p>
-          </div>
-          
-          <div className="grid gap-6">
-            {filteredWhitepapers.map((paper) => (
-              <article key={paper.id} className="bg-white border border-gray-200 rounded-xl p-6 hover:border-black transition-all duration-300 hover:shadow-lg">
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-3 mb-2">
-                      <span className="bg-gray-100 text-black text-xs font-semibold px-2 py-1 rounded uppercase tracking-wide">
-                        {categories.find(c => c.id === paper.category)?.name}
-                      </span>
-                      {paper.featured && (
-                        <span className="bg-black text-white text-xs font-semibold px-2 py-1 rounded uppercase tracking-wide">
-                          Featured
-                        </span>
-                      )}
-                    </div>
-                    
-                    <h3 className="text-xl font-bold text-black mb-2 hover:underline cursor-pointer">
-                      <a href={`/resources/whitepapers/${paper.slug}`} className="hover:underline text-black">
-                        {paper.title}
-                      </a>
-                    </h3>
-                    
-                    <div className="flex items-center space-x-4 text-sm text-gray-600 mb-3">
-                      <span className="flex items-center">
-                        <User size={14} className="mr-1" />
-                        {paper.author}
-                      </span>
-                      <span className="flex items-center">
-                        <Calendar size={14} className="mr-1" />
-                        {paper.date}
-                      </span>
-                      <span className="flex items-center">
-                        <Clock size={14} className="mr-1" />
-                        {paper.readTime}
-                      </span>
-                    </div>
-                    
-                    <p className="text-gray-700 mb-4 leading-relaxed">
-                      {paper.abstract}
-                    </p>
-                  </div>
-                  
-                  <div className="lg:ml-8 flex flex-col lg:items-end space-y-3">
-                    <div className="flex items-center space-x-4 text-sm text-gray-500">
-                      <span className="flex items-center">
-                        <Download size={14} className="mr-1" />
-                        {paper.downloads}
-                      </span>
-                      <span className="flex items-center">
-                        <Eye size={14} className="mr-1" />
-                        {paper.views}
-                      </span>
-                    </div>
-                    
-                    <div className="flex space-x-3">
-                      <button className="bg-black text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-800 transition-colors flex items-center text-sm">
-                        <Download size={14} className="mr-2" />
-                        Download
-                      </button>
-                      <a href={`/resources/whitepapers/${paper.slug}`} className="flex items-center hover:underline text-black">
-                        Read Preview
-                        <ArrowRight size={14} className="ml-2" />
-                      </a>
-                    </div>
+                  <div className="flex space-x-3">
+                    <button className="bg-black text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-800 transition-colors flex items-center text-sm">
+                      <Download size={14} className="mr-2" />
+                      Download
+                    </button>
+                    <a href={`/resources/whitepapers/${paper.slug}`} className="flex items-center hover:underline text-black">
+                      Read Preview
+                      <ArrowRight size={14} className="ml-2" />
+                    </a>
                   </div>
                 </div>
-              </article>
-            ))}
-          </div>
-          
-          {filteredWhitepapers.length === 0 && (
-            <div className="text-center py-12">
-              <FileText size={48} className="mx-auto text-gray-400 mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">No publications found</h3>
-              <p className="text-gray-600">Try adjusting your search criteria or browse all categories.</p>
-            </div>
-          )}
+              </div>
+            </article>
+          ))}
         </div>
-      </section>
+
+        {filteredWhitepapers.length === 0 && (
+          <div className="text-center py-12">
+            <FileText size={48} className="mx-auto text-gray-400 mb-4" />
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">No publications found</h3>
+            <p className="text-gray-600">Try adjusting your search criteria or browse all categories.</p>
+          </div>
+        )}
+      </SectionContainer>
 
       {/* Call to Action Section */}
-      <section className="bg-black text-white py-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-4">Stay Updated</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Get notified when new research is published. Join our community of industry professionals and researchers.
-          </p>
-          <div className="flex flex-col sm:flex-row max-w-md mx-auto">
+      <CTA
+        bgColor='black'
+        headerText='Stay Updated'
+        headerTextColor='white'
+        subHeaderText="Get notified when new research is published. Join our community of industry professionals and researchers."
+        subHeaderTextColor='white'
+      >
+        <div>
+          <div className="flex flex-col md:flex-row justify-center max-w-xs 2xl:max-w-md mx-auto">
             <input
               type="email"
-              placeholder="Enter your email address"
-              className="flex-1 px-4 py-3 rounded-l-lg sm:rounded-r-none rounded-r-lg border-0 focus:outline-none focus:ring-2 focus:ring-white text-black"
+              placeholder="Enter your email"
+              className="flex-1 px-4 2xl:px-6 py-1.5 2xl:py-2.5 text-xs 2xl:text-sm rounded-l-full text-white focus:outline-none bg-white/5"
             />
-            <button className="bg-white text-black px-6 py-3 rounded-r-lg sm:rounded-l-none rounded-l-lg font-medium hover:bg-gray-200 transition-colors">
+            <button className="font-poppins font-medium bg-white text-black mx-auto flex items-center px-3 md:px-4 lg:px-2 xl:px-2 2xl:px-4 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-3 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-medium rounded-r-full transition-all duration-300 whitespace-nowrap">
               Subscribe
             </button>
           </div>
         </div>
-      </section>
+      </CTA>
     </div>
   );
 }

@@ -199,7 +199,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, index }) => {
                             {/* Member Info */}
                             <div className="text-center flex-1 flex flex-col justify-between">
                                 <div>
-                                    <h3 className="text-xl md:text-sm 2xl:text-xl font-bold font-montserrat text-slate-900 mb-0 2xl:mb-2 group-hover:text-cyan-600 transition-colors duration-300">
+                                    <h3 className="text-xl md:text-sm 2xl:text-xl font-bold font-montserrat text-slate-900 mb-0 2xl:mb-2 transition-colors duration-300">
                                         {member.name}
                                     </h3>
                                     <p className="text-slate-600 font-medium font-poppins text-xs md:text-[10px] 2xl:text-sm tracking-wide mb-4">
@@ -232,8 +232,8 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, index }) => {
                         <div 
                             className="absolute inset-0"
                             style={{
-                                backgroundColor: '#41a7ad',
-                                opacity: 0.85
+                                backgroundColor: '#000000',
+                                opacity: 0.5
                             }}
                         />
 

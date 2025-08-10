@@ -32,7 +32,7 @@ const Navigation = () => {
 
   const navItems = [
     {
-      title: "ABOUT US",
+      title: "About Us",
       items: [
         { label: "Who We Are", href: "/about-us/who-we-are", icon: Users, description: "Learn about our company story and values" },
         { label: "Our Team", href: "/about-us/team", icon: Users, description: "Meet the experts behind our success" },
@@ -62,7 +62,7 @@ const Navigation = () => {
       }
     },
     {
-      title: "SOLUTIONS",
+      title: "Solutions",
       href: "",
       items: [
         { label: "Cloud Solutions", href: "/solutions/cloud", icon: Cloud, description: "Enterprise-grade cloud migration and infrastructure" },
@@ -92,7 +92,7 @@ const Navigation = () => {
       }
     },
     {
-      title: "INDUSTRIES",
+      title: "Industries",
       href: "",
       items: [
         { label: "Healthcare", href: "/industries/healthcare", icon: Heart, description: "Digital transformation in healthcare" },
@@ -123,7 +123,7 @@ const Navigation = () => {
       }
     },
     {
-      title: "WORK",
+      title: "Work",
       href: "",
       items: [
         { label: "Project Portfolio", href: "/work/portfolio", icon: Briefcase, description: "Showcase of our most impactful projects" },
@@ -151,12 +151,12 @@ const Navigation = () => {
       }
     },
     {
-      title: "RESOURCES",
+      title: "Resources",
       href: "",
       items: [
         { label: "Whitepapers & Insights", href: "/resources/whitepapers", icon: BookOpen, description: "In-depth research and technical analysis" },
         { label: "Case Studies", href: "/resources/case-studies", icon: FileText, description: "Real-world client success stories" },
-        { label: "Guides & Tutorials", href: "/resources/guides", icon: Wrench, description: "Step-by-step implementation guides" },
+        // { label: "Guides & Tutorials", href: "/resources/guides", icon: Wrench, description: "Step-by-step implementation guides" },
         // Add more resource subpages here as created
       ],
       sidebar: {
@@ -180,7 +180,7 @@ const Navigation = () => {
       }
     },
     {
-      title: "PRODUCTS",
+      title: "Products",
       href: "",
       items: [
         { label: "SaaS Platform", href: "/products/saas-platform", icon: Cloud, description: "Cloud-native SaaS for enterprise scale" },
@@ -567,15 +567,15 @@ const Navigation = () => {
                 className={`px-3 py-2 text-[6px] xl:text-[8px] 2xl:text-sm font-medium rounded-lg transition-colors duration-0 relative group whitespace-nowrap ${getTextStyles()} hover:bg-opacity-10`}
                 onMouseEnter={() => handleMouseEnter('CONTACT', false)}
               >
-                CONTACT
+                Contact
                 <span className={`absolute inset-x-3 bottom-0 h-0.5 ${getUnderlineColor()} transition-transform duration-200 origin-left scale-x-0 group-hover:scale-x-100`}></span>
               </Link>
             </div>
 
             {/* CTA Button and Mobile Menu */}
             <div className="flex items-center gap-4 flex-shrink-0">
-              <button className={`hidden lg:flex items-center px-2 xl:px-3 2xl:px-6 py-1 xl:py-1.5 2xl:py-2.5 text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap ${getCTAStyles()}`}>
-                GET IN TOUCH
+              <button className={`hidden font-poppins lg:flex items-center px-2 xl:px-3 2xl:px-6 py-1 xl:py-1.5 2xl:py-3 text-[6px] xl:text-[8px] 2xl:text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${getCTAStyles()}`}>
+                Get in Touch
               </button>
 
               {/* Mobile menu button */}

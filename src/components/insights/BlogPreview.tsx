@@ -4,6 +4,8 @@ import { ArrowRight, Clock, Calendar, User, Eye, ChevronRight } from 'lucide-rea
 import SectionContainer from '../ui/sectionContainer';
 import SectionTitle from '../ui/SectionTitle';
 import Image from 'next/image';
+import CTA from '../ui/cta';
+import Button from '../ui/button';
 
 interface BlogPost {
   category: string;
@@ -190,35 +192,36 @@ const BlogPreview = () => {
             ))}
           </div>
         </div>
-
-
-        {/* CTA Section */}
-        <div className="text-center mt-0 2xl:mt-20 bg-gradient-to-r from-gray-900 to-black rounded-2xl p-12 text-white overflow-hidden">
-          <h3 className="text-2xl md:text-3xl lg:text-base xl:text-2xl 2xl:text-4xl text-white font-bold mb-1 xl:mb-4">
-            Never Miss an Update
-          </h3>
-          <p className="text-gray-300 mb-5 xl:mb-8 max-w-2xl mx-auto text-[10px] xl:text-xs 2xl:text-lg">
-            Subscribe to our newsletter and get the latest insights, trends, and best practices delivered to your inbox.
-          </p>
-          <div className="flex flex-col md:flex-row gap-2 2xl:gap-4 justify-center max-w-xs 2xl:max-w-md mx-auto">
+      </SectionContainer>
+      <CTA
+        bgColor='black'
+        headerText='Never Miss an Update'
+        headerTextColor='white'
+        subHeaderText="Subscribe to our newsletter and get the latest insights, trends, and best practices delivered to your inbox."
+        subHeaderTextColor='white'
+      >
+        <div>
+          <div className="flex flex-col md:flex-row justify-center max-w-xs 2xl:max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 2xl:px-6 py-1.5 2xl:py-2.5 text-xs 2xl:text-sm rounded-full text-white focus:outline-none bg-white/5"
+              className="flex-1 px-4 2xl:px-6 py-1.5 2xl:py-2.5 text-xs 2xl:text-sm rounded-l-full text-white focus:outline-none bg-white/5"
             />
-            <button className="bg-white text-black mx-auto flex items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase">
+            <button className="font-poppins font-medium bg-white text-black mx-auto flex items-center px-3 md:px-4 lg:px-2 xl:px-2 2xl:px-4 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-3 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-medium rounded-r-full transition-all duration-300 whitespace-nowrap">
               Subscribe
             </button>
           </div>
+          <div className="mt-0 2xl:mt-12">
+            <Button
+            textColor='white'
+            type='link'
+            >
+              View All Insights
+            </Button>
+          </div>
         </div>
+      </CTA>
 
-        {/* View All Button */}
-        <div className="text-center mt-0 2xl:mt-12">
-          <button className="bg-black text-white mx-auto flex items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase">
-            View All Insights
-          </button>
-        </div>
-      </SectionContainer>
     </section>
   );
 };

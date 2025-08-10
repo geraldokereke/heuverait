@@ -3,6 +3,7 @@ import React from 'react';
 import { BookOpen, X, TrendingUp, Users, Award } from 'lucide-react';
 import SectionContainer from '@/components/ui/sectionContainer';
 import SectionTitle from '@/components/ui/SectionTitle';
+import Hero from '@/components/hero';
 
 // Type definitions
 interface CaseStudyContent {
@@ -21,17 +22,6 @@ interface CaseStudy {
   preview: string;
   metric: string;
   fullContent: CaseStudyContent;
-}
-
-interface SectionContainerProps {
-  children: React.ReactNode;
-  className?: string;
-}
-
-interface SectionTitleProps {
-  section: string;
-  title?: string;
-  subtitle?: string;
 }
 
 export default function CaseStudiesResources() {
@@ -100,24 +90,14 @@ export default function CaseStudiesResources() {
 
   return (
     <>
-      {/* HERO SECTION - Black & White Theme */}
-      <div className="relative min-h-[60vh] md:min-h-[70vh] flex items-center bg-gradient-to-br from-white via-gray-100 to-white overflow-hidden">
-        <SectionContainer className="z-10 w-full flex flex-col items-center justify-center text-center py-16 md:py-28">
-          <BookOpen size={54} className="text-black mx-auto mb-4" />
-          <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-4 drop-shadow-lg">
-            Case Studies
-          </h1>
-          <p className="text-lg md:text-2xl font-light text-gray-700 max-w-2xl mx-auto mb-6 md:mb-8">
-            Real-world stories of how our solutions drive transformation and measurable results for our clients.
-          </p>
-        </SectionContainer>
-        <img 
-          src="/resources-case-studies-hero.jpg" 
-          alt="Case Studies" 
-          className="absolute right-0 bottom-0 w-1/3 max-w-xs md:max-w-md opacity-40 hidden md:block filter grayscale" 
-        />
-      </div>
-      
+      <Hero
+        imgLink="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        section="solutions"
+        title="Case Studies"
+        height="h-[50vh]"
+        description="Real-world stories of how our solutions drive transformation and measurable results for our clients."
+      />
+
       {/* SECTION 1: Client Success Stories */}
       <SectionContainer className="py-10 md:py-16 border-b border-gray-200">
         <SectionTitle
@@ -125,7 +105,7 @@ export default function CaseStudiesResources() {
           title="Client Success Stories"
           subtitle="Discover how we've helped organizations across industries achieve their goals through innovative solutions and strategic partnerships."
         />
-        
+
         {/* Case Study Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {caseStudies.map((study) => (
@@ -145,7 +125,7 @@ export default function CaseStudiesResources() {
                   <span className="text-sm font-semibold text-black">
                     {study.metric}
                   </span>
-                  <a 
+                  <a
                     href={`/resources/case-studies/${study.fullContent.client.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
                     className="text-black hover:text-primary font-medium text-sm transition-colors duration-200 underline"
                   >
@@ -157,7 +137,7 @@ export default function CaseStudiesResources() {
           ))}
         </div>
       </SectionContainer>
-      
+
       {/* SECTION 2: Industries We Serve */}
       <SectionContainer className="py-10 md:py-16 bg-gray-50">
         <SectionTitle
@@ -165,7 +145,7 @@ export default function CaseStudiesResources() {
           title="Industries We Serve"
           subtitle="Our proven methodologies adapt to the unique challenges and opportunities across diverse sectors."
         />
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { name: "Healthcare", description: "Patient care optimization and operational excellence" },
@@ -187,7 +167,7 @@ export default function CaseStudiesResources() {
           ))}
         </div>
       </SectionContainer>
-      
+
       {/* SECTION 3: Call to Action */}
       <SectionContainer className="py-16 md:py-20">
         <div className="text-center max-w-3xl mx-auto">

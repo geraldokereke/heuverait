@@ -1,6 +1,5 @@
 "use client";
 
-
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";

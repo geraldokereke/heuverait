@@ -3,21 +3,18 @@ import React from 'react';
 import { Brain } from 'lucide-react';
 import SectionContainer from '@/components/ui/sectionContainer';
 import SectionTitle from '@/components/ui/SectionTitle';
+import Hero from '@/components/hero';
 
 export default function AiMlSolution() {
   return (
     <>
-      {/* HERO SECTION - Dark, Futuristic, Distinct */}
-      <div className="relative min-h-[60vh] md:min-h-[70vh] flex items-center bg-gradient-to-br from-[#0f172a] via-[#334155] to-[#0f172a] overflow-hidden">
-        <SectionContainer className="z-10 w-full flex flex-col items-center justify-center text-center py-16 md:py-28">
-          <Brain size={54} className="text-primary mx-auto mb-4" />
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 drop-shadow-lg">AI & Machine Learning</h1>
-          <p className="text-lg md:text-2xl font-light text-slate-200 max-w-2xl mx-auto mb-6 md:mb-8">
-            Unlock the power of AI to automate, predict, and optimize your business. We deliver intelligent solutions for the modern enterprise.
-          </p>
-        </SectionContainer>
-        <img src="/ai-ml-hero.jpg" alt="AI & ML" className="absolute right-0 bottom-0 w-1/3 max-w-xs md:max-w-md opacity-60 hidden md:block" />
-      </div>
+      <Hero
+        imgLink="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        section="solutions"
+        title="AI & Machine Learning"
+        height="h-[50vh]"
+        description="Unlock the power of AI to automate, predict, and optimize your business. We deliver intelligent solutions for the modern enterprise."
+      />
 
       {/* SECTION 1: Predictive Analytics & Automation */}
       <SectionContainer className="py-10 md:py-16 border-b">

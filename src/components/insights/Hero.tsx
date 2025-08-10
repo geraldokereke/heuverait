@@ -2,6 +2,7 @@ import { useScroll, useTransform, motion, AnimatePresence } from "framer-motion"
 import { ArrowRight, CalendarDays, Code, Brain, Globe, Shield, Database, Smartphone, Cloud, Cog, Zap } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image"
+import Button from "../ui/button";
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
@@ -205,13 +206,20 @@ export default function Hero() {
                                 custom={0.6}
                                 className="flex flex-row gap-3 justify-center lg:justify-start items-center"
                             >
-                                <button className="group max-w-fit items-center uppercase flex px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm bg-[#41a7ad] rounded-full text-black font-semibold transition-all duration-300 w-full sm:w-auto justify-center">
+                                <Button
+                                    backgroundColor="[#41a7ad]"
+                                    textColor="black"
+                                    type="default"
+                                >
                                     Explore Our Solutions
-                                </button>
-
-                                <button className="group max-w-fit items-center uppercase flex px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm bg-white/10 backdrop-blur-sm text-white rounded-full font-semibold transition-all duration-300 hover:bg-white/20 w-full sm:w-auto justify-center">
+                                </Button>
+                                <Button
+                                    backgroundColor="white/20"
+                                    textColor="white"
+                                    type="default"
+                                >
                                     Book a Consultation
-                                </button>
+                                </Button>
                             </motion.div>
                         </motion.div>
 

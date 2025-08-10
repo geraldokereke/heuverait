@@ -2,6 +2,7 @@ import { Phone, Mail, MessageCircle, Calendar, FileText, Users } from "lucide-re
 import { useState } from "react";
 import SectionContainer from "../ui/sectionContainer";
 import SectionTitle from "../ui/SectionTitle";
+import Button from "../ui/button";
 
 
 export const Contact = () => {
@@ -213,12 +214,13 @@ export const Contact = () => {
                 </div>
 
                 <div className="flex items-center justify-between pt-4">
-                  <button
-                    onClick={handleSubmit}
-                    className="flex items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap bg-black text-white"
+                  <Button
+                  textColor="white"
+                  backgroundColor="black"
+                  type="default"
                   >
                     Submit Request
-                  </button>
+                  </Button>
                   <p className="text-[8px] xl:text-[10px] 2xl:text-sm text-gray-500">
                     We'll respond within 24 hours
                   </p>

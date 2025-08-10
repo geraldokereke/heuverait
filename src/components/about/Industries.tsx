@@ -156,7 +156,7 @@ const Industries = () => {
                     <h3 className="text-sm md:text-base lg:text-sm xl:text-base 2xl:text-2xl font-semibold font-montserrat text-gray-900 mb-[-2] xl:mb-1">
                       {section.title}
                     </h3>
-                    <p className="text-[8px] md:text-[10px] xl:text-xs 2xl:text-base text-gray-600">{section.description}</p>
+                    <p className="text-[8px] md:text-[10px] xl:text-xs 2xl:text-base text-gray-600 ">{section.description}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">

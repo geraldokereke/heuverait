@@ -29,6 +29,8 @@ import {
 } from 'lucide-react';
 import SectionTitle from '../ui/SectionTitle';
 import SectionContainer from '../ui/sectionContainer';
+import Button from '../ui/button';
+import CTA from '../ui/cta';
 
 interface Industry {
   name: string;
@@ -198,7 +200,7 @@ const Industries = () => {
   ];
 
   return (
-    <section className="py-24">
+    <section className="pt-24">
       <SectionContainer>
         {/* Header */}
         <SectionTitle
@@ -329,22 +331,22 @@ const Industries = () => {
             </div>
           </div>
         ))}
-
-        {/* CTA Section */}
-        <div className="text-center mt-0 xl:mt-20 bg-gradient-to-r from-gray-900 to-black rounded-2xl p-12 text-white overflow-hidden">
-          <h3 className="text-2xl md:text-3xl lg:text-base xl:text-2xl 2xl:text-4xl text-white font-bold mb-1 xl:mb-4">
-            Don't See Your Industry?
-          </h3>
-          <p className="text-gray-300 mb-5 xl:mb-8 max-w-2xl mx-auto text-[10px] xl:text-xs 2xl:text-lg">
-            We adapt our expertise to serve unique industry requirements. Let's discuss your specific challenges and opportunities.
-          </p>
-          <button
-            className="bg-white text-black mx-auto flex items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase"
-          >
-            Discuss Your Industry
-          </button>
-        </div>
       </SectionContainer>
+      <CTA
+        bgColor='black'
+        headerText="Don't See Your Industry?"
+        headerTextColor='white'
+        subHeaderText="We adapt our expertise to serve unique industry requirements. Let's discuss your specific challenges and opportunities."
+        subHeaderTextColor='white'
+      >
+        <Button
+          type='default'
+          textColor='black'
+          backgroundColor='white'
+        >
+          Discuss Your Industry
+        </Button>
+      </CTA>
     </section>
   );
 };

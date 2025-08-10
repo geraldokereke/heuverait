@@ -3,6 +3,7 @@ import Image from "next/image";
 import SectionContainer from "../ui/sectionContainer";
 import SectionTitle from "../ui/SectionTitle";
 import { motion } from "framer-motion";
+import Button from "../ui/button";
 
 export const Stories = () => {
 
@@ -43,7 +44,7 @@ export const Stories = () => {
           </div>
         </motion.div>
         <SectionContainer>
-          <div className="z-10 flex justify-between items-end mb-0 2xl:mb-12">
+          <div className="z-10 flex flex-col items-end gap-5 2xl:mb-[-32]">
             <SectionTitle
               section="Case studies"
               sectionClassname="text-white"
@@ -52,9 +53,12 @@ export const Stories = () => {
               subtitle="Real impact, measurable results"
               subtitleClassname="text-white"
             />
-            <button className="group text-[10px] xl:text-xs 2xl:text-base text-white font-semibold flex items-center hover:text-[#41a7ad] transition-colors duration-300">
+            <Button
+              type='link'
+              textColor='white'
+            >
               View All Case Studies
-            </button>
+            </Button>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 z-10">
@@ -83,9 +87,12 @@ export const Stories = () => {
                   <p className="text-[10px] xl:text-xs 2xl:text-base text-gray-600 mb-3 xl:mb-6">
                     {study.description}
                   </p>
-                  <button className="text-[10px] xl:text-xs 2xl:text-base group text-[#41a7ad97] font-semibold flex items-center hover:text-[#41a7ad] transition-colors duration-300">
-                    Read Case Study
-                  </button>
+                  <Button
+                    type='link'
+                    textColor='[#41a7ad97]'
+                  >
+                    View All Case Studies
+                  </Button>
                 </div>
               </div>
             ))}

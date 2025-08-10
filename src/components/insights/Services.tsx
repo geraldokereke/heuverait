@@ -18,6 +18,8 @@ import {
 } from 'lucide-react';
 import SectionContainer from '../ui/sectionContainer';
 import SectionTitle from '../ui/SectionTitle';
+import CTA from '../ui/cta';
+import Button from '../ui/button';
 
 interface Service {
   icon: LucideIcon;
@@ -245,28 +247,28 @@ const Services: React.FC = () => {
             />
           ))}
         </div>
-
-        {/* CTA Section */}
-        <div className="text-center bg-black rounded-2xl p-12">
-          <h3 className="text-2xl md:text-3xl lg:text-base xl:text-2xl 2xl:text-4xl text-white font-bold mb-1 xl:mb-4">
-            Ready to Transform Your Business?
-          </h3>
-          <p className="text-gray-300 mb-5 xl:mb-8 max-w-2xl mx-auto text-[10px] xl:text-xs 2xl:text-lg">
-            Let's discuss how our expertise can accelerate your digital transformation journey and drive measurable results.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button
-              className="bg-white max-w-fit flex justify-center items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase"
-            >
-              Schedule Consultation
-            </button>
-            <button
-              className="text-white max-w-fit flex justify-center items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap uppercase">
-              View Portfolio
-            </button>
-          </div>
-        </div>
       </SectionContainer>
+      <CTA
+        bgColor='black'
+        headerText='Ready to Transform Your Business?'
+        headerTextColor='white'
+        subHeaderText="Let's discuss how our expertise can accelerate your digital transformation journey and drive measurable results."
+        subHeaderTextColor='white'
+      >
+        <Button
+          type='default'
+          textColor='black'
+          backgroundColor='white'
+        >
+          Schedule Consultation
+        </Button>
+        <Button
+          type='link'
+          textColor='white'
+        >
+          View Portfolio
+        </Button>
+      </CTA>
     </div>
   );
 };

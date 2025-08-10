@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { Banknote } from "lucide-react";
 import SectionContainer from "@/components/ui/sectionContainer";
 import SectionTitle from "@/components/ui/SectionTitle";
 import {
@@ -87,12 +86,12 @@ export default function FinanceIndustry() {
               className="bg-white rounded-xl shadow-lg p-8 flex flex-col"
             >
               <SideImage
-                              imgsrc={study.img.src}
-                              height='lg'
-                              borderSide='all'
-                            />
-                            <h3 className="text-sm md:text-base lg:text-sm xl:text-base 2xl:text-2xl font-semibold mt-3 2xl:mt-5">{study.title}</h3>
-                            <p className="text-slate-700 text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-lg mt-1">{study.description}</p>
+                imgsrc={study.img.src}
+                height='lg'
+                borderSide='all'
+              />
+              <h3 className="text-sm md:text-base lg:text-sm xl:text-base 2xl:text-2xl font-semibold mt-3 2xl:mt-5">{study.title}</h3>
+              <p className="text-slate-700 text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-lg mt-1">{study.description}</p>
             </div>
           ))}
         </div>
