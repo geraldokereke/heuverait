@@ -106,7 +106,7 @@ export default function SideImage({ imgsrc, className = "", borderSide, height =
                             className="absolute inset-0"
                         >
                             <Image
-                                src={imgsrc}
+                                src={imgsrc || ''}
                                 alt="Side image"
                                 fill
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
