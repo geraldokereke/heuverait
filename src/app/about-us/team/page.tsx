@@ -17,10 +17,10 @@ export default function OurTeam() {
 
             <SectionContainer className="py-20">
                 <SectionTitle
-                    section='Leadership Excellence'
-                    title='Meet the Visionaries'
-                    subtitle='The extraordinary individuals who transform ambitious visions into groundbreaking realities.
-                        Each leader brings unparalleled expertise and an unwavering commitment to excellence.'
+                    section='Team Development Excellence'
+                    title='Meet Our Development Architects'
+                    subtitle='The skilled professionals who build exceptional teams and engineer innovative solutions.                         
+        Each developer brings deep technical expertise and a passion for collaborative excellence.'
                 />
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">

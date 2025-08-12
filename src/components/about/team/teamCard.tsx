@@ -15,11 +15,6 @@ interface TeamMember {
         twitter?: string;
         email?: string;
     };
-    stats: {
-        experience: string;
-        projects: string;
-        achievements: string;
-    };
 }
 
 
@@ -31,7 +26,7 @@ interface TeamMemberCardProps {
 export const teamMembers: TeamMember[] = [
     {
         id: "1",
-        name: "Alexandra Chen",
+        name: "Maduabuchi Gerald",
         role: "Chief Executive Officer",
         department: "Leadership",
         image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
@@ -42,15 +37,11 @@ export const teamMembers: TeamMember[] = [
             twitter: "#",
             email: "alexandra@company.com"
         },
-        stats: {
-            experience: "15+ Years",
-            projects: "200+ Projects",
-            achievements: "50+ Awards"
-        }
+
     },
     {
         id: "2",
-        name: "Marcus Rodriguez",
+        name: "Fabunmi George",
         role: "Chief Technology Officer",
         department: "Technology",
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
@@ -61,15 +52,11 @@ export const teamMembers: TeamMember[] = [
             twitter: "#",
             email: "marcus@company.com"
         },
-        stats: {
-            experience: "12+ Years",
-            projects: "150+ Systems",
-            achievements: "25+ Patents"
-        }
+
     },
     {
         id: "3",
-        name: "Sarah Williams",
+        name: "Edward Sarah",
         role: "Creative Director",
         department: "Design",
         image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
@@ -80,33 +67,25 @@ export const teamMembers: TeamMember[] = [
             twitter: "#",
             email: "sarah@company.com"
         },
-        stats: {
-            experience: "10+ Years",
-            projects: "300+ Designs",
-            achievements: "40+ Awards"
-        }
+
     },
     {
         id: "4",
-        name: "David Park",
-        role: "Head of Operations",
-        department: "Operations",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-        bio: "Operations strategist optimizing performance at scale. David's methodical approach has streamlined processes across multi-billion dollar enterprises.",
-        expertise: ["Process Optimization", "Team Management", "Strategic Planning", "Analytics"],
+        name: "Achara Favour",
+        role: "Frontend Developer",
+        department: "IT",
+        image: "/favour.jpeg",
+        bio: "A passionate Software Engineer passionate about crafting pixel‑perfect, responsive interfaces with React.js, Next.js while integrating AI models and tools",
+        expertise: ["Next JS", "React JS"],
         social: {
             linkedin: "#",
             email: "david@company.com"
         },
-        stats: {
-            experience: "14+ Years",
-            projects: "100+ Optimizations",
-            achievements: "30+ Certifications"
-        }
+
     },
     {
         id: "5",
-        name: "Emma Johnson",
+        name: "Godwin Praise",
         role: "Head of Research",
         department: "Innovation",
         image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face",
@@ -117,15 +96,11 @@ export const teamMembers: TeamMember[] = [
             twitter: "#",
             email: "emma@company.com"
         },
-        stats: {
-            experience: "11+ Years",
-            projects: "80+ Research",
-            achievements: "12+ Patents"
-        }
+
     },
     {
         id: "6",
-        name: "James Thompson",
+        name: "Efetobore Emmanuel",
         role: "VP of Business Development",
         department: "Growth",
         image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face",
@@ -135,11 +110,7 @@ export const teamMembers: TeamMember[] = [
             linkedin: "#",
             email: "james@company.com"
         },
-        stats: {
-            experience: "13+ Years",
-            projects: "500+ Partnerships",
-            achievements: "100M+ Revenue"
-        }
+
     }
 ];
 
@@ -227,9 +198,9 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, index }) => {
                                 backgroundImage: `url(${member.image})`
                             }}
                         />
-                        
+
                         {/* Teal Overlay */}
-                        <div 
+                        <div
                             className="absolute inset-0"
                             style={{
                                 backgroundColor: '#000000',
