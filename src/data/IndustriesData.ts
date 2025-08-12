@@ -81,7 +81,10 @@ import {
   UserX,
   UserPlus,
   UserMinus,
-  UserCog
+  UserCog,
+  BookOpen,
+  CheckCircle,
+  HardDrive
 } from "lucide-react";
 import { IndustryData } from "@/types/industries";
 
@@ -337,5 +340,276 @@ export const IndustriesData: IndustryData[] = [
       ]
     }
   },
-  // Additional industries will be added here with the same structure
+  // 4. Manufacturing & Industrial
+  {
+    slug: "manufacturing",
+    name: "Manufacturing",
+    icon: Factory,
+    description: "Industry 4.0 solutions for smart factories and connected manufacturing.",
+    heroImage: "https://images.unsplash.com/photo-1531403007395-8c9302175e0c?auto=format&fit=crop&w=1200&q=80",
+    heroTitle: "Smart Manufacturing Solutions",
+    heroDescription: "Driving efficiency and innovation in manufacturing with cutting-edge technology.",
+    features: [
+      {
+        title: "Industrial IoT",
+        description: "Connected devices and sensors for real-time monitoring and control.",
+        features: [
+          "Predictive maintenance",
+          "Asset tracking",
+          "Quality control"
+        ],
+        image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80"
+      },
+      {
+        title: "Supply Chain Optimization",
+        description: "End-to-end visibility and optimization of manufacturing supply chains.",
+        features: [
+          "Demand forecasting",
+          "Inventory optimization",
+          "Supplier collaboration"
+        ],
+        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80"
+      },
+      {
+        title: "Quality Management",
+        description: "Advanced quality control and assurance systems.",
+        features: [
+          "Automated inspection",
+          "Defect detection",
+          "Compliance tracking"
+        ],
+        image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80"
+      }
+    ],
+    caseStudies: [
+      {
+        title: "Smart Factory Implementation",
+        description: "Transformed a traditional factory with IoT and AI, reducing downtime by 40%.",
+        results: [
+          "40% reduction in downtime",
+          "25% increase in production efficiency",
+          "Real-time quality control"
+        ],
+        image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=400&q=80"
+      },
+      {
+        title: "Supply Chain Digitalization",
+        description: "End-to-end supply chain visibility for a global manufacturer.",
+        results: [
+          "30% reduction in lead times",
+          "20% inventory reduction",
+          "Improved supplier collaboration"
+        ],
+        image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=400&q=80"
+      }
+    ],
+    solutions: {
+      title: "Manufacturing Technology Solutions",
+      description: "Comprehensive technology solutions for modern manufacturing.",
+      items: [
+        {
+          title: "Smart Factory",
+          description: "IoT and AI-powered manufacturing solutions.",
+          icon: Cpu
+        },
+        {
+          title: "Quality Management",
+          description: "Advanced quality control and assurance.",
+          icon: CheckCircle
+        },
+        {
+          title: "Supply Chain",
+          description: "End-to-end supply chain visibility.",
+          icon: Package
+        },
+        {
+          title: "Asset Management",
+          description: "Comprehensive asset tracking and maintenance.",
+          icon: HardDrive
+        }
+      ]
+    }
+  },
+  
+  // 5. Education & E-learning
+  {
+    slug: "education",
+    name: "Education Technology",
+    icon: School,
+    description: "Innovative learning platforms and educational technology solutions.",
+    heroImage: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80",
+    heroTitle: "Education Technology Solutions",
+    heroDescription: "Transforming education with technology that enhances learning experiences.",
+    features: [
+      {
+        title: "Learning Management Systems",
+        description: "Comprehensive platforms for managing and delivering educational content.",
+        features: [
+          "Course management",
+          "Student tracking",
+          "Assessment tools"
+        ],
+        image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80"
+      },
+      {
+        title: "Virtual Classrooms",
+        description: "Interactive online learning environments for remote education.",
+        features: [
+          "Live video sessions",
+          "Collaborative tools",
+          "Content sharing"
+        ],
+        image: "https://images.unsplash.com/photo-1588072432836-e10032774350?w=600&q=80"
+      },
+      {
+        title: "Student Analytics",
+        description: "Data-driven insights to improve student outcomes and engagement.",
+        features: [
+          "Performance tracking",
+          "Early warning systems",
+          "Personalized learning"
+        ],
+        image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80"
+      }
+    ],
+    caseStudies: [
+      {
+        title: "University Digital Transformation",
+        description: "Deployed a campus-wide learning management system serving 50,000+ students.",
+        results: [
+          "Improved student engagement",
+          "Centralized learning resources",
+          "Enhanced collaboration"
+        ],
+        image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=80"
+      },
+      {
+        title: "K-12 E-learning Platform",
+        description: "Developed a customized e-learning platform for K-12 education.",
+        results: [
+          "Increased accessibility",
+          "Personalized learning paths",
+          "Parent-teacher collaboration"
+        ],
+        image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0a?w=400&q=80"
+      }
+    ],
+    solutions: {
+      title: "Education Technology Solutions",
+      description: "Comprehensive technology solutions for educational institutions.",
+      items: [
+        {
+          title: "LMS Platforms",
+          description: "Learning management systems for all education levels.",
+          icon: BookOpen
+        },
+        {
+          title: "Virtual Classrooms",
+          description: "Interactive online learning environments.",
+          icon: Video
+        },
+        {
+          title: "Student Information",
+          description: "Comprehensive student data management.",
+          icon: User
+        },
+        {
+          title: "Analytics & Reporting",
+          description: "Data-driven insights for education.",
+          icon: BarChart2
+        }
+      ]
+    }
+  },
+  
+  // 6. Government & Public Sector
+  {
+    slug: "government",
+    name: "Government",
+    icon: Shield,
+    description: "Secure and compliant technology solutions for government agencies.",
+    heroImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    heroTitle: "Government Technology Solutions",
+    heroDescription: "Modernizing government services with secure, citizen-centric technology.",
+    features: [
+      {
+        title: "Digital Services",
+        description: "Citizen-facing digital services that improve accessibility and efficiency.",
+        features: [
+          "Online applications",
+          "Permit processing",
+          "Service portals"
+        ],
+        image: "https://images.unsplash.com/photo-1601584357456-112d7c8ae43d?w=600&q=80"
+      },
+      {
+        title: "Cybersecurity",
+        description: "Robust security solutions to protect sensitive government data.",
+        features: [
+          "Threat detection",
+          "Incident response",
+          "Compliance management"
+        ],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80"
+      },
+      {
+        title: "Data Management",
+        description: "Secure and efficient management of government data assets.",
+        features: [
+          "Data governance",
+          "Records management",
+          "Open data initiatives"
+        ],
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80"
+      }
+    ],
+    caseStudies: [
+      {
+        title: "Digital Government Portal",
+        description: "Developed a centralized portal for government services, reducing processing times by 60%.",
+        results: [
+          "60% faster service delivery",
+          "Improved citizen satisfaction",
+          "Reduced operational costs"
+        ],
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=80"
+      },
+      {
+        title: "Cybersecurity Modernization",
+        description: "Implemented a comprehensive cybersecurity framework for a state government.",
+        results: [
+          "99.9% threat detection rate",
+          "Reduced incident response time",
+          "Regulatory compliance"
+        ],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80"
+      }
+    ],
+    solutions: {
+      title: "Government Technology Solutions",
+      description: "Comprehensive technology solutions for the public sector.",
+      items: [
+        {
+          title: "Digital Services",
+          description: "Citizen-facing digital platforms and services.",
+          icon: Globe
+        },
+        {
+          title: "Cybersecurity",
+          description: "Protecting sensitive government data and systems.",
+          icon: Shield
+        },
+        {
+          title: "Data Management",
+          description: "Secure and efficient government data solutions.",
+          icon: Database
+        },
+        {
+          title: "Cloud Solutions",
+          description: "Secure cloud infrastructure for government agencies.",
+          icon: Cloud
+        }
+      ]
+    }
+  }
 ];

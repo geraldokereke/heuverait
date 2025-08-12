@@ -40,10 +40,7 @@ const Navigation = () => {
       items: [
         { label: "Who We Are", href: "/about-us/who-we-are", icon: Users, description: "Learn about our company story and values" },
         { label: "Our Team", href: "/about-us/team", icon: Users, description: "Meet the experts behind our success" },
-        // { label: "Mission & Vision", href: "/about/mission", icon: Star, description: "Our purpose and future aspirations" },
-        // { label: "Company Culture", href: "/about/culture", icon: Heart, description: "What makes us unique as a workplace" },
         { label: "Careers", href: "/careers", icon: Building, description: "Join our growing team of innovators" },
-        // { label: "Partners & Alliances", href: "/partners", icon: Users, description: "Strategic partnerships that drive success" }
       ],
       sidebar: {
         title: 'COMPANY HIGHLIGHTS',
@@ -56,12 +53,6 @@ const Navigation = () => {
             badge: 'Featured',
             icon: TrendingUp
           },
-          // {
-          //   title: 'Awards & Recognition',
-          //   description: 'Industry accolades, certifications, and testimonials from satisfied clients worldwide.',
-          //   href: '/about/awards',
-          //   icon: Award
-          // }
         ]
       }
     },
@@ -84,12 +75,6 @@ const Navigation = () => {
             badge: 'Most Popular',
             icon: Brain
           },
-          // {
-          //   title: 'Cloud Migration Services',
-          //   description: 'Seamlessly migrate to the cloud with zero downtime and enhanced performance.',
-          //   href: '/solutions/cloud-migration',
-          //   icon: Cloud
-          // }
         ]
       }
     },
@@ -105,13 +90,6 @@ const Navigation = () => {
         title: 'SUCCESS STORIES',
         image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop&auto=format',
         items: [
-          // {
-          //   title: 'FinTech Innovation Case Study',
-          //   description: 'How we helped a leading bank modernize their digital infrastructure and improve customer experience.',
-          //   href: '/case-studies/fintech',
-          //   badge: 'New',
-          //   icon: Building
-          // },
           {
             title: 'Healthcare Digital Transformation',
             description: 'Revolutionizing patient care through innovative technology and seamless integration.',
@@ -127,7 +105,6 @@ const Navigation = () => {
       items: [
         { label: "Project Portfolio", href: "/work/portfolio", icon: Briefcase, description: "Showcase of our most impactful projects" },
         { label: "Awards & Recognition", href: "/work/awards", icon: Award, description: "Industry accolades and client recognition" },
-        // Add more work subpages here as created
       ],
       sidebar: {
         title: 'CLIENT SPOTLIGHT',
@@ -140,12 +117,6 @@ const Navigation = () => {
             badge: 'Trending',
             icon: Rocket
           },
-          // {
-          //   title: 'Startup Success Story',
-          //   description: 'From concept to IPO in 24 months with our comprehensive technology partnership.',
-          //   href: '/work/startup-success',
-          //   icon: Target
-          // }
         ]
       }
     },
@@ -153,10 +124,8 @@ const Navigation = () => {
       title: "Resources",
       href: "",
       items: [
-        { label: "Whitepapers & Insights", href: "/resources/whitepapers", icon: BookOpen, description: "In-depth research and technical analysis" },
+        // { label: "Whitepapers & Insights", href: "/resources/whitepapers", icon: BookOpen, description: "In-depth research and technical analysis" },
         { label: "Case Studies", href: "/resources/case-studies", icon: FileText, description: "Real-world client success stories" },
-        // { label: "Guides & Tutorials", href: "/resources/guides", icon: Wrench, description: "Step-by-step implementation guides" },
-        // Add more resource subpages here as created
       ],
       sidebar: {
         title: 'LATEST INSIGHTS',
@@ -169,12 +138,6 @@ const Navigation = () => {
             badge: 'Trending',
             icon: Brain
           },
-          // {
-          //   title: 'Cybersecurity Best Practices',
-          //   description: 'Protect your business from emerging threats with our comprehensive security guide.',
-          //   href: '/resources/cybersecurity-guide',
-          //   icon: Shield
-          // }
         ]
       }
     },
@@ -399,20 +362,6 @@ const Navigation = () => {
                       );
                     })}
                   </div>
-
-                  {/* Call to Action */}
-                  {/* <div className="mt-6 pt-6 border-t border-slate-200">
-                    <div className="text-center">
-                      <p className="text-xs text-slate-600 mb-3">Ready to get started?</p>
-                      <a
-                        href="/contact"
-                        className="inline-flex items-center px-4 py-2 bg-[#41a7ad] hover:bg-[#007145] text-white text-xs font-semibold rounded-lg transition-colors duration-200"
-                      >
-                        <span>Contact Us</span>
-                        <ArrowRight className="w-3 h-3 ml-1" />
-                      </a>
-                    </div>
-                  </div> */}
                 </div>
               </div>
             )}

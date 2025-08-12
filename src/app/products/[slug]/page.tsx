@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { ProductsData } from '@/data/ProductsData';
 import { Metadata } from 'next';
 import Image from 'next/image';
+import Hero from '@/components/hero';
 
 export async function generateStaticParams() {
   return ProductsData.map((product) => ({
@@ -15,7 +16,7 @@ export async function generateMetadata({
   params: { slug: string };
 }): Promise<Metadata> {
   const product = ProductsData.find((p) => p.slug === params.slug);
-  
+
   if (!product) {
     return {};
   }
@@ -38,16 +39,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
   return (
     <main>
-      {/* Hero Section */}
-      <div className="min-h-[50vh] flex items-center bg-muted/50">
-        <div className="container mx-auto px-4 py-16 text-center">
-          <ProductIcon className="w-12 h-12 mx-auto mb-4 text-primary" />
-          <h1 className="text-4xl font-bold mb-4">{product.name}</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            {product.description}
-          </p>
-        </div>
-      </div>
+      <Hero
+        imgLink={product.heroImage}
+        section={product.name}
+        title={product.heroTitle}
+        description={product.heroDescription}
+        height="h-[50vh]"
+      />
 
       {/* Features */}
       {product.features?.length > 0 && (
