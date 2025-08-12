@@ -5,6 +5,10 @@ import { ChevronDown, Menu, X, ChevronRight, ArrowRight, Code, Globe, Brain, Clo
 import Link from "next/link";
 import Image from "next/image";
 import ComingSoonModal from "./ComingSoonModal";
+import { SolutionsData } from "@/data/SolutionsData";
+import { transformSolutionData } from "@/utils/solutions";
+import { IndustriesData } from "@/data/IndustriesData";
+import { ProductsData } from "@/data/ProductsData";
 
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -63,14 +67,12 @@ const Navigation = () => {
     },
     {
       title: "Solutions",
-      href: "",
-      items: [
-        { label: "Cloud Solutions", href: "/solutions/cloud", icon: Cloud, description: "Enterprise-grade cloud migration and infrastructure" },
-        { label: "Custom Software Development", href: "/solutions/custom", icon: Code, description: "Tailored solutions for your unique needs" },
-        { label: "Web & Mobile App Development", href: "/solutions/web-mobile", icon: Globe, description: "Modern apps for web and mobile platforms" },
-        { label: "AI & Machine Learning", href: "/solutions/ai-ml", icon: Brain, description: "Intelligent systems that learn and adapt" },
-        // Add more solution subpages here as created
-      ],
+      items: SolutionsData.map((solution) => ({
+        label: solution.name,
+        href: `/solutions/${solution.slug}`,
+        icon: solution.icon,
+        description: solution.description
+      })),
       sidebar: {
         title: 'FEATURED SOLUTIONS',
         image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=200&fit=crop&auto=format',
@@ -93,15 +95,12 @@ const Navigation = () => {
     },
     {
       title: "Industries",
-      href: "",
-      items: [
-        { label: "Healthcare", href: "/industries/healthcare", icon: Heart, description: "Digital transformation in healthcare" },
-        { label: "Finance & Fintech", href: "/industries/finance", icon: Building, description: "Banking, fintech, and financial solutions" },
-        { label: "Manufacturing", href: "/industries/manufacturing", icon: Factory, description: "Smart factories and industrial automation" },
-        { label: "Retail & E-Commerce", href: "/industries/retail", icon: ShoppingCart, description: "Modern retail and digital commerce" },
-        { label: "Logistics & Supply Chain", href: "/industries/logistics", icon: Truck, description: "Supply chain and logistics innovation" },
-        // Add more industry subpages here as created
-      ],
+      items: IndustriesData.map((industry) => ({
+        label: industry.name,
+        href: `/industries/${industry.slug}`,
+        icon: industry.icon,
+        description: industry.description
+      })),
       sidebar: {
         title: 'SUCCESS STORIES',
         image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop&auto=format',
@@ -181,33 +180,23 @@ const Navigation = () => {
     },
     {
       title: "Products",
-      href: "",
-      items: [
-        { label: "SaaS Platform", href: "/products/saas-platform", icon: Cloud, description: "Cloud-native SaaS for enterprise scale" },
-        { label: "Mobile App Suite", href: "/products/mobile-suite", icon: Smartphone, description: "High-performance mobile business apps" },
-        { label: "Analytics Suite", href: "/products/analytics-suite", icon: BarChart, description: "Advanced analytics and BI tools" },
-        // Add more product subpages here as created
-      ],
+      items: ProductsData.map((product) => ({
+        label: product.name,
+        href: `/products/${product.slug}`,
+        icon: product.icon,
+        description: product.description
+      })),
       sidebar: {
-        title: 'PRODUCT SPOTLIGHT',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop&auto=format',
-        items: [
-          // {
-          //   title: 'SmartRent Pro',
-          //   description: 'Our flagship rental marketplace platform with advanced analytics, AI-powered matching, and seamless transactions.',
-          //   href: '/products/smartrent-pro',
-          //   badge: 'Featured',
-          //   icon: ShoppingCart
-          // },
-          {
-            title: 'EduLearn Suite',
-            description: 'Comprehensive educational software suite for modern learning with interactive features and progress tracking.',
-            href: '/products/edulearn-suite',
-            icon: GraduationCap
-          }
-        ]
+        title: 'FEATURED PRODUCTS',
+        image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=200&fit=crop&auto=format',
+        items: ProductsData.slice(0, 2).map(product => ({
+          title: product.name,
+          description: product.description,
+          href: `/products/${product.slug}`,
+          icon: product.icon
+        }))
       }
-    }
+    },
   ];
 
   const handleMouseEnter = (itemTitle: string, hasDropdown: boolean) => {
@@ -557,7 +546,7 @@ const Navigation = () => {
                     <span className={`absolute inset-x-3 bottom-[-11] xl:bottom-[-14] 2xl:bottom-[-11] h-0.5 ${getUnderlineColor()} transition-transform duration-200 origin-left ${activeDropdown === item.title ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
                   </button>
 
-                  {activeDropdown && renderDropdownContent(item)}
+                  {activeDropdown === item.title && renderDropdownContent(item)}
                 </div>
               ))}
 
