@@ -20,7 +20,7 @@ export default function Text({ children, size, font = "poppins", color = "black"
             case 'xl':
                 return 'text-[10px] xl:text-sm 2xl:text-xl';
             case 'lg':
-                return 'text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-lg';
+                return 'text-sm md:text-lg lg:text-xs xl:text-sm 2xl:text-lg';
             case 'md':
                 return 'text-[10px] xl:text-sm 2xl:text-md';
             case 'sm':

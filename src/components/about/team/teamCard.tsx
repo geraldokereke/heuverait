@@ -21,107 +21,111 @@ interface TeamMember {
 interface TeamMemberCardProps {
     member: TeamMember;
     index: number;
+    className?: string;
 }
 
-export const teamMembers: TeamMember[] = [
+export const executiveMembers: TeamMember[] = [
     {
         id: "1",
         name: "Maduabuchi Gerald",
         role: "Chief Executive Officer",
         department: "Leadership",
         image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
-        bio: "Visionary leader with 15+ years transforming digital landscapes. Alexandra's strategic insight has guided Fortune 500 companies through revolutionary growth phases.",
-        expertise: ["Strategic Planning", "Digital Transformation", "Leadership", "Innovation"],
+        bio: "Engineering architect passionate about scalable solutions. Marcus has pioneered breakthrough technologies that power millions of users worldwide.",
+        expertise: ["System Architecture", "AI/ML", "Cloud Infrastructure", "DevOps"],
         social: {
             linkedin: "#",
             twitter: "#",
-            email: "alexandra@company.com"
+            email: "mgeraldoj@heuvera.com"
         },
-
     },
     {
         id: "2",
         name: "Fabunmi George",
         role: "Chief Technology Officer",
         department: "Technology",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+        image: "/george.jpeg",
         bio: "Engineering architect passionate about scalable solutions. Marcus has pioneered breakthrough technologies that power millions of users worldwide.",
         expertise: ["System Architecture", "AI/ML", "Cloud Infrastructure", "DevOps"],
         social: {
             linkedin: "#",
             twitter: "#",
-            email: "marcus@company.com"
+            email: "ftgeorge@heuvera.com"
         },
-
     },
+];
+
+
+export const teamMembers: TeamMember[] = [
     {
-        id: "3",
+        id: "1",
         name: "Edward Sarah",
-        role: "Creative Director",
-        department: "Design",
+        role: "Project Manager",
+        department: "null",
         image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-        bio: "Award-winning designer crafting experiences that resonate. Sarah's creative vision has redefined brand identities for leading global companies.",
+        bio: "null",
         expertise: ["Brand Strategy", "UX Design", "Creative Direction", "Design Systems"],
         social: {
             linkedin: "#",
             twitter: "#",
-            email: "sarah@company.com"
+            email: "sarahedward699@gmail.com"
         },
 
     },
     {
-        id: "4",
+        id: "2",
         name: "Achara Favour",
         role: "Frontend Developer",
-        department: "IT",
+        department: "Web Design",
         image: "/favour.jpeg",
         bio: "A passionate Software Engineer passionate about crafting pixel‑perfect, responsive interfaces with React.js, Next.js while integrating AI models and tools",
         expertise: ["Next JS", "React JS"],
         social: {
             linkedin: "#",
-            email: "david@company.com"
+            twitter: "https://twitter.com/favour2207",
+            email: "acharafavour01@gmail.com"
         },
 
     },
     {
-        id: "5",
+        id: "3",
         name: "Godwin Praise",
-        role: "Head of Research",
-        department: "Innovation",
+        role: "UI/UX Designer",
+        department: "Design",
         image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face",
-        bio: "Research pioneer exploring tomorrow's possibilities today. Emma's groundbreaking work has resulted in 12 patents and numerous industry recognitions.",
-        expertise: ["Research & Development", "Innovation Strategy", "Product Vision", "AI Ethics"],
+        bio: "Aspiring Data Scientist and a UI/UX designer passionate about creating intuitive digital experiences and transforming data into actionable insights.",
+        expertise: ["Figma", "Python", "Pandas", "Data Visualization"],
         social: {
             linkedin: "#",
-            twitter: "#",
-            email: "emma@company.com"
+            twitter: "https://x.com/oungel30489?s=21",
+            email: "praiseg203@gmail.com.com"
         },
 
     },
     {
-        id: "6",
+        id: "4",
         name: "Efetobore Emmanuel",
-        role: "VP of Business Development",
-        department: "Growth",
+        role: "UI/UX Designer",
+        department: "Design",
         image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face",
-        bio: "Growth catalyst building meaningful partnerships. James has orchestrated strategic alliances that have expanded market reach across four continents.",
-        expertise: ["Partnership Development", "Market Expansion", "Strategic Alliances", "Sales"],
+        bio: "Passionate about building secure, user0fruebdly digital experiences. Skilled in interface design, and innovative tech solutions, with a growing portfolio spanning mobile apps, web platforms and abstract designs.",
+        expertise: ["UI?UX Design", "Prototyping", "Figma"],
         social: {
             linkedin: "#",
-            email: "james@company.com"
+            email: "emmxy5ty5@gmail.com"
         },
 
     }
 ];
 
 
-const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, index }) => {
+const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, index, className }) => {
     const [isFlipped, setIsFlipped] = useState<boolean>(false);
     const [imageLoaded, setImageLoaded] = useState<boolean>(false);
 
     return (
         <div
-            className="group relative h-96 md:h-56 xl:h-64 2xl:h-96"
+            className={`group relative h-96 md:h-56 xl:h-64 2xl:h-96 ${className}`}
             style={{
                 perspective: '1000px',
                 animationDelay: `${index * 150}ms`

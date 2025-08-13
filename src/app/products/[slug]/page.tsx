@@ -27,6 +27,7 @@ import { ProductsData } from '@/data/ProductsData';
 import SectionContainer from '@/components/ui/sectionContainer';
 import Text from '@/components/ui/text';
 import SectionTitle from '@/components/ui/SectionTitle';
+import Button from '@/components/ui/button';
 
 // Smooth scroll to anchor links
 const scrollToSection = (id: string) => {
@@ -197,9 +198,9 @@ export default function ProductPage() {
             {product.keyBenefits && product.keyBenefits.length > 0 && (
               <section className="py-12 text-black">
                 <div className="container mx-auto px-4">
-                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4">
                     {product.keyBenefits.map((benefit, i) => (
-                      <div key={i} className="text-center">
+                      <div key={i} className="flex flex-col items-center justify-center h-28 text-center mx-auto border-l border-l-gray-100 border-l-0:first">
                         <CheckCircle className="w-8 h-8 mx-auto mb-3 text-[#41a7ad]" />
                         <Text size='sm' font='poppins' weight='medium'>{benefit}</Text>
                       </div>
@@ -322,14 +323,6 @@ export default function ProductPage() {
             {product.implementationPhases && product.implementationPhases.length > 0 && (
               <section className="py-20">
                 <div className="container mx-auto px-4">
-                  <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">
-                      Implementation Process
-                    </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                      Our proven methodology ensures successful deployment
-                    </p>
-                  </div>
                   <SectionTitle
                     section='implmentation'
                     title='Implementation Process'
@@ -338,7 +331,7 @@ export default function ProductPage() {
                   <div className="max-w-4xl mx-auto">
                     <div className="space-y-6">
                       {product.implementationPhases.map((phase, i) => (
-                        <div key={i} className="flex items-start gap-4">
+                        <div key={i} className="flex items-start justify-center gap-4">
                           <div className="flex-shrink-0">
                             <div className="size-8 lg:size-6 xl:size-8 2xl:size-10 bg-black rounded-full flex items-center justify-center text-white text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-lg font-bold">
                               {i + 1}
@@ -353,8 +346,8 @@ export default function ProductPage() {
                     {product.projectTimeline && (
                       <div className="text-center mt-12">
                         <div className="inline-flex items-center gap-2 bg-black text-white px-4 lg:px-2 xl:px-4 2xl:px-6 py-1.5 lg:py-1 xl:py-1.5 2xl:py-3 rounded-full">
-                          <Clock className="size-2 lg:size-1 xl:size-2 2xl:size-4" />
-                          <Text size='lg' color='white' font='poppins' weight='medium' className="font-medium">Typical Timeline: {product.projectTimeline}</Text>
+                          <Clock className="size-3 lg:size-2 xl:size-3 2xl:size-4" />
+                          <h1 className="font-medium font-poppins text-white text-xs md:text-lg lg:text-xs xl:text-sm 2xl:text-lg">Typical Timeline: {product.projectTimeline}</h1>
                         </div>
                       </div>
                     )}
@@ -384,7 +377,7 @@ export default function ProductPage() {
                           <p className="text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm text-gray-600">{testimonial.position}</p>
                           <p className="text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-medium text-black mb-2">{testimonial.company}</p>
                           {testimonial.industry && (
-                            <span className="inline-block text-[8px] xl:text-[10px] 2xl:text-xs px-2 py-1 bg-black text-white rounded">
+                            <span className="inline-block text-[8px] xl:text-[10px] 2xl:text-xs px-2 py-1 bg-black text-white rounded-md">
                               {testimonial.industry}
                             </span>
                           )}
@@ -398,61 +391,64 @@ export default function ProductPage() {
 
             {/* Pricing */}
             {product.pricingTiers && product.pricingTiers.length > 0 && (
-              <section id="pricing" className="py-20 bg-black text-white scroll-mt-20">
+              <section id="pricing" className="py-20 scroll-mt-20">
                 <div className="container mx-auto px-4">
                   <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                    <Text size='3xl' color='black' font='montserrat' weight='bold' className="mb-6">
                       Choose Your Plan
-                    </h2>
-                    <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                    </Text>
+                    <Text size='lg' color='gray-300' className="max-w-2xl mx-auto">
                       Flexible pricing options to match your business needs
-                    </p>
+                    </Text>
                   </div>
                   <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     {product.pricingTiers.map((tier, i) => (
                       <div key={i} className={`relative p-8 rounded-2xl border-2 ${tier.popular
-                        ? 'border-white bg-white text-black'
-                        : 'border-gray-700 bg-gray-900'
+                        ? 'border-black bg-white text-black'
+                        : 'bg-black text-white'
                         }`}>
                         {tier.popular && (
                           <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                            <span className="bg-black text-white px-4 py-1 rounded-full text-sm font-medium">
+                            <Text color='white' size='sm' font='montserrat' weight='medium' className="bg-black px-4 py-1 rounded-full">
                               Most Popular
-                            </span>
+                            </Text>
                           </div>
                         )}
                         <div className="text-center">
-                          <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
+                          <h1 className="mb-2 text-2xl font-montserrat font-bold">{tier.name}</h1>
                           <div className="mb-4">
-                            <span className="text-4xl font-bold">{tier.price}</span>
+                            <h1 className={`text-4xl font-bold font-montserrat ${tier.popular ? 'text-black' : 'text-white'}`}>{tier.price}</h1>
                             {tier.period !== 'per month' ? (
-                              <span className="text-sm opacity-75 ml-2">{tier.period}</span>
+                              <h1 className="text-sm text-white opacity-75 ml-2">{tier.period}</h1>
                             ) : (
-                              <span className="text-sm opacity-75">/month</span>
+                              <h1 className="text-sm text-white opacity-75">/month</h1>
                             )}
                           </div>
-                          <p className={`mb-8 ${tier.popular ? 'text-gray-600' : 'text-gray-300'}`}>
+                          <Text size='lg' className={`mb-8 ${tier.popular ? 'text-gray-600' : 'text-gray-300'}`}>
                             {tier.description}
-                          </p>
+                          </Text>
                         </div>
                         <ul className="space-y-3 mb-8">
                           {tier.features.map((feature, j) => (
                             <li key={j} className="flex items-start gap-3">
                               <CheckCircle className={`w-5 h-5 mt-0.5 flex-shrink-0 ${tier.popular ? 'text-black' : 'text-white'
                                 }`} />
-                              <span className="text-sm">{feature}</span>
+                              <h1 className='text-sm'>{feature}</h1>
                             </li>
                           ))}
                         </ul>
-                        <Link
-                          href="/contact?interest=demo"
-                          className={`w-full py-3 px-6 rounded-lg font-medium transition-colors ${tier.popular
-                            ? 'bg-black text-white hover:bg-gray-800'
-                            : 'bg-white text-black hover:bg-gray-100'
-                            }`}
-                        >
-                          {tier.cta}
-                        </Link>
+                        <div className='flex flex-row items-center justify-center w-full'>
+                          <Link
+                            href="/contact?interest=demo"
+                            className={`max-w-fit text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-lg py-2 lg:py-1 xl:py-2 2xl:py-3 px-4 lg:px-3 xl:px-4 2xl:px-6 rounded-lg font-medium transition-colors ${tier.popular
+                              ? 'bg-black text-white hover:bg-gray-800'
+                              : 'bg-white text-black hover:bg-gray-100'
+                              }`}
+                          >
+                            {tier.cta}
+                          </Link>
+                        </div>
+
                         {tier.targetAudience && (
                           <p className={`text-[8px] xl:text-[10px] 2xl:text-xs mt-4 text-center ${tier.popular ? 'text-gray-500' : 'text-gray-400'
                             }`}>
@@ -467,31 +463,16 @@ export default function ProductPage() {
             )}
 
             {/* CTA Section */}
-            <section className="py-20 bg-white" id="contact">
-              <div className="container mx-auto px-4">
-                <div className="text-center max-w-3xl mx-auto">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">
-                    Ready to Transform Your Business?
-                  </h2>
-                  <p className="text-lg text-gray-600 mb-8">
-                    Join thousands of organizations that trust Heuver AI Technologies to drive their success.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Link
-                      href="/contact?interest=demo"
-                      className="bg-black text-white px-8 py-4 rounded-lg font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2"
-                    >
-                      Schedule a Demo
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                    <Link
-                      href="/contact?interest=sales"
-                      className="border-2 border-black text-black px-8 py-4 rounded-lg font-medium hover:bg-black hover:text-white transition-colors"
-                    >
-                      Contact Sales
-                    </Link>
-                  </div>
-                </div>
+            <section id='contact' className='text-center w-full mt-0 xl:mt-20 bg-white py-16 text-white overflow-hidden'>
+              <Text size="4xl" weight="bold" font="montserrat" color="black" className="mb-1 xl:mb-4">
+                Ready to Transform Your Business?
+              </Text>
+              <Text size="lg" color="black" className="mb-5 xl:mb-8 max-w-2xl mx-auto">
+                Join thousands of organizations that trust Heuver AI Technologies to drive their success.
+              </Text>
+              <div className="w-full flex flex-row gap-6 justify-center">
+                <Button backgroundColor='black' textColor='white' type='default'>Schedule a Demo</Button>
+                <Button textColor='black' type='link'>Contact Sales</Button>
               </div>
             </section>
           </div>

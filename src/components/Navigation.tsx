@@ -462,7 +462,7 @@ const Navigation = () => {
             {/* Logo */}
             <div className="flex items-center flex-shrink-0">
               <Link href="/" className="">
-                <div className="flex items-center gap-2 h-4 md:h-3 xl:h-4 2xl:h-6">
+                <div className="flex items-center gap-2 h-4 max-w-fit md:h-3 xl:h-4 2xl:h-6">
                   <Image
                     src={`${getLogo()}`}
                     alt="Heuvera Logo"
@@ -608,15 +608,15 @@ const Navigation = () => {
                       className="flex items-center w-full text-left px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl transition-colors duration-200 font-medium"
                       onClick={closeMobileMenu}
                     >
-                      <span className="text-sm">CONTACT</span>
+                      <span className="text-sm">Contact</span>
                     </a>
                   </div>
                 </nav>
               </div>
 
               <div className="p-6 border-t border-slate-100 bg-slate-50">
-                <button className="flex items-center justify-center w-full bg-black hover:bg-black/80 text-white px-6 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200">
-                  GET IN TOUCH
+                <button className="flex items-center justify-center w-full bg-black hover:bg-black/80 text-white px-6 py-4 rounded-xl text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200">
+                  Get In Touch
                 </button>
 
                 <div className="mt-4 text-center">
