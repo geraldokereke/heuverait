@@ -1,62 +1,88 @@
 "use client";
 
 import { notFound, useParams, useRouter } from 'next/navigation';
-import { Metadata } from 'next';
+import { useEffect, useMemo, useCallback, lazy, Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
-import Hero from '@/components/hero';
-import {
-  CheckCircle,
-  Star,
-  ArrowRight,
-  Users,
-  Building,
-  Clock,
-  Shield,
-  Zap,
-  Target,
-  Quote,
-  ChevronRight,
-  ChevronLeft,
-  Home,
-  ArrowUp
-} from 'lucide-react';
-import { ProductsData } from '@/data/ProductsData';
-import SectionContainer from '@/components/ui/sectionContainer';
-import Text from '@/components/ui/text';
-import SectionTitle from '@/components/ui/SectionTitle';
-import Button from '@/components/ui/button';
 
-// Smooth scroll to anchor links
-const scrollToSection = (id: string) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-};
+// Lazy load heavy components
+const Hero = dynamic(() => import('@/components/hero'), { 
+  loading: () => <div className="h-[50vh] bg-gray-100 animate-pulse" /> 
+});
 
-// Table of contents component
-const TableOfContents = ({ sections }: { sections: string[] }) => (
-  <div className="sticky top-24 hidden lg:block">
-    <div className="border-l-2 border-gray-200 pl-4">
-      <h3 className="text-sm font-semibold font-montserrat text-gray-900 mb-4">On this page</h3>
-      <ul className="space-y-2">
-        {sections.map((section) => (
-          <li key={section}>
-            <button
-              onClick={() => scrollToSection(section.toLowerCase().replace(/\s+/g, '-'))}
-              className="text-sm font-poppins text-gray-600 hover:text-black transition-colors text-left"
-            >
-              {section}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
+// Lazy load icons
+const CheckCircle = dynamic(() => import('lucide-react').then(mod => mod.CheckCircle), { ssr: false });
+const Star = dynamic(() => import('lucide-react').then(mod => mod.Star), { ssr: false });
+const ArrowRight = dynamic(() => import('lucide-react').then(mod => mod.ArrowRight), { ssr: false });
+const Users = dynamic(() => import('lucide-react').then(mod => mod.Users), { ssr: false });
+const Building = dynamic(() => import('lucide-react').then(mod => mod.Building), { ssr: false });
+const Clock = dynamic(() => import('lucide-react').then(mod => mod.Clock), { ssr: false });
+const Shield = dynamic(() => import('lucide-react').then(mod => mod.Shield), { ssr: false });
+const Zap = dynamic(() => import('lucide-react').then(mod => mod.Zap), { ssr: false });
+const Target = dynamic(() => import('lucide-react').then(mod => mod.Target), { ssr: false });
+const Quote = dynamic(() => import('lucide-react').then(mod => mod.Quote), { ssr: false });
+const ChevronRight = dynamic(() => import('lucide-react').then(mod => mod.ChevronRight), { ssr: false });
+const ChevronLeft = dynamic(() => import('lucide-react').then(mod => mod.ChevronLeft), { ssr: false });
+const Home = dynamic(() => import('lucide-react').then(mod => mod.Home), { ssr: false });
+const ArrowUp = dynamic(() => import('lucide-react').then(mod => mod.ArrowUp), { ssr: false });
+
+// Lazy load other components
+const SectionContainer = dynamic(() => import('@/components/ui/sectionContainer'));
+const Text = dynamic(() => import('@/components/ui/text'));
+const SectionTitle = dynamic(() => import('@/components/ui/SectionTitle'));
+const Button = dynamic(() => import('@/components/ui/button'));
+
+// Memoized components
+const MemoizedCheckCircle = ({ className }: { className?: string }) => (
+  <CheckCircle className={className} />
 );
+
+// Memoized smooth scroll to anchor links
+const scrollToSection = useCallback((id: string) => {
+  // Use requestAnimationFrame for better performance
+  requestAnimationFrame(() => {
+    const element = document.getElementById(id);
+    if (element) {
+      // Use scrollIntoView with options for better performance
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+    }
+  });
+}, []);
+
+// Memoized Table of contents component
+const TableOfContents = React.memo(({ sections }: { sections: string[] }) => {
+  const handleClick = useCallback((section: string) => {
+    scrollToSection(section.toLowerCase().replace(/\s+/g, '-'));
+  }, []);
+
+  return (
+    <div className="sticky top-24 hidden lg:block">
+      <div className="border-l-2 border-gray-200 pl-4">
+        <h3 className="text-sm font-semibold font-montserrat text-gray-900 mb-4">On this page</h3>
+        <ul className="space-y-2">
+          {sections.map((section) => (
+            <li key={section}>
+              <button
+                onClick={() => handleClick(section)}
+                className="text-sm font-poppins text-gray-600 hover:text-black transition-colors text-left"
+                aria-label={`Scroll to ${section} section`}
+              >
+                {section}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+});
+TableOfContents.displayName = 'TableOfContents';
 
 // Type definitions for better type safety
 interface UseCase {
@@ -124,91 +150,134 @@ type ProductDataWithDefaults = Omit<ProductData, 'keyBenefits' | 'useCases' | 'f
 
 export default function ProductPage() {
   const params = useParams();
-  const slug = params.slug as string;
+  const slug = useMemo(() => params.slug as string, [params.slug]);
 
-  const product = ProductsData.find((s) => s.slug === slug);
+  // Memoize product data to prevent unnecessary re-renders
+  const product = useMemo(() => 
+    ProductsData.find((s) => s.slug === slug),
+    [slug]
+  );
 
-  // Handle client-side metadata update
+  // Handle client-side metadata update with debounce
   useEffect(() => {
-    if (product) {
-      document.title = `${product.name} | Heuver AI Technologies`;
+    if (!product) return;
 
-      // Update meta description
-      const metaDescription = document.querySelector('meta[name="description"]');
+    // Update document title
+    document.title = `${product.name} | Heuver AI Technologies`;
+
+    // Debounce meta description update
+    const timeoutId = setTimeout(() => {
+      let metaDescription = document.querySelector('meta[name="description"]');
+      
       if (metaDescription) {
         metaDescription.setAttribute('content', product.description);
       } else {
-        const meta = document.createElement('meta');
-        meta.name = 'description';
-        meta.content = product.description;
-        document.head.appendChild(meta);
+        metaDescription = document.createElement('meta');
+        metaDescription.name = 'description';
+        metaDescription.content = product.description;
+        document.head.appendChild(metaDescription);
       }
-    }
+    }, 100);
+
+    // Cleanup function
+    return () => clearTimeout(timeoutId);
   }, [product]);
 
+  // Handle 404 if product not found
   if (!product) {
     notFound();
   }
 
-  const ProductIcon = product.icon;
+  // Memoize the icon component
+  const ProductIcon = useMemo(() => product.icon, [product.icon]);
 
-  // Define sections for table of contents
-  const sections = [
+  // Memoize sections for table of contents
+  const sections = useMemo(() => [
     'Overview',
-    ...(product.useCases && product.useCases.length > 0 ? ['Use Cases'] : []),
-    ...(product.features && product.features.length > 0 ? ['Features'] : []),
+    ...(product.useCases?.length ? ['Use Cases'] : []),
+    ...(product.features?.length ? ['Features'] : []),
     ...(product.technicalSpecs ? ['Technical Specifications'] : []),
-    ...(product.testimonials && product.testimonials.length > 0 ? ['Testimonials'] : []),
-    ...(product.pricingTiers && product.pricingTiers.length > 0 ? ['Pricing'] : [])
-  ];
+    ...(product.testimonials?.length ? ['Testimonials'] : []),
+    ...(product.pricingTiers?.length ? ['Pricing'] : [])
+  ], [product]);
+
+  // Memoize the hero section to prevent unnecessary re-renders
+  const heroSection = useMemo(() => (
+    <Hero
+      imgLink={product.heroImage || ''}
+      section={product.name}
+      title={product.heroTitle}
+      description={product.heroDescription}
+      height="h-[50vh]"
+      priority
+    />
+  ), [product.heroImage, product.name, product.heroTitle, product.heroDescription]);
+
+  // Memoize the key benefits section
+  const keyBenefitsSection = useMemo(() => {
+    if (!product.keyBenefits?.length) return null;
+    
+    return (
+      <section className="py-12 text-black">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4">
+            {product.keyBenefits.map((benefit, i) => (
+              <div 
+                key={i} 
+                className="flex flex-col items-center justify-center h-28 text-center mx-auto border-l border-l-gray-100 border-l-0:first"
+                data-testid="benefit-item"
+              >
+                <Suspense fallback={<div className="w-8 h-8 bg-gray-200 rounded-full animate-pulse" />}>
+                  <MemoizedCheckCircle className="w-8 h-8 mx-auto mb-3 text-[#41a7ad]" />
+                </Suspense>
+                <Text size='sm' font='poppins' weight='medium'>{benefit}</Text>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }, [product.keyBenefits]);
 
   return (
     <main className="bg-white">
-      <Hero
-        imgLink={product.heroImage || ''}
-        section={product.name}
-        title={product.heroTitle}
-        description={product.heroDescription}
-        height="h-[50vh]"
-      />
+      <Suspense fallback={<div className="h-[50vh] bg-gray-100 animate-pulse" />}>
+        {heroSection}
+      </Suspense>
 
       {/* Table of Contents */}
       <SectionContainer className="py-8">
         <div className="flex flex-col lg:flex-row gap-8">
+          {/* Mobile TOC */}
           <div className="lg:hidden mb-8">
             <h3 className="text-sm font-medium text-gray-900 mb-4">Jump to:</h3>
             <div className="flex flex-wrap gap-2">
-              {sections.map((section) => (
-                <button
-                  key={section}
-                  onClick={() => scrollToSection(section.toLowerCase().replace(/\s+/g, '-'))}
-                  className="text-sm px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
-                >
-                  {section}
-                </button>
-              ))}
+              {sections.map((section) => {
+                const sectionId = section.toLowerCase().replace(/\s+/g, '-');
+                return (
+                  <button
+                    key={section}
+                    onClick={() => scrollToSection(sectionId)}
+                    className="text-sm px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                    aria-label={`Jump to ${section} section`}
+                  >
+                    {section}
+                  </button>
+                );
+              })}
             </div>
           </div>
+          
+          {/* Desktop TOC */}
           <div className="hidden lg:block w-64 flex-shrink-0">
-            <TableOfContents sections={sections} />
+            <Suspense fallback={<div className="h-64 bg-gray-100 rounded-lg animate-pulse" />}>
+              <TableOfContents sections={sections} />
+            </Suspense>
           </div>
+          
           <div className="flex-1">
-
             {/* Key Benefits Strip */}
-            {product.keyBenefits && product.keyBenefits.length > 0 && (
-              <section className="py-12 text-black">
-                <div className="container mx-auto px-4">
-                  <div className="grid md:grid-cols-2 lg:grid-cols-4">
-                    {product.keyBenefits.map((benefit, i) => (
-                      <div key={i} className="flex flex-col items-center justify-center h-28 text-center mx-auto border-l border-l-gray-100 border-l-0:first">
-                        <CheckCircle className="w-8 h-8 mx-auto mb-3 text-[#41a7ad]" />
-                        <Text size='sm' font='poppins' weight='medium'>{benefit}</Text>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
-            )}
+            {keyBenefitsSection}
 
             {/* Product Overview */}
             <section id="overview" className="py-20 bg-white scroll-mt-20">

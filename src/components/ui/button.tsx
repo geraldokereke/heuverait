@@ -1,7 +1,7 @@
 interface ButtonProps {
     children: React.ReactNode;
-    textColor: 'white' | 'black' | 'gray-600' | 'gray-900';
-    backgroundColor?: 'black' | 'white' | 'gray-100' | 'primary';
+    textColor: 'white' | 'black' | 'gray-600' | 'gray-900' | string;
+    backgroundColor?: 'black' | 'white' | 'gray-100' | 'primary' | string;
     type: 'default' | 'link';
     hoverColor?: string;
     onClick?: () => void;
@@ -11,34 +11,37 @@ const textColorClasses = {
     white: 'text-white',
     black: 'text-black',
     'gray-600': 'text-gray-600',
-    'gray-900': 'text-gray-900'
+    'gray-900': 'text-gray-900',
 };
 
 const backgroundColorClasses = {
     black: 'bg-black',
     white: 'bg-white',
     'gray-100': 'bg-gray-100',
-    'primary': 'bg-primary'
+    primary: 'bg-[#41a7ad]'
 };
 
-export default function Button({ 
-    children, 
-    textColor = 'black', 
-    backgroundColor = 'white', 
-    type, 
-    hoverColor, 
-    onClick 
+export default function Button({
+    children,
+    textColor = 'black',
+    backgroundColor = 'white',
+    type,
+    hoverColor,
+    onClick
 }: ButtonProps) {
-    const baseClasses = type === 'default' 
+    const baseClasses = type === 'default'
         ? 'inline-flex items-center px-4 lg:px-3 xl:px-4 2xl:px-6 py-2 lg:py-1 xl:py-2 2xl:py-3 rounded-full font-poppins font-medium transition-colors text-xs md:text-base lg:text-xs xl:text-sm 2xl:text-base'
         : 'inline-flex items-center py-3 rounded-full font-poppins font-medium transition-colors text-xs md:text-base lg:text-xs xl:text-sm 2xl:text-base';
 
-    const textColorClass = textColorClasses[textColor] || '';
-    const bgColorClass = backgroundColor ? backgroundColorClasses[backgroundColor] : '';
+    // Handle predefined colors or custom colors
+    const textColorClass = textColorClasses[textColor as keyof typeof textColorClasses] || `text-[${textColor}]`;
+    const bgColorClass = backgroundColor
+        ? backgroundColorClasses[backgroundColor as keyof typeof backgroundColorClasses] || `bg-[${backgroundColor}]`
+        : '';
 
     return (
-        <button 
-            onClick={onClick} 
+        <button
+            onClick={onClick}
             className={`group ${baseClasses} ${textColorClass} ${bgColorClass} ${hoverColor || ''}`}
         >
             {children}

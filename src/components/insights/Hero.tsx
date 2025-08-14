@@ -207,7 +207,7 @@ export default function Hero() {
                                 className="flex flex-row gap-3 justify-center lg:justify-start items-center"
                             >
                                 <Button
-                                    backgroundColor="[#41a7ad]"
+                                    backgroundColor="primary"
                                     textColor="black"
                                     type="default"
                                 >
