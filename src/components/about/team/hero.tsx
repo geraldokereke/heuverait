@@ -38,7 +38,7 @@ export default function Hero() {
                 className="relative z-10 h-full flex items-center"
             >
                 <SectionContainer className="w-full">
-                    <div className="max-w-4xl text-center lg:text-start">
+                    <div className="max-w-4xl text-center">
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}

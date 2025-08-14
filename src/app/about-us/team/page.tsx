@@ -1,9 +1,10 @@
 "use client";
 
 import CultureSection from '@/components/about/team/culture';
-import Hero from '@/components/about/team/hero';
+
 import Stats from '@/components/about/team/stats';
 import TeamMemberCard, { executiveMembers, teamMembers } from '@/components/about/team/teamCard';
+import Hero from '@/components/hero';
 import Button from '@/components/ui/button';
 import CTA from '@/components/ui/cta';
 import SectionContainer from '@/components/ui/sectionContainer';
@@ -13,7 +14,13 @@ import React from 'react';
 export default function OurTeam() {
     return (
         <div className="">
-            <Hero />
+            <Hero
+                imgLink='/case.jpeg'
+                section='Meet Our Team'
+                title='Visionary Minds'
+                description='Where brilliance meets passion, and innovation becomes reality through extraordinary collaboration.'
+                height='h-[50vh]'
+            />
 
             <SectionContainer className="py-20">
                 <SectionTitle
