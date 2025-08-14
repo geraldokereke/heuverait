@@ -1,8 +1,6 @@
 import './globals.css';
 import { Inter, Poppins, Montserrat } from 'next/font/google';
 import { Metadata } from 'next';
-import { GoogleAnalytics } from '@next/third-parties/google';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import Footer from '@/components/Footer';
 import Navigation from '@/components/Navigation';
 
@@ -132,10 +130,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        
-        {/* Performance monitoring and analytics */}
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
-        <SpeedInsights />
         
         {/* Preload critical JS */}
         <script
