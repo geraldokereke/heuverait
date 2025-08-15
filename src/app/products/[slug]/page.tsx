@@ -6,6 +6,8 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import React from 'react';
+import { ProductsData } from '@/data/ProductsData';
 
 // Lazy load heavy components
 const Hero = dynamic(() => import('@/components/hero'), { 
@@ -167,10 +169,10 @@ export default function ProductPage() {
 
     // Debounce meta description update
     const timeoutId = setTimeout(() => {
-      let metaDescription = document.querySelector('meta[name="description"]');
+      let metaDescription = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
       
       if (metaDescription) {
-        metaDescription.setAttribute('content', product.description);
+        metaDescription.content = product.description;
       } else {
         metaDescription = document.createElement('meta');
         metaDescription.name = 'description';
@@ -209,7 +211,6 @@ export default function ProductPage() {
       title={product.heroTitle}
       description={product.heroDescription}
       height="h-[50vh]"
-      priority
     />
   ), [product.heroImage, product.name, product.heroTitle, product.heroDescription]);
 
