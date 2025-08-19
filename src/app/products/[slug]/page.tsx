@@ -41,51 +41,6 @@ const MemoizedCheckCircle = ({ className }: { className?: string }) => (
   <CheckCircle className={className} />
 );
 
-// Memoized smooth scroll to anchor links
-const scrollToSection = useCallback((id: string) => {
-  // Use requestAnimationFrame for better performance
-  requestAnimationFrame(() => {
-    const element = document.getElementById(id);
-    if (element) {
-      // Use scrollIntoView with options for better performance
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest'
-      });
-    }
-  });
-}, []);
-
-// Memoized Table of contents component
-const TableOfContents = React.memo(({ sections }: { sections: string[] }) => {
-  const handleClick = useCallback((section: string) => {
-    scrollToSection(section.toLowerCase().replace(/\s+/g, '-'));
-  }, []);
-
-  return (
-    <div className="sticky top-24 hidden lg:block">
-      <div className="border-l-2 border-gray-200 pl-4">
-        <h3 className="text-sm font-semibold font-montserrat text-gray-900 mb-4">On this page</h3>
-        <ul className="space-y-2">
-          {sections.map((section) => (
-            <li key={section}>
-              <button
-                onClick={() => handleClick(section)}
-                className="text-sm font-poppins text-gray-600 hover:text-black transition-colors text-left"
-                aria-label={`Scroll to ${section} section`}
-              >
-                {section}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-});
-TableOfContents.displayName = 'TableOfContents';
-
 // Type definitions for better type safety
 interface UseCase {
   title: string;
@@ -159,6 +114,51 @@ export default function ProductPage() {
     ProductsData.find((s) => s.slug === slug),
     [slug]
   );
+
+  // Memoized smooth scroll to anchor links - MOVED INSIDE COMPONENT
+  const scrollToSection = useCallback((id: string) => {
+    // Use requestAnimationFrame for better performance
+    requestAnimationFrame(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        // Use scrollIntoView with options for better performance
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest'
+        });
+      }
+    });
+  }, []);
+
+  // Memoized Table of contents component
+  const TableOfContents = React.memo(({ sections }: { sections: string[] }) => {
+    const handleClick = useCallback((section: string) => {
+      scrollToSection(section.toLowerCase().replace(/\s+/g, '-'));
+    }, [scrollToSection]);
+
+    return (
+      <div className="sticky top-24 hidden lg:block">
+        <div className="border-l-2 border-gray-200 pl-4">
+          <h3 className="text-sm font-semibold font-montserrat text-gray-900 mb-4">On this page</h3>
+          <ul className="space-y-2">
+            {sections.map((section) => (
+              <li key={section}>
+                <button
+                  onClick={() => handleClick(section)}
+                  className="text-sm font-poppins text-gray-600 hover:text-black transition-colors text-left"
+                  aria-label={`Scroll to ${section} section`}
+                >
+                  {section}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    );
+  });
+  TableOfContents.displayName = 'TableOfContents';
 
   // Handle client-side metadata update with debounce
   useEffect(() => {

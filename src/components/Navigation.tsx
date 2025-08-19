@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -226,7 +227,7 @@ const Navigation = () => {
     return (
       <div className='w-full'>
         <div
-          className={`fixed w-12/12 top-12 2xl:top-16 left-0 right-0 bg-white border border-slate-200 text-black z-10 overflow-hidden transition-all duration-300 shadow-2xl ${hasAnyDropdown ? 'opacity-100 visible' : 'opacity-0 invisible'
+          className={`fixed w-12/12 top-16 2xl:top-18 left-0 right-0 bg-white border border-slate-200 text-black z-10 overflow-hidden transition-all duration-300 shadow-2xl ${hasAnyDropdown ? 'opacity-100 visible' : 'opacity-0 invisible'
             }`}
           style={{ marginLeft: 'auto', marginRight: 'auto' }}
           onMouseEnter={handleDropdownMouseEnter}
@@ -439,7 +440,7 @@ const Navigation = () => {
     }
   };
 
-  // Determine mobile menu button color
+  // FIXED: Determine mobile menu button color - now properly handles scrolled state
   const getMobileButtonColor = () => {
     const hasDropdown = activeDropdown !== null;
 
@@ -456,13 +457,14 @@ const Navigation = () => {
       <ComingSoonModal open={comingSoonOpen} onClose={() => setComingSoonOpen(false)} />
 
       {/* Navigation */}
-      <nav className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-0 ${getNavbarStyles()}`}>
+      <nav className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${getNavbarStyles()}`}>
         <div className="px-4 md:px-10 lg:px-26 xl:px-48 2xl:px-16 mx-auto max-w-screen-2xl">
-          <div className="flex justify-between items-center h-16 lg:h-12 xl:h-18">
+          {/* FIXED: Consistent height across all screen sizes - removed lg:h-12 */}
+          <div className="flex justify-between items-center h-16 xl:h-16 2xl:h-18">
             {/* Logo */}
             <div className="flex items-center flex-shrink-0">
               <Link href="/" className="">
-                <div className="flex items-center gap-2 h-4 max-w-fit md:h-3 xl:h-4 2xl:h-6">
+                <div className="flex items-center gap-2 h-6 max-w-fit md:h-3 xl:h-4 2xl:h-6">
                   <Image
                     src={`${getLogo()}`}
                     alt="Heuvera Logo"
@@ -482,15 +484,15 @@ const Navigation = () => {
               {navItems.map((item, index) => (
                 <div
                   key={index}
-                  className="relative group h-16 xl:h-18 flex items-center"
+                  className="relative group h-16 xl:h-16 2xl:h-18 flex items-center"
                   onMouseEnter={() => handleMouseEnter(item.title, true)}
                 >
                   <button
-                    className={`flex items-center space-x-1 px-3 py-2 lg:text-[6px] xl:text-[8px] 2xl:text-sm font-medium rounded-lg transition-colors duration-0 relative whitespace-nowrap ${getTextStyles()}`}
+                    className={`flex items-center space-x-1 px-3 py-2 lg:text-[6px] xl:text-[10px] 2xl:text-sm font-medium rounded-lg transition-colors duration-300 relative whitespace-nowrap ${getTextStyles()}`}
                   >
                     <span>{item.title}</span>
                     <ChevronDown
-                      className={`size-2 2xl:size-4 flex-shrink-0 transition-transform duration-200 ${activeDropdown === item.title ? "rotate-180" : "rotate-0"}`}
+                      className={`size-2 xl:size-3 2xl:size-4 flex-shrink-0 transition-transform duration-200 ${activeDropdown === item.title ? "rotate-180" : "rotate-0"}`}
                     />
                     <span className={`absolute inset-x-3 bottom-[-11] xl:bottom-[-14] 2xl:bottom-[-11] h-0.5 ${getUnderlineColor()} transition-transform duration-200 origin-left ${activeDropdown === item.title ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
                   </button>
@@ -502,7 +504,7 @@ const Navigation = () => {
               {/* Contact Link */}
               <Link
                 href="/contact-us"
-                className={`px-3 py-2 text-[6px] xl:text-[8px] 2xl:text-sm font-medium rounded-lg transition-colors duration-0 relative group whitespace-nowrap ${getTextStyles()} hover:bg-opacity-10`}
+                className={`px-3 py-2 text-[6px] xl:text-[10px] 2xl:text-sm font-medium rounded-lg transition-colors duration-300 relative group whitespace-nowrap ${getTextStyles()} hover:bg-opacity-10`}
                 onMouseEnter={() => handleMouseEnter('CONTACT', false)}
               >
                 Contact
@@ -512,15 +514,16 @@ const Navigation = () => {
 
             {/* CTA Button and Mobile Menu */}
             <div className="flex items-center gap-4 flex-shrink-0">
-              <button className={`hidden font-poppins lg:flex items-center px-2 xl:px-3 2xl:px-6 py-1 xl:py-1.5 2xl:py-3 text-[6px] xl:text-[8px] 2xl:text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${getCTAStyles()}`}>
+              <button className={`hidden font-poppins lg:flex items-center px-2 xl:px-3 2xl:px-6 py-1 xl:py-1.5 2xl:py-3 text-[6px] xl:text-[10px] 2xl:text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${getCTAStyles()}`}>
                 Get in Touch
               </button>
 
-              {/* Mobile menu button */}
+              {/* Mobile menu button - FIXED: Now properly visible when scrolled */}
               <div className="lg:hidden">
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                   className={`p-2 rounded-lg transition-colors duration-200 ${getMobileButtonColor()}`}
+                  aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 >
                   {mobileMenuOpen ? (
                     <X className="w-6 h-6" />
@@ -533,16 +536,16 @@ const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Now completely separate with fixed positioning */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 z-50 flex justify-end">
+          <div className="lg:hidden fixed inset-0 z-[100] h-screen flex justify-end">
             <div
               className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300"
               onClick={closeMobileMenu}
             />
 
-            <div className="relative w-80 max-w-[90vw] h-full bg-white shadow-2xl flex flex-col animate-slide-in-right">
-              <div className="flex items-center justify-between p-6 border-b border-slate-100">
+            <div className="relative w-80 max-w-[90vw] h-screen bg-white shadow-2xl flex flex-col animate-slide-in-right z-[101] overflow-hidden">
+              <div className="flex items-center justify-between p-6 border-b border-slate-100 bg-white">
                 <div className="flex items-center space-x-2">
                   <span className="text-xl font-light text-slate-900">Heuvera</span>
                 </div>
@@ -555,7 +558,7 @@ const Navigation = () => {
                 </button>
               </div>
 
-              <div className="flex-1 px-6 py-4 overflow-y-auto">
+              <div className="flex-1 px-6 py-4 overflow-y-auto bg-white">
                 <nav className="space-y-2">
                   {navItems.map((item, index) => (
                     <div key={index} className="border-b border-slate-50 pb-2 mb-2 last:border-b-0">
@@ -604,7 +607,7 @@ const Navigation = () => {
 
                   <div className="border-b border-slate-50 pb-2 mb-2">
                     <a
-                      href="#contact"
+                      href="/contact-us"
                       className="flex items-center w-full text-left px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl transition-colors duration-200 font-medium"
                       onClick={closeMobileMenu}
                     >
@@ -614,7 +617,7 @@ const Navigation = () => {
                 </nav>
               </div>
 
-              <div className="p-6 border-t border-slate-100 bg-slate-50">
+              <div className="p-6 border-t border-slate-100 bg-white">
                 <button className="flex items-center justify-center w-full bg-black hover:bg-black/80 text-white px-6 py-4 rounded-xl text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200">
                   Get In Touch
                 </button>

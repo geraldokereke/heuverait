@@ -29,21 +29,30 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: 'Heuver AI Technologies - AI Solutions for Business Growth',
-  description: 'Leverage cutting-edge AI solutions to transform your business operations and drive growth with Heuver AI Technologies.',
-  keywords: ['AI Solutions', 'Machine Learning', 'Business Automation', 'AI Consulting', 'Data Analytics'],
-  authors: [{ name: 'Heuver AI Technologies' }],
-  creator: 'Heuver AI Team',
-  publisher: 'Heuver AI Technologies',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://heuverait.com'),
+  title: 'Heuvera IT Consulting - Innovative Tech Solutions for Business',
+  description:
+    'Heuvera is a trusted IT consulting company delivering tailored solutions in cloud, software, and business technology to help organizations scale and thrive.',
+  keywords: [
+    'IT Consulting',
+    'Cloud Solutions',
+    'Business Technology',
+    'Digital Transformation',
+    'Software Development',
+    'Heuvera'
+  ],
+  authors: [{ name: 'Heuvera IT Consulting' }],
+  creator: 'Heuvera Team',
+  publisher: 'Heuvera IT Consulting',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://heuvera.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Heuver AI Technologies - AI Solutions for Business Growth',
-    description: 'Leverage cutting-edge AI solutions to transform your business operations and drive growth with Heuver AI Technologies.',
+    title: 'Heuvera IT Consulting - Innovative Tech Solutions for Business',
+    description:
+      'Trusted IT consulting partner providing tailored cloud, digital, and software solutions to transform businesses.',
     url: '/',
-    siteName: 'Heuver AI Technologies',
+    siteName: 'Heuvera IT Consulting',
     locale: 'en_US',
     type: 'website',
   },
@@ -60,9 +69,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Heuver AI Technologies',
-    description: 'AI Solutions for Business Growth',
-    creator: '@heuverai',
+    title: 'Heuvera IT Consulting',
+    description: 'Innovative IT Solutions for Business Growth',
+    creator: '@heuvera', // Replace with your actual handle
+    site: '@heuvera',    // Usually same as creator
+    images: ['/og-image.png'], // Replace with your actual OG image path
   },
   verification: {
     google: '', // Add Google Search Console verification code
@@ -82,17 +93,17 @@ export default function RootLayout({
         <link rel="preload" href="/fonts/Inter.var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/Poppins.var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/Montserrat.var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        
+
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
-        
+
         {/* Favicon and app icons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        
+
         {/* Preload critical CSS */}
         <style dangerouslySetInnerHTML={{
           __html: `
@@ -130,7 +141,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        
+
         {/* Preload critical JS */}
         <script
           dangerouslySetInnerHTML={{
