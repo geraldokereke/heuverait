@@ -1,6 +1,5 @@
 
 "use client";
-
 import { useState, useEffect } from "react";
 import { ChevronDown, Menu, X, ChevronRight, ArrowRight, Code, Globe, Brain, Cloud, Shield, Users, BarChart, Headphones, HardDrive, Building, GraduationCap, Heart, Scale, MapPin, ShoppingCart, Factory, FileText, Calendar, Wrench, Laptop, BookOpen, Phone, Star, Zap, Award, TrendingUp, Rocket, Target, CheckCircle, Briefcase, Mail, Smartphone, Truck } from "lucide-react";
 import Link from "next/link";
