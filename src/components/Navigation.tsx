@@ -6,7 +6,6 @@ import Link from "next/link";
 import Image from "next/image";
 import ComingSoonModal from "./ComingSoonModal";
 import { SolutionsData } from "@/data/SolutionsData";
-import { transformSolutionData } from "@/utils/solutions";
 import { IndustriesData } from "@/data/IndustriesData";
 import { ProductsData } from "@/data/ProductsData";
 

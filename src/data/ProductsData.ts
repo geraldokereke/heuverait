@@ -105,7 +105,7 @@ export const ProductsData: ProductData[] = [{
   description: "A complete data analytics and business intelligence solution that enables data-driven decision making across all business functions with real-time insights, predictive analytics, and enterprise-grade security.",
   heroTitle: "Transform Data into Strategic Advantage",
   heroDescription: "Unlock the full potential of your organization's data with our powerful analytics platform that delivers real-time insights, predictive analytics, and comprehensive business intelligence to drive informed decision-making and accelerate growth.",
-  heroImage: "/images/products/analytics-platform-hero.jpg",
+  heroImage: "https://images.unsplash.com/photo-1755001244508-58fcc65797ec?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   
   // Value Proposition
   keyBenefits: [
