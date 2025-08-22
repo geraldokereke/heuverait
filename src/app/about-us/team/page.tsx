@@ -15,7 +15,7 @@ export default function OurTeam() {
     return (
         <div className="">
             <Hero
-                imgLink='/case.jpeg'
+                imgLink='/team.jpg'
                 section='Meet Our Team'
                 title='Visionary Minds'
                 description='Where brilliance meets passion, and innovation becomes reality through extraordinary collaboration.'

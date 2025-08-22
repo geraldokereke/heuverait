@@ -56,6 +56,7 @@ export const Stories = () => {
             <Button
               type='link'
               textColor='white'
+              backgroundColor='transparent'
             >
               View All Case Studies
             </Button>

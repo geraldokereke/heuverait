@@ -201,7 +201,7 @@ const BlogPreview = () => {
         subHeaderTextColor='white'
       >
         <div>
-          <div className="flex flex-col md:flex-row justify-center max-w-xs 2xl:max-w-md mx-auto">
+          <div className="flex flex-row justify-center max-w-xs 2xl:max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
@@ -215,6 +215,7 @@ const BlogPreview = () => {
             <Button
             textColor='white'
             type='link'
+            backgroundColor='transparent'
             >
               View All Insights
             </Button>

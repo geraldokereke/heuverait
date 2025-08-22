@@ -265,6 +265,7 @@ const Services: React.FC = () => {
         <Button
           type='link'
           textColor='white'
+          backgroundColor='transparent'
         >
           View Portfolio
         </Button>
