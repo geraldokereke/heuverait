@@ -160,7 +160,7 @@ const BlogPreview = () => {
             )}
 
             <div className="flex items-center text-xs 2xl:text-sm font-semibold text-black/70 group-hover:text-black transition-colors">
-              <span>Read More</span>
+              <span>Read Article</span>
               <ChevronRight className="ml-1 size-3 2xl:size-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
@@ -174,9 +174,9 @@ const BlogPreview = () => {
       <SectionContainer>
         {/* Header */}
         <SectionTitle
-          section='Latest Insights'
-          title='Featured Insights & Expertise'
-          subtitle='Stay ahead with our latest insights on technology trends, best practices, and industry innovations.'
+          section='Insights'
+          title='Insights for Technology Leaders'
+          subtitle='Practical guidance on enterprise technology, digital transformation, cloud, cybersecurity, and AI—designed to help you make confident decisions.'
         />
 
         {/* Featured Post */}
@@ -184,7 +184,7 @@ const BlogPreview = () => {
           <BlogCard post={featuredPost} index={-1} isFeatured={true} />
         </div>
         <div className='w-full'>
-          <h1 className='font-montserrat text-xl font-semibold mb-4 block md:hidden '>More Posts</h1>
+          <h1 className='font-montserrat text-xl font-semibold mb-4 block md:hidden '>More Insights</h1>
           {/* Regular Posts Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {insights.map((insight, index) => (
@@ -195,16 +195,16 @@ const BlogPreview = () => {
       </SectionContainer>
       <CTA
         bgColor='black'
-        headerText='Never Miss an Update'
+        headerText='Never Miss an Insight'
         headerTextColor='white'
-        subHeaderText="Subscribe to our newsletter and get the latest insights, trends, and best practices delivered to your inbox."
+        subHeaderText="Subscribe for strategies, trends, and case studies from Heuvera—delivered to your inbox."
         subHeaderTextColor='white'
       >
         <div>
           <div className="flex flex-row justify-center max-w-xs 2xl:max-w-md mx-auto">
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder="Work email"
               className="flex-1 px-4 2xl:px-6 py-1.5 2xl:py-2.5 text-xs 2xl:text-sm rounded-l-full text-white focus:outline-none bg-white/5"
             />
             <button className="font-poppins font-medium bg-white text-black mx-auto flex items-center px-3 md:px-4 lg:px-2 xl:px-2 2xl:px-4 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-3 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-medium rounded-r-full transition-all duration-300 whitespace-nowrap">
@@ -217,7 +217,7 @@ const BlogPreview = () => {
             type='link'
             backgroundColor='transparent'
             >
-              View All Insights
+              Explore All Insights
             </Button>
           </div>
         </div>

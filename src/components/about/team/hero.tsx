@@ -65,7 +65,7 @@ export default function Hero() {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="font-montserrat uppercase font-bold text-2xl md:text-4xl lg:text-2xl xl:text-3xl 2xl:text-4xl leading-tight text-white tracking-tight mb-5 lg:mb-2"
                         >
-                            Visionary Minds
+                            Where Innovation Meets Execution
                         </motion.h1>
 
                         {/* Description */}
@@ -75,7 +75,7 @@ export default function Hero() {
                             transition={{ duration: 0.8, delay: 0.6 }}
                             className="text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-lg text-gray-200 leading-relaxed max-w lg:max-w-xl xl:max-w-3xl 2xl:max-w-4xl mx-auto lg:mx-0"
                         >
-                            Where brilliance meets passion, and innovation becomes reality through extraordinary collaboration.
+                            A global team of strategists, engineers, and security experts delivering measurable outcomes through collaborative excellence.
                         </motion.p>
                     </div>
                 </SectionContainer>

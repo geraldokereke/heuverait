@@ -101,8 +101,8 @@ export default function ContactUs() {
       <Hero
         imgLink="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=1200&q=80"
         section="Contact Us"
-        title="Let's Build Something Great"
-        description="Ready to transform your business with cutting-edge technology? Our expert team is here to turn your vision into reality."
+        title="Let’s Build What’s Next—Together"
+        description="Whether you need a strategy, a build partner, or a security specialist, we’re here to help. Share your goals, and we’ll recommend a clear plan with timelines and outcomes."
         height="h-[50vh]"
       />
       <section className="py-24 bg-gray-50">
@@ -113,10 +113,10 @@ export default function ContactUs() {
               <div className="">
                 <div className="mb-8">
                   <h3 className="text-sm xl:text-xl 2xl:text-2xl font-bold text-gray-900 mb-1 xl:mb-2">
-                    Start Your Digital Transformation
+                    Speak with a Heuvera Consultant
                   </h3>
                   <p className="text-[10px] xl:text-xs 2xl:text-base text-gray-600">
-                    Tell us about your business challenges and objectives. Our team will provide tailored solutions within 24 hours.
+                    Share your goals and challenges. We’ll provide a tailored plan within one business day.
                   </p>
                 </div>
 
@@ -238,10 +238,10 @@ export default function ContactUs() {
                       onClick={handleSubmit}
                       className="flex items-center px-3 md:px-4 lg:px-2 xl:px-3 2xl:px-6 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-2.5 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap bg-black text-white"
                     >
-                      Submit Request
+                      Request a Consultation
                     </button>
                     <p className="text-[8px] xl:text-[10px] 2xl:text-sm text-gray-500">
-                      We'll respond within 24 hours
+                      We’ll respond within one business day
                     </p>
                   </div>
                 </div>
@@ -329,12 +329,12 @@ export default function ContactUs() {
       <CTA
         bgColor="black"
         headerText="Ready to Transform Your Business"
-        subHeaderText="Join hundreds of satisfied clients who've accelerated their growth with our solutions"
+        subHeaderText="Join leaders who’ve accelerated growth with our enterprise technology solutions"
         headerTextColor="white"
         subHeaderTextColor="white"
       >
-        <button>Schedule Free Consultation</button>
-        <button>View Our Portfolio</button>
+        <button>Request a Consultation</button>
+        <button>Explore Services</button>
       </CTA>
     </div>
   );

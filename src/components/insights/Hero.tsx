@@ -188,9 +188,9 @@ export default function Hero() {
                                 custom={0.2}
                                 className="font-montserrat uppercase font-bold text-2xl md:text-4xl lg:text-2xl xl:text-3xl 2xl:text-4xl leading-tight text-white tracking-tight"
                             >
-                                <span className="text-white">Empowering Innovation</span>
+                                <span className="text-white">Accelerate Growth</span>
                                 <br />
-                                <span className="text-white">Through Intelligent Technology</span>
+                                <span className="text-white">with Enterprise Technology Solutions</span>
                             </motion.h1>
 
                             <motion.p
@@ -198,7 +198,7 @@ export default function Hero() {
                                 custom={0.4}
                                 className="text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-lg text-gray-200 leading-relaxed max-w-xl mx-auto lg:mx-0"
                             >
-                                We design, develop, and deliver custom software, AI solutions, and IT consulting services that transform businesses and drive measurable growth across industries.
+                                Heuvera delivers IT consulting for digital transformation, cloud consulting, enterprise software, and cybersecurity solutions—helping global organizations modernize, secure, and scale.
                             </motion.p>
 
                             <motion.div
@@ -211,14 +211,14 @@ export default function Hero() {
                                     textColor="black"
                                     type="default"
                                 >
-                                    Explore Our Solutions
+                                    Request a Consultation
                                 </Button>
                                 <Button
                                     backgroundColor="white/20"
                                     textColor="white"
                                     type="default"
                                 >
-                                    Book a Consultation
+                                    Explore Services
                                 </Button>
                             </motion.div>
                         </motion.div>

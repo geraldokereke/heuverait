@@ -13,8 +13,8 @@ export default function WhoWeAre() {
                 height="min-h-screen"
                 imgLink="/wwa.jpg"
                 section="Who We Are"
-                title="About Heuvera"
-                description="We are a digital transformation consultancy and engineering company that delivers cutting-edge solutions for global organisations and technology startups. Since 2024 we have been helping companies and established brands reimagine their business through digitalisation." />
+                title="We Build the Future of Enterprise IT"
+                description="Heuvera is a global IT consulting partner helping enterprises accelerate digital transformation with secure, scalable, and future-ready technology solutions. We combine strategic insight with hands-on engineering to deliver results—on time and on budget." />
             <SectionContainer className="pb-20">
                 <MissionsVisions />
                 <LogoMarquee />
