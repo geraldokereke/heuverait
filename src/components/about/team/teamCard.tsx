@@ -30,7 +30,7 @@ export const teamMembers: TeamMember[] = [
         name: "Maduabuchi Gerald",
         role: "Co-Founder | Head of Growth",
         department: "Growth & Strategy",
-        image: "/gerald.jpeg",
+        image: "/gerald.jpg",
         bio: "Driving company growth through strategic partnerships, market expansion, and operational excellence.",
         expertise: ["System Architecture", "AI/ML", "Cloud Infrastructure", "DevOps"],
         social: {
@@ -44,7 +44,7 @@ export const teamMembers: TeamMember[] = [
         name: "Fabunmi George",
         role: "Co-Founder | Head of Product",
         department: "Product & Engineering",
-        image: "/george.jpg",
+        image: "/george.jpeg",
         bio: "Leading product vision and client-focused engineering to deliver high-performing web and mobile applications.",
         expertise: ["NextJS", "Flutter/React Native", "UI/UX Design", "Performance Optimization"],
         social: {
