@@ -3,7 +3,7 @@
 import CultureSection from '@/components/about/team/culture';
 
 import Stats from '@/components/about/team/stats';
-import TeamMemberCard, { executiveMembers, teamMembers } from '@/components/about/team/teamCard';
+import TeamMemberCard, { teamMembers } from '@/components/about/team/teamCard';
 import Hero from '@/components/hero';
 import Button from '@/components/ui/button';
 import CTA from '@/components/ui/cta';
@@ -24,19 +24,7 @@ export default function OurTeam() {
 
             <SectionContainer className="py-20">
                 <SectionTitle
-                    section='Corporate Leadership'
-                    title='Our Executives'
-                    subtitle='The skilled professionals who build exceptional teams and engineer innovative solutions.                         '
-                />
-
-                <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-8">
-                    {executiveMembers.map((member, index) => (
-                        <TeamMemberCard className='w-full md:w-full lg:w-48 xl:w-52 2xl:w-80' key={member.id} member={member} index={index} />
-                    ))}
-                </div>
-
-                <SectionTitle
-                    section='Team Development Excellence'
+                    section='Our Team'
                     title='Meet Our Development Architects'
                     subtitle='Each developer brings deep technical expertise and a passion for collaborative excellence.'
                 />

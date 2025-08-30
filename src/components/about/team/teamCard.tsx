@@ -23,92 +23,92 @@ interface TeamMemberCardProps {
     className?: string;
 }
 
-export const executiveMembers: TeamMember[] = [
+
+export const teamMembers: TeamMember[] = [
     {
         id: "1",
         name: "Maduabuchi Gerald",
-        role: "Chief Executive Officer",
-        department: "Leadership",
+        role: "Co-Founder | Head of Growth",
+        department: "Growth & Strategy",
         image: "/gerald.jpeg",
-        bio: "Engineering architect building scalable solutions that power millions of users globally.",
+        bio: "Driving company growth through strategic partnerships, market expansion, and operational excellence.",
         expertise: ["System Architecture", "AI/ML", "Cloud Infrastructure", "DevOps"],
         social: {
             linkedin: "https://www.linkedin.com/in/gerald-ogbonnaya-61bb29233/",
             twitter: "#",
             email: "mgeraldoj@gmail.com"
-        },
+        }
     },
     {
         id: "2",
         name: "Fabunmi George",
-        role: "Chief Technology Officer",
-        department: "Technology",
+        role: "Co-Founder | Head of Product",
+        department: "Product & Engineering",
         image: "/george.jpeg",
-        bio: "Frontend engineer with 4+ years creating high-performance web and mobile applications.",
+        bio: "Leading product vision and client-focused engineering to deliver high-performing web and mobile applications.",
         expertise: ["NextJS", "Flutter/React Native", "UI/UX Design", "Performance Optimization"],
         social: {
             linkedin: "https://www.linkedin.com/in/oluwatosin-fabunmi-86bb8323b/",
             twitter: "https://x.com/gary_ftg?s=21",
             email: "ftgeorge@gmail.com"
-        },
+        }
     },
-];
-
-export const teamMembers: TeamMember[] = [
     {
-        id: "1",
+        id: "3",
         name: "Edward Sarah",
-        role: "Project Manager",
-        department: "null",
+        role: "Team Lead | Project Delivery",
+        department: "Project Delivery",
         image: "/sarah.jpeg",
-        bio: "Full-stack developer and project manager bridging technical execution with business goals.",
+        bio: "Ensuring seamless project execution by aligning technical teams with client objectives and timelines.",
         expertise: ["Project Management", "React JS", "Creative Direction & Strategy"],
         social: {
             linkedin: "https://www.linkedin.com/in/sarah-edward-621728306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
             email: "sarahedward699@gmail.com"
-        },
+        }
     },
     {
-        id: "2",
+        id: "4",
         name: "Achara Favour",
-        role: "Frontend Developer",
-        department: "Web Design",
+        role: "Frontend Engineer",
+        department: "Engineering",
         image: "/favour.jpeg",
-        bio: "Software engineer crafting pixel-perfect interfaces with React.js and AI integration.",
+        bio: "Building interactive, high-performance user interfaces using React.js and modern web technologies.",
         expertise: ["AI/ML", "React JS"],
         social: {
             linkedin: "#",
             twitter: "https://twitter.com/favour2207",
             email: "acharafavour01@gmail.com"
-        },
+        }
     },
     {
-        id: "3",
+        id: "5",
         name: "Godwin Praise",
-        role: "UI/UX Designer",
-        department: "Design",
+        role: "UX Engineer",
+        department: "Design & Experience",
         image: "/praise.jpeg",
-        bio: "Data scientist and designer creating intuitive experiences through data-driven insights.",
+        bio: "Combining design and data insights to create seamless and intuitive user experiences.",
         expertise: ["Figma", "Python", "Pandas", "Data Visualization"],
         social: {
             linkedin: "https://www.linkedin.com/in/praise-godwin-a6a339263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
             twitter: "https://x.com/oungel30489?s=21",
             email: "praiseg203@gmail.com"
-        },
+        }
     },
     {
-        id: "4",
+        id: "6",
         name: "Efetobore Emmanuel",
-        role: "UI/UX Designer",
-        department: "Design",
+        role: "UX Designer",
+        department: "Design & Experience",
         image: "/emmanuel.jpeg",
-        bio: "Designer building secure, user-friendly digital experiences across mobile and web platforms.",
+        bio: "Designing clean, user-centered interfaces with a focus on usability and accessibility.",
         expertise: ["UI/UX Design", "Prototyping", "Figma"],
         social: {
             linkedin: "https://www.linkedin.com/in/emmanuel-akpojiyovwi-ba202937a/",
             email: "emmxy5ty5@gmail.com"
-        },
+        }
     }
+
+
 ];
 
 const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, index, className }) => {

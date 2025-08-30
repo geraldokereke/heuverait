@@ -255,6 +255,32 @@ const Services: React.FC = () => {
         subHeaderText="Let's discuss how our expertise can accelerate your digital transformation journey and drive measurable results."
         subHeaderTextColor='white'
       >
+        <div className='py-1 flex items-center justify-between gap-6'>
+          <Button
+            type='default'
+            textColor='black'
+            backgroundColor='white'
+          >
+            Schedule Consultation
+          </Button>
+          <Button
+            type='link'
+            textColor='white'
+            backgroundColor='transparent'
+          >
+            View Portfolio
+          </Button>
+        </div>
+
+      </CTA>
+      {/* <CTA
+        bgColor='black'
+        headerText='Ready to Transform Your Business?'
+        headerTextColor='white'
+        subHeaderText="Let's discuss how our expertise can accelerate your digital transformation journey and drive measurable results."
+        subHeaderTextColor='white'
+      >
+
         <Button
           type='default'
           textColor='black'
@@ -269,7 +295,7 @@ const Services: React.FC = () => {
         >
           View Portfolio
         </Button>
-      </CTA>
+      </CTA> */}
     </div>
   );
 };

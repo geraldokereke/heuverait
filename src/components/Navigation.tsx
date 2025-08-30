@@ -39,7 +39,7 @@ const Navigation = () => {
       items: [
         { label: "Who We Are", href: "/about-us/who-we-are", icon: Users, description: "Learn about our company story and values" },
         { label: "Our Team", href: "/about-us/team", icon: Users, description: "Meet the experts behind our success" },
-        { label: "Careers", href: "/careers", icon: Building, description: "Join our growing team of innovators" },
+        // { label: "Careers", href: "/careers", icon: Building, description: "Join our growing team of innovators" },
       ],
       sidebar: {
         title: 'COMPANY HIGHLIGHTS',
@@ -458,11 +458,11 @@ const Navigation = () => {
       <nav className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${getNavbarStyles()}`}>
         <div className="px-4 md:px-10 lg:px-26 xl:px-48 2xl:px-16 mx-auto max-w-screen-2xl">
           {/* FIXED: Consistent height across all screen sizes - removed lg:h-12 */}
-          <div className="flex justify-between items-center h-16 xl:h-16 2xl:h-18">
+          <div className="flex justify-between items-center h-12 xl:h-16 2xl:h-18">
             {/* Logo */}
             <div className="flex items-center flex-shrink-0">
               <Link href="/" className="">
-                <div className="flex items-center gap-2 h-6 max-w-fit md:h-3 xl:h-4 2xl:h-6">
+                <div className="flex items-center gap-2 h-6 min-w-fit md:h-6 lg:h-3 xl:h-4 2xl:h-6">
                   <Image
                     src={`${getLogo()}`}
                     alt="Heuvera Logo"
@@ -486,7 +486,7 @@ const Navigation = () => {
                   onMouseEnter={() => handleMouseEnter(item.title, true)}
                 >
                   <button
-                    className={`flex items-center space-x-1 px-3 py-2 lg:text-[6px] xl:text-[10px] 2xl:text-sm font-medium rounded-lg transition-colors duration-300 relative whitespace-nowrap ${getTextStyles()}`}
+                    className={`flex items-center space-x-1 px-3 py-2 lg:text-[8px] xl:text-[10px] 2xl:text-sm font-medium rounded-lg transition-colors duration-300 relative whitespace-nowrap ${getTextStyles()}`}
                   >
                     <span>{item.title}</span>
                     <ChevronDown
@@ -502,7 +502,7 @@ const Navigation = () => {
               {/* Contact Link */}
               <Link
                 href="/contact-us"
-                className={`px-3 py-2 text-[6px] xl:text-[10px] 2xl:text-sm font-medium rounded-lg transition-colors duration-300 relative group whitespace-nowrap ${getTextStyles()} hover:bg-opacity-10`}
+                className={`px-3 py-2 text-[8px] xl:text-[10px] 2xl:text-sm font-medium rounded-lg transition-colors duration-300 relative group whitespace-nowrap ${getTextStyles()} hover:bg-opacity-10`}
                 onMouseEnter={() => handleMouseEnter('CONTACT', false)}
               >
                 Contact
@@ -512,7 +512,7 @@ const Navigation = () => {
 
             {/* CTA Button and Mobile Menu */}
             <div className="flex items-center gap-4 flex-shrink-0">
-              <button className={`hidden font-poppins lg:flex items-center px-2 xl:px-3 2xl:px-6 py-1 xl:py-1.5 2xl:py-3 text-[6px] xl:text-[10px] 2xl:text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${getCTAStyles()}`}>
+              <button className={`hidden font-poppins lg:flex items-center px-2 xl:px-3 2xl:px-6 py-1 xl:py-1.5 2xl:py-3 text-[8px] xl:text-[10px] 2xl:text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${getCTAStyles()}`}>
                 Get in Touch
               </button>
 

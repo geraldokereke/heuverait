@@ -211,7 +211,7 @@ const BlogPreview = () => {
               Subscribe
             </button>
           </div>
-          <div className="mt-0 2xl:mt-12">
+          <div className="mt-4 2xl:mt-12">
             <Button
             textColor='white'
             type='link'

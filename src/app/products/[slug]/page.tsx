@@ -221,11 +221,11 @@ export default function ProductPage() {
     return (
       <section className="py-12 text-black">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 md:gap-0 md:grid-cols-2 lg:grid-cols-4">
             {product.keyBenefits.map((benefit, i) => (
               <div 
                 key={i} 
-                className="flex flex-col items-center justify-center h-28 text-center mx-auto border-l border-l-gray-100 border-l-0:first"
+                className="flex flex-col items-center justify-center h-28 text-center mx-auto md:border-l md:border-l-gray-100 border-l-0:first"
                 data-testid="benefit-item"
               >
                 <Suspense fallback={<div className="w-8 h-8 bg-gray-200 rounded-full animate-pulse" />}>
@@ -303,20 +303,20 @@ export default function ProductPage() {
                       <div key={i} className="bg-white p-6 lg:p-4 xl:p-6 2xl:p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300">
                         <div className="flex items-start gap-4">
                           <div className="flex-shrink-0">
-                            <div className="size-10 lg:size-8 xl:size-10 2xl:size-12 bg-black rounded-lg flex items-center justify-center">
-                              <Target className="size-4 lg:size-2 xl:size-4 2xl:size-6 text-white" />
+                            <div className="size-10 lg:size-8 xl:size-8 2xl:size-12 bg-black rounded-lg flex items-center justify-center">
+                              <Target className="size-4 lg:size-2 xl:size-3 2xl:size-6 text-white" />
                             </div>
                           </div>
                           <div className="flex-1">
                             <Text size='xl' weight='bold' color='black' className="mb-2">{useCase.title}</Text>
-                            <Text size='lg' color='gray-600' className="mb-3">{useCase.description}</Text>
+                            <Text size='sm' color='gray-600' className="mb-3">{useCase.description}</Text>
                             <div className="flex items-center gap-4 flex-wrap">
-                              <span className="inline-flex items-center px-3 py-1 rounded-full text-[8px] xl:text-[10px] 2xl:text-xs font-medium bg-gray-100 text-gray-700">
+                              <span className="inline-flex items-center px-3 py-1 rounded-full text-[8px] xl:text-[8px] 2xl:text-xs font-medium bg-gray-100 text-gray-700">
                                 <Building className="size-3 lg:size-1 xl:size-3 mr-1" />
                                 {useCase.industry}
                               </span>
                               {useCase.roi && (
-                                <span className="inline-flex items-center px-3 py-1 rounded-full text-[8px] xl:text-[10px] 2xl:text-xs font-medium bg-black text-white">
+                                <span className="inline-flex items-center px-3 py-1 rounded-full text-[8px] xl:text-[8px] 2xl:text-xs font-medium bg-black text-white">
                                   <Zap className="size-3 lg:size-1 xl:size-3 mr-1" />
                                   {useCase.roi}
                                 </span>
@@ -340,7 +340,7 @@ export default function ProductPage() {
                     title='Powerful Features'
                     subtitle='Everything you need to transform your business operations'
                   />
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-8 mt-4">
                     {product.features.map((feature, i) => {
                       const FeatureIcon = feature.icon;
                       return (
@@ -377,11 +377,11 @@ export default function ProductPage() {
                   />
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {Object.entries(product.technicalSpecs).map(([key, value], i) => (
-                      <div key={i} className="bg-white p-6 rounded-xl border border-black">
+                      <div key={i} className="bg-white p-6 rounded-lg 2xl:rounded-xl border border-black">
                         <Text size='sm' weight='medium' font='montserrat' color='black' className="uppercase tracking-wide mb-2">
                           {key}
                         </Text>
-                        <Text size='lg' color='gray-700' weight='medium' font='poppins'>{value}</Text>
+                        <Text size='sm' color='gray-700' weight='medium' font='poppins'>{value}</Text>
                       </div>
                     ))}
                   </div>
@@ -435,7 +435,7 @@ export default function ProductPage() {
                     title='Client success Stories'
                     subtitle='Hear from organizations that transformed their operations'
                   />
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-8 mt-10">
                     {product.testimonials.map((testimonial, i) => (
                       <div key={i} className="bg-gray-50 p-6 lg:p-4 xl:p-6 2xl:p-8 rounded-2xl relative">
                         <Quote className="size-6 lg:size-4 xl:size-6 2xl:size-8 text-black mb-4" />
@@ -464,14 +464,14 @@ export default function ProductPage() {
               <section id="pricing" className="py-20 scroll-mt-20">
                 <div className="container mx-auto px-4">
                   <div className="text-center mb-16">
-                    <Text size='3xl' color='black' font='montserrat' weight='bold' className="mb-6">
+                    <Text size='3xl' color='black' font='montserrat' weight='bold' className="mb-4">
                       Choose Your Plan
                     </Text>
-                    <Text size='lg' color='gray-300' className="max-w-2xl mx-auto">
+                    <Text size='lg' color='gray-500' className="max-w-2xl mx-auto">
                       Flexible pricing options to match your business needs
                     </Text>
                   </div>
-                  <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                  <div className="grid md:grid-cols-3 gap-1 2xl:gap-8 max-w-6xl mx-auto">
                     {product.pricingTiers.map((tier, i) => (
                       <div key={i} className={`relative p-8 rounded-2xl border-2 ${tier.popular
                         ? 'border-black bg-white text-black'
@@ -485,32 +485,32 @@ export default function ProductPage() {
                           </div>
                         )}
                         <div className="text-center">
-                          <h1 className="mb-2 text-2xl font-montserrat font-bold">{tier.name}</h1>
+                          <h1 className="mb-2 text-sm xl:text-lg 2xl:text-2xl font-montserrat font-bold">{tier.name}</h1>
                           <div className="mb-4">
-                            <h1 className={`text-4xl font-bold font-montserrat ${tier.popular ? 'text-black' : 'text-white'}`}>{tier.price}</h1>
+                            <h1 className={`text-xl lg:text-2xl xl:text-2xl 2xl:text-4xl font-bold font-montserrat ${tier.popular ? 'text-black' : 'text-white'}`}>{tier.price}</h1>
                             {tier.period !== 'per month' ? (
                               <h1 className="text-sm text-white opacity-75 ml-2">{tier.period}</h1>
                             ) : (
                               <h1 className="text-sm text-white opacity-75">/month</h1>
                             )}
                           </div>
-                          <Text size='lg' className={`mb-8 ${tier.popular ? 'text-gray-600' : 'text-gray-300'}`}>
+                          <Text size='sm' className={`mb-8 ${tier.popular ? 'text-gray-600' : 'text-gray-300'}`}>
                             {tier.description}
                           </Text>
                         </div>
                         <ul className="space-y-3 mb-8">
                           {tier.features.map((feature, j) => (
                             <li key={j} className="flex items-start gap-3">
-                              <CheckCircle className={`w-5 h-5 mt-0.5 flex-shrink-0 ${tier.popular ? 'text-black' : 'text-white'
+                              <CheckCircle className={`size-3 2xl:size-5 mt-0.5 flex-shrink-0 ${tier.popular ? 'text-black' : 'text-white'
                                 }`} />
-                              <h1 className='text-sm'>{feature}</h1>
+                              <h1 className='text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm'>{feature}</h1>
                             </li>
                           ))}
                         </ul>
                         <div className='flex flex-row items-center justify-center w-full'>
                           <Link
                             href="/contact?interest=demo"
-                            className={`max-w-fit text-sm sm:text-base md:text-lg lg:text-xs xl:text-sm 2xl:text-lg py-2 lg:py-1 xl:py-2 2xl:py-3 px-4 lg:px-3 xl:px-4 2xl:px-6 rounded-lg font-medium transition-colors ${tier.popular
+                            className={`max-w-fit text-xs md:text-sm lg:text-[8px] 2xl:text-lg py-2 lg:py-1 xl:py-2 2xl:py-3 px-4 lg:px-3 xl:px-4 2xl:px-6 rounded-sm 2xl:rounded-lg font-medium transition-colors ${tier.popular
                               ? 'bg-black text-white hover:bg-gray-800'
                               : 'bg-white text-black hover:bg-gray-100'
                               }`}
@@ -520,7 +520,7 @@ export default function ProductPage() {
                         </div>
 
                         {tier.targetAudience && (
-                          <p className={`text-[8px] xl:text-[10px] 2xl:text-xs mt-4 text-center ${tier.popular ? 'text-gray-500' : 'text-gray-400'
+                          <p className={`text-[8px] xl:text-[8px] 2xl:text-xs mt-4 text-center ${tier.popular ? 'text-gray-500' : 'text-gray-400'
                             }`}>
                             {tier.targetAudience}
                           </p>
