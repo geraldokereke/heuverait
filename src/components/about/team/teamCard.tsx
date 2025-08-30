@@ -44,7 +44,7 @@ export const teamMembers: TeamMember[] = [
         name: "Fabunmi George",
         role: "Co-Founder | Head of Product",
         department: "Product & Engineering",
-        image: "/george.jpeg",
+        image: "/george.jpg",
         bio: "Leading product vision and client-focused engineering to deliver high-performing web and mobile applications.",
         expertise: ["NextJS", "Flutter/React Native", "UI/UX Design", "Performance Optimization"],
         social: {
