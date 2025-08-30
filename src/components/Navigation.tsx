@@ -468,7 +468,7 @@ const Navigation = () => {
                     alt="Heuvera Logo"
                     width={120}
                     height={120}
-                    className="transition-all duration-500 ease-in-out h-full max-w-fit object-fit"
+                    className="transition-all duration-500 ease-in-out h-full w-full object-fit"
                   />
                 </div>
               </Link>
