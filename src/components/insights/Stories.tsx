@@ -30,7 +30,7 @@ export const Stories = () => {
         <motion.div
           className="absolute inset-0 w-full h-full"
         >
-          <div className="absolute w-full h-full lg:h-screen inset-0">
+          <div className="absolute w-full h-full inset-0">
             <Image
               src="/case.jpeg"
               alt="Hero Background"
@@ -40,10 +40,11 @@ export const Stories = () => {
               quality={100}
             />
             {/* Darkened overlay */}
-            <div className="absolute inset-0 bg-[#00000090]" />
+            <div className="absolute inset-0 bg-[#00000099]" />
+            <div className="absolute inset-0 bg-[#00000099]" />
           </div>
         </motion.div>
-        <SectionContainer>
+        <SectionContainer className="gap-5 md:gap-5 lg:gap-3 xl:gap-3">
           <div className="z-10 flex flex-col items-end gap-5 2xl:mb-[-32]">
             <SectionTitle
               section="Case studies"

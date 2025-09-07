@@ -99,11 +99,11 @@ const Navigation = () => {
       }
     },
     {
-      title: "Work",
-      href: "",
+      title: "Portfolio",
+      href: "/work/portfolio",
       items: [
-        { label: "Project Portfolio", href: "/work/portfolio", icon: Briefcase, description: "Showcase of our most impactful projects" },
-        { label: "Awards & Recognition", href: "/work/awards", icon: Award, description: "Industry accolades and client recognition" },
+        // { label: "Project Portfolio", href: "/work/portfolio", icon: Briefcase, description: "Showcase of our most impactful projects" },
+        // { label: "Awards & Recognition", href: "/work/awards", icon: Award, description: "Industry accolades and client recognition" },
       ],
       sidebar: {
         title: 'CLIENT SPOTLIGHT',
@@ -119,27 +119,27 @@ const Navigation = () => {
         ]
       }
     },
-    {
-      title: "Resources",
-      href: "",
-      items: [
-        // { label: "Whitepapers & Insights", href: "/resources/whitepapers", icon: BookOpen, description: "In-depth research and technical analysis" },
-        { label: "Case Studies", href: "/resources/case-studies", icon: FileText, description: "Real-world client success stories" },
-      ],
-      sidebar: {
-        title: 'LATEST INSIGHTS',
-        image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=200&fit=crop&auto=format',
-        items: [
-          {
-            title: 'The Future of AI in Business',
-            description: 'Essential insights for 2025 and beyond - how AI will reshape industries and business models.',
-            href: '/blog/ai-future-2025',
-            badge: 'Trending',
-            icon: Brain
-          },
-        ]
-      }
-    },
+    // {
+    //   title: "Resources",
+    //   href: "",
+    //   items: [
+    //     // { label: "Whitepapers & Insights", href: "/resources/whitepapers", icon: BookOpen, description: "In-depth research and technical analysis" },
+    //     { label: "Case Studies", href: "/resources/case-studies", icon: FileText, description: "Real-world client success stories" },
+    //   ],
+    //   sidebar: {
+    //     title: 'LATEST INSIGHTS',
+    //     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=200&fit=crop&auto=format',
+    //     items: [
+    //       {
+    //         title: 'The Future of AI in Business',
+    //         description: 'Essential insights for 2025 and beyond - how AI will reshape industries and business models.',
+    //         href: '/blog/ai-future-2025',
+    //         badge: 'Trending',
+    //         icon: Brain
+    //       },
+    //     ]
+    //   }
+    // },
     {
       title: "Products",
       items: ProductsData.map((product) => ({
@@ -231,7 +231,7 @@ const Navigation = () => {
           onMouseEnter={handleDropdownMouseEnter}
           onMouseLeave={handleDropdownMouseLeave}
         >
-          <div className="flex relative px-4 md:px-10 lg:px-26 xl:px-48 2xl:px-16 mx-auto max-w-screen-2xl">
+          <div className="flex relative px-4 md:px-10 lg:px-26 xl:px-16 2xl:px-16 mx-auto max-w-screen-2xl">
             <div className={`flex-1 p-8 transition-all duration-300 ease-in-out ${isActive
               ? 'transform translate-x-0 opacity-100'
               : 'transform translate-x-full opacity-0 absolute'
@@ -384,10 +384,10 @@ const Navigation = () => {
 
     if (hasDropdown) {
       // When dropdown is open, always show white background
-      return 'bg-white backdrop-blur-lg shadow-lg border-b border-slate-100';
+      return 'bg-white backdrop-blur-lg';
     } else if (scrolled) {
       // When scrolled without dropdown
-      return 'bg-white backdrop-blur-lg shadow-lg border-b border-slate-100';
+      return 'bg-white backdrop-blur-lg';
     } else {
       // Default transparent state
       return 'bg-transparent';
@@ -456,13 +456,13 @@ const Navigation = () => {
 
       {/* Navigation */}
       <nav className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${getNavbarStyles()}`}>
-        <div className="px-4 md:px-10 lg:px-26 xl:px-48 2xl:px-16 mx-auto max-w-screen-2xl">
+        <div className="px-4 md:px-10 lg:px-26 xl:px-16 2xl:px-16 mx-auto max-w-screen-2xl">
           {/* FIXED: Consistent height across all screen sizes - removed lg:h-12 */}
           <div className="flex justify-between items-center h-12 xl:h-16 2xl:h-18">
             {/* Logo */}
             <div className="flex items-center flex-shrink-0">
               <Link href="/" className="">
-                <div className="flex items-center gap-2 h-6 min-w-fit md:h-6 lg:h-3 xl:h-4 2xl:h-6">
+                <div className="flex items-center gap-2 h-6 w-28 lg:w-20 xl:w-24 2xl:w-28 md:h-6 lg:h-4 xl:h-5 2xl:h-6">
                   <Image
                     src={`${getLogo()}`}
                     alt="Heuvera Logo"
@@ -479,30 +479,36 @@ const Navigation = () => {
               className="hidden lg:flex items-center space-x-[0.5px] xl:space-x-[1px] 2xl:space-x-2"
               onMouseLeave={handleMouseLeave}
             >
-              {navItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="relative group h-16 xl:h-16 2xl:h-18 flex items-center"
-                  onMouseEnter={() => handleMouseEnter(item.title, true)}
-                >
-                  <button
-                    className={`flex items-center space-x-1 px-3 py-2 lg:text-[8px] xl:text-[10px] 2xl:text-sm font-medium rounded-lg transition-colors duration-300 relative whitespace-nowrap ${getTextStyles()}`}
+              {navItems.map((item, index) => {
+                const hasDropdown = Array.isArray(item.items) && item.items.length > 0;
+                return (
+                  <div
+                    key={index}
+                    className="relative group h-16 xl:h-16 2xl:h-18 flex items-center"
+                    onMouseEnter={() => handleMouseEnter(item.title, hasDropdown)}
                   >
-                    <span>{item.title}</span>
-                    <ChevronDown
-                      className={`size-2 xl:size-3 2xl:size-4 flex-shrink-0 transition-transform duration-200 ${activeDropdown === item.title ? "rotate-180" : "rotate-0"}`}
-                    />
-                    <span className={`absolute inset-x-3 bottom-[-11] xl:bottom-[-14] 2xl:bottom-[-11] h-0.5 ${getUnderlineColor()} transition-transform duration-200 origin-left ${activeDropdown === item.title ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
-                  </button>
+                    <a
+                      href={item.href}
+                      className={`cursor-pointer flex items-center space-x-1 px-3 py-2 lg:text-[10px] xl:text-[13px] 2xl:text-sm font-medium rounded-lg transition-colors duration-300 relative whitespace-nowrap ${getTextStyles()}`}
+                    >
+                      <span>{item.title}</span>
+                      {hasDropdown && (
+                        <ChevronDown
+                          className={`size-2 xl:size-3 2xl:size-4 flex-shrink-0 transition-transform duration-200 ${activeDropdown === item.title ? "rotate-180" : "rotate-0"}`}
+                        />
+                      )}
+                      <span className={`absolute inset-x-3 bottom-[-11] xl:bottom-[-14] 2xl:bottom-[-11] h-0.5 ${getUnderlineColor()} transition-transform duration-200 origin-left ${activeDropdown === item.title ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+                    </a>
 
-                  {activeDropdown === item.title && renderDropdownContent(item)}
-                </div>
-              ))}
+                    {hasDropdown && activeDropdown === item.title && renderDropdownContent(item)}
+                  </div>
+                );
+              })}
 
               {/* Contact Link */}
               <Link
                 href="/contact-us"
-                className={`px-3 py-2 text-[8px] xl:text-[10px] 2xl:text-sm font-medium rounded-lg transition-colors duration-300 relative group whitespace-nowrap ${getTextStyles()} hover:bg-opacity-10`}
+                className={`px-3 py-2 text-[10px] xl:text-[13px] 2xl:text-sm font-medium rounded-lg transition-colors duration-300 relative group whitespace-nowrap ${getTextStyles()} hover:bg-opacity-10`}
                 onMouseEnter={() => handleMouseEnter('CONTACT', false)}
               >
                 Contact
@@ -512,7 +518,7 @@ const Navigation = () => {
 
             {/* CTA Button and Mobile Menu */}
             <div className="flex items-center gap-4 flex-shrink-0">
-              <button className={`hidden font-poppins lg:flex items-center px-2 xl:px-3 2xl:px-6 py-1 xl:py-1.5 2xl:py-3 text-[8px] xl:text-[10px] 2xl:text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${getCTAStyles()}`}>
+              <button className={`hidden font-poppins lg:flex items-center px-2 xl:px-3 2xl:px-6 py-1 xl:py-1.5 2xl:py-3 text-[10px] xl:text-[13px] 2xl:text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${getCTAStyles()}`}>
                 Get in Touch
               </button>
 

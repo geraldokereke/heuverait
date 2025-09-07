@@ -124,7 +124,7 @@ export default function MissionsVisions() {
     const currentContent = currentView === 'mission' ? missionContent : visionContent;
 
     return (
-        <section ref={ref} className="py-32 bg-gradient-to-b from-white via-gray-50/30 to-white relative overflow-hidden">
+        <section ref={ref} className="py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 bg-gradient-to-b from-white via-gray-50/30 to-white relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0">
                 <div className="absolute top-20 right-10 w-72 h-72 bg-[#41a7ad]/5 rounded-full blur-3xl"></div>
@@ -149,7 +149,7 @@ export default function MissionsVisions() {
                 </motion.div>
 
                 {/* Mission/Vision with Image */}
-                <div className="grid lg:grid-cols-2 gap-16 items-center mt-10 2xl:mt-0 mb-24">
+                <div className="grid lg:grid-cols-2 gap-16 items-center mt-10 2xl:mt-0">
                     {/* Content Container */}
                     <motion.div
                         variants={itemVariants}
@@ -173,7 +173,7 @@ export default function MissionsVisions() {
                                             </div>
                                         </div>
 
-                                        <p className="text-gray-700 leading-relaxed mb-2 xl:mb-3 2xl:mb-10 text-[10px] xl:text-sm 2xl:text-xl font-light">
+                                        <p className="text-gray-700 leading-relaxed mb-2 xl:mb-3 2xl:mb-10 text-[10px] md:text-sm xl:text-sm 2xl:text-xl font-light">
                                             {currentContent.description}
                                         </p>
 
@@ -187,7 +187,7 @@ export default function MissionsVisions() {
                                                     className="flex items-start group/item"
                                                 >
                                                     <div className="size-1 xl:size-2 bg-[#41a7ad] rounded-full mt-1 xl:mt-2.5 mr-2 xl:mr-5 flex-shrink-0 group-hover/item:scale-125 transition-transform duration-200"></div>
-                                                    <span className="text-gray-600 leading-relaxed text-[10px] xl:text-xs 2xl:text-lg">{item}</span>
+                                                    <span className="text-gray-600 leading-relaxed text-[10px] md:text-xs xl:text-xs 2xl:text-lg">{item}</span>
                                                 </motion.div>
                                             ))}
                                         </div>

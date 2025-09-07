@@ -201,17 +201,17 @@ const BlogPreview = () => {
         subHeaderTextColor='white'
       >
         <div>
-          <div className="flex flex-row justify-center max-w-xs 2xl:max-w-md mx-auto">
+          <div className="flex flex-row justify-center max-w-xs lg:max-w-sm 2xl:max-w-md mx-auto">
             <input
               type="email"
               placeholder="Work email"
-              className="flex-1 px-4 2xl:px-6 py-1.5 2xl:py-2.5 text-xs 2xl:text-sm rounded-l-full text-white focus:outline-none bg-white/5"
+              className="flex-1 px-4 2xl:px-6 py-2.5 2xl:py-2.5 text-xs 2xl:text-sm rounded-l-full text-white focus:outline-none bg-white/5"
             />
-            <button className="font-poppins font-medium bg-white text-black mx-auto flex items-center px-3 md:px-4 lg:px-2 xl:px-2 2xl:px-4 py-2 md:py-1.5 lg:py-1 xl:py-1.5 2xl:py-3 text-[8px] md:text-xs lg:text-[6px] xl:text-[8px] 2xl:text-sm font-medium rounded-r-full transition-all duration-300 whitespace-nowrap">
+            <button className="font-poppins font-medium bg-white text-black mx-auto flex items-center px-3 md:px-4 lg:px-2 xl:px-2 2xl:px-4 py-2 md:py-1.5 lg:py-1 xl:py-2.5 2xl:py-3 text-[8px] md:text-xs lg:text-[9px] xl:text-[10px] 2xl:text-sm font-medium rounded-r-full transition-all duration-300 whitespace-nowrap">
               Subscribe
             </button>
           </div>
-          <div className="mt-4 2xl:mt-12">
+          <div className="mt-4 xl:mt-12">
             <Button
             textColor='white'
             type='link'

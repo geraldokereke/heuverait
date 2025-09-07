@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 interface TeamMember {
@@ -44,7 +45,7 @@ export const teamMembers: TeamMember[] = [
         name: "Fabunmi George",
         role: "Co-Founder | Head of Product",
         department: "Product & Engineering",
-        image: "/george.jpeg",
+        image: "/george.png",
         bio: "Leading product vision and client-focused engineering to deliver high-performing web and mobile applications.",
         expertise: ["NextJS", "Flutter/React Native", "UI/UX Design", "Performance Optimization"],
         social: {
@@ -58,7 +59,7 @@ export const teamMembers: TeamMember[] = [
         name: "Edward Sarah",
         role: "Team Lead | Project Delivery",
         department: "Project Delivery",
-        image: "/sarah.jpeg",
+        image: "/sarah.png",
         bio: "Ensuring seamless project execution by aligning technical teams with client objectives and timelines.",
         expertise: ["Project Management", "React JS", "Creative Direction & Strategy"],
         social: {
@@ -85,7 +86,7 @@ export const teamMembers: TeamMember[] = [
         name: "Godwin Praise",
         role: "UX Engineer",
         department: "Design & Experience",
-        image: "/praise.jpeg",
+        image: "/praise.png",
         bio: "Combining design and data insights to create seamless and intuitive user experiences.",
         expertise: ["Figma", "Python", "Pandas", "Data Visualization"],
         social: {
@@ -99,7 +100,7 @@ export const teamMembers: TeamMember[] = [
         name: "Efetobore Emmanuel",
         role: "UX Designer",
         department: "Design & Experience",
-        image: "/emmanuel.jpeg",
+        image: "/emmanuel.png",
         bio: "Designing clean, user-centered interfaces with a focus on usability and accessibility.",
         expertise: ["UI/UX Design", "Prototyping", "Figma"],
         social: {
@@ -155,7 +156,9 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, index, classNam
                             <div className="relative mb-4 2xl:mb-6 mx-auto">
                                 <div className="w-72 h-72 md:w-32 md:h-32 xl:w-40 xl:h-40 2xl:w-60 2xl:h-60 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg bg-slate-200">
                                     {!imageError ? (
-                                        <img
+                                        <Image
+                                            width={240}
+                                            height={240}
                                             src={member.image}
                                             alt={member.name}
                                             className={`w-full h-full object-cover transition-all duration-500`}
@@ -196,12 +199,21 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, index, classNam
                 >
                     <div className="relative h-full rounded-2xl 2xl:rounded-3xl shadow-2xl overflow-hidden text-white">
                         {/* Background Image */}
-                        <div
-                            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                            style={{
-                                backgroundImage: `url(${member.image})`
-                            }}
-                        />
+                        <div className="absolute inset-0">
+                            <Image
+                                src={member.image}
+                                alt={member.name || "Member image"}
+                                style={{
+                                    objectFit: 'cover',
+                                    objectPosition: 'center'
+                                }}
+                                quality={90}
+                                priority
+                                width={240}
+                                height={240}
+                                className="size-full object-cover"
+                            />
+                        </div>
 
                         {/* Dark Overlay */}
                         <div

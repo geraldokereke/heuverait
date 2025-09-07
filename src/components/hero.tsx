@@ -34,9 +34,7 @@ export default function Hero({ imgLink, section, title, description, height }: H
                         priority
                         quality={100}
                     />
-                    {/* Enhanced gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20" />
+                    <div className="absolute inset-0 bg-[#00000099]" />
                 </div>
             </motion.div>
 
@@ -90,36 +88,6 @@ export default function Hero({ imgLink, section, title, description, height }: H
                     </div>
                 </SectionContainer>
             </motion.div>
-
-            {/* Floating elements for visual interest */}
-            <div className="absolute inset-0 pointer-events-none">
-                <motion.div
-                    animate={{
-                        y: [0, -20, 0],
-                        opacity: [0.3, 0.6, 0.3]
-                    }}
-                    transition={{
-                        duration: 4,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                    }}
-                    className="absolute top-1/4 right-1/4 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-full blur-xl"
-                />
-
-                <motion.div
-                    animate={{
-                        y: [0, 30, 0],
-                        opacity: [0.2, 0.5, 0.2]
-                    }}
-                    transition={{
-                        duration: 6,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: 2
-                    }}
-                    className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-xl"
-                />
-            </div>
         </div>
     );
 }

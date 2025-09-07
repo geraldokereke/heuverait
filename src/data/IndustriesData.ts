@@ -84,7 +84,12 @@ import {
   UserCog,
   BookOpen,
   CheckCircle,
-  HardDrive
+  HardDrive,
+  PhoneCall,
+  Lightbulb,
+  Tractor,
+  Scale,
+  Coffee
 } from "lucide-react";
 import { IndustryData } from "@/types/industries";
 
@@ -93,40 +98,40 @@ export const IndustriesData: IndustryData[] = [
   // 1. Financial Services
   {
     slug: "financial-services",
-    name: "Financial Services",
+    name: "Financial Services & Banking",
     icon: Landmark,
-    description: "Transform your financial services with cutting-edge technology solutions for banking, insurance, and fintech.",
+    description: "Accelerate digital transformation in banking, insurance, and capital markets with our secure, regulatory-compliant technology solutions that drive operational excellence and customer engagement.",
     heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-    heroTitle: "Financial Services Technology",
-    heroDescription: "Secure, compliant, and innovative technology solutions for the financial sector.",
+    heroTitle: "Digital Transformation for Financial Services",
+    heroDescription: "Future-proof your financial institution with our strategic technology solutions that balance innovation with regulatory compliance and security.",
     features: [
       {
         title: "Core Banking Modernization",
-        description: "Transform legacy systems with modern, cloud-native banking platforms.",
+        description: "Transform legacy infrastructure with cloud-native, microservices-based core banking platforms that enable real-time processing and scalability.",
         features: [
-          "Core banking systems",
-          "Payment processing",
-          "Digital wallets"
+          "Cloud-native core banking solutions",
+          "Real-time payment processing engines",
+          "Omnichannel digital banking platforms"
         ],
         image: "https://images.unsplash.com/photo-1554224155-3a58922a22c3?w=600&q=80"
       },
       {
-        title: "Regulatory Technology",
-        description: "Stay compliant with automated regulatory reporting and risk management.",
+        title: "Regulatory Technology (RegTech)",
+        description: "Automate compliance and risk management with AI-powered regulatory technology solutions that adapt to evolving financial regulations.",
         features: [
-          "Anti-money laundering",
-          "KYC/AML compliance",
-          "Fraud detection"
+          "AI/ML-driven AML/CFT monitoring",
+          "Automated KYC/onboarding workflows",
+          "Real-time fraud detection and prevention"
         ],
         image: "https://images.unsplash.com/photo-1554224155-3a58922a22c3?w=600&q=80"
       },
       {
-        title: "Wealth Management",
-        description: "Digital platforms for investment management and financial advisory.",
+        title: "Wealth & Asset Management",
+        description: "Next-generation digital platforms that transform wealth management through automation and personalization.",
         features: [
-          "Robo-advisors",
-          "Portfolio management",
-          "Financial planning"
+          "AI-driven robo-advisory platforms",
+          "Unified wealth management dashboards",
+          "Automated portfolio rebalancing"
         ],
         image: "https://images.unsplash.com/photo-1554224155-3a58922a22c3?w=600&q=80"
       }
@@ -154,28 +159,28 @@ export const IndustriesData: IndustryData[] = [
       }
     ],
     solutions: {
-      title: "Tailored Solutions for Finance",
-      description: "Our comprehensive suite of fintech solutions is designed to address the unique challenges of the financial sector.",
+      title: "Strategic Financial Technology Solutions",
+      description: "Leverage our deep domain expertise and innovative technology stack to solve complex financial services challenges and drive sustainable growth.",
       items: [
         {
-          title: "Digital Banking",
-          description: "End-to-end digital transformation for traditional and challenger banks.",
+          title: "Digital Banking Transformation",
+          description: "End-to-end digital transformation services for traditional and challenger banks, from strategy to implementation.",
           icon: Landmark
         },
         {
-          title: "Payment Solutions",
-          description: "Secure, scalable payment processing and money transfer systems.",
-          icon: Landmark
+          title: "Next-Gen Payment Solutions",
+          description: "Modern payment architectures supporting real-time processing, blockchain, and cross-border transactions.",
+          icon: CreditCard
         },
         {
-          title: "Wealth Management",
-          description: "Digital platforms for investment management and financial planning.",
-          icon: Landmark
+          title: "Wealth & Asset Management",
+          description: "AI-powered platforms for personalized investment strategies and automated portfolio management.",
+          icon: BarChart3
         },
         {
-          title: "Regulatory Compliance",
-          description: "Automated compliance and risk management solutions.",
-          icon: Landmark
+          title: "Regulatory & Risk Technology",
+          description: "End-to-end compliance solutions powered by AI and advanced analytics to mitigate risk and ensure regulatory adherence.",
+          icon: ShieldCheck
         }
       ]
     }
@@ -272,13 +277,13 @@ export const IndustriesData: IndustryData[] = [
   },
   // 3. Retail & E-commerce
   {
-    slug: "retail",
-    name: "Retail & E-commerce",
-    icon: ShoppingCart,
-    description: "Omnichannel retail solutions that drive sales and enhance customer experiences.",
+    slug: "telecommunications",
+    name: "Telecommunications",
+    icon: PhoneCall,
+    description: "Drive digital transformation in telecommunications with next-gen networks, 5G, and customer experience solutions that redefine connectivity.",
     heroImage: "https://images.unsplash.com/photo-1607082349565-0022eeddd58e?auto=format&fit=crop&w=1200&q=80",
-    heroTitle: "Retail Technology Solutions",
-    heroDescription: "Transforming retail operations with innovative technology and data-driven insights.",
+    heroTitle: "Telecom Digital Transformation",
+    heroDescription: "Empowering telecom operators with innovative technology solutions that enhance network performance, customer experience, and operational efficiency.",
     features: [
       {
         title: "E-commerce Platforms",
@@ -343,42 +348,42 @@ export const IndustriesData: IndustryData[] = [
   // 4. Manufacturing & Industrial
   {
     slug: "manufacturing",
-    name: "Manufacturing",
+    name: "Industrial Manufacturing",
     icon: Factory,
-    description: "Industry 4.0 solutions for smart factories and connected manufacturing.",
-    heroImage: "https://images.unsplash.com/photo-1531403007395-8c9302175e0c?auto=format&fit=crop&w=1200&q=80",
-    heroTitle: "Smart Manufacturing Solutions",
-    heroDescription: "Driving efficiency and innovation in manufacturing with cutting-edge technology.",
+    description: "Accelerate your Industry 4.0 transformation with intelligent manufacturing solutions that drive efficiency, quality, and supply chain resilience.",
+    heroImage: "https://images.unsplash.com/photo-1486406902846-0c335742d08b?auto=format&fit=crop&w=1200&q=80",
+    heroTitle: "Industry 4.0 Digital Transformation",
+    heroDescription: "Transform manufacturing operations with our integrated suite of smart factory solutions that connect people, processes, and machines.",
     features: [
       {
-        title: "Industrial IoT",
-        description: "Connected devices and sensors for real-time monitoring and control.",
+        title: "Industrial IoT & Edge Computing",
+        description: "Deploy scalable IIoT solutions that provide real-time visibility and control across your manufacturing operations.",
         features: [
-          "Predictive maintenance",
-          "Asset tracking",
-          "Quality control"
+          "Predictive maintenance systems",
+          "Edge analytics for real-time decision making",
+          "Connected worker solutions"
         ],
-        image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80"
+        image: "https://images.unsplash.com/photo-1486406902846-0c335742d08b?w=600&q=80"
       },
       {
-        title: "Supply Chain Optimization",
-        description: "End-to-end visibility and optimization of manufacturing supply chains.",
+        title: "Smart Factory Integration",
+        description: "Implement AI-driven automation and digital twin technology to optimize production efficiency and quality.",
         features: [
-          "Demand forecasting",
-          "Inventory optimization",
-          "Supplier collaboration"
+          "AI-powered quality inspection",
+          "Automated guided vehicles (AGVs)",
+          "Digital twin simulation"
         ],
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80"
+        image: "https://images.unsplash.com/photo-1504911539020-cfb0fdb7937f?w=600&q=80"
       },
       {
-        title: "Quality Management",
-        description: "Advanced quality control and assurance systems.",
+        title: "Digital Supply Chain",
+        description: "Transform your supply chain with end-to-end visibility and intelligent planning capabilities.",
         features: [
-          "Automated inspection",
-          "Defect detection",
-          "Compliance tracking"
+          "AI-driven demand forecasting",
+          "Blockchain for supply chain transparency",
+          "Automated inventory optimization"
         ],
-        image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80"
+        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80"
       }
     ],
     caseStudies: [
@@ -404,72 +409,73 @@ export const IndustriesData: IndustryData[] = [
       }
     ],
     solutions: {
-      title: "Manufacturing Technology Solutions",
-      description: "Comprehensive technology solutions for modern manufacturing.",
+      title: "Smart Manufacturing Solutions",
+      description: "End-to-end digital transformation services that empower manufacturers to achieve operational excellence and competitive advantage.",
       items: [
         {
-          title: "Smart Factory",
-          description: "IoT and AI-powered manufacturing solutions.",
+          title: "Industry 4.0 Roadmap",
+          description: "Strategic planning and implementation of digital manufacturing initiatives.",
+          icon: Factory
+        },
+        {
+          title: "IIoT & Edge Computing",
+          description: "Connected factory solutions that drive real-time operational intelligence.",
           icon: Cpu
         },
         {
-          title: "Quality Management",
-          description: "Advanced quality control and assurance.",
-          icon: CheckCircle
+          title: "Digital Supply Chain",
+          description: "End-to-end supply chain visibility and optimization.",
+          icon: Network
         },
         {
-          title: "Supply Chain",
-          description: "End-to-end supply chain visibility.",
-          icon: Package
-        },
-        {
-          title: "Asset Management",
-          description: "Comprehensive asset tracking and maintenance.",
-          icon: HardDrive
+          title: "Advanced Analytics",
+          description: "AI/ML-powered insights for predictive maintenance and quality control.",
+          icon: BarChart3
         }
       ]
     }
   },
-  
+
+// ... (rest of the code remains the same)
   // 5. Education & E-learning
   {
     slug: "education",
     name: "Education Technology",
     icon: School,
-    description: "Innovative learning platforms and educational technology solutions.",
+    description: "Transform educational experiences with cutting-edge learning technologies that enable personalized, accessible, and data-driven learning environments.",
     heroImage: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80",
-    heroTitle: "Education Technology Solutions",
-    heroDescription: "Transforming education with technology that enhances learning experiences.",
+    heroTitle: "Digital Transformation in Education",
+    heroDescription: "Empower educators and learners with innovative technology solutions that enhance engagement, accessibility, and learning outcomes.",
     features: [
       {
-        title: "Learning Management Systems",
-        description: "Comprehensive platforms for managing and delivering educational content.",
+        title: "Next-Gen Learning Platforms",
+        description: "Scalable, cloud-based learning management systems that support diverse educational models and pedagogies.",
         features: [
-          "Course management",
-          "Student tracking",
-          "Assessment tools"
+          "AI-powered personalized learning paths",
+          "Competency-based education frameworks",
+          "Integrated learning analytics dashboards"
         ],
-        image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80"
+        image: "https://images.unsplash.com/photo-1509062522246-375e8f25cfa7?w=600&q=80"
       },
       {
-        title: "Virtual Classrooms",
-        description: "Interactive online learning environments for remote education.",
+        title: "Immersive Learning Experiences",
+        description: "Leverage cutting-edge technologies to create engaging, interactive learning environments.",
         features: [
-          "Live video sessions",
-          "Collaborative tools",
-          "Content sharing"
+          "Virtual and augmented reality (VR/AR) applications",
+          "Interactive video learning platforms",
+          "Gamified learning experiences"
         ],
         image: "https://images.unsplash.com/photo-1588072432836-e10032774350?w=600&q=80"
       },
       {
-        title: "Student Analytics",
-        description: "Data-driven insights to improve student outcomes and engagement.",
+        title: "Learning Analytics & Insights",
+        description: "Data-driven decision making for educational institutions and corporate learning.",
         features: [
-          "Performance tracking",
-          "Early warning systems",
-          "Personalized learning"
+          "Predictive analytics for student success",
+          "Learning experience analytics",
+          "ROI measurement for training programs"
         ],
-        image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80"
+        image: "https://images.unsplash.com/photo-1495465798138-718f86d1a4bc?w=600&q=80"
       }
     ],
     caseStudies: [
@@ -495,38 +501,128 @@ export const IndustriesData: IndustryData[] = [
       }
     ],
     solutions: {
-      title: "Education Technology Solutions",
-      description: "Comprehensive technology solutions for educational institutions.",
+      title: "Comprehensive EdTech Solutions",
+      description: "End-to-end technology solutions that address the evolving needs of educational institutions and corporate learning environments.",
       items: [
         {
-          title: "LMS Platforms",
-          description: "Learning management systems for all education levels.",
+          title: "Digital Learning Platforms",
+          description: "Enterprise-grade LMS and learning experience platforms tailored to your needs.",
+          icon: School
+        },
+        {
+          title: "Content Development",
+          description: "Interactive, accessible, and engaging digital learning content.",
           icon: BookOpen
         },
         {
-          title: "Virtual Classrooms",
-          description: "Interactive online learning environments.",
-          icon: Video
+          title: "Immersive Technologies",
+          description: "VR/AR and simulation-based learning experiences.",
+          icon: Monitor
         },
         {
-          title: "Student Information",
-          description: "Comprehensive student data management.",
-          icon: User
-        },
-        {
-          title: "Analytics & Reporting",
-          description: "Data-driven insights for education.",
+          title: "Learning Intelligence",
+          description: "Advanced analytics for measuring and improving learning outcomes.",
           icon: BarChart2
         }
       ]
     }
   },
-  
+
   // 6. Government & Public Sector
   {
     slug: "government",
-    name: "Government",
+    name: "Government & Public Sector",
     icon: Shield,
+    description: "Transform public service delivery with secure, scalable, and citizen-centric digital solutions that enhance operational efficiency and trust in government.",
+    heroImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    heroTitle: "Digital Government Transformation",
+    heroDescription: "Empowering public sector organizations with innovative technology solutions that drive efficiency, transparency, and citizen engagement.",
+    features: [
+      {
+        title: "Digital Services",
+        description: "Citizen-facing digital services that improve accessibility and efficiency.",
+        features: [
+          "Online applications",
+          "Permit processing",
+          "Service portals"
+        ],
+        image: "https://images.unsplash.com/photo-1601584357456-112d7c8ae43d?w=600&q=80"
+      },
+      {
+        title: "Cybersecurity",
+        description: "Robust security solutions to protect sensitive government data.",
+        features: [
+          "Threat detection",
+          "Incident response",
+          "Compliance management"
+        ],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80"
+      },
+      {
+        title: "Data Management",
+        description: "Secure and efficient management of government data assets.",
+        features: [
+          "Data governance",
+          "Records management",
+          "Open data initiatives"
+        ],
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80"
+      }
+    ],
+    caseStudies: [
+      {
+        title: "Digital Government Portal",
+        description: "Developed a centralized portal for government services, reducing processing times by 60%.",
+        results: [
+          "60% faster service delivery",
+          "Improved citizen satisfaction",
+          "Reduced operational costs"
+        ],
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=80"
+      },
+      {
+        title: "Cybersecurity Modernization",
+        description: "Implemented a comprehensive cybersecurity framework for a state government.",
+        results: [
+          "99.9% threat detection rate",
+          "Reduced incident response time",
+          "Regulatory compliance"
+        ],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80"
+      }
+    ],
+    solutions: {
+      title: "Government Technology Solutions",
+      description: "Comprehensive technology solutions for the public sector.",
+      items: [
+        {
+          title: "Digital Services",
+          description: "Citizen-facing digital platforms and services.",
+          icon: Globe
+        },
+        {
+          title: "Cybersecurity",
+          description: "Protecting sensitive government data and systems.",
+          icon: Shield
+        },
+        {
+          title: "Data Management",
+          description: "Secure and efficient government data solutions.",
+          icon: Database
+        },
+        {
+          title: "Cloud Solutions",
+          description: "Secure cloud infrastructure for government agencies.",
+          icon: Cloud
+        }
+      ]
+    }
+  },
+  // Logistics & Transportation
+  {
+    slug: "logistics",
+    name: "Logistics & Transportation",
+    icon: Truck,
     description: "Secure and compliant technology solutions for government agencies.",
     heroImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
     heroTitle: "Government Technology Solutions",
@@ -611,5 +707,539 @@ export const IndustriesData: IndustryData[] = [
         }
       ]
     }
-  }
+  },
+  {
+    slug: "energy",
+    name: "Energy & Utilities",
+    icon: Lightbulb,
+    description: "Secure and compliant technology solutions for government agencies.",
+    heroImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    heroTitle: "Government Technology Solutions",
+    heroDescription: "Modernizing government services with secure, citizen-centric technology.",
+    features: [
+      {
+        title: "Digital Services",
+        description: "Citizen-facing digital services that improve accessibility and efficiency.",
+        features: [
+          "Online applications",
+          "Permit processing",
+          "Service portals"
+        ],
+        image: "https://images.unsplash.com/photo-1601584357456-112d7c8ae43d?w=600&q=80"
+      },
+      {
+        title: "Cybersecurity",
+        description: "Robust security solutions to protect sensitive government data.",
+        features: [
+          "Threat detection",
+          "Incident response",
+          "Compliance management"
+        ],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80"
+      },
+      {
+        title: "Data Management",
+        description: "Secure and efficient management of government data assets.",
+        features: [
+          "Data governance",
+          "Records management",
+          "Open data initiatives"
+        ],
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80"
+      }
+    ],
+    caseStudies: [
+      {
+        title: "Digital Government Portal",
+        description: "Developed a centralized portal for government services, reducing processing times by 60%.",
+        results: [
+          "60% faster service delivery",
+          "Improved citizen satisfaction",
+          "Reduced operational costs"
+        ],
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=80"
+      },
+      {
+        title: "Cybersecurity Modernization",
+        description: "Implemented a comprehensive cybersecurity framework for a state government.",
+        results: [
+          "99.9% threat detection rate",
+          "Reduced incident response time",
+          "Regulatory compliance"
+        ],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80"
+      }
+    ],
+    solutions: {
+      title: "Government Technology Solutions",
+      description: "Comprehensive technology solutions for the public sector.",
+      items: [
+        {
+          title: "Digital Services",
+          description: "Citizen-facing digital platforms and services.",
+          icon: Globe
+        },
+        {
+          title: "Cybersecurity",
+          description: "Protecting sensitive government data and systems.",
+          icon: Shield
+        },
+        {
+          title: "Data Management",
+          description: "Secure and efficient government data solutions.",
+          icon: Database
+        },
+        {
+          title: "Cloud Solutions",
+          description: "Secure cloud infrastructure for government agencies.",
+          icon: Cloud
+        }
+      ]
+    }
+  },
+  {
+    slug: "media",
+    name: "Media & Entertainment",
+    icon: Film,
+    description: "Secure and compliant technology solutions for government agencies.",
+    heroImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    heroTitle: "Government Technology Solutions",
+    heroDescription: "Modernizing government services with secure, citizen-centric technology.",
+    features: [
+      {
+        title: "Digital Services",
+        description: "Citizen-facing digital services that improve accessibility and efficiency.",
+        features: [
+          "Online applications",
+          "Permit processing",
+          "Service portals"
+        ],
+        image: "https://images.unsplash.com/photo-1601584357456-112d7c8ae43d?w=600&q=80"
+      },
+      {
+        title: "Cybersecurity",
+        description: "Robust security solutions to protect sensitive government data.",
+        features: [
+          "Threat detection",
+          "Incident response",
+          "Compliance management"
+        ],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80"
+      },
+      {
+        title: "Data Management",
+        description: "Secure and efficient management of government data assets.",
+        features: [
+          "Data governance",
+          "Records management",
+          "Open data initiatives"
+        ],
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80"
+      }
+    ],
+    caseStudies: [
+      {
+        title: "Digital Government Portal",
+        description: "Developed a centralized portal for government services, reducing processing times by 60%.",
+        results: [
+          "60% faster service delivery",
+          "Improved citizen satisfaction",
+          "Reduced operational costs"
+        ],
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=80"
+      },
+      {
+        title: "Cybersecurity Modernization",
+        description: "Implemented a comprehensive cybersecurity framework for a state government.",
+        results: [
+          "99.9% threat detection rate",
+          "Reduced incident response time",
+          "Regulatory compliance"
+        ],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80"
+      }
+    ],
+    solutions: {
+      title: "Government Technology Solutions",
+      description: "Comprehensive technology solutions for the public sector.",
+      items: [
+        {
+          title: "Digital Services",
+          description: "Citizen-facing digital platforms and services.",
+          icon: Globe
+        },
+        {
+          title: "Cybersecurity",
+          description: "Protecting sensitive government data and systems.",
+          icon: Shield
+        },
+        {
+          title: "Data Management",
+          description: "Secure and efficient government data solutions.",
+          icon: Database
+        },
+        {
+          title: "Cloud Solutions",
+          description: "Secure cloud infrastructure for government agencies.",
+          icon: Cloud
+        }
+      ]
+    }
+  },
+  {
+    slug: "agriculture",
+    name: "Agriculture",
+    icon: Tractor,
+    description: "Secure and compliant technology solutions for government agencies.",
+    heroImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    heroTitle: "Government Technology Solutions",
+    heroDescription: "Modernizing government services with secure, citizen-centric technology.",
+    features: [
+      {
+        title: "Digital Services",
+        description: "Citizen-facing digital services that improve accessibility and efficiency.",
+        features: [
+          "Online applications",
+          "Permit processing",
+          "Service portals"
+        ],
+        image: "https://images.unsplash.com/photo-1601584357456-112d7c8ae43d?w=600&q=80"
+      },
+      {
+        title: "Cybersecurity",
+        description: "Robust security solutions to protect sensitive government data.",
+        features: [
+          "Threat detection",
+          "Incident response",
+          "Compliance management"
+        ],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80"
+      },
+      {
+        title: "Data Management",
+        description: "Secure and efficient management of government data assets.",
+        features: [
+          "Data governance",
+          "Records management",
+          "Open data initiatives"
+        ],
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80"
+      }
+    ],
+    caseStudies: [
+      {
+        title: "Digital Government Portal",
+        description: "Developed a centralized portal for government services, reducing processing times by 60%.",
+        results: [
+          "60% faster service delivery",
+          "Improved citizen satisfaction",
+          "Reduced operational costs"
+        ],
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=80"
+      },
+      {
+        title: "Cybersecurity Modernization",
+        description: "Implemented a comprehensive cybersecurity framework for a state government.",
+        results: [
+          "99.9% threat detection rate",
+          "Reduced incident response time",
+          "Regulatory compliance"
+        ],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80"
+      }
+    ],
+    solutions: {
+      title: "Government Technology Solutions",
+      description: "Comprehensive technology solutions for the public sector.",
+      items: [
+        {
+          title: "Digital Services",
+          description: "Citizen-facing digital platforms and services.",
+          icon: Globe
+        },
+        {
+          title: "Cybersecurity",
+          description: "Protecting sensitive government data and systems.",
+          icon: Shield
+        },
+        {
+          title: "Data Management",
+          description: "Secure and efficient government data solutions.",
+          icon: Database
+        },
+        {
+          title: "Cloud Solutions",
+          description: "Secure cloud infrastructure for government agencies.",
+          icon: Cloud
+        }
+      ]
+    }
+  },
+  {
+    slug: "legal",
+    name: "Legal",
+    icon: Scale,
+    description: "Secure and compliant technology solutions for government agencies.",
+    heroImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    heroTitle: "Government Technology Solutions",
+    heroDescription: "Modernizing government services with secure, citizen-centric technology.",
+    features: [
+      {
+        title: "Digital Services",
+        description: "Citizen-facing digital services that improve accessibility and efficiency.",
+        features: [
+          "Online applications",
+          "Permit processing",
+          "Service portals"
+        ],
+        image: "https://images.unsplash.com/photo-1601584357456-112d7c8ae43d?w=600&q=80"
+      },
+      {
+        title: "Cybersecurity",
+        description: "Robust security solutions to protect sensitive government data.",
+        features: [
+          "Threat detection",
+          "Incident response",
+          "Compliance management"
+        ],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80"
+      },
+      {
+        title: "Data Management",
+        description: "Secure and efficient management of government data assets.",
+        features: [
+          "Data governance",
+          "Records management",
+          "Open data initiatives"
+        ],
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80"
+      }
+    ],
+    caseStudies: [
+      {
+        title: "Digital Government Portal",
+        description: "Developed a centralized portal for government services, reducing processing times by 60%.",
+        results: [
+          "60% faster service delivery",
+          "Improved citizen satisfaction",
+          "Reduced operational costs"
+        ],
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=80"
+      },
+      {
+        title: "Cybersecurity Modernization",
+        description: "Implemented a comprehensive cybersecurity framework for a state government.",
+        results: [
+          "99.9% threat detection rate",
+          "Reduced incident response time",
+          "Regulatory compliance"
+        ],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80"
+      }
+    ],
+    solutions: {
+      title: "Government Technology Solutions",
+      description: "Comprehensive technology solutions for the public sector.",
+      items: [
+        {
+          title: "Digital Services",
+          description: "Citizen-facing digital platforms and services.",
+          icon: Globe
+        },
+        {
+          title: "Cybersecurity",
+          description: "Protecting sensitive government data and systems.",
+          icon: Shield
+        },
+        {
+          title: "Data Management",
+          description: "Secure and efficient government data solutions.",
+          icon: Database
+        },
+        {
+          title: "Cloud Solutions",
+          description: "Secure cloud infrastructure for government agencies.",
+          icon: Cloud
+        }
+      ]
+    }
+  },
+  {
+    slug: "hospitality",
+    name: "Hospitality & Tourism",
+    icon: Coffee,
+    description: "Secure and compliant technology solutions for government agencies.",
+    heroImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    heroTitle: "Government Technology Solutions",
+    heroDescription: "Modernizing government services with secure, citizen-centric technology.",
+    features: [
+      {
+        title: "Digital Services",
+        description: "Citizen-facing digital services that improve accessibility and efficiency.",
+        features: [
+          "Online applications",
+          "Permit processing",
+          "Service portals"
+        ],
+        image: "https://images.unsplash.com/photo-1601584357456-112d7c8ae43d?w=600&q=80"
+      },
+      {
+        title: "Cybersecurity",
+        description: "Robust security solutions to protect sensitive government data.",
+        features: [
+          "Threat detection",
+          "Incident response",
+          "Compliance management"
+        ],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80"
+      },
+      {
+        title: "Data Management",
+        description: "Secure and efficient management of government data assets.",
+        features: [
+          "Data governance",
+          "Records management",
+          "Open data initiatives"
+        ],
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80"
+      }
+    ],
+    caseStudies: [
+      {
+        title: "Digital Government Portal",
+        description: "Developed a centralized portal for government services, reducing processing times by 60%.",
+        results: [
+          "60% faster service delivery",
+          "Improved citizen satisfaction",
+          "Reduced operational costs"
+        ],
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=80"
+      },
+      {
+        title: "Cybersecurity Modernization",
+        description: "Implemented a comprehensive cybersecurity framework for a state government.",
+        results: [
+          "99.9% threat detection rate",
+          "Reduced incident response time",
+          "Regulatory compliance"
+        ],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80"
+      }
+    ],
+    solutions: {
+      title: "Government Technology Solutions",
+      description: "Comprehensive technology solutions for the public sector.",
+      items: [
+        {
+          title: "Digital Services",
+          description: "Citizen-facing digital platforms and services.",
+          icon: Globe
+        },
+        {
+          title: "Cybersecurity",
+          description: "Protecting sensitive government data and systems.",
+          icon: Shield
+        },
+        {
+          title: "Data Management",
+          description: "Secure and efficient government data solutions.",
+          icon: Database
+        },
+        {
+          title: "Cloud Solutions",
+          description: "Secure cloud infrastructure for government agencies.",
+          icon: Cloud
+        }
+      ]
+    }
+  },
+  {
+    slug: "real-estate",
+    name: "Real Estate",
+    icon: Home,
+    description: "Secure and compliant technology solutions for government agencies.",
+    heroImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    heroTitle: "Government Technology Solutions",
+    heroDescription: "Modernizing government services with secure, citizen-centric technology.",
+    features: [
+      {
+        title: "Digital Services",
+        description: "Citizen-facing digital services that improve accessibility and efficiency.",
+        features: [
+          "Online applications",
+          "Permit processing",
+          "Service portals"
+        ],
+        image: "https://images.unsplash.com/photo-1601584357456-112d7c8ae43d?w=600&q=80"
+      },
+      {
+        title: "Cybersecurity",
+        description: "Robust security solutions to protect sensitive government data.",
+        features: [
+          "Threat detection",
+          "Incident response",
+          "Compliance management"
+        ],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80"
+      },
+      {
+        title: "Data Management",
+        description: "Secure and efficient management of government data assets.",
+        features: [
+          "Data governance",
+          "Records management",
+          "Open data initiatives"
+        ],
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80"
+      }
+    ],
+    caseStudies: [
+      {
+        title: "Digital Government Portal",
+        description: "Developed a centralized portal for government services, reducing processing times by 60%.",
+        results: [
+          "60% faster service delivery",
+          "Improved citizen satisfaction",
+          "Reduced operational costs"
+        ],
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=80"
+      },
+      {
+        title: "Cybersecurity Modernization",
+        description: "Implemented a comprehensive cybersecurity framework for a state government.",
+        results: [
+          "99.9% threat detection rate",
+          "Reduced incident response time",
+          "Regulatory compliance"
+        ],
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80"
+      }
+    ],
+    solutions: {
+      title: "Government Technology Solutions",
+      description: "Comprehensive technology solutions for the public sector.",
+      items: [
+        {
+          title: "Digital Services",
+          description: "Citizen-facing digital platforms and services.",
+          icon: Globe
+        },
+        {
+          title: "Cybersecurity",
+          description: "Protecting sensitive government data and systems.",
+          icon: Shield
+        },
+        {
+          title: "Data Management",
+          description: "Secure and efficient government data solutions.",
+          icon: Database
+        },
+        {
+          title: "Cloud Solutions",
+          description: "Secure cloud infrastructure for government agencies.",
+          icon: Cloud
+        }
+      ]
+    }
+  },
 ];

@@ -175,7 +175,7 @@ export default function Hero() {
 
             {/* Content */}
             <div className="relative min-h-screen flex items-center justify-center">
-                <div className="w-full max-w-2xl sm:max-w-3xl md:max-w-4xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-screen-2xl mx-auto px-4 md:px-10 xl:px-16">
+                <div className="w-full max-w-2xl md:max-w-4xl lg:max-w-4xl xl:max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 md:px-10 lg:px-20 xl:px-24">
                     <div className="flex flex-col lg:flex-row items-center w-full gap-6 lg:gap-8">
                         {/* Left Content */}
                         <motion.div

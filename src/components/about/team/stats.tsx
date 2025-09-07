@@ -39,7 +39,7 @@ const Stats = () => {
     return (
         <div>
             {/* Stats Section */}
-            <div className="grid grid-cols-2 md:grid-cols-4 justify-between gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x md:divide-gray-300">
                 {stats.map((stat, index) => (
                     <motion.div
                         key={stat.label}
@@ -48,7 +48,7 @@ const Stats = () => {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        className="px-4 border-l-2 border-l-gray-300 cursor-pointer group hover:border-l-[#41a7ad] transition-colors duration-300"
+                        className="px-4 text-center cursor-pointer group transition-colors duration-300"
                     >
                         <h3 className="text-2xl xl:text-3xl 2xl:text-5xl font-montserrat font-medium text-[#41a7ad] mb-2 group-hover:scale-105 transition-transform duration-300">
                             {stat.value}
@@ -63,4 +63,4 @@ const Stats = () => {
     );
 };
 
-export default Stats; 
+export default Stats;
