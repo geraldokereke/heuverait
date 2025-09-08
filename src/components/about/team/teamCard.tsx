@@ -72,7 +72,7 @@ export const teamMembers: TeamMember[] = [
         name: "Achara Favour",
         role: "Frontend Engineer",
         department: "Engineering",
-        image: "/favour.jpeg",
+        image: "/favour.png",
         bio: "Building interactive, high-performance user interfaces using React.js and modern web technologies.",
         expertise: ["AI/ML", "React JS"],
         social: {
