@@ -4,7 +4,7 @@ interface ButtonProps {
     backgroundColor?: 'black' | 'white' | 'gray-100' | 'primary' | string;
     type: 'default' | 'link';
     hoverColor?: string;
-    onClick?: () => void;
+    onClick?: string;
 }
 
 const textColorClasses = {
@@ -40,14 +40,14 @@ export default function Button({
         : '';
 
     return (
-        <button
-            onClick={onClick}
-            className={`group ${baseClasses} ${textColorClass} ${bgColorClass} ${hoverColor || ''}`}
+        <a
+            href={onClick}
+            className={`group cursor-pointer ${baseClasses} ${textColorClass} ${bgColorClass} ${hoverColor || ''}`}
         >
             {children}
             <svg className="ml-2 size-3 md:size-4 lg:size-2 xl:size-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
-        </button>
+        </a>
     );
 }

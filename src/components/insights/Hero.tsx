@@ -210,6 +210,7 @@ export default function Hero() {
                                     backgroundColor="primary"
                                     textColor="black"
                                     type="default"
+                                    onClick="/contact-us"
                                 >
                                     Request a Consultation
                                 </Button>
@@ -217,6 +218,7 @@ export default function Hero() {
                                     backgroundColor="white/20"
                                     textColor="white"
                                     type="default"
+                                    onClick="/"
                                 >
                                     Explore Services
                                 </Button>

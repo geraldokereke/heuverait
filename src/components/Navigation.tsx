@@ -518,9 +518,9 @@ const Navigation = () => {
 
             {/* CTA Button and Mobile Menu */}
             <div className="flex items-center gap-4 flex-shrink-0">
-              <button className={`hidden font-poppins lg:flex items-center px-2 xl:px-3 2xl:px-6 py-1 xl:py-1.5 2xl:py-3 text-[10px] xl:text-[13px] 2xl:text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${getCTAStyles()}`}>
+              <a href="/contact-us" className={`hidden font-poppins lg:flex items-center px-2 xl:px-3 2xl:px-6 py-1 xl:py-1.5 2xl:py-3 text-[10px] xl:text-[13px] 2xl:text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${getCTAStyles()}`}>
                 Get in Touch
-              </button>
+              </a>
 
               {/* Mobile menu button - FIXED: Now properly visible when scrolled */}
               <div className="lg:hidden">
