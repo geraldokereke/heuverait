@@ -5,6 +5,7 @@ import SectionContainer from "@/components/ui/sectionContainer";
 import SideImage from "@/components/ui/SideImage";
 import Text from "@/components/ui/text";
 import CTA from "@/components/ui/cta";
+import Button from "@/components/ui/button";
 
 interface ProjectPageProps {
   params: Promise<{ project: string }>;
@@ -12,7 +13,7 @@ interface ProjectPageProps {
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { project: projectSlug } = await params;
-  
+
   const project = projectsData.find(
     (p) => p.slug === projectSlug
   );
@@ -22,7 +23,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <div className="w-full bg-white text-black flex flex-col gap-16">
       <Hero
-        imgLink={project.image || "/default-project-image.jpg"} // Fix: Handle undefined image
+        imgLink={project.image || ""}
         section={project.type}
         title={project.name}
         description={project.description}
@@ -284,12 +285,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           subHeaderText="Transform your ideas into reality with our expert team. Contact us today to start your next project."
           subHeaderTextColor="gray-700"
         >
-          <button className="bg-black text-white px-8 py-4 rounded-full font-montserrat font-semibold hover:bg-gray-800 transition-colors">
+          <Button backgroundColor="black" type="default" textColor="white">
             Start Your Project
-          </button>
-          <button className="border-2 border-black text-black px-8 py-4 rounded-full font-montserrat font-semibold hover:bg-black hover:text-white transition-colors">
+          </Button>
+          <Button backgroundColor="white" type="link" textColor="black">
             View Portfolio
-          </button>
+          </Button>
         </CTA>
 
       </div>
