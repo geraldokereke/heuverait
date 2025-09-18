@@ -50,7 +50,7 @@ const Stats = () => {
                         viewport={{ once: true }}
                         className="px-4 text-center cursor-pointer group transition-colors duration-300"
                     >
-                        <h3 className="text-2xl xl:text-3xl 2xl:text-5xl font-montserrat font-medium text-[#41a7ad] mb-2 group-hover:scale-105 transition-transform duration-300">
+                        <h3 className="text-2xl xl:text-3xl 2xl:text-5xl font-montserrat font-medium text-black mb-2 group-hover:scale-105 transition-transform duration-300">
                             {stat.value}
                         </h3>
                         <p className="text-xs xl:text-sm 2xl:text-xl font-poppins font-medium text-gray-900 group-hover:text-[#41a7ad] transition-colors duration-300">

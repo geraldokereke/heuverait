@@ -7,7 +7,7 @@ export const SolutionsData: SolutionData[] = [
     name: "Cloud Solutions",
     icon: Cloud,
     description: "Enterprise-grade cloud migration and infrastructure optimization",
-    heroImg: "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    heroImg: "https://images.unsplash.com/photo-1561883088-039e53143d73?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     heroTitle: "Cloud Excellence",
     heroDescription: "Transform your business with scalable, secure, and intelligent cloud solutions. From migration to modernization, we deliver enterprise-grade cloud architectures that drive innovation and operational excellence.",
     sections: [
@@ -22,7 +22,7 @@ export const SolutionsData: SolutionData[] = [
           "Legacy system modernization & refactoring",
           "Performance optimization & cost modeling"
         ],
-        image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80"
+        image: "https://images.unsplash.com/photo-1561883088-039e53143d73?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       },
       {
         name: "Architecture",
@@ -35,7 +35,7 @@ export const SolutionsData: SolutionData[] = [
           "Disaster recovery & high availability design",
           "Edge computing integration & CDN optimization"
         ],
-        image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&q=80"
+        image: "https://images.unsplash.com/photo-1561883088-039e53143d73?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       },
       {
         name: "Security",
@@ -268,7 +268,7 @@ export const SolutionsData: SolutionData[] = [
     name: "Enterprise Software Development",
     icon: Code,
     description: "Custom enterprise applications that scale with your business",
-    heroImg: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    heroImg: "https://images.unsplash.com/photo-1532102235608-dc8fc689c9ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     heroTitle: "Enterprise Software Development",
     heroDescription: "Build robust, scalable enterprise applications that drive business growth. Our full-stack development expertise delivers mission-critical software solutions with enterprise-grade security, performance, and reliability.",
     sections: [
@@ -283,7 +283,7 @@ export const SolutionsData: SolutionData[] = [
           "Database architecture & data modeling",
           "Performance engineering & scalability planning"
         ],
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80"
+        image: "https://images.unsplash.com/photo-1532102235608-dc8fc689c9ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       },
       {
         name: "Development",
@@ -442,7 +442,7 @@ export const SolutionsData: SolutionData[] = [
     name: "Cybersecurity",
     icon: Shield,
     description: "Comprehensive security solutions to protect your digital assets",
-    heroImg: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    heroImg: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&q=80",
     heroTitle: "Cybersecurity Excellence",
     heroDescription: "Protect your organization with enterprise-grade security solutions. Our comprehensive cybersecurity services safeguard your digital assets, ensure compliance, and build resilience against evolving cyber threats.",
     sections: [
@@ -496,7 +496,7 @@ export const SolutionsData: SolutionData[] = [
           "Privacy program implementation & management",
           "Third-party risk management & vendor assessments"
         ],
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"
+        image: "https://images.unsplash.com/photo-1646617747563-4f080bddf282?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       }
     ],
     caseStudies: [
@@ -703,7 +703,7 @@ export const SolutionsData: SolutionData[] = [
     name: "System Integration & APIs",
     icon: Globe,
     description: "Seamless system integration and API development services",
-    heroImg: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    heroImg: "https://images.unsplash.com/photo-1623282033815-40b05d96c903?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     heroTitle: "System Integration & APIs",
     heroDescription: "Connect your systems and unlock data silos with sophisticated integration solutions. Our API-first approach enables seamless connectivity, real-time data exchange, and scalable system architectures that grow with your business.",
     sections: [
@@ -718,7 +718,7 @@ export const SolutionsData: SolutionData[] = [
           "API versioning strategies & backward compatibility",
           "Microservices API orchestration & service mesh"
         ],
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80"
+        image: "https://images.unsplash.com/photo-1623282033815-40b05d96c903?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       },
       {
         name: "Integration",
@@ -744,7 +744,7 @@ export const SolutionsData: SolutionData[] = [
           "Load balancing & high availability configurations",
           "Monitoring & observability for integration systems"
         ],
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"
+        image: "https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=1189&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       },
       {
         name: "Management",

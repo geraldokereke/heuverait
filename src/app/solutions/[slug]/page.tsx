@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 import Hero from '@/components/hero';
 import SectionContainer from '@/components/ui/sectionContainer';
 import SideImage from '@/components/ui/SideImage';
-import SectionTitle from '@/components/ui/SectionTitle';
 import Text from '@/components/ui/text';
 import CTA from '@/components/ui/cta';
 import Button from '@/components/ui/button';
@@ -98,7 +97,8 @@ export default function SolutionPage() {
                   </div>
                 </div>
 
-                <div className='flex-1 relative'>
+                {/* Image */}
+                <div className={`flex-1 relative ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
                   <div className="relative overflow-hidden rounded-2xl shadow-2xl group">
                     <SideImage
                       imgsrc={section.image || ''}
