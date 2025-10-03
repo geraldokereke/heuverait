@@ -285,10 +285,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           subHeaderText="Transform your ideas into reality with our expert team. Contact us today to start your next project."
           subHeaderTextColor="gray-700"
         >
-          <Button backgroundColor="black" type="default" textColor="white">
+          <Button backgroundColor="black" onClick="/contact-us" type="default" textColor="white">
             Start Your Project
           </Button>
-          <Button backgroundColor="white" type="link" textColor="black">
+          <Button backgroundColor="white" onClick="/work/portfolio" type="link" textColor="black">
             View Portfolio
           </Button>
         </CTA>

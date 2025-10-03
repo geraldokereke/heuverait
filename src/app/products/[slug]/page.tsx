@@ -541,8 +541,8 @@ export default function ProductPage() {
                 Join thousands of organizations that trust Heuver AI Technologies to drive their success.
               </Text>
               <div className="w-full flex flex-row gap-6 justify-center">
-                <Button backgroundColor='black' textColor='white' type='default'>Schedule a Demo</Button>
-                <Button textColor='black' type='link'>Contact Sales</Button>
+                <Button backgroundColor='black' onClick='/contact-us' textColor='white' type='default'>Schedule a Demo</Button>
+                <Button textColor='black' onClick='/contact-us' type='link'>Contact Sales</Button>
               </div>
             </section>
           </div>

@@ -21,6 +21,7 @@ import FormTextarea from "@/components/contact-us/FormTextarea";
 import { contactData, contactInput } from "@/components/data/Contact";
 import SectionTitle from "@/components/ui/SectionTitle";
 import CTA from "@/components/ui/cta";
+import Button from "@/components/ui/button";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -333,8 +334,8 @@ export default function ContactUs() {
         headerTextColor="white"
         subHeaderTextColor="white"
       >
-        <button>Request a Consultation</button>
-        <button>Explore Services</button>
+        <Button textColor='black' backgroundColor='white' type='default' onClick='/contact-us'>Request a Consultation</Button>
+        <Button textColor='black' backgroundColor='white' type='default' onClick='/services/ai-ml'>Explore Services</Button>
       </CTA>
     </div>
   );

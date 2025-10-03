@@ -46,7 +46,7 @@ export default function OurTeam() {
                 subHeaderText='Join a team where your potential meets unlimited possibilities. Where every idea matters and every contribution shapes tomorrow.'
                 subHeaderTextColor='white'
             >
-                <Button textColor='black' backgroundColor='white' type='default'>Explore Opportunities</Button>
+                <Button textColor='black' backgroundColor='white' type='default' onClick='/careers'>Explore Opportunities</Button>
             </CTA>
         </div>
     );

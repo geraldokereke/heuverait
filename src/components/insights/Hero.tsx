@@ -218,7 +218,7 @@ export default function Hero() {
                                     backgroundColor="white/20"
                                     textColor="white"
                                     type="default"
-                                    onClick="/"
+                                    onClick="/work/portfolio"
                                 >
                                     Explore Services
                                 </Button>

@@ -244,7 +244,7 @@ export default function IndustryPage() {
         subHeaderText={`Let's discuss how our ${industry.name.toLowerCase()} can drive innovation and growth for your organization.`}
         subHeaderTextColor="white"
       >
-        <Button backgroundColor="white" type="default" textColor="black">
+        <Button backgroundColor="white" onClick='/contact-us' type="default" textColor="black">
           Schedule Consultation
         </Button>
       </CTA>

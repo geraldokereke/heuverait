@@ -234,10 +234,10 @@ export default function SolutionPage() {
         subHeaderText={`Let's discuss how our ${solution.name.toLowerCase()} can drive innovation and growth for your organization.`}
         subHeaderTextColor="black"
       >
-        <Button backgroundColor="black" type="default" textColor="white">
+        <Button backgroundColor="black" onClick='/contact-us' type="default" textColor="white">
           Schedule Consultation
         </Button>
-        <Button backgroundColor="white" type="link" textColor="black">
+        <Button backgroundColor="white" onClick='/resources/case-studies/digital-transformation-success' type="link" textColor="black">
           Download Case Study
         </Button>
       </CTA>

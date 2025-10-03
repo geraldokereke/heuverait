@@ -58,6 +58,7 @@ export const Stories = () => {
               type='link'
               textColor='white'
               backgroundColor='transparent'
+              onClick="resources/case-studies/digital-transformation-success"
             >
               View All Case Studies
             </Button>

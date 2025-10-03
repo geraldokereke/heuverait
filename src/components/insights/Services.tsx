@@ -260,6 +260,7 @@ const Services: React.FC = () => {
             type='default'
             textColor='black'
             backgroundColor='white'
+            onClick="/contact-us"
           >
             Schedule Consultation
           </Button>
@@ -267,6 +268,7 @@ const Services: React.FC = () => {
             type='link'
             textColor='white'
             backgroundColor='transparent'
+            onClick="/work/portfolio"
           >
             View Portfolio
           </Button>
