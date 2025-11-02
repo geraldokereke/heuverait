@@ -220,7 +220,7 @@ export default function Hero() {
                                     type="default"
                                     onClick="/work/portfolio"
                                 >
-                                    Explore Services
+                                    View Portfolio
                                 </Button>
                             </motion.div>
                         </motion.div>

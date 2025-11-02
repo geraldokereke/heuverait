@@ -343,7 +343,7 @@ const Industries = () => {
           type='default'
           textColor='black'
           backgroundColor='white'
-          onClick='/industries/healthcare'
+          onClick='/contact-us'
         >
           Discuss Your Industry
         </Button>

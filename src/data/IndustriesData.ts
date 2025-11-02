@@ -203,7 +203,7 @@ export const IndustriesData: IndustryData[] = [
           "Clinical decision support",
           "Patient portals"
         ],
-        image: "https://images.unsplash.com/photo-1505751172876-fa186e64442f?w=600&q=80"
+        image: "/health-industry.jpg"
       },
       {
         title: "Telemedicine Platforms",
@@ -213,7 +213,7 @@ export const IndustriesData: IndustryData[] = [
           "Remote monitoring",
           "Prescription management"
         ],
-        image: "https://images.unsplash.com/photo-1576091160399-112ba8d25af1?w=600&q=80"
+        image: "/health-industry2.jpg"
       },
       {
         title: "Healthcare Analytics",
@@ -281,7 +281,7 @@ export const IndustriesData: IndustryData[] = [
     name: "Telecommunications",
     icon: PhoneCall,
     description: "Drive digital transformation in telecommunications with next-gen networks, 5G, and customer experience solutions that redefine connectivity.",
-    heroImage: "https://images.unsplash.com/photo-1607082349565-0022eeddd58e?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/retail.jpg",
     heroTitle: "Telecom Digital Transformation",
     heroDescription: "Empowering telecom operators with innovative technology solutions that enhance network performance, customer experience, and operational efficiency.",
     features: [
@@ -351,7 +351,7 @@ export const IndustriesData: IndustryData[] = [
     name: "Industrial Manufacturing",
     icon: Factory,
     description: "Accelerate your Industry 4.0 transformation with intelligent manufacturing solutions that drive efficiency, quality, and supply chain resilience.",
-    heroImage: "https://images.unsplash.com/photo-1486406902846-0c335742d08b?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/manufacture.jpg",
     heroTitle: "Industry 4.0 Digital Transformation",
     heroDescription: "Transform manufacturing operations with our integrated suite of smart factory solutions that connect people, processes, and machines.",
     features: [
@@ -363,7 +363,7 @@ export const IndustriesData: IndustryData[] = [
           "Edge analytics for real-time decision making",
           "Connected worker solutions"
         ],
-        image: "https://images.unsplash.com/photo-1486406902846-0c335742d08b?w=600&q=80"
+        image: "/manufacture.jpg"
       },
       {
         title: "Smart Factory Integration",
@@ -373,7 +373,7 @@ export const IndustriesData: IndustryData[] = [
           "Automated guided vehicles (AGVs)",
           "Digital twin simulation"
         ],
-        image: "https://images.unsplash.com/photo-1504911539020-cfb0fdb7937f?w=600&q=80"
+        image: "/manufacture2.jpg"
       },
       {
         title: "Digital Supply Chain",
@@ -443,7 +443,7 @@ export const IndustriesData: IndustryData[] = [
     name: "Education Technology",
     icon: School,
     description: "Transform educational experiences with cutting-edge learning technologies that enable personalized, accessible, and data-driven learning environments.",
-    heroImage: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/educate2.jpg",
     heroTitle: "Digital Transformation in Education",
     heroDescription: "Empower educators and learners with innovative technology solutions that enhance engagement, accessibility, and learning outcomes.",
     features: [
@@ -455,7 +455,7 @@ export const IndustriesData: IndustryData[] = [
           "Competency-based education frameworks",
           "Integrated learning analytics dashboards"
         ],
-        image: "https://images.unsplash.com/photo-1509062522246-375e8f25cfa7?w=600&q=80"
+        image: "/educate.jpg"
       },
       {
         title: "Immersive Learning Experiences",
@@ -534,19 +534,19 @@ export const IndustriesData: IndustryData[] = [
     name: "Government & Public Sector",
     icon: Shield,
     description: "Transform public service delivery with secure, scalable, and citizen-centric digital solutions that enhance operational efficiency and trust in government.",
-    heroImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/educate2.jpg",
     heroTitle: "Digital Government Transformation",
     heroDescription: "Empowering public sector organizations with innovative technology solutions that drive efficiency, transparency, and citizen engagement.",
     features: [
       {
-        title: "Digital Services",
+        title: "Digital Services",  
         description: "Citizen-facing digital services that improve accessibility and efficiency.",
         features: [
           "Online applications",
           "Permit processing",
           "Service portals"
         ],
-        image: "https://images.unsplash.com/photo-1601584357456-112d7c8ae43d?w=600&q=80"
+        image: "/educate.jpg"
       },
       {
         title: "Cybersecurity",
@@ -556,7 +556,7 @@ export const IndustriesData: IndustryData[] = [
           "Incident response",
           "Compliance management"
         ],
-        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80"
+        image: "/manufacture.jpg"
       },
       {
         title: "Data Management",
@@ -566,7 +566,7 @@ export const IndustriesData: IndustryData[] = [
           "Records management",
           "Open data initiatives"
         ],
-        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80"
+        image: "/manufacture2.jpg"
       }
     ],
     caseStudies: [
@@ -636,7 +636,7 @@ export const IndustriesData: IndustryData[] = [
           "Permit processing",
           "Service portals"
         ],
-        image: "https://images.unsplash.com/photo-1601584357456-112d7c8ae43d?w=600&q=80"
+        image: "/educate2.jpg"
       },
       {
         title: "Cybersecurity",
@@ -725,7 +725,7 @@ export const IndustriesData: IndustryData[] = [
           "Permit processing",
           "Service portals"
         ],
-        image: "https://images.unsplash.com/photo-1601584357456-112d7c8ae43d?w=600&q=80"
+        image: "/retail.jpg"
       },
       {
         title: "Cybersecurity",
@@ -814,7 +814,7 @@ export const IndustriesData: IndustryData[] = [
           "Permit processing",
           "Service portals"
         ],
-        image: "https://images.unsplash.com/photo-1601584357456-112d7c8ae43d?w=600&q=80"
+        image: "/retail.jpg"
       },
       {
         title: "Cybersecurity",
@@ -903,7 +903,7 @@ export const IndustriesData: IndustryData[] = [
           "Permit processing",
           "Service portals"
         ],
-        image: "https://images.unsplash.com/photo-1601584357456-112d7c8ae43d?w=600&q=80"
+        image: "/retail.jpg"
       },
       {
         title: "Cybersecurity",
