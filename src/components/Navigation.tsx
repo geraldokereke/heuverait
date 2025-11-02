@@ -140,25 +140,25 @@ const Navigation = () => {
     //     ]
     //   }
     // },
-    {
-      title: "Products",
-      items: ProductsData.map((product) => ({
-        label: product.name,
-        href: `/products/${product.slug}`,
-        icon: product.icon,
-        description: product.description
-      })),
-      sidebar: {
-        title: 'FEATURED PRODUCTS',
-        image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=200&fit=crop&auto=format',
-        items: ProductsData.slice(0, 2).map(product => ({
-          title: product.name,
-          description: product.description,
-          href: `/products/${product.slug}`,
-          icon: product.icon
-        }))
-      }
-    },
+    // {
+    //   title: "Products",
+    //   items: ProductsData.map((product) => ({
+    //     label: product.name,
+    //     href: `/products/${product.slug}`,
+    //     icon: product.icon,
+    //     description: product.description
+    //   })),
+    //   sidebar: {
+    //     title: 'FEATURED PRODUCTS',
+    //     image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=200&fit=crop&auto=format',
+    //     items: ProductsData.slice(0, 2).map(product => ({
+    //       title: product.name,
+    //       description: product.description,
+    //       href: `/products/${product.slug}`,
+    //       icon: product.icon
+    //     }))
+    //   }
+    // },
   ];
 
   const handleMouseEnter = (itemTitle: string, hasDropdown: boolean) => {

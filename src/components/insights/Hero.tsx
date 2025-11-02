@@ -161,7 +161,7 @@ export default function Hero() {
             >
                 <div className="absolute w-full h-screen inset-0">
                     <Image
-                        src="/hero.jpg"
+                        src="/hero1.jpg"
                         alt="Hero Background"
                         fill
                         className="object-cover"

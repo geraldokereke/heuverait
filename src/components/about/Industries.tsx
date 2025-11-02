@@ -220,26 +220,6 @@ const Industries = () => {
           </div>
         ))}
       </div>
-
-      {/* Bottom Stats */}
-      <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-        <div className="text-center">
-          <div className="text-xl md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl font-bold text-gray-900 mb-2">25+</div>
-          <div className="text-xs md:text-xs lg:text-[10px] xl:text-xs 2xl:text-sm text-gray-600 uppercase tracking-wide">Industries Served</div>
-        </div>
-        <div className="text-center">
-          <div className="text-xl md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl font-bold text-gray-900 mb-2">500+</div>
-          <div className="text-xs md:text-xs lg:text-[10px] xl:text-xs 2xl:text-sm text-gray-600 uppercase tracking-wide">Projects Delivered</div>
-        </div>
-        <div className="text-center">
-          <div className="text-xl md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl font-bold text-gray-900 mb-2">98%</div>
-          <div className="text-xs md:text-xs lg:text-[10px] xl:text-xs 2xl:text-sm text-gray-600 uppercase tracking-wide">Client Satisfaction</div>
-        </div>
-        <div className="text-center">
-          <div className="text-xl md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl font-bold text-gray-900 mb-2">10+</div>
-          <div className="text-xs md:text-xs lg:text-[10px] xl:text-xs 2xl:text-sm text-gray-600 uppercase tracking-wide">Years Experience</div>
-        </div>
-      </div>
     </section>
   );
 };

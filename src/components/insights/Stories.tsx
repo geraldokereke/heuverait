@@ -45,7 +45,7 @@ export const Stories = () => {
           </div>
         </motion.div>
         <SectionContainer className="gap-5 md:gap-5 lg:gap-3 xl:gap-3">
-          <div className="z-10 flex flex-col items-end gap-5 2xl:mb-[-32]">
+          <div className="z-10 flex flex-col items-end gap-5 2xl:mb-[-8]">
             <SectionTitle
               section="Case studies"
               sectionClassname="text-white"

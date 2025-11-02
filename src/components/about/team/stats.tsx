@@ -1,25 +1,24 @@
-import SectionContainer from "@/components/ui/sectionContainer";
-import SectionTitle from "@/components/ui/SectionTitle";
 import { motion } from "framer-motion";
 
 const stats = [
     {
-        value: '50+',
+        value: '10+',
         label: 'Successful Projects',
     },
     {
-        value: '80+',
+        value: '15+',
         label: 'Talented Developers',
     },
     {
-        value: '120+',
+        value: '30+',
         label: 'Satisfied Clients',
     },
     {
-        value: '30+',
+        value: '12+',
         label: 'Industries Covered'
     }
 ];
+
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 40 },

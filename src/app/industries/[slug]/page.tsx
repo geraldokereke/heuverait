@@ -145,7 +145,7 @@ export default function IndustryPage() {
       ))}
 
       {/* Enhanced Case Studies Section */}
-      {industry.caseStudies && (
+      {/* {industry.caseStudies && (
         <div className='bg-black'>
           <SectionContainer className="py-20">
 
@@ -203,8 +203,7 @@ export default function IndustryPage() {
             </div>
           </SectionContainer>
         </div>
-
-      )}
+      )} */}
 
       {/* Enhanced Solutions Grid */}
       {industry.solutions && (

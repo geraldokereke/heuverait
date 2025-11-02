@@ -39,7 +39,7 @@ export default function OurTeam() {
                 <CultureSection />
             </SectionContainer>
 
-            <CTA
+            {/* <CTA
                 bgColor='black'
                 headerText='Shape The Future'
                 headerTextColor='white'
@@ -47,7 +47,7 @@ export default function OurTeam() {
                 subHeaderTextColor='white'
             >
                 <Button textColor='black' backgroundColor='white' type='default' onClick='/careers'>Explore Opportunities</Button>
-            </CTA>
+            </CTA> */}
         </div>
     );
 }
