@@ -170,7 +170,7 @@ export default function SolutionPage() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-20 bg-black">
+      {/* <section className="py-20 bg-black">
         <SectionContainer>
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6">Success Stories</h2>
@@ -224,7 +224,7 @@ export default function SolutionPage() {
             ))}
           </div>
         </SectionContainer>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <CTA
@@ -237,9 +237,9 @@ export default function SolutionPage() {
         <Button backgroundColor="black" onClick='/contact-us' type="default" textColor="white">
           Schedule Consultation
         </Button>
-        <Button backgroundColor="white" onClick='/resources/case-studies/digital-transformation-success' type="link" textColor="black">
+        {/* <Button backgroundColor="white" onClick='/resources/case-studies/digital-transformation-success' type="link" textColor="black">
           Download Case Study
-        </Button>
+        </Button> */}
       </CTA>
     </main>
   );
