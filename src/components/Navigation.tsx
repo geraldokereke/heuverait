@@ -101,10 +101,6 @@ const Navigation = () => {
     {
       title: "Portfolio",
       href: "/work/portfolio",
-      items: [
-        // { label: "Project Portfolio", href: "/work/portfolio", icon: Briefcase, description: "Showcase of our most impactful projects" },
-        // { label: "Awards & Recognition", href: "/work/awards", icon: Award, description: "Industry accolades and client recognition" },
-      ],
       sidebar: {
         title: 'CLIENT SPOTLIGHT',
         image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=200&fit=crop&auto=format',
@@ -329,7 +325,7 @@ const Navigation = () => {
                         <a
                           key={index}
                           href={sidebarItem.href}
-                          className="block bg-white hover:bg-slate-50 p-5 rounded-xl transition-all duration-200 group/sidebar hover:shadow-md border border-slate-200 hover:border-[#41a7ad]/20"
+                          className="block bg-white hover:bg-slate-50 p-5 rounded-xl transition-all duration-200 group/sidebar hover:shadow-md border border-slate-100 hover:border-[#41a7ad]/20"
                         >
                           <div className="flex items-start gap-4">
                             <div className="flex-shrink-0">
@@ -568,16 +564,25 @@ const Navigation = () => {
                     <div key={index} className="border-b border-slate-50 pb-2 mb-2 last:border-b-0">
                       <button
                         className="flex items-center justify-between w-full text-left px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl transition-colors duration-200 font-medium"
-                        onClick={() => handleMobileDropdownToggle(index)}
+                        onClick={() => {
+                          if(item.items && item.items.length > 0) {
+                            handleMobileDropdownToggle(index);
+                          } else {
+                            closeMobileMenu();
+                            window.location.href = item.href;
+                          }
+                        }}
                       >
                         <span className="text-sm">{item.title}</span>
-                        <ChevronDown
-                          className={`w-4 h-4 transition-transform duration-200 ${mobileOpenDropdown === index ? "rotate-180" : ""}`}
-                        />
+                        {item.items && item.items.length > 0 && (
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${mobileOpenDropdown === index ? "rotate-180" : ""}`}
+                          />
+                        )}
                       </button>
                       {mobileOpenDropdown === index && (
                         <div className="mt-2 ml-4 space-y-1 animate-fade-in">
-                          {item.items.map((subItem, subIndex) => {
+                          {item.items?.map((subItem, subIndex) => {
                             if (subItem.label === "Careers") {
                               return (
                                 <button
