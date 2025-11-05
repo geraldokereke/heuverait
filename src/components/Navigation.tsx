@@ -569,7 +569,8 @@ const Navigation = () => {
                             handleMobileDropdownToggle(index);
                           } else {
                             closeMobileMenu();
-                            window.location.href = item.href;
+                            // Ensure a string is assigned to window.location.href by providing a fallback
+                            window.location.href = item.href ?? "/";
                           }
                         }}
                       >
