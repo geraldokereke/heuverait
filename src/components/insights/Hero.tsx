@@ -51,49 +51,49 @@ const services = [
         icon: Brain,
         title: "AI & Machine Learning",
         description: "Intelligent automation and data-driven insights",
-        color: "#3b82f6"
+        color: "#41a7ad"
     },
     {
         icon: Globe,
         title: "Web Development",
         description: "Modern, responsive websites and applications",
-        color: "#f59e0b"
+        color: "#41a7ad"
     },
     {
         icon: Smartphone,
         title: "Mobile Apps",
         description: "Native and cross-platform mobile solutions",
-        color: "#ef4444"
+        color: "#41a7ad"
     },
     {
         icon: Database,
         title: "Data Analytics",
         description: "Transform data into actionable business intelligence",
-        color: "#8b5cf6"
+        color: "#41a7ad"
     },
     {
         icon: Shield,
         title: "IT Consulting",
         description: "Strategic technology guidance and support",
-        color: "#06b6d4"
+        color: "#41a7ad"
     },
     {
         icon: Cloud,
         title: "Cloud Solutions",
         description: "Scalable cloud infrastructure and migration services",
-        color: "#ec4899"
+        color: "#41a7ad"
     },
     {
         icon: Cog,
         title: "DevOps & Automation",
         description: "Streamlined deployment and continuous integration",
-        color: "#10b981"
+        color: "#41a7ad"
     },
     {
         icon: Zap,
         title: "Performance Optimization",
         description: "Enhanced speed and efficiency for existing systems",
-        color: "#f97316"
+        color: "#41a7ad"
     }
 ];
 
@@ -169,7 +169,7 @@ export default function Hero() {
                         quality={100}
                     />
                     {/* Darkened overlay */}
-                    <div className="absolute inset-0 bg-black/40" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/90 to-[#0A0A0A]/70" />
                 </div>
             </motion.div>
 
@@ -349,10 +349,10 @@ export default function Hero() {
                                             >
                                                 {/* Main card with glassmorphism effect */}
                                                 <motion.div
-                                                    className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg sm:rounded-xl p-2 sm:p-3 transition-all duration-500 overflow-hidden w-full h-full flex flex-col justify-center"
+                                                    className="relative bg-[#0A0A0A]/10 backdrop-blur-xl border border-white/10 rounded-lg sm:rounded-xl p-2 sm:p-3 transition-all duration-500 overflow-hidden w-full h-full flex flex-col justify-center"
                                                     animate={{
-                                                        backgroundColor: isHovered ? "rgba(255, 255, 255, 0.15)" : "rgba(255, 255, 255, 0.08)",
-                                                        borderColor: isHovered ? "rgba(255, 255, 255, 0.4)" : "rgba(255, 255, 255, 0.2)",
+                                                        backgroundColor: isHovered ? "rgba(255, 255, 255, 0.15)" : "rgba(10, 10, 10, 0.7)",
+                                                        borderColor: isHovered ? "rgba(255, 255, 255, 0.4)" : "rgba(65, 167, 173, 0.3)",
                                                         boxShadow: isHovered
                                                             ? `0 20px 40px rgba(${service.color === '#41a7ad' ? '44, 209, 108' : '255, 255, 255'}, 0.15), 0 0 0 1px ${service.color}40`
                                                             : `0 8px 32px rgba(0, 0, 0, 0.1)`,

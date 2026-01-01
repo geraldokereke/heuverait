@@ -1,28 +1,20 @@
 
 "use client";
 import { useState, useEffect } from "react";
-import { ChevronDown, Menu, X, ChevronRight, ArrowRight, Code, Globe, Brain, Cloud, Shield, Users, BarChart, Headphones, HardDrive, Building, GraduationCap, Heart, Scale, MapPin, ShoppingCart, Factory, FileText, Calendar, Wrench, Laptop, BookOpen, Phone, Star, Zap, Award, TrendingUp, Rocket, Target, CheckCircle, Briefcase, Mail, Smartphone, Truck } from "lucide-react";
+import { ChevronDown, Menu, X, ChevronRight, ArrowRight, Brain, Users, Heart, TrendingUp, Rocket } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import ComingSoonModal from "./ComingSoonModal";
 import { SolutionsData } from "@/data/SolutionsData";
 import { IndustriesData } from "@/data/IndustriesData";
-import { ProductsData } from "@/data/ProductsData";
 
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [previousDropdown, setPreviousDropdown] = useState<string | null>(null);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<number | null>(null);
   const [comingSoonOpen, setComingSoonOpen] = useState(false);
-
-  const handleCareersClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setComingSoonOpen(true);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,7 +49,7 @@ const Navigation = () => {
     },
     {
       title: "Solutions",
-      items: SolutionsData.map((solution) => ({
+      items: SolutionsData.slice(3).map((solution) => ({
         label: solution.name,
         href: `/solutions/${solution.slug}`,
         icon: solution.icon,
@@ -79,7 +71,7 @@ const Navigation = () => {
     },
     {
       title: "Industries",
-      items: IndustriesData.map((industry) => ({
+      items: IndustriesData.slice(7).map((industry) => ({
         label: industry.name,
         href: `/industries/${industry.slug}`,
         icon: industry.icon,
@@ -157,210 +149,220 @@ const Navigation = () => {
     // },
   ];
 
+
+  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+  const [hoveredSidebar, setHoveredSidebar] = useState<number | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleMouseEnter = (itemTitle: string, hasDropdown: boolean) => {
     if (closeTimeout) {
       clearTimeout(closeTimeout);
       setCloseTimeout(null);
     }
-
-    if (!hasDropdown) {
-      setActiveDropdown(null);
-      setPreviousDropdown(null);
-      setIsTransitioning(false);
-      return;
-    }
-
-    if (activeDropdown && activeDropdown !== itemTitle) {
-      setPreviousDropdown(activeDropdown);
-      setIsTransitioning(true);
-
-      setTimeout(() => {
-        setActiveDropdown(itemTitle);
-        setTimeout(() => {
-          setIsTransitioning(false);
-          setPreviousDropdown(null);
-        }, 50);
-      }, 200);
-    } else {
+    if (hasDropdown) {
       setActiveDropdown(itemTitle);
-      setIsTransitioning(false);
     }
   };
 
   const handleMouseLeave = () => {
     const timeout = setTimeout(() => {
       setActiveDropdown(null);
-      setPreviousDropdown(null);
-      setIsTransitioning(false);
-    }, 300);
-
-    setCloseTimeout(timeout);
-  };
-
-  const handleDropdownMouseEnter = () => {
-    if (closeTimeout) {
-      clearTimeout(closeTimeout);
-      setCloseTimeout(null);
-    }
-  };
-
-  const handleDropdownMouseLeave = () => {
-    const timeout = setTimeout(() => {
-      setActiveDropdown(null);
-      setPreviousDropdown(null);
-      setIsTransitioning(false);
-    }, 300);
-
+      setHoveredItem(null);
+      setHoveredSidebar(null);
+    }, 200);
     setCloseTimeout(timeout);
   };
 
   const renderDropdownContent = (item: any) => {
     const isActive = activeDropdown === item.title;
-    const hasAnyDropdown = activeDropdown !== null;
 
     return (
-      <div className='w-full'>
-        <div
-          className={`fixed w-12/12 top-16 2xl:top-18 left-0 right-0 bg-white border border-slate-200 text-black z-10 overflow-hidden transition-all duration-300 shadow-2xl ${hasAnyDropdown ? 'opacity-100 visible' : 'opacity-0 invisible'
-            }`}
-          style={{ marginLeft: 'auto', marginRight: 'auto' }}
-          onMouseEnter={handleDropdownMouseEnter}
-          onMouseLeave={handleDropdownMouseLeave}
-        >
-          <div className="flex relative px-4 md:px-10 lg:px-26 xl:px-16 2xl:px-16 mx-auto max-w-screen-2xl">
-            <div className={`flex-1 p-8 transition-all duration-300 ease-in-out ${isActive
-              ? 'transform translate-x-0 opacity-100'
-              : 'transform translate-x-full opacity-0 absolute'
-              }`}>
-              <div className="grid grid-cols-2 gap-0 xl:gap-3">
-                {item.items?.map((subItem: any) => {
-                  const IconComponent = subItem.icon;
-                  if (subItem.label === "Careers") {
+      <div
+        className={`fixed top-16 left-0 right-0 transition-all duration-300 ${isActive ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'
+          }`}
+        onMouseEnter={() => {
+          if (closeTimeout) clearTimeout(closeTimeout);
+        }}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="bg-[#0A0A0A]/90 backdrop-blur-xl shadow-2xl">
+          <div className="max-w-screen-2xl mx-auto px-16 py-8">
+            <div className="grid grid-cols-12 gap-6">
+              {/* Main Content - 8 columns */}
+              <div className="col-span-8">
+                {/* Section Header */}
+                <div className="mb-6 pb-4 border-b border-white/20">
+                  <h3 className="text-xs font-semibold text-[#41a7ad] tracking-wider uppercase mb-1">
+                    Explore {item.title}
+                  </h3>
+                  <p className="text-sm text-slate-200">Discover our comprehensive offerings</p>
+                </div>
+
+                {/* Grid Items */}
+                <div className="grid grid-cols-2 gap-4">
+                  {item.items?.map((subItem: any, idx: number) => {
+                    const IconComponent = subItem.icon;
+                    const isHovered = hoveredItem === idx;
+
                     return (
-                      <button
-                        key={subItem.label}
-                        className="flex items-start gap-4 p-4 rounded-xl transition-all duration-200 group/item hover:bg-slate-50 hover:shadow-sm border border-transparent hover:border-slate-100 w-full text-left"
-                        onClick={handleCareersClick}
-                        type="button"
+                      <a
+                        key={idx}
+                        href={subItem.href}
+                        className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#121212] p-5 transition-all duration-300 hover:border-[#41a7ad]/30 hover:shadow-lg hover:-translate-y-1"
+                        onMouseEnter={() => setHoveredItem(idx)}
+                        onMouseLeave={() => setHoveredItem(null)}
                       >
-                        <div className="flex-shrink-0 mt-0 2xl:mt-1">
-                          {IconComponent && (
-                            <div className="size-6 xl:size-8 2xl:size-10 rounded-lg bg-slate-100 group-hover/item:bg-[#41a7ad] transition-colors duration-200 flex items-center justify-center">
-                              <IconComponent className="size-3 xl:size-4 2xl:size-5 text-slate-600 group-hover/item:text-white transition-colors duration-200" />
+                        {/* Gradient Background on Hover */}
+                        {/* <div className={`absolute inset-0 bg-gradient-to-br from-[#41a7ad]/5 to-transparent transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'
+                          }`}></div> */}
+
+                        {/* Corner Accent */}
+                        {/* <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#41a7ad]/10 to-transparent rounded-bl-full transition-all duration-300 ${isHovered ? 'scale-150 opacity-100' : 'scale-100 opacity-0'
+                          }`}></div> */}
+
+                        <div className="relative flex items-start gap-4">
+                          {/* Icon Container */}
+                          <div className="relative">
+                            <div className={`w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center transition-all duration-300 ${isHovered ? 'scale-110 from-[#41a7ad] to-[#41a7ad]/80' : ''
+                              }`}>
+                              {IconComponent && (
+                                <IconComponent className={`w-6 h-6 transition-colors duration-300 text-slate-200`} />
+                              )}
                             </div>
-                          )}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center justify-between mb-0 2xl:mb-1">
-                            <h3 className="text-[10px] xl:text-xs 2xl:text-sm font-semibold text-slate-900 group-hover/item:text-[#41a7ad] transition-colors duration-200">
-                              {subItem.label}
-                            </h3>
-                            <ChevronRight className="size-4 text-slate-400 group-hover/item:text-[#41a7ad] opacity-0 group-hover/item:opacity-100 transform -translate-x-2 group-hover/item:translate-x-0 transition-all duration-200 flex-shrink-0" />
                           </div>
-                          <p className="text-[8px] xl:text-[10px] 2xl:text-xs text-slate-600 leading-relaxed">
-                            {subItem.description}
-                          </p>
+
+                          {/* Content */}
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-start justify-between mb-2">
+                              <h4 className={`text-sm font-semibold transition-colors duration-300 ${isHovered ? 'text-[#41a7ad]' : 'text-slate-200'
+                                }`}>
+                                {subItem.label}
+                              </h4>
+                              <ChevronRight className={`w-4 h-4 text-slate-400 transition-all duration-300 ${isHovered ? 'text-[#41a7ad] translate-x-1 opacity-100' : 'opacity-0 -translate-x-2'
+                                }`} />
+                            </div>
+                            <p className="text-xs text-slate-300 leading-relaxed line-clamp-2">
+                              {subItem.description}
+                            </p>
+
+                            {/* Progress Bar */}
+                            {/* <div className="mt-3 h-0.5 rounded-full overflow-hidden">
+                              <div className={`h-full bg-gradient-to-r from-[#41a7ad] to-[#41a7ad]/50 transition-all duration-500 ${isHovered ? 'w-full' : 'w-0'
+                                }`}></div>
+                            </div> */}
+                          </div>
                         </div>
-                      </button>
+                      </a>
                     );
-                  }
-                  return (
-                    <a
-                      key={subItem.label}
-                      href={subItem.href}
-                      className="flex items-start gap-4 p-4 rounded-xl transition-all duration-200 group/item hover:bg-slate-50 hover:shadow-sm border border-transparent hover:border-slate-100"
-                    >
-                      <div className="flex-shrink-0 mt-0 2xl:mt-1">
-                        {IconComponent && (
-                          <div className="size-6 xl:size-8 2xl:size-10 rounded-lg bg-slate-100 group-hover/item:bg-[#41a7ad] transition-colors duration-200 flex items-center justify-center">
-                            <IconComponent className="size-3 xl:size-4 2xl:size-5 text-slate-600 group-hover/item:text-white transition-colors duration-200" />
-                          </div>
-                        )}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between mb-0 2xl:mb-1">
-                          <h3 className="text-[10px] xl:text-xs 2xl:text-sm font-semibold text-slate-900 group-hover/item:text-[#41a7ad] transition-colors duration-200">
-                            {subItem.label}
+                  })}
+                </div>
+
+                {/* Bottom CTA */}
+                <div className="mt-6 pt-6 border-t border-white/20">
+                  <a href="#" className="inline-flex items-center gap-2 text-sm font-medium text-[#41a7ad] hover:gap-3 transition-all duration-300 group">
+                    <span>View all {item.title.toLowerCase()}</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </div>
+              {/* Sidebar - 4 columns */}
+              {item.sidebar && (
+                <div className="col-span-4 flex items-start gap-6">
+                  <div className="h-full w-1 bg-white/10"/>
+                  <div className="sticky top-8 border border-white/10 bg-[#121212] rounded-2xl overflow-hidden border border-white/10 shadow-sm">
+                    {/* Header Image with Overlay */}
+                    <div className="relative h-40 overflow-hidden">
+                      <img
+                        src={item.sidebar.image}
+                        alt={item.sidebar.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+
+                      {/* Animated Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#41a7ad]/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+
+                      <div className="absolute bottom-4 left-5 right-5">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="w-1 h-4 bg-[#41a7ad] rounded-full"></div>
+                          <h3 className="text-xs font-bold text-white uppercase tracking-wider">
+                            {item.sidebar.title}
                           </h3>
-                          <ChevronRight className="size-4 text-slate-400 group-hover/item:text-[#41a7ad] opacity-0 group-hover/item:opacity-100 transform -translate-x-2 group-hover/item:translate-x-0 transition-all duration-200 flex-shrink-0" />
                         </div>
-                        <p className="text-[8px] xl:text-[10px] 2xl:text-xs text-slate-600 leading-relaxed">
-                          {subItem.description}
-                        </p>
                       </div>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
+                    </div>
 
-            {/* Enhanced Sidebar section */}
-            {item.sidebar && (
-              <div className={`w-96 bg-gradient-to-br from-slate-50 to-slate-100 border-l border-slate-200 transition-all duration-300 ease-in-out ${isActive
-                ? 'transform translate-x-0 opacity-100'
-                : 'transform translate-x-full opacity-0 absolute right-0'
-                }`}>
+                    {/* Content */}
+                    <div className="p-5">
+                      {item.sidebar.items.map((sidebarItem: any, idx: number) => {
+                        const SidebarIcon = sidebarItem.icon;
+                        const isSidebarHovered = hoveredSidebar === idx;
 
-                {/* Header Image */}
-                <div className="relative h-36 xl:h-40 2xl:h-44 overflow-hidden">
-                  <img
-                    src={item.sidebar.image}
-                    alt={item.sidebar.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                  <div className="absolute bottom-4 left-6">
-                    <h3 className="text-sm font-bold text-white uppercase tracking-wider">
-                      {item.sidebar.title}
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <div className="space-y-5">
-                    {item.sidebar.items.map((sidebarItem: any, index: number) => {
-                      const SidebarIcon = sidebarItem.icon;
-                      return (
-                        <a
-                          key={index}
-                          href={sidebarItem.href}
-                          className="block bg-white hover:bg-slate-50 p-5 rounded-xl transition-all duration-200 group/sidebar hover:shadow-md border border-slate-100 hover:border-[#41a7ad]/20"
-                        >
-                          <div className="flex items-start gap-4">
-                            <div className="flex-shrink-0">
-                              <div className="size-6 xl:size-8 2xl:size-10 rounded-lg bg-[#41a7ad]/10 group-hover/sidebar:bg-[#41a7ad] transition-colors duration-200 flex items-center justify-center">
-                                <SidebarIcon className="size-3 xl:size-4 2xl:size-5 text-[#41a7ad] group-hover/sidebar:text-white transition-colors duration-200" />
-                              </div>
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <div className="flex items-start justify-between mb-0 2xl:mb-2">
-                                <h4 className="text-[10px] xl:text-xs 2xl:text-sm font-semibold text-slate-900 group-hover/sidebar:text-[#41a7ad] transition-colors duration-200 leading-tight">
-                                  {sidebarItem.title}
-                                </h4>
-                                {sidebarItem.badge && (
-                                  <span className="text-[8px] xl:text-[10px] 2xl:text-xs bg-[#41a7ad] text-white px-2.5 py-1 rounded-full font-medium flex-shrink-0 ml-2">
-                                    {sidebarItem.badge}
-                                  </span>
+                        return (
+                          <a
+                            key={idx}
+                            href={sidebarItem.href}
+                            className="group relative block bg-[#121212] rounded-xl p-5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-white/10 hover:border-[#41a7ad]/30 overflow-hidden"
+                            onMouseEnter={() => setHoveredSidebar(idx)}
+                            onMouseLeave={() => setHoveredSidebar(null)}
+                          >
+                            <div className="relative">
+                              <div className="flex items-start gap-4">
+                                {/* Icon */}
+                                {SidebarIcon && (
+                                  <div className="relative">
+                                    <div className={`w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center transition-all duration-300 ${isSidebarHovered ? 'scale-110' : ''
+                                      }`}>
+                                      <SidebarIcon className={`w-6 h-6 transition-colors duration-300 text-white`} />
+                                    </div>
+                                  </div>
                                 )}
+
+                                {/* Content */}
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex items-start justify-between mb-2">
+                                    <h4 className={`text-sm font-semibold leading-tight transition-colors duration-300 ${isSidebarHovered ? 'text-[#41a7ad]' : 'text-slate-200'
+                                      }`}>
+                                      {sidebarItem.title}
+                                    </h4>
+                                    {sidebarItem.badge && (
+                                      <span className="text-[10px] bg-[#41a7ad] text-white px-2 py-1 rounded-full font-medium whitespace-nowrap">
+                                        {sidebarItem.badge}
+                                      </span>
+                                    )}
+                                  </div>
+                                  <p className="text-xs text-slate-300 leading-relaxed mb-3">
+                                    {sidebarItem.description}
+                                  </p>
+
+                                  {/* Action Link */}
+                                  <div className={`flex items-center gap-1 text-[#41a7ad] font-medium transition-all duration-300 ${isSidebarHovered ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'
+                                    }`}>
+                                    <span className="text-xs">Learn more</span>
+                                    <ArrowRight className="w-3 h-3" />
+                                  </div>
+                                </div>
                               </div>
-                              <p className="text-xs text-slate-600 leading-relaxed mb-3">
-                                {sidebarItem.description}
-                              </p>
-                              <div className="flex items-center text-[#41a7ad] opacity-0 group-hover/sidebar:opacity-100 transition-all duration-200 transform translate-y-1 group-hover/sidebar:translate-y-0">
-                                <span className="text-[8px] xl:text-[10px] 2xl:text-xs font-semibold">Learn more</span>
-                                <ArrowRight className="size-2 2xl:size-3 ml-1" />
-                              </div>
+
                             </div>
-                          </div>
-                        </a>
-                      );
-                    })}
+                          </a>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
+          {/* Accent line at top */}
+          <div className="h-1 bg-gradient-to-r from-[#41a7ad] via-[#41a7ad]/50 to-transparent"></div>
         </div>
       </div>
     );
@@ -372,66 +374,6 @@ const Navigation = () => {
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
-  };
-
-  // Determine navbar styles based on scroll and dropdown state
-  const getNavbarStyles = () => {
-    const hasDropdown = activeDropdown !== null;
-
-    if (hasDropdown) {
-      // When dropdown is open, always show white background
-      return 'bg-white backdrop-blur-lg';
-    } else if (scrolled) {
-      // When scrolled without dropdown
-      return 'bg-white backdrop-blur-lg';
-    } else {
-      // Default transparent state
-      return 'bg-transparent';
-    }
-  };
-
-  // Determine text colors based on navbar state
-  const getTextStyles = () => {
-    const hasDropdown = activeDropdown !== null;
-
-    if (hasDropdown || scrolled) {
-      return 'text-slate-700 hover:text-slate-900';
-    } else {
-      return 'text-white/90 hover:text-white';
-    }
-  };
-
-  // Determine underline color
-  const getUnderlineColor = () => {
-    const hasDropdown = activeDropdown !== null;
-
-    if (hasDropdown || scrolled) {
-      return 'bg-[#41a7ad]';
-    } else {
-      return 'bg-white';
-    }
-  };
-
-  // Determine CTA button styles
-  const getCTAStyles = () => {
-    const hasDropdown = activeDropdown !== null;
-
-    if (hasDropdown || scrolled) {
-      return 'bg-black text-white hover:bg-black/90 shadow-lg hover:shadow-xl';
-    } else {
-      return 'bg-white text-slate-900 hover:bg-slate-100 shadow-lg';
-    }
-  };
-
-  // Determine logo color
-  const getLogo = () => {
-    const hasDropdown = activeDropdown !== null;
-
-    if (hasDropdown || scrolled) {
-      return "/logo.png";
-    } else {
-      return "/logo-white.png";
-    }
   };
 
   // FIXED: Determine mobile menu button color - now properly handles scrolled state
@@ -451,7 +393,7 @@ const Navigation = () => {
       <ComingSoonModal open={comingSoonOpen} onClose={() => setComingSoonOpen(false)} />
 
       {/* Navigation */}
-      <nav className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${getNavbarStyles()}`}>
+      <nav className={`w-full fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0A0A0A]/70 backdrop-blur-md`}>
         <div className="px-4 md:px-10 lg:px-26 xl:px-16 2xl:px-16 mx-auto max-w-screen-2xl">
           {/* FIXED: Consistent height across all screen sizes - removed lg:h-12 */}
           <div className="flex justify-between items-center h-12 xl:h-16 2xl:h-18">
@@ -460,7 +402,7 @@ const Navigation = () => {
               <Link href="/" className="">
                 <div className="flex items-center gap-2 h-6 w-28 lg:w-20 xl:w-24 2xl:w-28 md:h-6 lg:h-4 xl:h-5 2xl:h-6">
                   <Image
-                    src={`${getLogo()}`}
+                    src={`/logo-white.png`}
                     alt="Heuvera Logo"
                     width={120}
                     height={120}
@@ -485,7 +427,7 @@ const Navigation = () => {
                   >
                     <a
                       href={item.href}
-                      className={`cursor-pointer flex items-center space-x-1 px-3 py-2 lg:text-[10px] xl:text-[13px] 2xl:text-sm font-medium rounded-lg transition-colors duration-300 relative whitespace-nowrap ${getTextStyles()}`}
+                      className={`cursor-pointer flex items-center space-x-1 px-3 py-2 lg:text-[10px] xl:text-[13px] 2xl:text-sm font-medium rounded-lg transition-colors duration-300 relative whitespace-nowrap text-white/90 hover:text-white`}
                     >
                       <span>{item.title}</span>
                       {hasDropdown && (
@@ -493,7 +435,7 @@ const Navigation = () => {
                           className={`size-2 xl:size-3 2xl:size-4 flex-shrink-0 transition-transform duration-200 ${activeDropdown === item.title ? "rotate-180" : "rotate-0"}`}
                         />
                       )}
-                      <span className={`absolute inset-x-3 bottom-[-11] xl:bottom-[-14] 2xl:bottom-[-11] h-0.5 ${getUnderlineColor()} transition-transform duration-200 origin-left ${activeDropdown === item.title ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+                      <span className={`absolute inset-x-3 z-10 bottom-[-11] xl:bottom-[-14] 2xl:bottom-[-11] h-0.5 bg-[#41a7ad] transition-transform duration-200 origin-left ${activeDropdown === item.title ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
                     </a>
 
                     {hasDropdown && activeDropdown === item.title && renderDropdownContent(item)}
@@ -504,18 +446,21 @@ const Navigation = () => {
               {/* Contact Link */}
               <Link
                 href="/contact-us"
-                className={`px-3 py-2 text-[10px] xl:text-[13px] 2xl:text-sm font-medium rounded-lg transition-colors duration-300 relative group whitespace-nowrap ${getTextStyles()} hover:bg-opacity-10`}
+                className={`px-3 py-2 text-[10px] xl:text-[13px] 2xl:text-sm font-medium rounded-lg transition-colors duration-300 relative group whitespace-nowrap text-white/90 hover:text-white hover:bg-opacity-10`}
                 onMouseEnter={() => handleMouseEnter('CONTACT', false)}
               >
                 Contact
-                <span className={`absolute inset-x-3 bottom-0 h-0.5 ${getUnderlineColor()} transition-transform duration-200 origin-left scale-x-0 group-hover:scale-x-100`}></span>
+                <span className={`absolute inset-x-3 bottom-[-11] xl:bottom-[-14] 2xl:bottom-[-11] h-0.5 bg-[#41a7ad] transition-transform duration-200 origin-left scale-x-0 group-hover:scale-x-100`}></span>
               </Link>
             </div>
 
             {/* CTA Button and Mobile Menu */}
             <div className="flex items-center gap-4 flex-shrink-0">
-              <a href="/contact-us" className={`hidden font-poppins lg:flex items-center px-2 xl:px-3 2xl:px-6 py-1 xl:py-1.5 2xl:py-3 text-[10px] xl:text-[13px] 2xl:text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap ${getCTAStyles()}`}>
-                Get in Touch
+              <a href="/contact-us" className={`hidden font-poppins lg:flex items-center px-2 xl:px-3 2xl:px-6 py-1 xl:py-1.5 2xl:py-3 text-[10px] xl:text-[13px] 2xl:text-sm font-medium rounded-md transition-all duration-300 whitespace-nowrap bg-black text-[#41a7ad] border border-[#41a7ad] hover:bg-[#41A7AD] hover:text-black shadow-lg hover:shadow-xl`}>
+                Get In Touch
+                <svg className="ml-2 size-3 md:size-4 lg:size-2 xl:size-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
               </a>
 
               {/* Mobile menu button - FIXED: Now properly visible when scrolled */}
@@ -565,7 +510,7 @@ const Navigation = () => {
                       <button
                         className="flex items-center justify-between w-full text-left px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-xl transition-colors duration-200 font-medium"
                         onClick={() => {
-                          if(item.items && item.items.length > 0) {
+                          if (item.items && item.items.length > 0) {
                             handleMobileDropdownToggle(index);
                           } else {
                             closeMobileMenu();
